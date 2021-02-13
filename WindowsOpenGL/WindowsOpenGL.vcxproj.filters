@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Arquivos de Origem">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Recurso">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\Manager">
+      <UniqueIdentifier>{f4e13ca4-d9cc-48cc-a35f-1c14c2714a84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\Manager">
+      <UniqueIdentifier>{deee23f9-9fdf-406d-8fb7-10670988277f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\GL">
+      <UniqueIdentifier>{9ba2d2d0-d445-49ff-9742-7c5e4a4b4ead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\GL">
+      <UniqueIdentifier>{53925a42-328b-4a01-a71a-8d0e4df99bd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\IMG">
+      <UniqueIdentifier>{9bc556e2-cafc-4156-95b2-3b6b7e6d8cf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho\Math">
+      <UniqueIdentifier>{cef40f8e-84e2-4444-b505-7316a90e65ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\Math">
+      <UniqueIdentifier>{386076c2-5a22-45ac-ac47-9cb3cf04c58b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsOpenGL_Main.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="bone.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="malha.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ligith.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="manager.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="material.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="objeto.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="objetob.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="projetor.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="skeleton.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="texto.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="cTimer.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GLgetFunctions.cpp">
+      <Filter>Arquivos de Origem\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="WGlGetFunctions.cpp">
+      <Filter>Arquivos de Origem\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorMath.cpp">
+      <Filter>Arquivos de Origem\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="mathBase.cpp">
+      <Filter>Arquivos de Origem\Math</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="bone.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="malha.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="manager.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="material.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="objeto.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="objetob.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="projetor.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="skeleton.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="texto.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="cTimer.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ligith.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="core+ext - Copia.h">
+      <Filter>Arquivos de Cabeçalho\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="core+ext.h">
+      <Filter>Arquivos de Cabeçalho\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLfunctions.h">
+      <Filter>Arquivos de Cabeçalho\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLgetFunctions.h">
+      <Filter>Arquivos de Cabeçalho\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="WGLfunctions.h">
+      <Filter>Arquivos de Cabeçalho\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="WGlGetFunctions.h">
+      <Filter>Arquivos de Cabeçalho\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="wgl+wglext.h">
+      <Filter>Arquivos de Cabeçalho\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorMath.h">
+      <Filter>Arquivos de Cabeçalho\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorsGLM.h">
+      <Filter>Arquivos de Cabeçalho\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="numDef.h">
+      <Filter>Arquivos de Cabeçalho\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="mathBase.h">
+      <Filter>Arquivos de Cabeçalho\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsOpengl.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

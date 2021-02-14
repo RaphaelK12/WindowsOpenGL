@@ -4,10 +4,14 @@
 
 enum class objType {
 	objNone=0,
-	objEsfera,
 	objTorus,
+	objTorus2,
+	objEsfera,
+	objEsfera2,
 	objCilindro,
+	objCilindro2,
 	objCone,
+	objCone2,
 	objBox,
 	objQuad,
 	objTriangulo,

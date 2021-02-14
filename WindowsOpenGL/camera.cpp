@@ -56,7 +56,7 @@ camera::camera(objetob* Parent, vec3 localPos, vec3 lookAt, vec3 vectorUp,
 	//center = vec3(0, 0, 0);
 
 	matrix.V = glm::lookAt(gpos, center, up); //pos, center, up
-	matrix.P = glm::perspective(fov*3.14f, aspect, nearClip, farClip);	//perspective(fovy, aspect, zNear, zFar)
+	matrix.P = glm::perspective(fov, aspect, nearClip, farClip);	//perspective(fovy, aspect, zNear, zFar)
 
 }
 
@@ -67,6 +67,8 @@ camera::~camera(void)
 
 void camera::calcMatrix()
 {
+	fov = clamp(fov, 0.0001f, 3.14f);
+
 	mat4 m = mat4(1.0f);
 	m = glm::rotate(m, grot.y, vec3(0, 1, 0));
 	m = glm::rotate(m, grot.x, vec3(0, 0, 1));

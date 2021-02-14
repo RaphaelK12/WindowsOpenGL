@@ -20,12 +20,13 @@ public:
 	~malha(void);
 	void free();
 	void makeSphere(uint xres, uint yres, float3 size);
-	void makeTorus(uint xres, uint yres, float3 size, float internSize);
 	void makeSphere2(uint xres, uint yres, float3 size);
-	void makeTorus2(uint xres, uint yres, float3 size, float internSize);
+	void makeTorus(uint xres, uint yres, float3 size, float internSize);
+	void makeTorus2(uint xres, uint yres, float3 size, float internSize, float externSize);
 	void makeCone(uint xres, uint yres, float3 size);
 	void makeCone2(uint xres, uint yres, float3 size);
 	void makeCilinder(uint xres, uint yres, float3 size);
+	void makeCilinder2(uint xres, uint yres, float3 size);
 	void makeBox(uint xres, uint yres, float3 size);
 	void makeQuad(uint xres, uint yres, float3 size);
 	void makeTriangle(uint xres, uint yres, float3 size);

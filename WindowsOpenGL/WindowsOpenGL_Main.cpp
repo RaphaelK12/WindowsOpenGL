@@ -1,11 +1,6 @@
-// WindowsOpengl.cpp : Define o ponto de entrada para o aplicativo.
-//
 #pragma warning(disable:4018)
 #include "pch.h"
-
 #include "WindowsOpengl.h"
-//#define GL_WIN_MAIN
-//#include "GLfunctions.h" 
 #include "resource.h"
 #include "manager.h"
 #include "Utils.h"
@@ -76,8 +71,8 @@ int main(int argc, char* argv[]) {
 
 	//shader s2;
 	//printf("%i\n", s2.use());
-	torus = new objeto(0, objType::objTorus, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(20, 20, 20));
-	torus->atach();
+	//torus = new objeto(0, objType::objTorus2, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(20, 20, 20));
+	//torus->atach();
 	grid = new objeto(0, objType::objGrid, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(5, 5, 5));
 	grid->atach();
 	axis = new objeto(0, objType::objAxis, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(10, 10, 10));
@@ -85,10 +80,10 @@ int main(int argc, char* argv[]) {
 	txt = new texto("abcdefghijklmnopqrstuvwxyz ,.;/\\[]{}´`=+-_()!¹²³£¢¬@#$%¨&*'\"+-*/asdasdkhj	bfksdhgfgh	diasghfh hgfhjksdghfhj \ndhgadesfghadshfshg\nfsdfsd	asd\ndfsdfdsgdsgsdg)");
 	//torus->makeTorus(20, 20, float3(1, 1, 1));
 	//torus->CreateBuffer();
-	esfera = new objeto(0, objType::objTorus, float3(0, 0, 0), float3(0, 0, 0), float3(1.0, 1.0, 1.0), uivec3(20, 20, 20));
+	esfera = new objeto(0, objType::objTorus2, float3(0, 0, 0), float3(0, 0, 0), float3(1,1,1), uivec3(40, 10, 0));
 	esfera->atach();
 	esfera->grot = vec4(0, 0, 0.00000001, 0.000000333);
-	torus->draw();
+	//torus->draw();
 	//esfera->makeSphere(20, 20, float3(1, 1, 1));
 	//esfera->CreateBuffer();
 
@@ -251,15 +246,15 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 		//}
 		case WM_KEYDOWN:
 		{
+			return 0;
 			printf("WM_KEYDOWN\n");
 			decodeKeyPress(wParam, wParam, lParam, keymap, Message);
-			return 0;
 		}
 		case WM_KEYUP:
 		{
+			return 0;
 			printf("WM_KEYUP\n");
 			decodeKeyPress(wParam, wParam, lParam, keymap, Message);
-			return 0;
 		}
 		//case WM_CHAR:
 		//{
@@ -279,27 +274,27 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 		//}
 		case WM_SYSKEYDOWN:
 		{
+			return 0;
 			printf("WM_SYSKEYDOWN\n");
 			decodeKeyPress(wParam, wParam, lParam, keymap, Message);
-			return 0;
 		}
 		case WM_SYSKEYUP:
 		{
+			return 0;
 			printf("WM_SYSKEYUP\n");
 			decodeKeyPress(wParam, wParam, lParam, keymap, Message);
-			return 0;
 		}
 		case WM_SYSCHAR:
 		{
+			return 0;
 			printf("WM_SYSCHAR\n");
 			decodeKeyPress(wParam, wParam, lParam, keymap, Message);
-			return 0;
 		}
 		case WM_SYSDEADCHAR:
 		{
+			return 0;
 			printf("WM_SYSDEADCHAR\n");
 			decodeKeyPress(wParam, wParam, lParam, keymap, Message);
-			return 0;
 		}
 		case WM_MOUSEWHEEL:
 		{
@@ -605,9 +600,12 @@ void processKeyPress(pKeyMap keymap) {
 	}
 	if (GetAsyncKeyState(VK_SUBTRACT)) {
 		activecamera->fov -= 0.01f;
+		//activecamera->fov = clamp(activecamera->fov - 0.01f, 0.0001f, 3.14f);
+
 	}
 	if (GetAsyncKeyState(VK_ADD)) {
 		activecamera->fov += 0.01f;
+		//activecamera->fov = clamp(activecamera->fov + 0.01f, 0.0001f, 3.14f);
 	}
 	if (GetAsyncKeyState(VK_UP)) {
 		activecamera->grot.y = clamp(activecamera->grot.y - 0.05f, -F_PI_2, F_PI_2);
@@ -680,6 +678,7 @@ void onRenderScene() {
 	glDisable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 	glEnable(GL_MULTISAMPLE_ARB);
+	//glDisable(GL_MULTISAMPLE_ARB);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClear(GL_DEPTH_BUFFER_BIT);
@@ -825,22 +824,33 @@ void onPaint(PAINTSTRUCT* rc, WPARAM wParam, LPARAM lParam) {
 
 void onMouseWhell(int val, WPARAM wParam, LPARAM lParam) {
 	if (val > 0) {
-		activecamera->fov = clamp(activecamera->fov  + 0.01f, 0.001f, 1.f);
+		activecamera->fov  += 0.01f;
+		//activecamera->fov = clamp(activecamera->fov  + 0.01f, 0.001f, 3.14f);
 	}
 	else if (val < 0) {
-		activecamera->fov = clamp(activecamera->fov - 0.01f, 0.001f, 1.f);
+		activecamera->fov -=  0.01f;
+		//activecamera->fov = clamp(activecamera->fov - 0.01f, 0.001f, 3.14f);
 	}
 		activecamera->calcMatrix();
 	//printf("WM_MOUSEWHEEL %f\n", activecamera->fov);
 }
 
 void onMouseMove(int xWindow, int yWindow, WPARAM wParam, LPARAM lParam, int x, int y) {
-	if (GetAsyncKeyState(VK_MBUTTON)) {
+	if (GetAsyncKeyState(VK_LBUTTON)) {
 	//printf("mousemove: x=%i y=%i w=%i l=%i\n", x, y, wParam, lParam);
 		activecamera->grot.y = clamp(activecamera->grot.y - y * 0.005f, -F_PI_2, F_PI_2);
 		activecamera->grot.y = clamp(activecamera->grot.y - y * 0.005f, -F_PI_2, F_PI_2);
 		activecamera->grot.x = fmodf(activecamera->grot.x + x * 0.005f, F_2PI);
 		activecamera->grot.x = fmodf(activecamera->grot.x + x * 0.005f, F_2PI);
+		activecamera->calcMatrix();
+	}
+	if (GetAsyncKeyState(VK_MBUTTON)) {
+	//printf("mousemove: x=%i y=%i w=%i l=%i\n", x, y, wParam, lParam);
+		activecamera->fov -= x * 0.005f + y * 0.005f;
+		//activecamera->fov = clamp(activecamera->grot.y - y * 0.005f, -F_PI_2, F_PI_2);
+		//activecamera->grot.y = clamp(activecamera->grot.y - y * 0.005f, -F_PI_2, F_PI_2);
+		//activecamera->grot.x = fmodf(activecamera->grot.x + x * 0.005f, F_2PI);
+		//activecamera->grot.x = fmodf(activecamera->grot.x + x * 0.005f, F_2PI);
 		activecamera->calcMatrix();
 	}
 }

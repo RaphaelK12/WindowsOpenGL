@@ -682,8 +682,8 @@ vec3  rotateZGrad(const vec3& v, float val) {
 vec3  rotateZRad(const vec3& v, float val) {
 	float fsin, fcos;
 	vec3 tmp(v);
-	fsin = sin(val);
-	fcos = cos(val);
+	fsin = sin(-val);
+	fcos = cos(-val);
 	tmp.x = (v.x * fcos) - (v.y * fsin);
 	tmp.y = (v.x * fsin) + (v.y * fcos);
 	return tmp;

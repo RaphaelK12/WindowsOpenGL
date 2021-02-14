@@ -37,10 +37,14 @@ float length(const vec2& v);
 float len_sq(const vec2& v);
 float cross(const vec2& v, const vec2& val);
 
+// 0 ~ 1
 vec2  rotateTurn(const vec2& v, float val);
+// 0 ~ 360
 vec2  rotateDeg(const vec2& v, float val);
+// 0 ~ 400	
 vec2  rotateGrad(const vec2& v, float val);
-vec2  rotateRad(const vec2& v, float val);
+// 0 ~ 2*F_PI (6.283185)	
+vec2  rotateRad(const vec2& v, float val);	
 
 void  fitImage(const vec2& screen, const vec2& im, float zoom, vec2& rcStart, vec2& rcEnd);
 
@@ -115,26 +119,42 @@ vec3  refract(const vec3& I, const vec3& N, float eta);
 vec3  calcNormal(const vec3& v1, const vec3& v2, const vec3& v3);
 vec3  faceNormal(const vec3& v1, const vec3& v2, const vec3& v3);
 vec3  faceforward(const vec3& N, const vec3& I, const vec3& Nref);
-
-vec3  rotateXTurn(const vec3& v, float val);
-vec3  rotateXDeg(const vec3& v, float val);
-vec3  rotateXGrad(const vec3& v, float val);
-vec3  rotateXRad(const vec3& v, float val);
-
-vec3  rotateYTurn(const vec3& v, float val);
-vec3  rotateYDeg(const vec3& v, float val);
-vec3  rotateYGrad(const vec3& v, float val);
-vec3  rotateYRad(const vec3& v, float val);
-
-vec3  rotateZTurn(const vec3& v, float val);
-vec3  rotateZDeg(const vec3& v, float val);
-vec3  rotateZGrad(const vec3& v, float val);
-vec3  rotateZRad(const vec3& v, float val);
-
-vec3  rotateTurn(const vec3& v, const vec3& val);
-vec3  rotateDeg(const vec3& v, const vec3& val);
-vec3  rotateGrad(const vec3& v, const vec3& val);
-vec3  rotateRad(const vec3& v, const vec3& val);
+												
+// 0 ~ 1						
+vec3  rotateXTurn(const vec3& v, float val);	
+// 0 ~ 360
+vec3  rotateXDeg(const vec3& v, float val);		
+// 0 ~ 400
+vec3  rotateXGrad(const vec3& v, float val);	
+// 0 ~ 2*F_PI (6.283185)
+vec3  rotateXRad(const vec3& v, float val);		
+												
+// 0 ~ 1
+vec3  rotateYTurn(const vec3& v, float val);	
+// 0 ~ 360
+vec3  rotateYDeg(const vec3& v, float val);		
+// 0 ~ 400
+vec3  rotateYGrad(const vec3& v, float val);	
+// 0 ~ 2*F_PI (6.283185)
+vec3  rotateYRad(const vec3& v, float val);		
+												
+// 0 ~ 1	
+vec3  rotateZTurn(const vec3& v, float val);	
+// 0 ~ 360
+vec3  rotateZDeg(const vec3& v, float val);		
+// 0 ~ 400
+vec3  rotateZGrad(const vec3& v, float val);	
+// 0 ~ 2*F_PI (6.283185)
+vec3  rotateZRad(const vec3& v, float val);		
+													
+// 0 ~ 1    
+vec3  rotateTurn(const vec3& v, const vec3& val);	
+// 0 ~ 360
+vec3  rotateDeg(const vec3& v, const vec3& val); 	
+// 0 ~ 400
+vec3  rotateGrad(const vec3& v, const vec3& val);	
+// 0 ~ 2*F_PI (6.283185)
+vec3  rotateRad(const vec3& v, const vec3& val); 	
 
 vec3  rotateAroundAxis(const vec3& p, const vec3& axis, float angle);
 

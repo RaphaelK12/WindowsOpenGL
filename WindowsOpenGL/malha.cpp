@@ -220,6 +220,65 @@ void malha::makeTorus(uint xres, uint yres, float3 size, float internSize){
 
 }
 
+void malha::makeTorus2(uint xres, uint yres, float3 size, float internSize, float externSize) {
+	free();
+	xres = min(max(xres, 3), 255);
+	yres = min(max(yres, 3), 250);
+	nVertex = (xres + 1) * (yres + 1);
+	nIndex = (xres) * (yres ) * 2;
+
+	pVertex.resize(nVertex);
+	pIndex.resize(nIndex);
+
+	float vx = F_PI / xres * 2.0f, vy = F_PI / yres * 2.0f;
+	float px = 0, py = 0;
+	// attributes
+	uint p = 0, y = 0, x = 0;
+	vec3 pos((externSize - internSize) / 2, 0, 0); // first vertex 
+	vec3 pos2;
+	vec3 pos3;
+	for (y = 0; y <= yres; y++) {
+		py = y * vy; // linear value angle
+		pos2 = rotateYRad(pos, py); // rotate first vertex into y angle to make a circle
+		pos2+=vec3((externSize - internSize) / 2 + internSize / 2, 0, 0); // move the circle in y direction
+		for (x = 0; x <= xres; x++) {
+			px = x * vx; // linear angle value
+			pos3 = rotateZRad(pos2, px); // rotate the circle in z angle to make this circle turn a torus
+			pVertex[p].position = pos3 * (size / 2.f);
+			pVertex[p].uv = vec2(1 - x / float(xres) * 8.f, y / float(yres) * 4.f);
+			p++;
+		}
+	}
+
+	p = 0;
+	x = 0;
+	y = xres+1;
+	for (uint a = 0; a < yres; a++) {
+		for (uint b = 0; b < xres; b++, x++, y++) {
+			pIndex[p] = usvec3(x,  x + 1,y );
+			p++;
+			pIndex[p] = usvec3(y,  x + 1,y+1);
+			p++;
+		}
+		x++;
+		y++;
+	}
+
+	vec3 faceNormal;
+	for (p = 0; p < nIndex; p++) {
+		faceNormal = calcNormal(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
+		pVertex[pIndex[p].x].normal += faceNormal;
+		pVertex[pIndex[p].y].normal += faceNormal;
+		pVertex[pIndex[p].z].normal += faceNormal;
+	}
+	for (p = 0; p < nVertex; p++) {
+		pVertex[p].normal = normalize(pVertex[p].normal);
+	}
+	p = 0;
+
+	name = "Torus";
+}
+
 void malha::makeSphere(uint xres, uint yres, float3 size) {
 	xres = min(max(abs(int(xres)), 3), 255);
 	yres = min(max(abs(int(yres)) - 2, 1), 256);
@@ -310,111 +369,6 @@ void malha::makeSphere(uint xres, uint yres, float3 size) {
 	name = "Esfera";
 }
 
-void malha::makeTorus2(uint xres, uint yres, float3 size, float internSize){
-	// refazer para adicionar um plano distorcido em torus para melhor mapeamento uv, 
-	// precisa recalcular normais das bordas para evitar recortes.
-	// fazer o mesmo com esfera.
-	free();
-	xres = max(xres,3);
-	yres = max(yres,3);
-	nVertex = xres*yres;
-	nIndex = xres * yres * 2;
-
-	pVertex.resize(nVertex);
-	pIndex.resize(nIndex);
-
-	float vx = F_PI/xres*2.0f, vy = F_PI/yres*2.0f;
-	float px=0,py=0;
-	// attributes
-	uint p = 0, y = 0, x = 0;
-	float	xb,// big circle x
-			yb,// big circle y
-			xs,// small circle x
-			z;// small circle z: nedded because the size(/2)
-	for (y = 0; y < yres; y++) {
-		py = y * vy;
-			z = cos(py) * size.z / 2;		// small circle z: nedded because the size(/2)
-		for (x = 0; x < xres; x++) {
-			px = x * vx;
-
-			xb = sin(px) * size.x / 2;		// big circle x
-			yb = cos(px) * size.y / 2;		// big circle y
-			xs = internSize + sin(py) * size.x;		// small circle x
-			//ys = cos(py) * size.y,		// small circle y
-			pVertex[p].position = vec3(xb + (xs * xb), yb + (xs * yb), z);
-			p++;
-		}
-	}
-
-
-	//center
-	p=0;
-	y=0;
-	x=y+xres;
-	uint sx=x, sy=0;
-	for(uint a=0 ; a < yres-1; a++){
-		uint sx=x, sy=y;
-		for(uint b=0 ; b < xres-1; b++, x++, y++){
-			pIndex[p] = usvec3(y, x, x+1);
-			p++;
-			pIndex[p] = usvec3(y, x+1, y+1);
-			p++;
-		}
-		pIndex[p] = usvec3(y, x, sx);
-		p++;
-		pIndex[p] = usvec3(y, y+1, sy);
-		//pIndex[p] = usvec3(y, sx, x+1);
-		//p++;
-		//pIndex[p] = usvec3(y, sy-1, y+1);
-		p++;
-		x++;
-		y++;
-	}
-
-	// booton
-	for(x =0, y = nVertex - xres; y < nVertex && p<nIndex;){
-		if(x>=xres)
-			//pIndex[p] = usvec3(y-yres, x, x+1);
-			pIndex[p] = usvec3(0, 0, 0);
-		else
-			pIndex[p] = usvec3(y, x, x+1);
-		//pIndex[p] = usvec3(nVertex-1, y, y-1);
-		p++;
-
-		if(x>=xres)
-			pIndex[p] = usvec3(0, 0, 0);
-			//pIndex[p] = usvec3(y, y+1, x-xres);
-		else
-			pIndex[p] = usvec3(y, x+1, y+1);
-		//pIndex[p] = usvec3(nVertex-1, y+1, y-1);
-		p++;
-		y++;
-		x++;
-	}
-
-	pIndex[nIndex-2] = usvec3(xres-1, 0, nVertex-1);
-	pIndex[nIndex-1] = usvec3(nVertex-xres, nVertex-1, 0);
-
-	vec3 faceNormal;
-	for(p = 0; p < nIndex; p++){
-		faceNormal = calcNormal(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
-		pVertex[pIndex[p].x].normal += faceNormal;
-		pVertex[pIndex[p].y].normal += faceNormal;
-		pVertex[pIndex[p].z].normal += faceNormal;
-	}
-	for (p = 0; p < nVertex; p++){
-		pVertex[p].normal = normalize(pVertex[p].normal);
-	}
-	for (p = 0; p < nVertex; p++){
-		pVertex[p].uv = vec2(pVertex[p].position.x, pVertex[p].position.y+pVertex[p].position.z);
-	}
-	p=0;
-
-
-
-
-}
-
 void malha::makeSphere2(uint xres, uint yres, float3 size) {
 	xres = min(max(abs(int(xres)), 3), 255);
 	yres = min(max(abs(int(yres)) - 2, 1), 256);
@@ -503,81 +457,6 @@ void malha::makeSphere2(uint xres, uint yres, float3 size) {
 	}
 	p = 0;
 
-}
-
-void malha::makeCone2(uint xres, uint yres, float3 size){
-	free();
-	xres = min(max(abs(int(xres)), 3), 255);
-	yres = 1;
-	nVertex = xres * 2 * yres + 2;
-	nIndex = xres * yres * 2;
-
-	pVertex.resize(nVertex);
-	//pNormal.resize(nVertex);
-	pIndex.resize(nIndex);
-
-	//vec3* v = new vec3[nVertex];
-	//vec3* n = new vec3[nVertex];
-	//usvec3* i = new usvec3[nIndex];
-
-	float vx = F_PI / (xres + 0) * 2, vy = F_PI / (yres + 1);
-	float px = 0, py = 0, pz = 0, spy = 0;
-	uint p = 1, x, y;
-
-	// vextex positions
-	// top
-	pVertex[0].position = vec3(0.0f, 0.0f, size.z);
-	pVertex[0].normal = vec3(0.0f, 0.0f, 1.0f);
-	// center
-	vec3 vec;
-	y = 1; 
-	{
-		for (x = 0; x < xres; x++) {
-			px = x * vx; py = y * vy;
-			spy = sin(py);
-			vec = vec3(sin(px) * spy, cos(px) * sin(py), 0);
-			pVertex[p].position = vec * size;
-			p++;
-		}
-	}
-	y = 1; 
-	{
-		for (x = 0; x < xres; x++) {
-			px = x * vx; py = y * vy;
-			spy = sin(py);
-			vec = vec3(sin(px) * spy, cos(px) * sin(py), 0);
-			pVertex[p].position = vec * size;
-			p++;
-		}
-	}
-	// booton
-	pVertex[p].position = vec3(0.0f, 0.0f, 0);
-	pVertex[p].normal = vec3(0.0f, 0.0f, -1.0f);
-
-
-	// indexes
-	// top
-	p = 0;
-	for (y = 1; y < xres; y++) {
-		pIndex[p] = usvec3(0, y + 1, y);
-		p++;
-	}
-	pIndex[p] = usvec3(0, 1, y);
-	p++;
-
-
-	// booton
-	for (y = nVertex - xres; y < nVertex - 1; y++) {
-		pIndex[p] = usvec3(nVertex - 1, y - 1, y);
-		p++;
-	}
-	pIndex[p] = usvec3(nVertex - 1, y - 1, nVertex - xres - 1);
-
-	for (p = 0; p < nVertex; p++) {
-		pVertex[p].uv = vec2(pVertex[p].position.x, pVertex[p].position.y + pVertex[p].position.z);
-	}
-	p = 0;
-	name = "Cone";
 }
 
 void malha::makeCone(uint xres, uint yres, float3 size) {
@@ -683,6 +562,81 @@ void malha::makeCone(uint xres, uint yres, float3 size) {
 	name = "Cilinder";
 }
 
+void malha::makeCone2(uint xres, uint yres, float3 size){
+	free();
+	xres = min(max(abs(int(xres)), 3), 255);
+	yres = 1;
+	nVertex = xres * 2 * yres + 2;
+	nIndex = xres * yres * 2;
+
+	pVertex.resize(nVertex);
+	//pNormal.resize(nVertex);
+	pIndex.resize(nIndex);
+
+	//vec3* v = new vec3[nVertex];
+	//vec3* n = new vec3[nVertex];
+	//usvec3* i = new usvec3[nIndex];
+
+	float vx = F_PI / (xres + 0) * 2, vy = F_PI / (yres + 1);
+	float px = 0, py = 0, pz = 0, spy = 0;
+	uint p = 1, x, y;
+
+	// vextex positions
+	// top
+	pVertex[0].position = vec3(0.0f, 0.0f, size.z);
+	pVertex[0].normal = vec3(0.0f, 0.0f, 1.0f);
+	// center
+	vec3 vec;
+	y = 1; 
+	{
+		for (x = 0; x < xres; x++) {
+			px = x * vx; py = y * vy;
+			spy = sin(py);
+			vec = vec3(sin(px) * spy, cos(px) * sin(py), 0);
+			pVertex[p].position = vec * size;
+			p++;
+		}
+	}
+	y = 1; 
+	{
+		for (x = 0; x < xres; x++) {
+			px = x * vx; py = y * vy;
+			spy = sin(py);
+			vec = vec3(sin(px) * spy, cos(px) * sin(py), 0);
+			pVertex[p].position = vec * size;
+			p++;
+		}
+	}
+	// booton
+	pVertex[p].position = vec3(0.0f, 0.0f, 0);
+	pVertex[p].normal = vec3(0.0f, 0.0f, -1.0f);
+
+
+	// indexes
+	// top
+	p = 0;
+	for (y = 1; y < xres; y++) {
+		pIndex[p] = usvec3(0, y + 1, y);
+		p++;
+	}
+	pIndex[p] = usvec3(0, 1, y);
+	p++;
+
+
+	// booton
+	for (y = nVertex - xres; y < nVertex - 1; y++) {
+		pIndex[p] = usvec3(nVertex - 1, y - 1, y);
+		p++;
+	}
+	pIndex[p] = usvec3(nVertex - 1, y - 1, nVertex - xres - 1);
+
+	for (p = 0; p < nVertex; p++) {
+		pVertex[p].uv = vec2(pVertex[p].position.x, pVertex[p].position.y + pVertex[p].position.z);
+	}
+	p = 0;
+	name = "Cone";
+}
+
 void malha::makeCilinder(uint xres, uint yres, float3 size) {
 	// refazer para adicionar um plano distorcido em torus para melhor mapeamento uv, 
 	// precisa recalcular normais das bordas para evitar recortes.
@@ -749,6 +703,138 @@ void malha::makeCilinder(uint xres, uint yres, float3 size) {
 		}
 	}
 	pVertex[p].position = vec3(0.0f, 0.0f, -1.0f)* size;
+	//pVertex[p].normal = vec3(0.0f, 0.0f, -1.0f);
+
+
+// indexes
+// top
+	p = 0;
+	for (y = 1; y < xres; y++) {
+		pIndex[p] = usvec3(0, y + 1, y);
+		p++;
+	}
+	pIndex[p] = usvec3(0, 1, y);
+	p++;
+
+	//center
+	//p = 0;
+	y = 1 + xres;
+	x = y + xres;
+	uint sx = x, sy = 0;
+	{
+		uint sx = x, sy = y;
+		for (uint b = 0; b < xres - 1; b++, x++, y++) {
+			pIndex[p] = usvec3(y, x + 1, x);
+			p++;
+			pIndex[p] = usvec3(y, y + 1, x + 1);
+			p++;
+		}
+		pIndex[p] = usvec3(y, sx, x);
+		p++;
+		pIndex[p] = usvec3(y, sy, y + 1);
+		//pIndex[p] = usvec3(y, sx, x+1);
+		//p++;
+		//pIndex[p] = usvec3(y, sy-1, y+1);
+		p++;
+		x++;
+		y++;
+	}
+
+
+	// booton
+	for (y = nVertex - xres; y < nVertex - 1; y++) {
+		pIndex[p] = usvec3(nVertex - 1, y - 1, y);
+		p++;
+	}
+	pIndex[p] = usvec3(nVertex - 1, y - 1, nVertex - xres - 1);
+
+
+	vec3 faceNormal;
+	for (p = 0; p < nIndex; p++) {
+		faceNormal = calcNormal(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
+		pVertex[pIndex[p].x].normal += faceNormal;
+		pVertex[pIndex[p].y].normal += faceNormal;
+		pVertex[pIndex[p].z].normal += faceNormal;
+	}
+	for (p = 0; p < nVertex; p++) {
+		pVertex[p].normal = normalize(pVertex[p].normal);
+	}
+	for (p = 0; p < nVertex; p++) {
+		pVertex[p].uv = vec2(pVertex[p].position.x, pVertex[p].position.y + pVertex[p].position.z);
+	}
+	p = 0;
+
+
+	name = "Cilinder";
+
+}
+
+void malha::makeCilinder2(uint xres, uint yres, float3 size) {
+	// refazer para adicionar um plano distorcido em torus para melhor mapeamento uv, 
+	// precisa recalcular normais das bordas para evitar recortes.
+	// fazer o mesmo com esfera.
+	free();
+	xres = max(xres, 3);
+	yres = 1;
+	nVertex = xres * 4 + 2;
+	nIndex = xres * 4 * 2;
+
+	pVertex.resize(nVertex);
+	pIndex.resize(nIndex);
+
+	float vx = F_PI / (xres + 0) * 2, vy = F_PI / (yres + 1);
+	float px = 0, py = 0, pz = 0, spy = 0;
+	uint p = 1, x, y;
+
+	// vextex positions
+	// top
+	pVertex[0].position = vec3(0.0f, 0.0f, 1.0f) * size;
+	//pVertex[0].normal = vec3(0.0f, 0.0f, 1.0f);
+	vec3 vec;
+	y = 1;
+	{
+		for (x = 0; x < xres; x++) {
+			px = x * vx; py = y * vy;
+			spy = sin(py);
+			vec = vec3(sin(px) * spy, cos(px) * sin(py), 1.0f);
+			pVertex[p].position = vec * size;
+			p++;
+		}
+	}
+	// center
+	y = 1;
+	{
+		for (x = 0; x < xres; x++) {
+			px = x * vx; py = y * vy;
+			spy = sin(py);
+			vec = vec3(sin(px) * spy, cos(px) * sin(py), 1.0f);
+			pVertex[p].position = vec * size;
+			p++;
+		}
+	}
+
+	y = 1;
+	{
+		for (x = 0; x < xres; x++) {
+			px = x * vx; py = y * vy;
+			spy = sin(py);
+			vec = vec3(sin(px) * spy, cos(px) * sin(py), -1.0f);
+			pVertex[p].position = vec * size;
+			p++;
+		}
+	}
+	// booton
+	y = 1;
+	{
+		for (x = 0; x < xres; x++) {
+			px = x * vx; py = y * vy;
+			spy = sin(py);
+			vec = vec3(sin(px) * spy, cos(px) * sin(py), -1.0f);
+			pVertex[p].position = vec * size;
+			p++;
+		}
+	}
+	pVertex[p].position = vec3(0.0f, 0.0f, -1.0f) * size;
 	//pVertex[p].normal = vec3(0.0f, 0.0f, -1.0f);
 
 
@@ -1030,7 +1116,7 @@ void malha::makeGrid(int xres, int yres, float3 size) {
 	}
 
 	i = 0;
-	for (; i <= nIndex; ) {
+	for (; i <= (int)nIndex; ) {
 		pIndex2.push_back(usvec2(i, i+1));
 		i += 2;
 	}

@@ -46,25 +46,45 @@ objeto::objeto(objeto* prev, objType t, vec3 Pos, vec3 Rot, vec3 Size, uint3 Res
 	{
 	case objType::objNone:
 		break;
+	case objType::objTorus:
+		malhas.push_back(new malha);
+		malhas[malhas.size() - 1]->atach();
+		malhas[malhas.size() - 1]->makeTorus(Res.x, Res.y, Size, 1.0f);
+		break;
+	case objType::objTorus2:
+		malhas.push_back(new malha);
+		malhas[malhas.size() - 1]->atach();
+		malhas[malhas.size() - 1]->makeTorus2(Res.x, Res.y, Size, 1.0f, 1.5f);
+		break;
 	case objType::objEsfera:
 		malhas.push_back(new malha);
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeSphere(Res.x, Res.y, Size);
 		break;
-	case objType::objTorus:
+	case objType::objEsfera2:
 		malhas.push_back(new malha);
 		malhas[malhas.size() - 1]->atach();
-		malhas[malhas.size() - 1]->makeTorus(Res.x, Res.y, Size, 0.25f);
+		malhas[malhas.size() - 1]->makeSphere2(Res.x, Res.y, Size);
 		break;
 	case objType::objCilindro:
 		malhas.push_back(new malha);
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeCilinder(Res.x, Res.y, Size);
 		break;
+	case objType::objCilindro2:
+		malhas.push_back(new malha);
+		malhas[malhas.size() - 1]->atach();
+		malhas[malhas.size() - 1]->makeCilinder2(Res.x, Res.y, Size);
+		break;
 	case objType::objCone:
 		malhas.push_back(new malha);
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeCone(Res.x, Res.y, Size);
+		break;
+	case objType::objCone2:
+		malhas.push_back(new malha);
+		malhas[malhas.size() - 1]->atach();
+		malhas[malhas.size() - 1]->makeCone2(Res.x, Res.y, Size);
 		break;
 	case objType::objBox:
 		malhas.push_back(new malha);

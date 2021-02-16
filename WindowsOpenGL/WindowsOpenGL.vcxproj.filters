@@ -99,6 +99,9 @@
     <ClCompile Include="mathBase.cpp">
       <Filter>Arquivos de Origem\Math</Filter>
     </ClCompile>
+    <ClCompile Include="Word.cpp">
+      <Filter>Arquivos de Origem\Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -190,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="WindowsOpengl.h">
       <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Word.h">
+      <Filter>Arquivos de Cabeçalho\Manager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,877 +1,877 @@
 
 GL_VERSION_1_2
-	7b3cf4a8 : glDrawRangeElements
-	7b3cf478 : glTexImage3D
-	7b3cf488 : glTexSubImage3D
-	7b3cf498 : glCopyTexSubImage3D
+	5344f4a8 : glDrawRangeElements
+	5344f478 : glTexImage3D
+	5344f488 : glTexSubImage3D
+	5344f498 : glCopyTexSubImage3D
 
 GL_VERSION_1_3
-	7b3cf4d8 : glActiveTexture
-	7b3cf7a8 : glSampleCoverage
-	7b3cf738 : glCompressedTexImage3D
-	7b3cf748 : glCompressedTexImage2D
-	7b3cf758 : glCompressedTexImage1D
-	7b3cf768 : glCompressedTexSubImage3D
-	7b3cf778 : glCompressedTexSubImage2D
-	7b3cf788 : glCompressedTexSubImage1D
-	7b3cf798 : glGetCompressedTexImage
-	7b3cf4e8 : glClientActiveTexture
-	7b3cf4f8 : glMultiTexCoord1d
-	7b3cf508 : glMultiTexCoord1dv
-	7b3cf518 : glMultiTexCoord1f
-	7b3cf528 : glMultiTexCoord1fv
-	7b3cf538 : glMultiTexCoord1i
-	7b3cf548 : glMultiTexCoord1iv
-	7b3cf558 : glMultiTexCoord1s
-	7b3cf568 : glMultiTexCoord1sv
-	7b3cf578 : glMultiTexCoord2d
-	7b3cf588 : glMultiTexCoord2dv
-	7b3cf598 : glMultiTexCoord2f
-	7b3cf5a8 : glMultiTexCoord2fv
-	7b3cf5b8 : glMultiTexCoord2i
-	7b3cf5c8 : glMultiTexCoord2iv
-	7b3cf5d8 : glMultiTexCoord2s
-	7b3cf5e8 : glMultiTexCoord2sv
-	7b3cf5f8 : glMultiTexCoord3d
-	7b3cf608 : glMultiTexCoord3dv
-	7b3cf618 : glMultiTexCoord3f
-	7b3cf628 : glMultiTexCoord3fv
-	7b3cf638 : glMultiTexCoord3i
-	7b3cf648 : glMultiTexCoord3iv
-	7b3cf658 : glMultiTexCoord3s
-	7b3cf668 : glMultiTexCoord3sv
-	7b3cf678 : glMultiTexCoord4d
-	7b3cf688 : glMultiTexCoord4dv
-	7b3cf698 : glMultiTexCoord4f
-	7b3cf6a8 : glMultiTexCoord4fv
-	7b3cf6b8 : glMultiTexCoord4i
-	7b3cf6c8 : glMultiTexCoord4iv
-	7b3cf6d8 : glMultiTexCoord4s
-	7b3cf6e8 : glMultiTexCoord4sv
-	7b3cf6f8 : glLoadTransposeMatrixf
-	7b3cf708 : glLoadTransposeMatrixd
-	7b3cf718 : glMultTransposeMatrixf
-	7b3cf728 : glMultTransposeMatrixd
+	5344f4d8 : glActiveTexture
+	5344f7a8 : glSampleCoverage
+	5344f738 : glCompressedTexImage3D
+	5344f748 : glCompressedTexImage2D
+	5344f758 : glCompressedTexImage1D
+	5344f768 : glCompressedTexSubImage3D
+	5344f778 : glCompressedTexSubImage2D
+	5344f788 : glCompressedTexSubImage1D
+	5344f798 : glGetCompressedTexImage
+	5344f4e8 : glClientActiveTexture
+	5344f4f8 : glMultiTexCoord1d
+	5344f508 : glMultiTexCoord1dv
+	5344f518 : glMultiTexCoord1f
+	5344f528 : glMultiTexCoord1fv
+	5344f538 : glMultiTexCoord1i
+	5344f548 : glMultiTexCoord1iv
+	5344f558 : glMultiTexCoord1s
+	5344f568 : glMultiTexCoord1sv
+	5344f578 : glMultiTexCoord2d
+	5344f588 : glMultiTexCoord2dv
+	5344f598 : glMultiTexCoord2f
+	5344f5a8 : glMultiTexCoord2fv
+	5344f5b8 : glMultiTexCoord2i
+	5344f5c8 : glMultiTexCoord2iv
+	5344f5d8 : glMultiTexCoord2s
+	5344f5e8 : glMultiTexCoord2sv
+	5344f5f8 : glMultiTexCoord3d
+	5344f608 : glMultiTexCoord3dv
+	5344f618 : glMultiTexCoord3f
+	5344f628 : glMultiTexCoord3fv
+	5344f638 : glMultiTexCoord3i
+	5344f648 : glMultiTexCoord3iv
+	5344f658 : glMultiTexCoord3s
+	5344f668 : glMultiTexCoord3sv
+	5344f678 : glMultiTexCoord4d
+	5344f688 : glMultiTexCoord4dv
+	5344f698 : glMultiTexCoord4f
+	5344f6a8 : glMultiTexCoord4fv
+	5344f6b8 : glMultiTexCoord4i
+	5344f6c8 : glMultiTexCoord4iv
+	5344f6d8 : glMultiTexCoord4s
+	5344f6e8 : glMultiTexCoord4sv
+	5344f6f8 : glLoadTransposeMatrixf
+	5344f708 : glLoadTransposeMatrixd
+	5344f718 : glMultTransposeMatrixf
+	5344f728 : glMultTransposeMatrixd
 
 GL_VERSION_1_4
-	7b3cf978 : glBlendFuncSeparate
-	7b3cf918 : glMultiDrawArrays
-	7b3cf928 : glMultiDrawElements
-	7b3cf938 : glPointParameterf
-	7b3cf948 : glPointParameterfv
-	7b3cf958 : glPointParameteri
-	7b3cf968 : glPointParameteriv
-	7b3cf7b8 : glFogCoordf
-	7b3cf7d8 : glFogCoordfv
-	7b3cf7c8 : glFogCoordd
-	7b3cf7e8 : glFogCoorddv
-	7b3cf7f8 : glFogCoordPointer
-	7b3cf808 : glSecondaryColor3b
-	7b3cf818 : glSecondaryColor3bv
-	7b3cf828 : glSecondaryColor3d
-	7b3cf838 : glSecondaryColor3dv
-	7b3cf848 : glSecondaryColor3f
-	7b3cf858 : glSecondaryColor3fv
-	7b3cf868 : glSecondaryColor3i
-	7b3cf878 : glSecondaryColor3iv
-	7b3cf888 : glSecondaryColor3s
-	7b3cf898 : glSecondaryColor3sv
-	7b3cf8a8 : glSecondaryColor3ub
-	7b3cf8b8 : glSecondaryColor3ubv
-	7b3cf8c8 : glSecondaryColor3ui
-	7b3cf8d8 : glSecondaryColor3uiv
-	7b3cf8e8 : glSecondaryColor3us
-	7b3cf8f8 : glSecondaryColor3usv
-	7b3cf908 : glSecondaryColorPointer
-	7b3cf988 : glWindowPos2d
-	7b3cf998 : glWindowPos2dv
-	7b3cf9a8 : glWindowPos2f
-	7b3cf9b8 : glWindowPos2fv
-	7b3cf9c8 : glWindowPos2i
-	7b3cf9d8 : glWindowPos2iv
-	7b3cf9e8 : glWindowPos2s
-	7b3cf9f8 : glWindowPos2sv
-	7b3cfa08 : glWindowPos3d
-	7b3cfa18 : glWindowPos3dv
-	7b3cfa28 : glWindowPos3f
-	7b3cfa38 : glWindowPos3fv
-	7b3cfa48 : glWindowPos3i
-	7b3cfa58 : glWindowPos3iv
-	7b3cfa68 : glWindowPos3s
-	7b3cfa78 : glWindowPos3sv
-	7b3cf4b8 : glBlendColor
-	7b3cf4c8 : glBlendEquation
+	5344f978 : glBlendFuncSeparate
+	5344f918 : glMultiDrawArrays
+	5344f928 : glMultiDrawElements
+	5344f938 : glPointParameterf
+	5344f948 : glPointParameterfv
+	5344f958 : glPointParameteri
+	5344f968 : glPointParameteriv
+	5344f7b8 : glFogCoordf
+	5344f7d8 : glFogCoordfv
+	5344f7c8 : glFogCoordd
+	5344f7e8 : glFogCoorddv
+	5344f7f8 : glFogCoordPointer
+	5344f808 : glSecondaryColor3b
+	5344f818 : glSecondaryColor3bv
+	5344f828 : glSecondaryColor3d
+	5344f838 : glSecondaryColor3dv
+	5344f848 : glSecondaryColor3f
+	5344f858 : glSecondaryColor3fv
+	5344f868 : glSecondaryColor3i
+	5344f878 : glSecondaryColor3iv
+	5344f888 : glSecondaryColor3s
+	5344f898 : glSecondaryColor3sv
+	5344f8a8 : glSecondaryColor3ub
+	5344f8b8 : glSecondaryColor3ubv
+	5344f8c8 : glSecondaryColor3ui
+	5344f8d8 : glSecondaryColor3uiv
+	5344f8e8 : glSecondaryColor3us
+	5344f8f8 : glSecondaryColor3usv
+	5344f908 : glSecondaryColorPointer
+	5344f988 : glWindowPos2d
+	5344f998 : glWindowPos2dv
+	5344f9a8 : glWindowPos2f
+	5344f9b8 : glWindowPos2fv
+	5344f9c8 : glWindowPos2i
+	5344f9d8 : glWindowPos2iv
+	5344f9e8 : glWindowPos2s
+	5344f9f8 : glWindowPos2sv
+	5344fa08 : glWindowPos3d
+	5344fa18 : glWindowPos3dv
+	5344fa28 : glWindowPos3f
+	5344fa38 : glWindowPos3fv
+	5344fa48 : glWindowPos3i
+	5344fa58 : glWindowPos3iv
+	5344fa68 : glWindowPos3s
+	5344fa78 : glWindowPos3sv
+	5344f4b8 : glBlendColor
+	5344f4c8 : glBlendEquation
 
 GL_VERSION_1_5
-	7b3cfa88 : glGenQueries
-	7b3cfa98 : glDeleteQueries
-	7b3cfac8 : glIsQuery
-	7b3cfad8 : glBeginQuery
-	7b3cfae8 : glEndQuery
-	7b3cfaf8 : glGetQueryiv
-	7b3cfb08 : glGetQueryObjectiv
-	7b3cfb18 : glGetQueryObjectuiv
-	7b3cfb68 : glBindBuffer
-	7b3cfb78 : glDeleteBuffers
-	7b3cfb88 : glGenBuffers
-	7b3cfb98 : glIsBuffer
-	7b3cfba8 : glBufferData
-	7b3cfbb8 : glBufferSubData
-	7b3cfbc8 : glGetBufferSubData
-	7b3cfbd8 : glMapBuffer
-	7b3cfbe8 : glUnmapBuffer
-	7b3cfbf8 : glGetBufferParameteriv
-	7b3cfc08 : glGetBufferPointerv
+	5344fa88 : glGenQueries
+	5344fa98 : glDeleteQueries
+	5344fac8 : glIsQuery
+	5344fad8 : glBeginQuery
+	5344fae8 : glEndQuery
+	5344faf8 : glGetQueryiv
+	5344fb08 : glGetQueryObjectiv
+	5344fb18 : glGetQueryObjectuiv
+	5344fb68 : glBindBuffer
+	5344fb78 : glDeleteBuffers
+	5344fb88 : glGenBuffers
+	5344fb98 : glIsBuffer
+	5344fba8 : glBufferData
+	5344fbb8 : glBufferSubData
+	5344fbc8 : glGetBufferSubData
+	5344fbd8 : glMapBuffer
+	5344fbe8 : glUnmapBuffer
+	5344fbf8 : glGetBufferParameteriv
+	5344fc08 : glGetBufferPointerv
 
 GL_VERSION_2_0
-	7b3d01e8 : glBlendEquationSeparate
-	7b3d0198 : glDrawBuffers
-	7b3d01b8 : glStencilOpSeparate
-	7b3d01c8 : glStencilFuncSeparate
-	7b3d01d8 : glStencilMaskSeparate
-	7b3cfc68 : glAttachShader
-	7b3cfed8 : glBindAttribLocation
-	7b3cfc38 : glCompileShader
-	7b3cfc58 : glCreateProgram
-	7b3cfc18 : glCreateShader
-	7b3cfca8 : glDeleteProgram
-	7b3cfc48 : glDeleteShader
-	7b3cfc78 : glDetachShader
-	7b3d0148 : glDisableVertexAttribArray
-	7b3d0138 : glEnableVertexAttribArray
-	7b3cfeb8 : glGetActiveAttrib
-	7b3cfcc8 : glGetActiveUniform
-	7b3cfe58 : glGetAttachedShaders
-	7b3cfec8 : glGetAttribLocation
-	7b3cfe48 : glGetProgramiv
-	7b3cfe78 : glGetProgramInfoLog
-	7b3cfe28 : glGetShaderiv
-	7b3cfe68 : glGetShaderInfoLog
-	7b3cfe88 : glGetShaderSource
-	7b3cfcb8 : glGetUniformLocation
-	7b3cfe98 : glGetUniformfv
-	7b3cfea8 : glGetUniformiv
-	7b3d0158 : glGetVertexAttribdv
-	7b3d0168 : glGetVertexAttribfv
-	7b3d0178 : glGetVertexAttribiv
-	7b3d0188 : glGetVertexAttribPointerv
-	7b3cfe38 : glIsProgram
-	7b3cfe18 : glIsShader
-	7b3cfc88 : glLinkProgram
-	7b3cfc28 : glShaderSource
-	7b3cfc98 : glUseProgram
-	7b3cfcd8 : glUniform1f
-	7b3cfce8 : glUniform2f
-	7b3cfcf8 : glUniform3f
-	7b3cfd08 : glUniform4f
-	7b3cfd18 : glUniform1i
-	7b3cfd28 : glUniform2i
-	7b3cfd38 : glUniform3i
-	7b3cfd48 : glUniform4i
-	7b3cfd58 : glUniform1fv
-	7b3cfd68 : glUniform2fv
-	7b3cfd78 : glUniform3fv
-	7b3cfd88 : glUniform4fv
-	7b3cfd98 : glUniform1iv
-	7b3cfda8 : glUniform2iv
-	7b3cfdb8 : glUniform3iv
-	7b3cfdc8 : glUniform4iv
-	7b3cfdd8 : glUniformMatrix2fv
-	7b3cfde8 : glUniformMatrix3fv
-	7b3cfdf8 : glUniformMatrix4fv
-	7b3cfe08 : glValidateProgram
-	7b3cff08 : glVertexAttrib1d
-	7b3cffd8 : glVertexAttrib1dv
-	7b3cfef8 : glVertexAttrib1f
-	7b3cffc8 : glVertexAttrib1fv
-	7b3cfee8 : glVertexAttrib1s
-	7b3cffb8 : glVertexAttrib1sv
-	7b3cff38 : glVertexAttrib2d
-	7b3d0008 : glVertexAttrib2dv
-	7b3cff28 : glVertexAttrib2f
-	7b3cfff8 : glVertexAttrib2fv
-	7b3cff18 : glVertexAttrib2s
-	7b3cffe8 : glVertexAttrib2sv
-	7b3cff68 : glVertexAttrib3d
-	7b3d0038 : glVertexAttrib3dv
-	7b3cff58 : glVertexAttrib3f
-	7b3d0028 : glVertexAttrib3fv
-	7b3cff48 : glVertexAttrib3s
-	7b3d0018 : glVertexAttrib3sv
-	7b3d00c8 : glVertexAttrib4Nbv
-	7b3d00e8 : glVertexAttrib4Niv
-	7b3d00d8 : glVertexAttrib4Nsv
-	7b3cffa8 : glVertexAttrib4Nub
-	7b3d00f8 : glVertexAttrib4Nubv
-	7b3d0118 : glVertexAttrib4Nuiv
-	7b3d0108 : glVertexAttrib4Nusv
-	7b3d0048 : glVertexAttrib4bv
-	7b3cff98 : glVertexAttrib4d
-	7b3d00b8 : glVertexAttrib4dv
-	7b3cff88 : glVertexAttrib4f
-	7b3d00a8 : glVertexAttrib4fv
-	7b3d0068 : glVertexAttrib4iv
-	7b3cff78 : glVertexAttrib4s
-	7b3d0058 : glVertexAttrib4sv
-	7b3d0078 : glVertexAttrib4ubv
-	7b3d0098 : glVertexAttrib4uiv
-	7b3d0088 : glVertexAttrib4usv
-	7b3d0128 : glVertexAttribPointer
+	534501e8 : glBlendEquationSeparate
+	53450198 : glDrawBuffers
+	534501b8 : glStencilOpSeparate
+	534501c8 : glStencilFuncSeparate
+	534501d8 : glStencilMaskSeparate
+	5344fc68 : glAttachShader
+	5344fed8 : glBindAttribLocation
+	5344fc38 : glCompileShader
+	5344fc58 : glCreateProgram
+	5344fc18 : glCreateShader
+	5344fca8 : glDeleteProgram
+	5344fc48 : glDeleteShader
+	5344fc78 : glDetachShader
+	53450148 : glDisableVertexAttribArray
+	53450138 : glEnableVertexAttribArray
+	5344feb8 : glGetActiveAttrib
+	5344fcc8 : glGetActiveUniform
+	5344fe58 : glGetAttachedShaders
+	5344fec8 : glGetAttribLocation
+	5344fe48 : glGetProgramiv
+	5344fe78 : glGetProgramInfoLog
+	5344fe28 : glGetShaderiv
+	5344fe68 : glGetShaderInfoLog
+	5344fe88 : glGetShaderSource
+	5344fcb8 : glGetUniformLocation
+	5344fe98 : glGetUniformfv
+	5344fea8 : glGetUniformiv
+	53450158 : glGetVertexAttribdv
+	53450168 : glGetVertexAttribfv
+	53450178 : glGetVertexAttribiv
+	53450188 : glGetVertexAttribPointerv
+	5344fe38 : glIsProgram
+	5344fe18 : glIsShader
+	5344fc88 : glLinkProgram
+	5344fc28 : glShaderSource
+	5344fc98 : glUseProgram
+	5344fcd8 : glUniform1f
+	5344fce8 : glUniform2f
+	5344fcf8 : glUniform3f
+	5344fd08 : glUniform4f
+	5344fd18 : glUniform1i
+	5344fd28 : glUniform2i
+	5344fd38 : glUniform3i
+	5344fd48 : glUniform4i
+	5344fd58 : glUniform1fv
+	5344fd68 : glUniform2fv
+	5344fd78 : glUniform3fv
+	5344fd88 : glUniform4fv
+	5344fd98 : glUniform1iv
+	5344fda8 : glUniform2iv
+	5344fdb8 : glUniform3iv
+	5344fdc8 : glUniform4iv
+	5344fdd8 : glUniformMatrix2fv
+	5344fde8 : glUniformMatrix3fv
+	5344fdf8 : glUniformMatrix4fv
+	5344fe08 : glValidateProgram
+	5344ff08 : glVertexAttrib1d
+	5344ffd8 : glVertexAttrib1dv
+	5344fef8 : glVertexAttrib1f
+	5344ffc8 : glVertexAttrib1fv
+	5344fee8 : glVertexAttrib1s
+	5344ffb8 : glVertexAttrib1sv
+	5344ff38 : glVertexAttrib2d
+	53450008 : glVertexAttrib2dv
+	5344ff28 : glVertexAttrib2f
+	5344fff8 : glVertexAttrib2fv
+	5344ff18 : glVertexAttrib2s
+	5344ffe8 : glVertexAttrib2sv
+	5344ff68 : glVertexAttrib3d
+	53450038 : glVertexAttrib3dv
+	5344ff58 : glVertexAttrib3f
+	53450028 : glVertexAttrib3fv
+	5344ff48 : glVertexAttrib3s
+	53450018 : glVertexAttrib3sv
+	534500c8 : glVertexAttrib4Nbv
+	534500e8 : glVertexAttrib4Niv
+	534500d8 : glVertexAttrib4Nsv
+	5344ffa8 : glVertexAttrib4Nub
+	534500f8 : glVertexAttrib4Nubv
+	53450118 : glVertexAttrib4Nuiv
+	53450108 : glVertexAttrib4Nusv
+	53450048 : glVertexAttrib4bv
+	5344ff98 : glVertexAttrib4d
+	534500b8 : glVertexAttrib4dv
+	5344ff88 : glVertexAttrib4f
+	534500a8 : glVertexAttrib4fv
+	53450068 : glVertexAttrib4iv
+	5344ff78 : glVertexAttrib4s
+	53450058 : glVertexAttrib4sv
+	53450078 : glVertexAttrib4ubv
+	53450098 : glVertexAttrib4uiv
+	53450088 : glVertexAttrib4usv
+	53450128 : glVertexAttribPointer
 
 GL_VERSION_2_1
-	7b3d01f8 : glUniformMatrix2x3fv
-	7b3d0208 : glUniformMatrix3x2fv
-	7b3d0218 : glUniformMatrix2x4fv
-	7b3d0228 : glUniformMatrix4x2fv
-	7b3d0238 : glUniformMatrix3x4fv
-	7b3d0248 : glUniformMatrix4x3fv
+	534501f8 : glUniformMatrix2x3fv
+	53450208 : glUniformMatrix3x2fv
+	53450218 : glUniformMatrix2x4fv
+	53450228 : glUniformMatrix4x2fv
+	53450238 : glUniformMatrix3x4fv
+	53450248 : glUniformMatrix4x3fv
 
 GL_VERSION_3_0
-	7b3d0578 : glColorMaski
-	7b3d0568 : glGetBooleani_v
-	7b3d0558 : glGetIntegeri_v
-	7b3d0598 : glEnablei
-	7b3d0588 : glDisablei
-	7b3d05a8 : glIsEnabledi
-	7b3d0518 : glBeginTransformFeedback
-	7b3d0528 : glEndTransformFeedback
-	7b3d04f8 : glBindBufferRange
-	7b3d0508 : glBindBufferBase
-	7b3d0538 : glTransformFeedbackVaryings
-	7b3d0548 : glGetTransformFeedbackVarying
-	7b3d04e8 : glClampColor
-	7b3d04a8 : glBeginConditionalRender
-	7b3d04b8 : glEndConditionalRender
-	7b3d03a8 : glVertexAttribIPointer
-	7b3d03b8 : glGetVertexAttribIiv
-	7b3d03c8 : glGetVertexAttribIuiv
-	7b3d0268 : glVertexAttribI1i
-	7b3d0278 : glVertexAttribI2i
-	7b3d0288 : glVertexAttribI3i
-	7b3d0298 : glVertexAttribI4i
-	7b3d02a8 : glVertexAttribI1ui
-	7b3d02b8 : glVertexAttribI2ui
-	7b3d02c8 : glVertexAttribI3ui
-	7b3d02d8 : glVertexAttribI4ui
-	7b3d02e8 : glVertexAttribI1iv
-	7b3d02f8 : glVertexAttribI2iv
-	7b3d0308 : glVertexAttribI3iv
-	7b3d0318 : glVertexAttribI4iv
-	7b3d0328 : glVertexAttribI1uiv
-	7b3d0338 : glVertexAttribI2uiv
-	7b3d0348 : glVertexAttribI3uiv
-	7b3d0358 : glVertexAttribI4uiv
-	7b3d0368 : glVertexAttribI4bv
-	7b3d0378 : glVertexAttribI4sv
-	7b3d0388 : glVertexAttribI4ubv
-	7b3d0398 : glVertexAttribI4usv
-	7b3d0458 : glGetUniformuiv
-	7b3d0468 : glBindFragDataLocation
-	7b3d0478 : glGetFragDataLocation
-	7b3d03d8 : glUniform1ui
-	7b3d03e8 : glUniform2ui
-	7b3d03f8 : glUniform3ui
-	7b3d0408 : glUniform4ui
-	7b3d0418 : glUniform1uiv
-	7b3d0428 : glUniform2uiv
-	7b3d0438 : glUniform3uiv
-	7b3d0448 : glUniform4uiv
-	7b3d0798 : glTexParameterIiv
-	7b3d07a8 : glTexParameterIuiv
-	7b3d07b8 : glGetTexParameterIiv
-	7b3d07c8 : glGetTexParameterIuiv
-	7b3d05c8 : glClearBufferiv
-	7b3d05d8 : glClearBufferuiv
-	7b3d05b8 : glClearBufferfv
-	7b3d05e8 : glClearBufferfi
-	7b3d0258 : glGetStringi
-	7b3d0638 : glIsRenderbuffer
-	7b3d0648 : glBindRenderbuffer
-	7b3d0658 : glDeleteRenderbuffers
-	7b3d0668 : glGenRenderbuffers
-	7b3d0678 : glRenderbufferStorage
-	7b3d0698 : glGetRenderbufferParameteriv
-	7b3d06a8 : glIsFramebuffer
-	7b3d06b8 : glBindFramebuffer
-	7b3d06c8 : glDeleteFramebuffers
-	7b3d06d8 : glGenFramebuffers
-	7b3d06e8 : glCheckFramebufferStatus
-	7b3d06f8 : glFramebufferTexture1D
-	7b3d0708 : glFramebufferTexture2D
-	7b3d0718 : glFramebufferTexture3D
-	7b3d0738 : glFramebufferRenderbuffer
-	7b3d0768 : glGetFramebufferAttachmentParameteriv
-	7b3d0788 : glGenerateMipmap
-	7b3d0778 : glBlitFramebuffer
-	7b3d0688 : glRenderbufferStorageMultisample
-	7b3d0728 : glFramebufferTextureLayer
-	7b3d04c8 : glMapBufferRange
-	7b3d04d8 : glFlushMappedBufferRange
-	7b3d0618 : glBindVertexArray
-	7b3d0608 : glDeleteVertexArrays
-	7b3d05f8 : glGenVertexArrays
-	7b3d0628 : glIsVertexArray
+	53450578 : glColorMaski
+	53450568 : glGetBooleani_v
+	53450558 : glGetIntegeri_v
+	53450598 : glEnablei
+	53450588 : glDisablei
+	534505a8 : glIsEnabledi
+	53450518 : glBeginTransformFeedback
+	53450528 : glEndTransformFeedback
+	534504f8 : glBindBufferRange
+	53450508 : glBindBufferBase
+	53450538 : glTransformFeedbackVaryings
+	53450548 : glGetTransformFeedbackVarying
+	534504e8 : glClampColor
+	534504a8 : glBeginConditionalRender
+	534504b8 : glEndConditionalRender
+	534503a8 : glVertexAttribIPointer
+	534503b8 : glGetVertexAttribIiv
+	534503c8 : glGetVertexAttribIuiv
+	53450268 : glVertexAttribI1i
+	53450278 : glVertexAttribI2i
+	53450288 : glVertexAttribI3i
+	53450298 : glVertexAttribI4i
+	534502a8 : glVertexAttribI1ui
+	534502b8 : glVertexAttribI2ui
+	534502c8 : glVertexAttribI3ui
+	534502d8 : glVertexAttribI4ui
+	534502e8 : glVertexAttribI1iv
+	534502f8 : glVertexAttribI2iv
+	53450308 : glVertexAttribI3iv
+	53450318 : glVertexAttribI4iv
+	53450328 : glVertexAttribI1uiv
+	53450338 : glVertexAttribI2uiv
+	53450348 : glVertexAttribI3uiv
+	53450358 : glVertexAttribI4uiv
+	53450368 : glVertexAttribI4bv
+	53450378 : glVertexAttribI4sv
+	53450388 : glVertexAttribI4ubv
+	53450398 : glVertexAttribI4usv
+	53450458 : glGetUniformuiv
+	53450468 : glBindFragDataLocation
+	53450478 : glGetFragDataLocation
+	534503d8 : glUniform1ui
+	534503e8 : glUniform2ui
+	534503f8 : glUniform3ui
+	53450408 : glUniform4ui
+	53450418 : glUniform1uiv
+	53450428 : glUniform2uiv
+	53450438 : glUniform3uiv
+	53450448 : glUniform4uiv
+	53450798 : glTexParameterIiv
+	534507a8 : glTexParameterIuiv
+	534507b8 : glGetTexParameterIiv
+	534507c8 : glGetTexParameterIuiv
+	534505c8 : glClearBufferiv
+	534505d8 : glClearBufferuiv
+	534505b8 : glClearBufferfv
+	534505e8 : glClearBufferfi
+	53450258 : glGetStringi
+	53450638 : glIsRenderbuffer
+	53450648 : glBindRenderbuffer
+	53450658 : glDeleteRenderbuffers
+	53450668 : glGenRenderbuffers
+	53450678 : glRenderbufferStorage
+	53450698 : glGetRenderbufferParameteriv
+	534506a8 : glIsFramebuffer
+	534506b8 : glBindFramebuffer
+	534506c8 : glDeleteFramebuffers
+	534506d8 : glGenFramebuffers
+	534506e8 : glCheckFramebufferStatus
+	534506f8 : glFramebufferTexture1D
+	53450708 : glFramebufferTexture2D
+	53450718 : glFramebufferTexture3D
+	53450738 : glFramebufferRenderbuffer
+	53450768 : glGetFramebufferAttachmentParameteriv
+	53450788 : glGenerateMipmap
+	53450778 : glBlitFramebuffer
+	53450688 : glRenderbufferStorageMultisample
+	53450728 : glFramebufferTextureLayer
+	534504c8 : glMapBufferRange
+	534504d8 : glFlushMappedBufferRange
+	53450618 : glBindVertexArray
+	53450608 : glDeleteVertexArrays
+	534505f8 : glGenVertexArrays
+	53450628 : glIsVertexArray
 
 GL_VERSION_3_1
-	7b3d0808 : glDrawArraysInstanced
-	7b3d0818 : glDrawElementsInstanced
-	7b3d07f8 : glTexBuffer
-	7b3d07e8 : glPrimitiveRestartIndex
-	7b3d07d8 : glCopyBufferSubData
-	7b3d0828 : glGetUniformIndices
-	7b3d0838 : glGetActiveUniformsiv
-	7b3d0848 : glGetActiveUniformName
-	7b3d0858 : glGetUniformBlockIndex
-	7b3d0868 : glGetActiveUniformBlockiv
-	7b3d0878 : glGetActiveUniformBlockName
-	7b3d0888 : glUniformBlockBinding
+	53450808 : glDrawArraysInstanced
+	53450818 : glDrawElementsInstanced
+	534507f8 : glTexBuffer
+	534507e8 : glPrimitiveRestartIndex
+	534507d8 : glCopyBufferSubData
+	53450828 : glGetUniformIndices
+	53450838 : glGetActiveUniformsiv
+	53450848 : glGetActiveUniformName
+	53450858 : glGetUniformBlockIndex
+	53450868 : glGetActiveUniformBlockiv
+	53450878 : glGetActiveUniformBlockName
+	53450888 : glUniformBlockBinding
 
 GL_VERSION_3_2
-	7b3d0958 : glDrawElementsBaseVertex
-	7b3d0968 : glDrawRangeElementsBaseVertex
-	7b3d0978 : glDrawElementsInstancedBaseVertex
-	7b3d0988 : glMultiDrawElementsBaseVertex
-	7b3d0898 : glProvokingVertex
-	7b3d08c8 : glFenceSync
-	7b3d08d8 : glIsSync
-	7b3d08e8 : glDeleteSync
-	7b3d08f8 : glClientWaitSync
-	7b3d0908 : glWaitSync
-	7b3d08b8 : glGetInteger64v
-	7b3d0918 : glGetSynciv
-	7b3d08a8 : glGetInteger64i_v
-	7b3d0998 : glGetBufferParameteri64v
-	7b3d0938 : glFramebufferTexture
-	7b3d1a28 : glTexImage2DMultisample
-	7b3d1a38 : glTexImage3DMultisample
-	7b3d1a18 : glGetMultisamplefv
-	7b3d1a08 : glSampleMaski
+	53450958 : glDrawElementsBaseVertex
+	53450968 : glDrawRangeElementsBaseVertex
+	53450978 : glDrawElementsInstancedBaseVertex
+	53450988 : glMultiDrawElementsBaseVertex
+	53450898 : glProvokingVertex
+	534508c8 : glFenceSync
+	534508d8 : glIsSync
+	534508e8 : glDeleteSync
+	534508f8 : glClientWaitSync
+	53450908 : glWaitSync
+	534508b8 : glGetInteger64v
+	53450918 : glGetSynciv
+	534508a8 : glGetInteger64i_v
+	53450998 : glGetBufferParameteri64v
+	53450938 : glFramebufferTexture
+	53451a28 : glTexImage2DMultisample
+	53451a38 : glTexImage3DMultisample
+	53451a18 : glGetMultisamplefv
+	53451a08 : glSampleMaski
 
 GL_VERSION_3_3
-	7b3d0488 : glBindFragDataLocationIndexed
-	7b3d0498 : glGetFragDataIndex
-	7b3d09f8 : glGenSamplers
-	7b3d09e8 : glDeleteSamplers
-	7b3d0a08 : glIsSampler
-	7b3d0a18 : glBindSampler
-	7b3d0a48 : glSamplerParameteri
-	7b3d0a58 : glSamplerParameteriv
-	7b3d0a28 : glSamplerParameterf
-	7b3d0a38 : glSamplerParameterfv
-	7b3d0a88 : glSamplerParameterIiv
-	7b3d0a98 : glSamplerParameterIuiv
-	7b3d0a78 : glGetSamplerParameteriv
-	7b3d0aa8 : glGetSamplerParameterIiv
-	7b3d0a68 : glGetSamplerParameterfv
-	7b3d0ab8 : glGetSamplerParameterIuiv
-	7b3d09b8 : glQueryCounter
-	7b3d09c8 : glGetQueryObjecti64v
-	7b3d09d8 : glGetQueryObjectui64v
-	7b3d09a8 : glVertexAttribDivisor
-	7b3d0ca8 : glVertexAttribP1ui
-	7b3d0ce8 : glVertexAttribP1uiv
-	7b3d0cb8 : glVertexAttribP2ui
-	7b3d0cf8 : glVertexAttribP2uiv
-	7b3d0cc8 : glVertexAttribP3ui
-	7b3d0d08 : glVertexAttribP3uiv
-	7b3d0cd8 : glVertexAttribP4ui
-	7b3d0d18 : glVertexAttribP4uiv
-	7b3d0ac8 : glVertexP2ui
-	7b3d0af8 : glVertexP2uiv
-	7b3d0ad8 : glVertexP3ui
-	7b3d0b08 : glVertexP3uiv
-	7b3d0ae8 : glVertexP4ui
-	7b3d0b18 : glVertexP4uiv
-	7b3d0b28 : glTexCoordP1ui
-	7b3d0b68 : glTexCoordP1uiv
-	7b3d0b38 : glTexCoordP2ui
-	7b3d0b78 : glTexCoordP2uiv
-	7b3d0b48 : glTexCoordP3ui
-	7b3d0b88 : glTexCoordP3uiv
-	7b3d0b58 : glTexCoordP4ui
-	7b3d0b98 : glTexCoordP4uiv
-	7b3d0ba8 : glMultiTexCoordP1ui
-	7b3d0be8 : glMultiTexCoordP1uiv
-	7b3d0bb8 : glMultiTexCoordP2ui
-	7b3d0bf8 : glMultiTexCoordP2uiv
-	7b3d0bc8 : glMultiTexCoordP3ui
-	7b3d0c08 : glMultiTexCoordP3uiv
-	7b3d0bd8 : glMultiTexCoordP4ui
-	7b3d0c18 : glMultiTexCoordP4uiv
-	7b3d0c28 : glNormalP3ui
-	7b3d0c38 : glNormalP3uiv
-	7b3d0c48 : glColorP3ui
-	7b3d0c68 : glColorP3uiv
-	7b3d0c58 : glColorP4ui
-	7b3d0c78 : glColorP4uiv
-	7b3d0c88 : glSecondaryColorP3ui
-	7b3d0c98 : glSecondaryColorP3uiv
+	53450488 : glBindFragDataLocationIndexed
+	53450498 : glGetFragDataIndex
+	534509f8 : glGenSamplers
+	534509e8 : glDeleteSamplers
+	53450a08 : glIsSampler
+	53450a18 : glBindSampler
+	53450a48 : glSamplerParameteri
+	53450a58 : glSamplerParameteriv
+	53450a28 : glSamplerParameterf
+	53450a38 : glSamplerParameterfv
+	53450a88 : glSamplerParameterIiv
+	53450a98 : glSamplerParameterIuiv
+	53450a78 : glGetSamplerParameteriv
+	53450aa8 : glGetSamplerParameterIiv
+	53450a68 : glGetSamplerParameterfv
+	53450ab8 : glGetSamplerParameterIuiv
+	534509b8 : glQueryCounter
+	534509c8 : glGetQueryObjecti64v
+	534509d8 : glGetQueryObjectui64v
+	534509a8 : glVertexAttribDivisor
+	53450ca8 : glVertexAttribP1ui
+	53450ce8 : glVertexAttribP1uiv
+	53450cb8 : glVertexAttribP2ui
+	53450cf8 : glVertexAttribP2uiv
+	53450cc8 : glVertexAttribP3ui
+	53450d08 : glVertexAttribP3uiv
+	53450cd8 : glVertexAttribP4ui
+	53450d18 : glVertexAttribP4uiv
+	53450ac8 : glVertexP2ui
+	53450af8 : glVertexP2uiv
+	53450ad8 : glVertexP3ui
+	53450b08 : glVertexP3uiv
+	53450ae8 : glVertexP4ui
+	53450b18 : glVertexP4uiv
+	53450b28 : glTexCoordP1ui
+	53450b68 : glTexCoordP1uiv
+	53450b38 : glTexCoordP2ui
+	53450b78 : glTexCoordP2uiv
+	53450b48 : glTexCoordP3ui
+	53450b88 : glTexCoordP3uiv
+	53450b58 : glTexCoordP4ui
+	53450b98 : glTexCoordP4uiv
+	53450ba8 : glMultiTexCoordP1ui
+	53450be8 : glMultiTexCoordP1uiv
+	53450bb8 : glMultiTexCoordP2ui
+	53450bf8 : glMultiTexCoordP2uiv
+	53450bc8 : glMultiTexCoordP3ui
+	53450c08 : glMultiTexCoordP3uiv
+	53450bd8 : glMultiTexCoordP4ui
+	53450c18 : glMultiTexCoordP4uiv
+	53450c28 : glNormalP3ui
+	53450c38 : glNormalP3uiv
+	53450c48 : glColorP3ui
+	53450c68 : glColorP3uiv
+	53450c58 : glColorP4ui
+	53450c78 : glColorP4uiv
+	53450c88 : glSecondaryColorP3ui
+	53450c98 : glSecondaryColorP3uiv
 
 GL_VERSION_4_0
-	7b3d0d68 : glMinSampleShading
-	7b3d0d28 : glBlendEquationi
-	7b3d0d38 : glBlendEquationSeparatei
-	7b3d0d48 : glBlendFunci
-	7b3d0d58 : glBlendFuncSeparatei
-	7b3d0ec8 : glDrawArraysIndirect
-	7b3d0ed8 : glDrawElementsIndirect
-	7b3d18e8 : glUniform1d
-	7b3d18f8 : glUniform2d
-	7b3d1908 : glUniform3d
-	7b3d1918 : glUniform4d
-	7b3d1928 : glUniform1dv
-	7b3d1938 : glUniform2dv
-	7b3d1948 : glUniform3dv
-	7b3d1958 : glUniform4dv
-	7b3d1968 : glUniformMatrix2dv
-	7b3d1978 : glUniformMatrix3dv
-	7b3d1988 : glUniformMatrix4dv
-	7b3d1998 : glUniformMatrix2x3dv
-	7b3d19b8 : glUniformMatrix2x4dv
-	7b3d19a8 : glUniformMatrix3x2dv
-	7b3d19d8 : glUniformMatrix3x4dv
-	7b3d19c8 : glUniformMatrix4x2dv
-	7b3d19e8 : glUniformMatrix4x3dv
-	7b3d18d8 : glGetUniformdv
-	7b3d0d78 : glGetSubroutineUniformLocation
-	7b3d0d88 : glGetSubroutineIndex
-	7b3d0d98 : glGetActiveSubroutineUniformiv
-	7b3d0da8 : glGetActiveSubroutineUniformName
-	7b3d0db8 : glGetActiveSubroutineName
-	7b3d0dc8 : glUniformSubroutinesuiv
-	7b3d0dd8 : glGetUniformSubroutineuiv
-	7b3d0de8 : glGetProgramStageiv
-	7b3d0df8 : glPatchParameteri
-	7b3d0e08 : glPatchParameterfv
-	7b3d0e18 : glBindTransformFeedback
-	7b3d0e28 : glDeleteTransformFeedbacks
-	7b3d0e38 : glGenTransformFeedbacks
-	7b3d0e48 : glIsTransformFeedback
-	7b3d0e58 : glPauseTransformFeedback
-	7b3d0e68 : glResumeTransformFeedback
-	7b3d0e78 : glDrawTransformFeedback
-	7b3d0e88 : glDrawTransformFeedbackStream
-	7b3d0e98 : glBeginQueryIndexed
-	7b3d0ea8 : glEndQueryIndexed
-	7b3d0eb8 : glGetQueryIndexediv
+	53450d68 : glMinSampleShading
+	53450d28 : glBlendEquationi
+	53450d38 : glBlendEquationSeparatei
+	53450d48 : glBlendFunci
+	53450d58 : glBlendFuncSeparatei
+	53450ec8 : glDrawArraysIndirect
+	53450ed8 : glDrawElementsIndirect
+	534518e8 : glUniform1d
+	534518f8 : glUniform2d
+	53451908 : glUniform3d
+	53451918 : glUniform4d
+	53451928 : glUniform1dv
+	53451938 : glUniform2dv
+	53451948 : glUniform3dv
+	53451958 : glUniform4dv
+	53451968 : glUniformMatrix2dv
+	53451978 : glUniformMatrix3dv
+	53451988 : glUniformMatrix4dv
+	53451998 : glUniformMatrix2x3dv
+	534519b8 : glUniformMatrix2x4dv
+	534519a8 : glUniformMatrix3x2dv
+	534519d8 : glUniformMatrix3x4dv
+	534519c8 : glUniformMatrix4x2dv
+	534519e8 : glUniformMatrix4x3dv
+	534518d8 : glGetUniformdv
+	53450d78 : glGetSubroutineUniformLocation
+	53450d88 : glGetSubroutineIndex
+	53450d98 : glGetActiveSubroutineUniformiv
+	53450da8 : glGetActiveSubroutineUniformName
+	53450db8 : glGetActiveSubroutineName
+	53450dc8 : glUniformSubroutinesuiv
+	53450dd8 : glGetUniformSubroutineuiv
+	53450de8 : glGetProgramStageiv
+	53450df8 : glPatchParameteri
+	53450e08 : glPatchParameterfv
+	53450e18 : glBindTransformFeedback
+	53450e28 : glDeleteTransformFeedbacks
+	53450e38 : glGenTransformFeedbacks
+	53450e48 : glIsTransformFeedback
+	53450e58 : glPauseTransformFeedback
+	53450e68 : glResumeTransformFeedback
+	53450e78 : glDrawTransformFeedback
+	53450e88 : glDrawTransformFeedbackStream
+	53450e98 : glBeginQueryIndexed
+	53450ea8 : glEndQueryIndexed
+	53450eb8 : glGetQueryIndexediv
 
 GL_VERSION_4_1
-	7b3d2e68 : glReleaseShaderCompiler
-	7b3d2e78 : glShaderBinary
-	7b3d2e88 : glGetShaderPrecisionFormat
-	7b3d2e98 : glDepthRangef
-	7b3d2ea8 : glClearDepthf
-	7b3d1028 : glGetProgramBinary
-	7b3d1038 : glProgramBinary
-	7b3d0928 : glProgramParameteri
-	7b3d0f88 : glUseProgramStages
-	7b3d0f98 : glActiveShaderProgram
-	7b3d0fa8 : glCreateShaderProgramv
-	7b3d0fb8 : glBindProgramPipeline
-	7b3d0fc8 : glDeleteProgramPipelines
-	7b3d0fd8 : glGenProgramPipelines
-	7b3d0fe8 : glIsProgramPipeline
-	7b3d0ff8 : glGetProgramPipelineiv
-	7b3d22e8 : glProgramUniform1i
-	7b3d2328 : glProgramUniform1iv
-	7b3d2268 : glProgramUniform1f
-	7b3d22a8 : glProgramUniform1fv
-	7b3d2d38 : glProgramUniform1d
-	7b3d2d78 : glProgramUniform1dv
-	7b3d2368 : glProgramUniform1ui
-	7b3d23a8 : glProgramUniform1uiv
-	7b3d22f8 : glProgramUniform2i
-	7b3d2338 : glProgramUniform2iv
-	7b3d2278 : glProgramUniform2f
-	7b3d22b8 : glProgramUniform2fv
-	7b3d2d48 : glProgramUniform2d
-	7b3d2d88 : glProgramUniform2dv
-	7b3d2378 : glProgramUniform2ui
-	7b3d23b8 : glProgramUniform2uiv
-	7b3d2308 : glProgramUniform3i
-	7b3d2348 : glProgramUniform3iv
-	7b3d2288 : glProgramUniform3f
-	7b3d22c8 : glProgramUniform3fv
-	7b3d2d58 : glProgramUniform3d
-	7b3d2d98 : glProgramUniform3dv
-	7b3d2388 : glProgramUniform3ui
-	7b3d23c8 : glProgramUniform3uiv
-	7b3d2318 : glProgramUniform4i
-	7b3d2358 : glProgramUniform4iv
-	7b3d2298 : glProgramUniform4f
-	7b3d22d8 : glProgramUniform4fv
-	7b3d2d68 : glProgramUniform4d
-	7b3d2da8 : glProgramUniform4dv
-	7b3d2398 : glProgramUniform4ui
-	7b3d23d8 : glProgramUniform4uiv
-	7b3d23e8 : glProgramUniformMatrix2fv
-	7b3d23f8 : glProgramUniformMatrix3fv
-	7b3d2408 : glProgramUniformMatrix4fv
-	7b3d2db8 : glProgramUniformMatrix2dv
-	7b3d2dc8 : glProgramUniformMatrix3dv
-	7b3d2dd8 : glProgramUniformMatrix4dv
-	7b3d2418 : glProgramUniformMatrix2x3fv
-	7b3d2438 : glProgramUniformMatrix3x2fv
-	7b3d2428 : glProgramUniformMatrix2x4fv
-	7b3d2458 : glProgramUniformMatrix4x2fv
-	7b3d2448 : glProgramUniformMatrix3x4fv
-	7b3d2468 : glProgramUniformMatrix4x3fv
-	7b3d2de8 : glProgramUniformMatrix2x3dv
-	7b3d2e08 : glProgramUniformMatrix3x2dv
-	7b3d2df8 : glProgramUniformMatrix2x4dv
-	7b3d2e28 : glProgramUniformMatrix4x2dv
-	7b3d2e18 : glProgramUniformMatrix3x4dv
-	7b3d2e38 : glProgramUniformMatrix4x3dv
-	7b3d1008 : glValidateProgramPipeline
-	7b3d1018 : glGetProgramPipelineInfoLog
-	7b3d2be8 : glVertexAttribL1d
-	7b3d2bf8 : glVertexAttribL2d
-	7b3d2c08 : glVertexAttribL3d
-	7b3d2c18 : glVertexAttribL4d
-	7b3d2c28 : glVertexAttribL1dv
-	7b3d2c38 : glVertexAttribL2dv
-	7b3d2c48 : glVertexAttribL3dv
-	7b3d2c58 : glVertexAttribL4dv
-	7b3d2c68 : glVertexAttribLPointer
-	7b3d2c88 : glGetVertexAttribLdv
-	7b3d0ee8 : glViewportArrayv
-	7b3d0ef8 : glViewportIndexedf
-	7b3d0f08 : glViewportIndexedfv
-	7b3d0f18 : glScissorArrayv
-	7b3d0f28 : glScissorIndexed
-	7b3d0f38 : glScissorIndexedv
-	7b3d0f48 : glDepthRangeArrayv
-	7b3d0f58 : glDepthRangeIndexed
-	7b3d0f68 : glGetFloati_v
-	7b3d0f78 : glGetDoublei_v
+	53452e68 : glReleaseShaderCompiler
+	53452e78 : glShaderBinary
+	53452e88 : glGetShaderPrecisionFormat
+	53452e98 : glDepthRangef
+	53452ea8 : glClearDepthf
+	53451028 : glGetProgramBinary
+	53451038 : glProgramBinary
+	53450928 : glProgramParameteri
+	53450f88 : glUseProgramStages
+	53450f98 : glActiveShaderProgram
+	53450fa8 : glCreateShaderProgramv
+	53450fb8 : glBindProgramPipeline
+	53450fc8 : glDeleteProgramPipelines
+	53450fd8 : glGenProgramPipelines
+	53450fe8 : glIsProgramPipeline
+	53450ff8 : glGetProgramPipelineiv
+	534522e8 : glProgramUniform1i
+	53452328 : glProgramUniform1iv
+	53452268 : glProgramUniform1f
+	534522a8 : glProgramUniform1fv
+	53452d38 : glProgramUniform1d
+	53452d78 : glProgramUniform1dv
+	53452368 : glProgramUniform1ui
+	534523a8 : glProgramUniform1uiv
+	534522f8 : glProgramUniform2i
+	53452338 : glProgramUniform2iv
+	53452278 : glProgramUniform2f
+	534522b8 : glProgramUniform2fv
+	53452d48 : glProgramUniform2d
+	53452d88 : glProgramUniform2dv
+	53452378 : glProgramUniform2ui
+	534523b8 : glProgramUniform2uiv
+	53452308 : glProgramUniform3i
+	53452348 : glProgramUniform3iv
+	53452288 : glProgramUniform3f
+	534522c8 : glProgramUniform3fv
+	53452d58 : glProgramUniform3d
+	53452d98 : glProgramUniform3dv
+	53452388 : glProgramUniform3ui
+	534523c8 : glProgramUniform3uiv
+	53452318 : glProgramUniform4i
+	53452358 : glProgramUniform4iv
+	53452298 : glProgramUniform4f
+	534522d8 : glProgramUniform4fv
+	53452d68 : glProgramUniform4d
+	53452da8 : glProgramUniform4dv
+	53452398 : glProgramUniform4ui
+	534523d8 : glProgramUniform4uiv
+	534523e8 : glProgramUniformMatrix2fv
+	534523f8 : glProgramUniformMatrix3fv
+	53452408 : glProgramUniformMatrix4fv
+	53452db8 : glProgramUniformMatrix2dv
+	53452dc8 : glProgramUniformMatrix3dv
+	53452dd8 : glProgramUniformMatrix4dv
+	53452418 : glProgramUniformMatrix2x3fv
+	53452438 : glProgramUniformMatrix3x2fv
+	53452428 : glProgramUniformMatrix2x4fv
+	53452458 : glProgramUniformMatrix4x2fv
+	53452448 : glProgramUniformMatrix3x4fv
+	53452468 : glProgramUniformMatrix4x3fv
+	53452de8 : glProgramUniformMatrix2x3dv
+	53452e08 : glProgramUniformMatrix3x2dv
+	53452df8 : glProgramUniformMatrix2x4dv
+	53452e28 : glProgramUniformMatrix4x2dv
+	53452e18 : glProgramUniformMatrix3x4dv
+	53452e38 : glProgramUniformMatrix4x3dv
+	53451008 : glValidateProgramPipeline
+	53451018 : glGetProgramPipelineInfoLog
+	53452be8 : glVertexAttribL1d
+	53452bf8 : glVertexAttribL2d
+	53452c08 : glVertexAttribL3d
+	53452c18 : glVertexAttribL4d
+	53452c28 : glVertexAttribL1dv
+	53452c38 : glVertexAttribL2dv
+	53452c48 : glVertexAttribL3dv
+	53452c58 : glVertexAttribL4dv
+	53452c68 : glVertexAttribLPointer
+	53452c88 : glGetVertexAttribLdv
+	53450ee8 : glViewportArrayv
+	53450ef8 : glViewportIndexedf
+	53450f08 : glViewportIndexedfv
+	53450f18 : glScissorArrayv
+	53450f28 : glScissorIndexed
+	53450f38 : glScissorIndexedv
+	53450f48 : glDepthRangeArrayv
+	53450f58 : glDepthRangeIndexed
+	53450f68 : glGetFloati_v
+	53450f78 : glGetDoublei_v
 
 GL_VERSION_4_2
-	7b3d3168 : glDrawArraysInstancedBaseInstance
-	7b3d3178 : glDrawElementsInstancedBaseInstance
-	7b3d3188 : glDrawElementsInstancedBaseVertexBaseInstance
-	7b3d3158 : glGetInternalformativ
-	7b3d2fe8 : glGetActiveAtomicCounterBufferiv
-	7b3d1a98 : glBindImageTexture
-	7b3d1a88 : glMemoryBarrier
-	7b3d30b8 : glTexStorage1D
-	7b3d30c8 : glTexStorage2D
-	7b3d30d8 : glTexStorage3D
-	7b3d2c98 : glDrawTransformFeedbackInstanced
-	7b3d2ca8 : glDrawTransformFeedbackStreamInstanced
+	53453168 : glDrawArraysInstancedBaseInstance
+	53453178 : glDrawElementsInstancedBaseInstance
+	53453188 : glDrawElementsInstancedBaseVertexBaseInstance
+	53453158 : glGetInternalformativ
+	53452fe8 : glGetActiveAtomicCounterBufferiv
+	53451a98 : glBindImageTexture
+	53451a88 : glMemoryBarrier
+	534530b8 : glTexStorage1D
+	534530c8 : glTexStorage2D
+	534530d8 : glTexStorage3D
+	53452c98 : glDrawTransformFeedbackInstanced
+	53452ca8 : glDrawTransformFeedbackStreamInstanced
 
 GL_VERSION_4_3
-	7b3d33a8 : glClearBufferData
-	7b3d33b8 : glClearBufferSubData
-	7b3d2fb8 : glDispatchCompute
-	7b3d2fc8 : glDispatchComputeIndirect
-	7b3d3478 : glCopyImageSubData
-	7b3d31a8 : glFramebufferParameteri
-	7b3d31b8 : glGetFramebufferParameteriv
-	7b3d3468 : glGetInternalformati64v
-	7b3d3348 : glInvalidateTexSubImage
-	7b3d3358 : glInvalidateTexImage
-	7b3d3368 : glInvalidateBufferSubData
-	7b3d3378 : glInvalidateBufferData
-	7b3d3388 : glInvalidateFramebuffer
-	7b3d3398 : glInvalidateSubFramebuffer
-	7b3d2eb8 : glMultiDrawArraysIndirect
-	7b3d2ec8 : glMultiDrawElementsIndirect
-	7b3d2ff8 : glGetProgramInterfaceiv
-	7b3d3008 : glGetProgramResourceIndex
-	7b3d3018 : glGetProgramResourceName
-	7b3d3028 : glGetProgramResourceiv
-	7b3d3038 : glGetProgramResourceLocation
-	7b3d3048 : glGetProgramResourceLocationIndex
-	7b3d2fd8 : glShaderStorageBlockBinding
-	7b3d30f8 : glTexBufferRange
-	7b3d3118 : glTexStorage2DMultisample
-	7b3d3128 : glTexStorage3DMultisample
-	7b3d30e8 : glTextureView
-	7b3d3488 : glBindVertexBuffer
-	7b3d3498 : glVertexAttribFormat
-	7b3d34a8 : glVertexAttribIFormat
-	7b3d34b8 : glVertexAttribLFormat
-	7b3d34c8 : glVertexAttribBinding
-	7b3d34d8 : glVertexBindingDivisor
-	7b3d2f58 : glDebugMessageControl
-	7b3d2f68 : glDebugMessageInsert
-	7b3d2f78 : glDebugMessageCallback
-	7b3d2f88 : glGetDebugMessageLog
-	7b3d3408 : glPushDebugGroup
-	7b3d3418 : glPopDebugGroup
-	7b3d3428 : glObjectLabel
-	7b3d3448 : glGetObjectLabel
-	7b3d3438 : glObjectPtrLabel
-	7b3d3458 : glGetObjectPtrLabel
+	534533a8 : glClearBufferData
+	534533b8 : glClearBufferSubData
+	53452fb8 : glDispatchCompute
+	53452fc8 : glDispatchComputeIndirect
+	53453478 : glCopyImageSubData
+	534531a8 : glFramebufferParameteri
+	534531b8 : glGetFramebufferParameteriv
+	53453468 : glGetInternalformati64v
+	53453348 : glInvalidateTexSubImage
+	53453358 : glInvalidateTexImage
+	53453368 : glInvalidateBufferSubData
+	53453378 : glInvalidateBufferData
+	53453388 : glInvalidateFramebuffer
+	53453398 : glInvalidateSubFramebuffer
+	53452eb8 : glMultiDrawArraysIndirect
+	53452ec8 : glMultiDrawElementsIndirect
+	53452ff8 : glGetProgramInterfaceiv
+	53453008 : glGetProgramResourceIndex
+	53453018 : glGetProgramResourceName
+	53453028 : glGetProgramResourceiv
+	53453038 : glGetProgramResourceLocation
+	53453048 : glGetProgramResourceLocationIndex
+	53452fd8 : glShaderStorageBlockBinding
+	534530f8 : glTexBufferRange
+	53453118 : glTexStorage2DMultisample
+	53453128 : glTexStorage3DMultisample
+	534530e8 : glTextureView
+	53453488 : glBindVertexBuffer
+	53453498 : glVertexAttribFormat
+	534534a8 : glVertexAttribIFormat
+	534534b8 : glVertexAttribLFormat
+	534534c8 : glVertexAttribBinding
+	534534d8 : glVertexBindingDivisor
+	53452f58 : glDebugMessageControl
+	53452f68 : glDebugMessageInsert
+	53452f78 : glDebugMessageCallback
+	53452f88 : glGetDebugMessageLog
+	53453408 : glPushDebugGroup
+	53453418 : glPopDebugGroup
+	53453428 : glObjectLabel
+	53453448 : glGetObjectLabel
+	53453438 : glObjectPtrLabel
+	53453458 : glGetObjectPtrLabel
 
 GL_VERSION_4_4
-	7b3d3968 : glBufferStorage
-	7b3d35a8 : glClearTexImage
-	7b3d35b8 : glClearTexSubImage
-	7b3d3548 : glBindBuffersBase
-	7b3d3558 : glBindBuffersRange
-	7b3d3568 : glBindTextures
-	7b3d3578 : glBindSamplers
-	7b3d3588 : glBindImageTextures
-	7b3d3598 : glBindVertexBuffers
+	53453968 : glBufferStorage
+	534535a8 : glClearTexImage
+	534535b8 : glClearTexSubImage
+	53453548 : glBindBuffersBase
+	53453558 : glBindBuffersRange
+	53453568 : glBindTextures
+	53453578 : glBindSamplers
+	53453588 : glBindImageTextures
+	53453598 : glBindVertexBuffers
 
 GL_VERSION_4_5
-	7b3d35e8 : glClipControl
-	7b3d39c8 : glCreateTransformFeedbacks
-	7b3d39d8 : glTransformFeedbackBufferBase
-	7b3d39e8 : glTransformFeedbackBufferRange
-	7b3d39f8 : glGetTransformFeedbackiv
-	7b3d3a08 : glGetTransformFeedbacki_v
-	7b3d3a18 : glGetTransformFeedbacki64_v
-	7b3d3a28 : glCreateBuffers
-	7b3d3a38 : glNamedBufferStorage
-	7b3d3a48 : glNamedBufferData
-	7b3d3a58 : glNamedBufferSubData
-	7b3d3a68 : glCopyNamedBufferSubData
-	7b3d3a78 : glClearNamedBufferData
-	7b3d3a88 : glClearNamedBufferSubData
-	7b3d3a98 : glMapNamedBuffer
-	7b3d3aa8 : glMapNamedBufferRange
-	7b3d3ab8 : glUnmapNamedBuffer
-	7b3d3ac8 : glFlushMappedNamedBufferRange
-	7b3d3ad8 : glGetNamedBufferParameteriv
-	7b3d3ae8 : glGetNamedBufferParameteri64v
-	7b3d3af8 : glGetNamedBufferPointerv
-	7b3d3b08 : glGetNamedBufferSubData
-	7b3d3b18 : glCreateFramebuffers
-	7b3d3b28 : glNamedFramebufferRenderbuffer
-	7b3d3b38 : glNamedFramebufferParameteri
-	7b3d3b48 : glNamedFramebufferTexture
-	7b3d3b58 : glNamedFramebufferTextureLayer
-	7b3d3b68 : glNamedFramebufferDrawBuffer
-	7b3d3b78 : glNamedFramebufferDrawBuffers
-	7b3d3b88 : glNamedFramebufferReadBuffer
-	7b3d3b98 : glInvalidateNamedFramebufferData
-	7b3d3ba8 : glInvalidateNamedFramebufferSubData
-	7b3d3bb8 : glClearNamedFramebufferiv
-	7b3d3bc8 : glClearNamedFramebufferuiv
-	7b3d3bd8 : glClearNamedFramebufferfv
-	7b3d3be8 : glClearNamedFramebufferfi
-	7b3d3bf8 : glBlitNamedFramebuffer
-	7b3d3c08 : glCheckNamedFramebufferStatus
-	7b3d3c18 : glGetNamedFramebufferParameteriv
-	7b3d3c28 : glGetNamedFramebufferAttachmentParameteriv
-	7b3d3c38 : glCreateRenderbuffers
-	7b3d3c48 : glNamedRenderbufferStorage
-	7b3d3c58 : glNamedRenderbufferStorageMultisample
-	7b3d3c68 : glGetNamedRenderbufferParameteriv
-	7b3d3c78 : glCreateTextures
-	7b3d3c88 : glTextureBuffer
-	7b3d3c98 : glTextureBufferRange
-	7b3d3ca8 : glTextureStorage1D
-	7b3d3cb8 : glTextureStorage2D
-	7b3d3cc8 : glTextureStorage3D
-	7b3d3cd8 : glTextureStorage2DMultisample
-	7b3d3ce8 : glTextureStorage3DMultisample
-	7b3d3cf8 : glTextureSubImage1D
-	7b3d3d08 : glTextureSubImage2D
-	7b3d3d18 : glTextureSubImage3D
-	7b3d3d28 : glCompressedTextureSubImage1D
-	7b3d3d38 : glCompressedTextureSubImage2D
-	7b3d3d48 : glCompressedTextureSubImage3D
-	7b3d3d58 : glCopyTextureSubImage1D
-	7b3d3d68 : glCopyTextureSubImage2D
-	7b3d3d78 : glCopyTextureSubImage3D
-	7b3d3d88 : glTextureParameterf
-	7b3d3d98 : glTextureParameterfv
-	7b3d3da8 : glTextureParameteri
-	7b3d3db8 : glTextureParameterIiv
-	7b3d3dc8 : glTextureParameterIuiv
-	7b3d3dd8 : glTextureParameteriv
-	7b3d3de8 : glGenerateTextureMipmap
-	7b3d3df8 : glBindTextureUnit
-	7b3d3e08 : glGetTextureImage
-	7b3d3e18 : glGetCompressedTextureImage
-	7b3d3e28 : glGetTextureLevelParameterfv
-	7b3d3e38 : glGetTextureLevelParameteriv
-	7b3d3e48 : glGetTextureParameterfv
-	7b3d3e58 : glGetTextureParameterIiv
-	7b3d3e68 : glGetTextureParameterIuiv
-	7b3d3e78 : glGetTextureParameteriv
-	7b3d3e88 : glCreateVertexArrays
-	7b3d3e98 : glDisableVertexArrayAttrib
-	7b3d3ea8 : glEnableVertexArrayAttrib
-	7b3d3eb8 : glVertexArrayElementBuffer
-	7b3d3ec8 : glVertexArrayVertexBuffer
-	7b3d3ed8 : glVertexArrayVertexBuffers
-	7b3d3f18 : glVertexArrayAttribBinding
-	7b3d3ee8 : glVertexArrayAttribFormat
-	7b3d3ef8 : glVertexArrayAttribIFormat
-	7b3d3f08 : glVertexArrayAttribLFormat
-	7b3d3f28 : glVertexArrayBindingDivisor
-	7b3d3f38 : glGetVertexArrayiv
-	7b3d3f48 : glGetVertexArrayIndexediv
-	7b3d3f58 : glGetVertexArrayIndexed64iv
-	7b3d3f68 : glCreateSamplers
-	7b3d3f78 : glCreateProgramPipelines
-	7b3d3f88 : glCreateQueries
-	7b3d3fb8 : glGetQueryBufferObjecti64v
-	7b3d3f98 : glGetQueryBufferObjectiv
-	7b3d3fc8 : glGetQueryBufferObjectui64v
-	7b3d3fa8 : glGetQueryBufferObjectuiv
-	7b3d3fd8 : glMemoryBarrierByRegion
-	7b3d35c8 : glGetTextureSubImage
-	7b3d35d8 : glGetCompressedTextureSubImage
-	7b3d31e8 : glGetGraphicsResetStatus
+	534535e8 : glClipControl
+	534539c8 : glCreateTransformFeedbacks
+	534539d8 : glTransformFeedbackBufferBase
+	534539e8 : glTransformFeedbackBufferRange
+	534539f8 : glGetTransformFeedbackiv
+	53453a08 : glGetTransformFeedbacki_v
+	53453a18 : glGetTransformFeedbacki64_v
+	53453a28 : glCreateBuffers
+	53453a38 : glNamedBufferStorage
+	53453a48 : glNamedBufferData
+	53453a58 : glNamedBufferSubData
+	53453a68 : glCopyNamedBufferSubData
+	53453a78 : glClearNamedBufferData
+	53453a88 : glClearNamedBufferSubData
+	53453a98 : glMapNamedBuffer
+	53453aa8 : glMapNamedBufferRange
+	53453ab8 : glUnmapNamedBuffer
+	53453ac8 : glFlushMappedNamedBufferRange
+	53453ad8 : glGetNamedBufferParameteriv
+	53453ae8 : glGetNamedBufferParameteri64v
+	53453af8 : glGetNamedBufferPointerv
+	53453b08 : glGetNamedBufferSubData
+	53453b18 : glCreateFramebuffers
+	53453b28 : glNamedFramebufferRenderbuffer
+	53453b38 : glNamedFramebufferParameteri
+	53453b48 : glNamedFramebufferTexture
+	53453b58 : glNamedFramebufferTextureLayer
+	53453b68 : glNamedFramebufferDrawBuffer
+	53453b78 : glNamedFramebufferDrawBuffers
+	53453b88 : glNamedFramebufferReadBuffer
+	53453b98 : glInvalidateNamedFramebufferData
+	53453ba8 : glInvalidateNamedFramebufferSubData
+	53453bb8 : glClearNamedFramebufferiv
+	53453bc8 : glClearNamedFramebufferuiv
+	53453bd8 : glClearNamedFramebufferfv
+	53453be8 : glClearNamedFramebufferfi
+	53453bf8 : glBlitNamedFramebuffer
+	53453c08 : glCheckNamedFramebufferStatus
+	53453c18 : glGetNamedFramebufferParameteriv
+	53453c28 : glGetNamedFramebufferAttachmentParameteriv
+	53453c38 : glCreateRenderbuffers
+	53453c48 : glNamedRenderbufferStorage
+	53453c58 : glNamedRenderbufferStorageMultisample
+	53453c68 : glGetNamedRenderbufferParameteriv
+	53453c78 : glCreateTextures
+	53453c88 : glTextureBuffer
+	53453c98 : glTextureBufferRange
+	53453ca8 : glTextureStorage1D
+	53453cb8 : glTextureStorage2D
+	53453cc8 : glTextureStorage3D
+	53453cd8 : glTextureStorage2DMultisample
+	53453ce8 : glTextureStorage3DMultisample
+	53453cf8 : glTextureSubImage1D
+	53453d08 : glTextureSubImage2D
+	53453d18 : glTextureSubImage3D
+	53453d28 : glCompressedTextureSubImage1D
+	53453d38 : glCompressedTextureSubImage2D
+	53453d48 : glCompressedTextureSubImage3D
+	53453d58 : glCopyTextureSubImage1D
+	53453d68 : glCopyTextureSubImage2D
+	53453d78 : glCopyTextureSubImage3D
+	53453d88 : glTextureParameterf
+	53453d98 : glTextureParameterfv
+	53453da8 : glTextureParameteri
+	53453db8 : glTextureParameterIiv
+	53453dc8 : glTextureParameterIuiv
+	53453dd8 : glTextureParameteriv
+	53453de8 : glGenerateTextureMipmap
+	53453df8 : glBindTextureUnit
+	53453e08 : glGetTextureImage
+	53453e18 : glGetCompressedTextureImage
+	53453e28 : glGetTextureLevelParameterfv
+	53453e38 : glGetTextureLevelParameteriv
+	53453e48 : glGetTextureParameterfv
+	53453e58 : glGetTextureParameterIiv
+	53453e68 : glGetTextureParameterIuiv
+	53453e78 : glGetTextureParameteriv
+	53453e88 : glCreateVertexArrays
+	53453e98 : glDisableVertexArrayAttrib
+	53453ea8 : glEnableVertexArrayAttrib
+	53453eb8 : glVertexArrayElementBuffer
+	53453ec8 : glVertexArrayVertexBuffer
+	53453ed8 : glVertexArrayVertexBuffers
+	53453f18 : glVertexArrayAttribBinding
+	53453ee8 : glVertexArrayAttribFormat
+	53453ef8 : glVertexArrayAttribIFormat
+	53453f08 : glVertexArrayAttribLFormat
+	53453f28 : glVertexArrayBindingDivisor
+	53453f38 : glGetVertexArrayiv
+	53453f48 : glGetVertexArrayIndexediv
+	53453f58 : glGetVertexArrayIndexed64iv
+	53453f68 : glCreateSamplers
+	53453f78 : glCreateProgramPipelines
+	53453f88 : glCreateQueries
+	53453fb8 : glGetQueryBufferObjecti64v
+	53453f98 : glGetQueryBufferObjectiv
+	53453fc8 : glGetQueryBufferObjectui64v
+	53453fa8 : glGetQueryBufferObjectuiv
+	53453fd8 : glMemoryBarrierByRegion
+	534535c8 : glGetTextureSubImage
+	534535d8 : glGetCompressedTextureSubImage
+	534531e8 : glGetGraphicsResetStatus
 	0 : glGetnCompressedTexImage
-	  7b3d32e8 : glGetnCompressedTexImageARB
+	  534532e8 : glGetnCompressedTexImageARB
 	0 : glGetnTexImage
-	  7b3d32d8 : glGetnTexImageARB
+	  534532d8 : glGetnTexImageARB
 	0 : glGetnUniformdv
-	  7b3d32c8 : glGetnUniformdvARB
-	7b3d3208 : glGetnUniformfv
-	7b3d3218 : glGetnUniformiv
-	7b3d3228 : glGetnUniformuiv
-	7b3d31f8 : glReadnPixels
+	  534532c8 : glGetnUniformdvARB
+	53453208 : glGetnUniformfv
+	53453218 : glGetnUniformiv
+	53453228 : glGetnUniformuiv
+	534531f8 : glReadnPixels
 	0 : glGetnMapdv
-	  7b3d3238 : glGetnMapdvARB
+	  53453238 : glGetnMapdvARB
 	0 : glGetnMapfv
-	  7b3d3248 : glGetnMapfvARB
+	  53453248 : glGetnMapfvARB
 	0 : glGetnMapiv
-	  7b3d3258 : glGetnMapivARB
+	  53453258 : glGetnMapivARB
 	0 : glGetnPixelMapfv
-	  7b3d32f8 : glGetnPixelMapfvARB
+	  534532f8 : glGetnPixelMapfvARB
 	0 : glGetnPixelMapuiv
-	  7b3d3308 : glGetnPixelMapuivARB
+	  53453308 : glGetnPixelMapuivARB
 	0 : glGetnPixelMapusv
-	  7b3d3318 : glGetnPixelMapusvARB
+	  53453318 : glGetnPixelMapusvARB
 	0 : glGetnPolygonStipple
-	  7b3d3268 : glGetnPolygonStippleARB
+	  53453268 : glGetnPolygonStippleARB
 	0 : glGetnColorTable
-	  7b3d3278 : glGetnColorTableARB
+	  53453278 : glGetnColorTableARB
 	0 : glGetnConvolutionFilter
-	  7b3d3288 : glGetnConvolutionFilterARB
+	  53453288 : glGetnConvolutionFilterARB
 	0 : glGetnSeparableFilter
-	  7b3d3298 : glGetnSeparableFilterARB
+	  53453298 : glGetnSeparableFilterARB
 	0 : glGetnHistogram
-	  7b3d32a8 : glGetnHistogramARB
+	  534532a8 : glGetnHistogramARB
 	0 : glGetnMinmax
-	  7b3d32b8 : glGetnMinmaxARB
-	7b3d1aa8 : glTextureBarrier
+	  534532b8 : glGetnMinmaxARB
+	53451aa8 : glTextureBarrier
 
 GL_VERSION_4_6
 	0 : glSpecializeShader
 	0 : glMultiDrawArraysIndirectCount
-	  7b3d39a8 : glMultiDrawArraysIndirectCountARB
+	  534539a8 : glMultiDrawArraysIndirectCountARB
 	0 : glMultiDrawElementsIndirectCount
-	  7b3d39b8 : glMultiDrawElementsIndirectCountARB
+	  534539b8 : glMultiDrawElementsIndirectCountARB
 	0 : glPolygonOffsetClamp
-	  7b3d2788 : glPolygonOffsetClampEXT
+	  53452788 : glPolygonOffsetClampEXT
 
 GL_ARB_imaging
-	7b3d27b8 : glColorTable
-	7b3d27e8 : glColorTableParameterfv
-	7b3d27d8 : glColorTableParameteriv
-	7b3d2808 : glCopyColorTable
-	7b3d2818 : glGetColorTable
-	7b3d2828 : glGetColorTableParameterfv
-	7b3d2838 : glGetColorTableParameteriv
-	7b3d27c8 : glColorSubTable
-	7b3d27f8 : glCopyColorSubTable
-	7b3d28e8 : glConvolutionFilter1D
-	7b3d28f8 : glConvolutionFilter2D
-	7b3d2908 : glConvolutionParameterf
-	7b3d2918 : glConvolutionParameterfv
-	7b3d2928 : glConvolutionParameteri
-	7b3d2938 : glConvolutionParameteriv
-	7b3d2948 : glCopyConvolutionFilter1D
-	7b3d2958 : glCopyConvolutionFilter2D
-	7b3d2968 : glGetConvolutionFilter
-	7b3d2978 : glGetConvolutionParameterfv
-	7b3d2988 : glGetConvolutionParameteriv
-	7b3d29a8 : glGetSeparableFilter
-	7b3d2998 : glSeparableFilter2D
-	7b3d2868 : glGetHistogram
-	7b3d2888 : glGetHistogramParameterfv
-	7b3d2878 : glGetHistogramParameteriv
-	7b3d28b8 : glGetMinmax
-	7b3d28d8 : glGetMinmaxParameterfv
-	7b3d28c8 : glGetMinmaxParameteriv
-	7b3d2848 : glHistogram
-	7b3d2898 : glMinmax
-	7b3d2858 : glResetHistogram
-	7b3d28a8 : glResetMinmax
+	534527b8 : glColorTable
+	534527e8 : glColorTableParameterfv
+	534527d8 : glColorTableParameteriv
+	53452808 : glCopyColorTable
+	53452818 : glGetColorTable
+	53452828 : glGetColorTableParameterfv
+	53452838 : glGetColorTableParameteriv
+	534527c8 : glColorSubTable
+	534527f8 : glCopyColorSubTable
+	534528e8 : glConvolutionFilter1D
+	534528f8 : glConvolutionFilter2D
+	53452908 : glConvolutionParameterf
+	53452918 : glConvolutionParameterfv
+	53452928 : glConvolutionParameteri
+	53452938 : glConvolutionParameteriv
+	53452948 : glCopyConvolutionFilter1D
+	53452958 : glCopyConvolutionFilter2D
+	53452968 : glGetConvolutionFilter
+	53452978 : glGetConvolutionParameterfv
+	53452988 : glGetConvolutionParameteriv
+	534529a8 : glGetSeparableFilter
+	53452998 : glSeparableFilter2D
+	53452868 : glGetHistogram
+	53452888 : glGetHistogramParameterfv
+	53452878 : glGetHistogramParameteriv
+	534528b8 : glGetMinmax
+	534528d8 : glGetMinmaxParameterfv
+	534528c8 : glGetMinmaxParameteriv
+	53452848 : glHistogram
+	53452898 : glMinmax
+	53452858 : glResetHistogram
+	534528a8 : glResetMinmax
 
 GL_ARB_ES3_2_compatibility
 	0 : glPrimitiveBoundingBoxARB
 
 GL_ARB_bindless_texture
-	7b3d3868 : glGetTextureHandleARB
-	7b3d3878 : glGetTextureSamplerHandleARB
-	7b3d3888 : glMakeTextureHandleResidentARB
-	7b3d3898 : glMakeTextureHandleNonResidentARB
-	7b3d38a8 : glGetImageHandleARB
-	7b3d38b8 : glMakeImageHandleResidentARB
-	7b3d38c8 : glMakeImageHandleNonResidentARB
-	7b3d38d8 : glUniformHandleui64ARB
-	7b3d38e8 : glUniformHandleui64vARB
-	7b3d38f8 : glProgramUniformHandleui64ARB
-	7b3d3908 : glProgramUniformHandleui64vARB
-	7b3d3918 : glIsTextureHandleResidentARB
-	7b3d3928 : glIsImageHandleResidentARB
-	7b3d3938 : glVertexAttribL1ui64ARB
-	7b3d3948 : glVertexAttribL1ui64vARB
-	7b3d3958 : glGetVertexAttribLui64vARB
+	53453868 : glGetTextureHandleARB
+	53453878 : glGetTextureSamplerHandleARB
+	53453888 : glMakeTextureHandleResidentARB
+	53453898 : glMakeTextureHandleNonResidentARB
+	534538a8 : glGetImageHandleARB
+	534538b8 : glMakeImageHandleResidentARB
+	534538c8 : glMakeImageHandleNonResidentARB
+	534538d8 : glUniformHandleui64ARB
+	534538e8 : glUniformHandleui64vARB
+	534538f8 : glProgramUniformHandleui64ARB
+	53453908 : glProgramUniformHandleui64vARB
+	53453918 : glIsTextureHandleResidentARB
+	53453928 : glIsImageHandleResidentARB
+	53453938 : glVertexAttribL1ui64ARB
+	53453948 : glVertexAttribL1ui64vARB
+	53453958 : glGetVertexAttribLui64vARB
 
 GL_ARB_cl_event
 	0 : glCreateSyncFromCLeventARB
 
 GL_ARB_color_buffer_float
-	7b3d04e8 : glClampColorARB
+	534504e8 : glClampColorARB
 
 GL_ARB_compute_variable_group_size
 	0 : glDispatchComputeGroupSizeARB
 
 GL_ARB_debug_output
-	7b3d2f58 : glDebugMessageControlARB
-	7b3d2f68 : glDebugMessageInsertARB
-	7b3d2f78 : glDebugMessageCallbackARB
-	7b3d2f88 : glGetDebugMessageLogARB
+	53452f58 : glDebugMessageControlARB
+	53452f68 : glDebugMessageInsertARB
+	53452f78 : glDebugMessageCallbackARB
+	53452f88 : glGetDebugMessageLogARB
 
 GL_ARB_draw_buffers
-	7b3d0198 : glDrawBuffersARB
+	53450198 : glDrawBuffersARB
 
 GL_ARB_draw_buffers_blend
-	7b3d0d28 : glBlendEquationiARB
-	7b3d0d38 : glBlendEquationSeparateiARB
-	7b3d0d48 : glBlendFunciARB
-	7b3d0d58 : glBlendFuncSeparateiARB
+	53450d28 : glBlendEquationiARB
+	53450d38 : glBlendEquationSeparateiARB
+	53450d48 : glBlendFunciARB
+	53450d58 : glBlendFuncSeparateiARB
 
 GL_ARB_draw_instanced
-	7b3d0808 : glDrawArraysInstancedARB
-	7b3d0818 : glDrawElementsInstancedARB
+	53450808 : glDrawArraysInstancedARB
+	53450818 : glDrawElementsInstancedARB
 
 GL_ARB_fragment_program
-	7b3d1048 : glProgramStringARB
-	7b3d1058 : glBindProgramARB
-	7b3d1068 : glDeleteProgramsARB
-	7b3d1078 : glGenProgramsARB
-	7b3d1098 : glProgramEnvParameter4dARB
-	7b3d10b8 : glProgramEnvParameter4dvARB
-	7b3d1088 : glProgramEnvParameter4fARB
-	7b3d10a8 : glProgramEnvParameter4fvARB
-	7b3d10d8 : glProgramLocalParameter4dARB
-	7b3d10f8 : glProgramLocalParameter4dvARB
-	7b3d10c8 : glProgramLocalParameter4fARB
-	7b3d10e8 : glProgramLocalParameter4fvARB
-	7b3d1118 : glGetProgramEnvParameterdvARB
-	7b3d1108 : glGetProgramEnvParameterfvARB
-	7b3d1138 : glGetProgramLocalParameterdvARB
-	7b3d1128 : glGetProgramLocalParameterfvARB
-	7b3d1158 : glGetProgramivARB
-	7b3d1148 : glGetProgramStringARB
-	7b3d1168 : glIsProgramARB
+	53451048 : glProgramStringARB
+	53451058 : glBindProgramARB
+	53451068 : glDeleteProgramsARB
+	53451078 : glGenProgramsARB
+	53451098 : glProgramEnvParameter4dARB
+	534510b8 : glProgramEnvParameter4dvARB
+	53451088 : glProgramEnvParameter4fARB
+	534510a8 : glProgramEnvParameter4fvARB
+	534510d8 : glProgramLocalParameter4dARB
+	534510f8 : glProgramLocalParameter4dvARB
+	534510c8 : glProgramLocalParameter4fARB
+	534510e8 : glProgramLocalParameter4fvARB
+	53451118 : glGetProgramEnvParameterdvARB
+	53451108 : glGetProgramEnvParameterfvARB
+	53451138 : glGetProgramLocalParameterdvARB
+	53451128 : glGetProgramLocalParameterfvARB
+	53451158 : glGetProgramivARB
+	53451148 : glGetProgramStringARB
+	53451168 : glIsProgramARB
 
 GL_ARB_geometry_shader4
-	7b3d0928 : glProgramParameteriARB
-	7b3d0938 : glFramebufferTextureARB
-	7b3d0728 : glFramebufferTextureLayerARB
-	7b3d0948 : glFramebufferTextureFaceARB
+	53450928 : glProgramParameteriARB
+	53450938 : glFramebufferTextureARB
+	53450728 : glFramebufferTextureLayerARB
+	53450948 : glFramebufferTextureFaceARB
 
 GL_ARB_gl_spirv
 	0 : glSpecializeShaderARB
@@ -915,11 +915,11 @@ GL_ARB_gpu_shader_int64
 	0 : glProgramUniform4ui64vARB
 
 GL_ARB_indirect_parameters
-	7b3d39a8 : glMultiDrawArraysIndirectCountARB
-	7b3d39b8 : glMultiDrawElementsIndirectCountARB
+	534539a8 : glMultiDrawArraysIndirectCountARB
+	534539b8 : glMultiDrawElementsIndirectCountARB
 
 GL_ARB_instanced_arrays
-	7b3d09a8 : glVertexAttribDivisorARB
+	534509a8 : glVertexAttribDivisorARB
 
 GL_ARB_matrix_palette
 	0 : glCurrentPaletteMatrixARB
@@ -929,82 +929,82 @@ GL_ARB_matrix_palette
 	0 : glMatrixIndexPointerARB
 
 GL_ARB_multisample
-	7b3cf7a8 : glSampleCoverageARB
+	5344f7a8 : glSampleCoverageARB
 
 GL_ARB_multitexture
-	7b3cf4d8 : glActiveTextureARB
-	7b3cf4e8 : glClientActiveTextureARB
-	7b3cf4f8 : glMultiTexCoord1dARB
-	7b3cf508 : glMultiTexCoord1dvARB
-	7b3cf518 : glMultiTexCoord1fARB
-	7b3cf528 : glMultiTexCoord1fvARB
-	7b3cf538 : glMultiTexCoord1iARB
-	7b3cf548 : glMultiTexCoord1ivARB
-	7b3cf558 : glMultiTexCoord1sARB
-	7b3cf568 : glMultiTexCoord1svARB
-	7b3cf578 : glMultiTexCoord2dARB
-	7b3cf588 : glMultiTexCoord2dvARB
-	7b3cf598 : glMultiTexCoord2fARB
-	7b3cf5a8 : glMultiTexCoord2fvARB
-	7b3cf5b8 : glMultiTexCoord2iARB
-	7b3cf5c8 : glMultiTexCoord2ivARB
-	7b3cf5d8 : glMultiTexCoord2sARB
-	7b3cf5e8 : glMultiTexCoord2svARB
-	7b3cf5f8 : glMultiTexCoord3dARB
-	7b3cf608 : glMultiTexCoord3dvARB
-	7b3cf618 : glMultiTexCoord3fARB
-	7b3cf628 : glMultiTexCoord3fvARB
-	7b3cf638 : glMultiTexCoord3iARB
-	7b3cf648 : glMultiTexCoord3ivARB
-	7b3cf658 : glMultiTexCoord3sARB
-	7b3cf668 : glMultiTexCoord3svARB
-	7b3cf678 : glMultiTexCoord4dARB
-	7b3cf688 : glMultiTexCoord4dvARB
-	7b3cf698 : glMultiTexCoord4fARB
-	7b3cf6a8 : glMultiTexCoord4fvARB
-	7b3cf6b8 : glMultiTexCoord4iARB
-	7b3cf6c8 : glMultiTexCoord4ivARB
-	7b3cf6d8 : glMultiTexCoord4sARB
-	7b3cf6e8 : glMultiTexCoord4svARB
+	5344f4d8 : glActiveTextureARB
+	5344f4e8 : glClientActiveTextureARB
+	5344f4f8 : glMultiTexCoord1dARB
+	5344f508 : glMultiTexCoord1dvARB
+	5344f518 : glMultiTexCoord1fARB
+	5344f528 : glMultiTexCoord1fvARB
+	5344f538 : glMultiTexCoord1iARB
+	5344f548 : glMultiTexCoord1ivARB
+	5344f558 : glMultiTexCoord1sARB
+	5344f568 : glMultiTexCoord1svARB
+	5344f578 : glMultiTexCoord2dARB
+	5344f588 : glMultiTexCoord2dvARB
+	5344f598 : glMultiTexCoord2fARB
+	5344f5a8 : glMultiTexCoord2fvARB
+	5344f5b8 : glMultiTexCoord2iARB
+	5344f5c8 : glMultiTexCoord2ivARB
+	5344f5d8 : glMultiTexCoord2sARB
+	5344f5e8 : glMultiTexCoord2svARB
+	5344f5f8 : glMultiTexCoord3dARB
+	5344f608 : glMultiTexCoord3dvARB
+	5344f618 : glMultiTexCoord3fARB
+	5344f628 : glMultiTexCoord3fvARB
+	5344f638 : glMultiTexCoord3iARB
+	5344f648 : glMultiTexCoord3ivARB
+	5344f658 : glMultiTexCoord3sARB
+	5344f668 : glMultiTexCoord3svARB
+	5344f678 : glMultiTexCoord4dARB
+	5344f688 : glMultiTexCoord4dvARB
+	5344f698 : glMultiTexCoord4fARB
+	5344f6a8 : glMultiTexCoord4fvARB
+	5344f6b8 : glMultiTexCoord4iARB
+	5344f6c8 : glMultiTexCoord4ivARB
+	5344f6d8 : glMultiTexCoord4sARB
+	5344f6e8 : glMultiTexCoord4svARB
 
 GL_ARB_occlusion_query
-	7b3cfaa8 : glGenQueriesARB
-	7b3cfab8 : glDeleteQueriesARB
-	7b3cfac8 : glIsQueryARB
-	7b3cfad8 : glBeginQueryARB
-	7b3cfae8 : glEndQueryARB
-	7b3cfaf8 : glGetQueryivARB
-	7b3cfb08 : glGetQueryObjectivARB
-	7b3cfb18 : glGetQueryObjectuivARB
+	5344faa8 : glGenQueriesARB
+	5344fab8 : glDeleteQueriesARB
+	5344fac8 : glIsQueryARB
+	5344fad8 : glBeginQueryARB
+	5344fae8 : glEndQueryARB
+	5344faf8 : glGetQueryivARB
+	5344fb08 : glGetQueryObjectivARB
+	5344fb18 : glGetQueryObjectuivARB
 
 GL_ARB_parallel_shader_compile
 	0 : glMaxShaderCompilerThreadsARB
 
 GL_ARB_point_parameters
-	7b3cf938 : glPointParameterfARB
-	7b3cf948 : glPointParameterfvARB
+	5344f938 : glPointParameterfARB
+	5344f948 : glPointParameterfvARB
 
 GL_ARB_robustness
-	7b3d31e8 : glGetGraphicsResetStatusARB
-	7b3d32d8 : glGetnTexImageARB
-	7b3d31f8 : glReadnPixelsARB
-	7b3d32e8 : glGetnCompressedTexImageARB
-	7b3d3208 : glGetnUniformfvARB
-	7b3d3218 : glGetnUniformivARB
-	7b3d3228 : glGetnUniformuivARB
-	7b3d32c8 : glGetnUniformdvARB
-	7b3d3238 : glGetnMapdvARB
-	7b3d3248 : glGetnMapfvARB
-	7b3d3258 : glGetnMapivARB
-	7b3d32f8 : glGetnPixelMapfvARB
-	7b3d3308 : glGetnPixelMapuivARB
-	7b3d3318 : glGetnPixelMapusvARB
-	7b3d3268 : glGetnPolygonStippleARB
-	7b3d3278 : glGetnColorTableARB
-	7b3d3288 : glGetnConvolutionFilterARB
-	7b3d3298 : glGetnSeparableFilterARB
-	7b3d32a8 : glGetnHistogramARB
-	7b3d32b8 : glGetnMinmaxARB
+	534531e8 : glGetGraphicsResetStatusARB
+	534532d8 : glGetnTexImageARB
+	534531f8 : glReadnPixelsARB
+	534532e8 : glGetnCompressedTexImageARB
+	53453208 : glGetnUniformfvARB
+	53453218 : glGetnUniformivARB
+	53453228 : glGetnUniformuivARB
+	534532c8 : glGetnUniformdvARB
+	53453238 : glGetnMapdvARB
+	53453248 : glGetnMapfvARB
+	53453258 : glGetnMapivARB
+	534532f8 : glGetnPixelMapfvARB
+	53453308 : glGetnPixelMapuivARB
+	53453318 : glGetnPixelMapusvARB
+	53453268 : glGetnPolygonStippleARB
+	53453278 : glGetnColorTableARB
+	53453288 : glGetnConvolutionFilterARB
+	53453298 : glGetnSeparableFilterARB
+	534532a8 : glGetnHistogramARB
+	534532b8 : glGetnMinmaxARB
 
 GL_ARB_sample_locations
 	0 : glFramebufferSampleLocationsfvARB
@@ -1012,48 +1012,48 @@ GL_ARB_sample_locations
 	0 : glEvaluateDepthValuesARB
 
 GL_ARB_sample_shading
-	7b3d0d68 : glMinSampleShadingARB
+	53450d68 : glMinSampleShadingARB
 
 GL_ARB_shader_objects
-	7b3d11d8 : glDeleteObjectARB
-	7b3d11e8 : glGetHandleARB
-	7b3cfc78 : glDetachObjectARB
-	7b3cfc18 : glCreateShaderObjectARB
-	7b3cfc28 : glShaderSourceARB
-	7b3cfc38 : glCompileShaderARB
-	7b3cfc58 : glCreateProgramObjectARB
-	7b3cfc68 : glAttachObjectARB
-	7b3cfc88 : glLinkProgramARB
-	7b3cfc98 : glUseProgramObjectARB
-	7b3cfe08 : glValidateProgramARB
-	7b3cfcd8 : glUniform1fARB
-	7b3cfce8 : glUniform2fARB
-	7b3cfcf8 : glUniform3fARB
-	7b3cfd08 : glUniform4fARB
-	7b3cfd18 : glUniform1iARB
-	7b3cfd28 : glUniform2iARB
-	7b3cfd38 : glUniform3iARB
-	7b3cfd48 : glUniform4iARB
-	7b3cfd58 : glUniform1fvARB
-	7b3cfd68 : glUniform2fvARB
-	7b3cfd78 : glUniform3fvARB
-	7b3cfd88 : glUniform4fvARB
-	7b3cfd98 : glUniform1ivARB
-	7b3cfda8 : glUniform2ivARB
-	7b3cfdb8 : glUniform3ivARB
-	7b3cfdc8 : glUniform4ivARB
-	7b3cfdd8 : glUniformMatrix2fvARB
-	7b3cfde8 : glUniformMatrix3fvARB
-	7b3cfdf8 : glUniformMatrix4fvARB
-	7b3d11f8 : glGetObjectParameterfvARB
-	7b3d1208 : glGetObjectParameterivARB
-	7b3d1218 : glGetInfoLogARB
-	7b3cfe58 : glGetAttachedObjectsARB
-	7b3cfcb8 : glGetUniformLocationARB
-	7b3cfcc8 : glGetActiveUniformARB
-	7b3cfe98 : glGetUniformfvARB
-	7b3cfea8 : glGetUniformivARB
-	7b3cfe88 : glGetShaderSourceARB
+	534511d8 : glDeleteObjectARB
+	534511e8 : glGetHandleARB
+	5344fc78 : glDetachObjectARB
+	5344fc18 : glCreateShaderObjectARB
+	5344fc28 : glShaderSourceARB
+	5344fc38 : glCompileShaderARB
+	5344fc58 : glCreateProgramObjectARB
+	5344fc68 : glAttachObjectARB
+	5344fc88 : glLinkProgramARB
+	5344fc98 : glUseProgramObjectARB
+	5344fe08 : glValidateProgramARB
+	5344fcd8 : glUniform1fARB
+	5344fce8 : glUniform2fARB
+	5344fcf8 : glUniform3fARB
+	5344fd08 : glUniform4fARB
+	5344fd18 : glUniform1iARB
+	5344fd28 : glUniform2iARB
+	5344fd38 : glUniform3iARB
+	5344fd48 : glUniform4iARB
+	5344fd58 : glUniform1fvARB
+	5344fd68 : glUniform2fvARB
+	5344fd78 : glUniform3fvARB
+	5344fd88 : glUniform4fvARB
+	5344fd98 : glUniform1ivARB
+	5344fda8 : glUniform2ivARB
+	5344fdb8 : glUniform3ivARB
+	5344fdc8 : glUniform4ivARB
+	5344fdd8 : glUniformMatrix2fvARB
+	5344fde8 : glUniformMatrix3fvARB
+	5344fdf8 : glUniformMatrix4fvARB
+	534511f8 : glGetObjectParameterfvARB
+	53451208 : glGetObjectParameterivARB
+	53451218 : glGetInfoLogARB
+	5344fe58 : glGetAttachedObjectsARB
+	5344fcb8 : glGetUniformLocationARB
+	5344fcc8 : glGetActiveUniformARB
+	5344fe98 : glGetUniformfvARB
+	5344fea8 : glGetUniformivARB
+	5344fe88 : glGetShaderSourceARB
 
 GL_ARB_shading_language_include
 	0 : glNamedStringARB
@@ -1064,30 +1064,30 @@ GL_ARB_shading_language_include
 	0 : glGetNamedStringivARB
 
 GL_ARB_sparse_buffer
-	7b3d3ff8 : glBufferPageCommitmentARB
-	7b3d4008 : glNamedBufferPageCommitmentEXT
-	7b3d4018 : glNamedBufferPageCommitmentARB
+	53453ff8 : glBufferPageCommitmentARB
+	53454008 : glNamedBufferPageCommitmentEXT
+	53454018 : glNamedBufferPageCommitmentARB
 
 GL_ARB_sparse_texture
-	7b3d3988 : glTexPageCommitmentARB
+	53453988 : glTexPageCommitmentARB
 
 GL_ARB_texture_buffer_object
-	7b3d07f8 : glTexBufferARB
+	534507f8 : glTexBufferARB
 
 GL_ARB_texture_compression
-	7b3cf738 : glCompressedTexImage3DARB
-	7b3cf748 : glCompressedTexImage2DARB
-	7b3cf758 : glCompressedTexImage1DARB
-	7b3cf768 : glCompressedTexSubImage3DARB
-	7b3cf778 : glCompressedTexSubImage2DARB
-	7b3cf788 : glCompressedTexSubImage1DARB
-	7b3cf798 : glGetCompressedTexImageARB
+	5344f738 : glCompressedTexImage3DARB
+	5344f748 : glCompressedTexImage2DARB
+	5344f758 : glCompressedTexImage1DARB
+	5344f768 : glCompressedTexSubImage3DARB
+	5344f778 : glCompressedTexSubImage2DARB
+	5344f788 : glCompressedTexSubImage1DARB
+	5344f798 : glGetCompressedTexImageARB
 
 GL_ARB_transpose_matrix
-	7b3cf6f8 : glLoadTransposeMatrixfARB
-	7b3cf708 : glLoadTransposeMatrixdARB
-	7b3cf718 : glMultTransposeMatrixfARB
-	7b3cf728 : glMultTransposeMatrixdARB
+	5344f6f8 : glLoadTransposeMatrixfARB
+	5344f708 : glLoadTransposeMatrixdARB
+	5344f718 : glMultTransposeMatrixfARB
+	5344f728 : glMultTransposeMatrixdARB
 
 GL_ARB_vertex_blend
 	0 : glWeightbvARB
@@ -1102,85 +1102,85 @@ GL_ARB_vertex_blend
 	0 : glVertexBlendARB
 
 GL_ARB_vertex_buffer_object
-	7b3cfb68 : glBindBufferARB
-	7b3cfb78 : glDeleteBuffersARB
-	7b3cfb88 : glGenBuffersARB
-	7b3cfb98 : glIsBufferARB
-	7b3cfba8 : glBufferDataARB
-	7b3cfbb8 : glBufferSubDataARB
-	7b3cfbc8 : glGetBufferSubDataARB
-	7b3cfbd8 : glMapBufferARB
-	7b3cfbe8 : glUnmapBufferARB
-	7b3cfbf8 : glGetBufferParameterivARB
-	7b3cfc08 : glGetBufferPointervARB
+	5344fb68 : glBindBufferARB
+	5344fb78 : glDeleteBuffersARB
+	5344fb88 : glGenBuffersARB
+	5344fb98 : glIsBufferARB
+	5344fba8 : glBufferDataARB
+	5344fbb8 : glBufferSubDataARB
+	5344fbc8 : glGetBufferSubDataARB
+	5344fbd8 : glMapBufferARB
+	5344fbe8 : glUnmapBufferARB
+	5344fbf8 : glGetBufferParameterivARB
+	5344fc08 : glGetBufferPointervARB
 
 GL_ARB_vertex_program
-	7b3cff08 : glVertexAttrib1dARB
-	7b3cffd8 : glVertexAttrib1dvARB
-	7b3cfef8 : glVertexAttrib1fARB
-	7b3cffc8 : glVertexAttrib1fvARB
-	7b3cfee8 : glVertexAttrib1sARB
-	7b3cffb8 : glVertexAttrib1svARB
-	7b3cff38 : glVertexAttrib2dARB
-	7b3d0008 : glVertexAttrib2dvARB
-	7b3cff28 : glVertexAttrib2fARB
-	7b3cfff8 : glVertexAttrib2fvARB
-	7b3cff18 : glVertexAttrib2sARB
-	7b3cffe8 : glVertexAttrib2svARB
-	7b3cff68 : glVertexAttrib3dARB
-	7b3d0038 : glVertexAttrib3dvARB
-	7b3cff58 : glVertexAttrib3fARB
-	7b3d0028 : glVertexAttrib3fvARB
-	7b3cff48 : glVertexAttrib3sARB
-	7b3d0018 : glVertexAttrib3svARB
-	7b3d00c8 : glVertexAttrib4NbvARB
-	7b3d00e8 : glVertexAttrib4NivARB
-	7b3d00d8 : glVertexAttrib4NsvARB
-	7b3cffa8 : glVertexAttrib4NubARB
-	7b3d00f8 : glVertexAttrib4NubvARB
-	7b3d0118 : glVertexAttrib4NuivARB
-	7b3d0108 : glVertexAttrib4NusvARB
-	7b3d0048 : glVertexAttrib4bvARB
-	7b3cff98 : glVertexAttrib4dARB
-	7b3d00b8 : glVertexAttrib4dvARB
-	7b3cff88 : glVertexAttrib4fARB
-	7b3d00a8 : glVertexAttrib4fvARB
-	7b3d0068 : glVertexAttrib4ivARB
-	7b3cff78 : glVertexAttrib4sARB
-	7b3d0058 : glVertexAttrib4svARB
-	7b3d0078 : glVertexAttrib4ubvARB
-	7b3d0098 : glVertexAttrib4uivARB
-	7b3d0088 : glVertexAttrib4usvARB
-	7b3d0128 : glVertexAttribPointerARB
-	7b3d0138 : glEnableVertexAttribArrayARB
-	7b3d0148 : glDisableVertexAttribArrayARB
-	7b3d0158 : glGetVertexAttribdvARB
-	7b3d0168 : glGetVertexAttribfvARB
-	7b3d0178 : glGetVertexAttribivARB
-	7b3d0188 : glGetVertexAttribPointervARB
+	5344ff08 : glVertexAttrib1dARB
+	5344ffd8 : glVertexAttrib1dvARB
+	5344fef8 : glVertexAttrib1fARB
+	5344ffc8 : glVertexAttrib1fvARB
+	5344fee8 : glVertexAttrib1sARB
+	5344ffb8 : glVertexAttrib1svARB
+	5344ff38 : glVertexAttrib2dARB
+	53450008 : glVertexAttrib2dvARB
+	5344ff28 : glVertexAttrib2fARB
+	5344fff8 : glVertexAttrib2fvARB
+	5344ff18 : glVertexAttrib2sARB
+	5344ffe8 : glVertexAttrib2svARB
+	5344ff68 : glVertexAttrib3dARB
+	53450038 : glVertexAttrib3dvARB
+	5344ff58 : glVertexAttrib3fARB
+	53450028 : glVertexAttrib3fvARB
+	5344ff48 : glVertexAttrib3sARB
+	53450018 : glVertexAttrib3svARB
+	534500c8 : glVertexAttrib4NbvARB
+	534500e8 : glVertexAttrib4NivARB
+	534500d8 : glVertexAttrib4NsvARB
+	5344ffa8 : glVertexAttrib4NubARB
+	534500f8 : glVertexAttrib4NubvARB
+	53450118 : glVertexAttrib4NuivARB
+	53450108 : glVertexAttrib4NusvARB
+	53450048 : glVertexAttrib4bvARB
+	5344ff98 : glVertexAttrib4dARB
+	534500b8 : glVertexAttrib4dvARB
+	5344ff88 : glVertexAttrib4fARB
+	534500a8 : glVertexAttrib4fvARB
+	53450068 : glVertexAttrib4ivARB
+	5344ff78 : glVertexAttrib4sARB
+	53450058 : glVertexAttrib4svARB
+	53450078 : glVertexAttrib4ubvARB
+	53450098 : glVertexAttrib4uivARB
+	53450088 : glVertexAttrib4usvARB
+	53450128 : glVertexAttribPointerARB
+	53450138 : glEnableVertexAttribArrayARB
+	53450148 : glDisableVertexAttribArrayARB
+	53450158 : glGetVertexAttribdvARB
+	53450168 : glGetVertexAttribfvARB
+	53450178 : glGetVertexAttribivARB
+	53450188 : glGetVertexAttribPointervARB
 
 GL_ARB_vertex_shader
-	7b3cfed8 : glBindAttribLocationARB
-	7b3cfeb8 : glGetActiveAttribARB
-	7b3cfec8 : glGetAttribLocationARB
+	5344fed8 : glBindAttribLocationARB
+	5344feb8 : glGetActiveAttribARB
+	5344fec8 : glGetAttribLocationARB
 
 GL_ARB_window_pos
-	7b3cf988 : glWindowPos2dARB
-	7b3cf998 : glWindowPos2dvARB
-	7b3cf9a8 : glWindowPos2fARB
-	7b3cf9b8 : glWindowPos2fvARB
-	7b3cf9c8 : glWindowPos2iARB
-	7b3cf9d8 : glWindowPos2ivARB
-	7b3cf9e8 : glWindowPos2sARB
-	7b3cf9f8 : glWindowPos2svARB
-	7b3cfa08 : glWindowPos3dARB
-	7b3cfa18 : glWindowPos3dvARB
-	7b3cfa28 : glWindowPos3fARB
-	7b3cfa38 : glWindowPos3fvARB
-	7b3cfa48 : glWindowPos3iARB
-	7b3cfa58 : glWindowPos3ivARB
-	7b3cfa68 : glWindowPos3sARB
-	7b3cfa78 : glWindowPos3svARB
+	5344f988 : glWindowPos2dARB
+	5344f998 : glWindowPos2dvARB
+	5344f9a8 : glWindowPos2fARB
+	5344f9b8 : glWindowPos2fvARB
+	5344f9c8 : glWindowPos2iARB
+	5344f9d8 : glWindowPos2ivARB
+	5344f9e8 : glWindowPos2sARB
+	5344f9f8 : glWindowPos2svARB
+	5344fa08 : glWindowPos3dARB
+	5344fa18 : glWindowPos3dvARB
+	5344fa28 : glWindowPos3fARB
+	5344fa38 : glWindowPos3fvARB
+	5344fa48 : glWindowPos3iARB
+	5344fa58 : glWindowPos3ivARB
+	5344fa68 : glWindowPos3sARB
+	5344fa78 : glWindowPos3svARB
 
 GL_KHR_blend_equation_advanced
 	0 : glBlendBarrierKHR
@@ -1332,100 +1332,100 @@ GL_3DFX_tbuffer
 	0 : glTbufferMask3DFX
 
 GL_AMD_debug_output
-	7b3d1ad8 : glDebugMessageEnableAMD
-	7b3d1ae8 : glDebugMessageInsertAMD
-	7b3d1ab8 : glDebugMessageCallbackAMD
-	7b3d1ac8 : glGetDebugMessageLogAMD
+	53451ad8 : glDebugMessageEnableAMD
+	53451ae8 : glDebugMessageInsertAMD
+	53451ab8 : glDebugMessageCallbackAMD
+	53451ac8 : glGetDebugMessageLogAMD
 
 GL_AMD_draw_buffers_blend
-	7b3d0d48 : glBlendFuncIndexedAMD
-	7b3d0d58 : glBlendFuncSeparateIndexedAMD
-	7b3d0d28 : glBlendEquationIndexedAMD
-	7b3d0d38 : glBlendEquationSeparateIndexedAMD
+	53450d48 : glBlendFuncIndexedAMD
+	53450d58 : glBlendFuncSeparateIndexedAMD
+	53450d28 : glBlendEquationIndexedAMD
+	53450d38 : glBlendEquationSeparateIndexedAMD
 
 GL_AMD_framebuffer_sample_positions
-	7b3d0748 : glFramebufferSamplePositionsfvAMD
-	7b3d2608 : glNamedFramebufferSamplePositionsfvAMD
-	7b3d0758 : glGetFramebufferParameterfvAMD
-	7b3d2618 : glGetNamedFramebufferParameterfvAMD
+	53450748 : glFramebufferSamplePositionsfvAMD
+	53452608 : glNamedFramebufferSamplePositionsfvAMD
+	53450758 : glGetFramebufferParameterfvAMD
+	53452618 : glGetNamedFramebufferParameterfvAMD
 
 GL_AMD_gpu_shader_int64
-	7b3d35f8 : glUniform1i64NV
-	7b3d3608 : glUniform2i64NV
-	7b3d3618 : glUniform3i64NV
-	7b3d3628 : glUniform4i64NV
-	7b3d3638 : glUniform1i64vNV
-	7b3d3648 : glUniform2i64vNV
-	7b3d3658 : glUniform3i64vNV
-	7b3d3668 : glUniform4i64vNV
-	7b3d3678 : glUniform1ui64NV
-	7b3d3688 : glUniform2ui64NV
-	7b3d3698 : glUniform3ui64NV
-	7b3d36a8 : glUniform4ui64NV
-	7b3d36b8 : glUniform1ui64vNV
-	7b3d36c8 : glUniform2ui64vNV
-	7b3d36d8 : glUniform3ui64vNV
-	7b3d36e8 : glUniform4ui64vNV
-	7b3d36f8 : glGetUniformi64vNV
-	7b3d3708 : glGetUniformui64vNV
-	7b3d3718 : glProgramUniform1i64NV
-	7b3d3728 : glProgramUniform2i64NV
-	7b3d3738 : glProgramUniform3i64NV
-	7b3d3748 : glProgramUniform4i64NV
-	7b3d3758 : glProgramUniform1i64vNV
-	7b3d3768 : glProgramUniform2i64vNV
-	7b3d3778 : glProgramUniform3i64vNV
-	7b3d3788 : glProgramUniform4i64vNV
-	7b3d3798 : glProgramUniform1ui64NV
-	7b3d37a8 : glProgramUniform2ui64NV
-	7b3d37b8 : glProgramUniform3ui64NV
-	7b3d37c8 : glProgramUniform4ui64NV
-	7b3d37d8 : glProgramUniform1ui64vNV
-	7b3d37e8 : glProgramUniform2ui64vNV
-	7b3d37f8 : glProgramUniform3ui64vNV
-	7b3d3808 : glProgramUniform4ui64vNV
+	534535f8 : glUniform1i64NV
+	53453608 : glUniform2i64NV
+	53453618 : glUniform3i64NV
+	53453628 : glUniform4i64NV
+	53453638 : glUniform1i64vNV
+	53453648 : glUniform2i64vNV
+	53453658 : glUniform3i64vNV
+	53453668 : glUniform4i64vNV
+	53453678 : glUniform1ui64NV
+	53453688 : glUniform2ui64NV
+	53453698 : glUniform3ui64NV
+	534536a8 : glUniform4ui64NV
+	534536b8 : glUniform1ui64vNV
+	534536c8 : glUniform2ui64vNV
+	534536d8 : glUniform3ui64vNV
+	534536e8 : glUniform4ui64vNV
+	534536f8 : glGetUniformi64vNV
+	53453708 : glGetUniformui64vNV
+	53453718 : glProgramUniform1i64NV
+	53453728 : glProgramUniform2i64NV
+	53453738 : glProgramUniform3i64NV
+	53453748 : glProgramUniform4i64NV
+	53453758 : glProgramUniform1i64vNV
+	53453768 : glProgramUniform2i64vNV
+	53453778 : glProgramUniform3i64vNV
+	53453788 : glProgramUniform4i64vNV
+	53453798 : glProgramUniform1ui64NV
+	534537a8 : glProgramUniform2ui64NV
+	534537b8 : glProgramUniform3ui64NV
+	534537c8 : glProgramUniform4ui64NV
+	534537d8 : glProgramUniform1ui64vNV
+	534537e8 : glProgramUniform2ui64vNV
+	534537f8 : glProgramUniform3ui64vNV
+	53453808 : glProgramUniform4ui64vNV
 
 GL_AMD_interleaved_elements
-	7b3d33e8 : glVertexAttribParameteriAMD
+	534533e8 : glVertexAttribParameteriAMD
 
 GL_AMD_multi_draw_indirect
-	7b3d2eb8 : glMultiDrawArraysIndirectAMD
-	7b3d2ec8 : glMultiDrawElementsIndirectAMD
+	53452eb8 : glMultiDrawArraysIndirectAMD
+	53452ec8 : glMultiDrawElementsIndirectAMD
 
 GL_AMD_name_gen_delete
-	7b3d2bb8 : glGenNamesAMD
-	7b3d2bc8 : glDeleteNamesAMD
-	7b3d2bd8 : glIsNameAMD
+	53452bb8 : glGenNamesAMD
+	53452bc8 : glDeleteNamesAMD
+	53452bd8 : glIsNameAMD
 
 GL_AMD_occlusion_query_event
-	7b3d33f8 : glQueryObjectParameteruiAMD
+	534533f8 : glQueryObjectParameteruiAMD
 
 GL_AMD_performance_monitor
-	7b3d16c8 : glGetPerfMonitorGroupsAMD
-	7b3d16d8 : glGetPerfMonitorCountersAMD
-	7b3d16e8 : glGetPerfMonitorGroupStringAMD
-	7b3d16f8 : glGetPerfMonitorCounterStringAMD
-	7b3d1708 : glGetPerfMonitorCounterInfoAMD
-	7b3d1718 : glGenPerfMonitorsAMD
-	7b3d1728 : glDeletePerfMonitorsAMD
-	7b3d1738 : glSelectPerfMonitorCountersAMD
-	7b3d1748 : glBeginPerfMonitorAMD
-	7b3d1758 : glEndPerfMonitorAMD
-	7b3d1768 : glGetPerfMonitorCounterDataAMD
+	534516c8 : glGetPerfMonitorGroupsAMD
+	534516d8 : glGetPerfMonitorCountersAMD
+	534516e8 : glGetPerfMonitorGroupStringAMD
+	534516f8 : glGetPerfMonitorCounterStringAMD
+	53451708 : glGetPerfMonitorCounterInfoAMD
+	53451718 : glGenPerfMonitorsAMD
+	53451728 : glDeletePerfMonitorsAMD
+	53451738 : glSelectPerfMonitorCountersAMD
+	53451748 : glBeginPerfMonitorAMD
+	53451758 : glEndPerfMonitorAMD
+	53451768 : glGetPerfMonitorCounterDataAMD
 
 GL_AMD_sample_positions
-	7b3d1a48 : glSetMultisamplefvAMD
+	53451a48 : glSetMultisamplefvAMD
 
 GL_AMD_sparse_texture
-	7b3d2ed8 : glTexStorageSparseAMD
-	7b3d2ee8 : glTextureStorageSparseAMD
+	53452ed8 : glTexStorageSparseAMD
+	53452ee8 : glTextureStorageSparseAMD
 
 GL_AMD_stencil_operation_extended
-	7b3d18c8 : glStencilOpValueAMD
+	534518c8 : glStencilOpValueAMD
 
 GL_AMD_vertex_shader_tessellator
-	7b3d1838 : glTessellationFactorAMD
-	7b3d1848 : glTessellationModeAMD
+	53451838 : glTessellationFactorAMD
+	53451848 : glTessellationModeAMD
 
 GL_APPLE_element_array
 	0 : glElementPointerAPPLE
@@ -1454,8 +1454,8 @@ GL_APPLE_object_purgeable
 	0 : glGetObjectParameterivAPPLE
 
 GL_APPLE_texture_range
-	7b3d2798 : glTextureRangeAPPLE
-	7b3d27a8 : glGetTexParameterPointervAPPLE
+	53452798 : glTextureRangeAPPLE
+	534527a8 : glGetTexParameterPointervAPPLE
 
 GL_APPLE_vertex_array_object
 	0 : glBindVertexArrayAPPLE
@@ -1478,7 +1478,7 @@ GL_APPLE_vertex_program_evaluators
 	0 : glMapVertexAttrib2fAPPLE
 
 GL_ATI_draw_buffers
-	7b3d0198 : glDrawBuffersATI
+	53450198 : glDrawBuffersATI
 
 GL_ATI_element_array
 	0 : glElementPointerATI
@@ -1486,26 +1486,26 @@ GL_ATI_element_array
 	0 : glDrawRangeElementArrayATI
 
 GL_ATI_envmap_bumpmap
-	7b3d1698 : glTexBumpParameterivATI
-	7b3d1688 : glTexBumpParameterfvATI
-	7b3d16b8 : glGetTexBumpParameterivATI
-	7b3d16a8 : glGetTexBumpParameterfvATI
+	53451698 : glTexBumpParameterivATI
+	53451688 : glTexBumpParameterfvATI
+	534516b8 : glGetTexBumpParameterivATI
+	534516a8 : glGetTexBumpParameterfvATI
 
 GL_ATI_fragment_shader
-	7b3d1308 : glGenFragmentShadersATI
-	7b3d1318 : glBindFragmentShaderATI
-	7b3d1328 : glDeleteFragmentShaderATI
-	7b3d1338 : glBeginFragmentShaderATI
-	7b3d1348 : glEndFragmentShaderATI
-	7b3d1358 : glPassTexCoordATI
-	7b3d1368 : glSampleMapATI
-	7b3d1378 : glColorFragmentOp1ATI
-	7b3d1388 : glColorFragmentOp2ATI
-	7b3d1398 : glColorFragmentOp3ATI
-	7b3d13a8 : glAlphaFragmentOp1ATI
-	7b3d13b8 : glAlphaFragmentOp2ATI
-	7b3d13c8 : glAlphaFragmentOp3ATI
-	7b3d13d8 : glSetFragmentShaderConstantATI
+	53451308 : glGenFragmentShadersATI
+	53451318 : glBindFragmentShaderATI
+	53451328 : glDeleteFragmentShaderATI
+	53451338 : glBeginFragmentShaderATI
+	53451348 : glEndFragmentShaderATI
+	53451358 : glPassTexCoordATI
+	53451368 : glSampleMapATI
+	53451378 : glColorFragmentOp1ATI
+	53451388 : glColorFragmentOp2ATI
+	53451398 : glColorFragmentOp3ATI
+	534513a8 : glAlphaFragmentOp1ATI
+	534513b8 : glAlphaFragmentOp2ATI
+	534513c8 : glAlphaFragmentOp3ATI
+	534513d8 : glSetFragmentShaderConstantATI
 
 GL_ATI_map_object_buffer
 	0 : glMapObjectBufferATI
@@ -1516,8 +1516,8 @@ GL_ATI_pn_triangles
 	0 : glPNTrianglesfATI
 
 GL_ATI_separate_stencil
-	7b3d01b8 : glStencilOpSeparateATI
-	7b3d01a8 : glStencilFuncSeparateATI
+	534501b8 : glStencilOpSeparateATI
+	534501a8 : glStencilFuncSeparateATI
 
 GL_ATI_vertex_array_object
 	0 : glNewObjectBufferATI
@@ -1586,29 +1586,29 @@ GL_ATI_vertex_streams
 	0 : glVertexBlendEnvfATI
 
 GL_EXT_bindable_uniform
-	7b3d1858 : glUniformBufferEXT
-	7b3d1868 : glGetUniformBufferSizeEXT
-	7b3d1878 : glGetUniformOffsetEXT
+	53451858 : glUniformBufferEXT
+	53451868 : glGetUniformBufferSizeEXT
+	53451878 : glGetUniformOffsetEXT
 
 GL_EXT_blend_color
-	7b3cf4b8 : glBlendColorEXT
+	5344f4b8 : glBlendColorEXT
 
 GL_EXT_blend_equation_separate
-	7b3d01e8 : glBlendEquationSeparateEXT
+	534501e8 : glBlendEquationSeparateEXT
 
 GL_EXT_blend_func_separate
-	7b3cf978 : glBlendFuncSeparateEXT
+	5344f978 : glBlendFuncSeparateEXT
 
 GL_EXT_blend_minmax
-	7b3cf4c8 : glBlendEquationEXT
+	5344f4c8 : glBlendEquationEXT
 
 GL_EXT_color_subtable
 	0 : glColorSubTableEXT
 	0 : glCopyColorSubTableEXT
 
 GL_EXT_compiled_vertex_array
-	7b3d12e8 : glLockArraysEXT
-	7b3d12f8 : glUnlockArraysEXT
+	534512e8 : glLockArraysEXT
+	534512f8 : glUnlockArraysEXT
 
 GL_EXT_convolution
 	0 : glConvolutionFilter1DEXT
@@ -1650,11 +1650,11 @@ GL_EXT_coordinate_frame
 	0 : glBinormalPointerEXT
 
 GL_EXT_copy_texture
-	7b3cf3a8 : glCopyTexImage1DEXT
-	7b3cf3b8 : glCopyTexImage2DEXT
-	7b3cf3c8 : glCopyTexSubImage1DEXT
-	7b3cf3d8 : glCopyTexSubImage2DEXT
-	7b3cf498 : glCopyTexSubImage3DEXT
+	5344f3a8 : glCopyTexImage1DEXT
+	5344f3b8 : glCopyTexImage2DEXT
+	5344f3c8 : glCopyTexSubImage1DEXT
+	5344f3d8 : glCopyTexSubImage2DEXT
+	5344f498 : glCopyTexSubImage3DEXT
 
 GL_EXT_cull_vertex
 	0 : glCullParameterdvEXT
@@ -1670,162 +1670,162 @@ GL_EXT_debug_marker
 	0 : glPopGroupMarkerEXT
 
 GL_EXT_depth_bounds_test
-	7b3d18b8 : glDepthBoundsEXT
+	534518b8 : glDepthBoundsEXT
 
 GL_EXT_direct_state_access
-	7b3d1af8 : glMatrixLoadfEXT
-	7b3d1b08 : glMatrixLoaddEXT
-	7b3d1b18 : glMatrixMultfEXT
-	7b3d1b28 : glMatrixMultdEXT
-	7b3d1b38 : glMatrixLoadIdentityEXT
-	7b3d1b48 : glMatrixRotatefEXT
-	7b3d1b58 : glMatrixRotatedEXT
-	7b3d1b68 : glMatrixScalefEXT
-	7b3d1b78 : glMatrixScaledEXT
-	7b3d1b88 : glMatrixTranslatefEXT
-	7b3d1b98 : glMatrixTranslatedEXT
-	7b3d1bb8 : glMatrixFrustumEXT
-	7b3d1ba8 : glMatrixOrthoEXT
-	7b3d1bd8 : glMatrixPopEXT
-	7b3d1bc8 : glMatrixPushEXT
-	7b3d1c28 : glClientAttribDefaultEXT
-	7b3d1c38 : glPushClientAttribDefaultEXT
-	7b3d1c68 : glTextureParameterfEXT
-	7b3d1c78 : glTextureParameterfvEXT
-	7b3d1c48 : glTextureParameteriEXT
-	7b3d1c58 : glTextureParameterivEXT
-	7b3d1ca8 : glTextureImage1DEXT
-	7b3d1cb8 : glTextureImage2DEXT
-	7b3d1cd8 : glTextureSubImage1DEXT
-	7b3d1ce8 : glTextureSubImage2DEXT
-	7b3d1d08 : glCopyTextureImage1DEXT
-	7b3d1d18 : glCopyTextureImage2DEXT
-	7b3d1d28 : glCopyTextureSubImage1DEXT
-	7b3d1d38 : glCopyTextureSubImage2DEXT
-	7b3d1d58 : glGetTextureImageEXT
-	7b3d1d68 : glGetTextureParameterfvEXT
-	7b3d1d78 : glGetTextureParameterivEXT
-	7b3d1da8 : glGetTextureLevelParameterfvEXT
-	7b3d1db8 : glGetTextureLevelParameterivEXT
-	7b3d1cc8 : glTextureImage3DEXT
-	7b3d1cf8 : glTextureSubImage3DEXT
-	7b3d1d48 : glCopyTextureSubImage3DEXT
-	7b3d1dc8 : glBindMultiTextureEXT
-	7b3d1dd8 : glMultiTexCoordPointerEXT
-	7b3d1de8 : glMultiTexEnvfEXT
-	7b3d1df8 : glMultiTexEnvfvEXT
-	7b3d1e08 : glMultiTexEnviEXT
-	7b3d1e18 : glMultiTexEnvivEXT
-	7b3d1e28 : glMultiTexGendEXT
-	7b3d1e38 : glMultiTexGendvEXT
-	7b3d1e48 : glMultiTexGenfEXT
-	7b3d1e58 : glMultiTexGenfvEXT
-	7b3d1e68 : glMultiTexGeniEXT
-	7b3d1e78 : glMultiTexGenivEXT
-	7b3d1f78 : glGetMultiTexEnvfvEXT
-	7b3d1f88 : glGetMultiTexEnvivEXT
-	7b3d1f98 : glGetMultiTexGendvEXT
-	7b3d1fa8 : glGetMultiTexGenfvEXT
-	7b3d1fb8 : glGetMultiTexGenivEXT
-	7b3d1e88 : glMultiTexParameteriEXT
-	7b3d1e98 : glMultiTexParameterivEXT
-	7b3d1ea8 : glMultiTexParameterfEXT
-	7b3d1eb8 : glMultiTexParameterfvEXT
-	7b3d1ec8 : glMultiTexImage1DEXT
-	7b3d1ed8 : glMultiTexImage2DEXT
-	7b3d1ef8 : glMultiTexSubImage1DEXT
-	7b3d1f08 : glMultiTexSubImage2DEXT
-	7b3d1f28 : glCopyMultiTexImage1DEXT
-	7b3d1f38 : glCopyMultiTexImage2DEXT
-	7b3d1f48 : glCopyMultiTexSubImage1DEXT
-	7b3d1f58 : glCopyMultiTexSubImage2DEXT
-	7b3d1fc8 : glGetMultiTexImageEXT
-	7b3d1fd8 : glGetMultiTexParameterfvEXT
-	7b3d1fe8 : glGetMultiTexParameterivEXT
-	7b3d1ff8 : glGetMultiTexLevelParameterfvEXT
-	7b3d2008 : glGetMultiTexLevelParameterivEXT
-	7b3d1ee8 : glMultiTexImage3DEXT
-	7b3d1f18 : glMultiTexSubImage3DEXT
-	7b3d1f68 : glCopyMultiTexSubImage3DEXT
-	7b3d2048 : glEnableClientStateIndexedEXT
-	7b3d2058 : glDisableClientStateIndexedEXT
-	7b3d2018 : glGetFloatIndexedvEXT
-	7b3d2028 : glGetDoubleIndexedvEXT
-	7b3d2038 : glGetPointerIndexedvEXT
-	7b3d0598 : glEnableIndexedEXT
-	7b3d0588 : glDisableIndexedEXT
-	7b3d05a8 : glIsEnabledIndexedEXT
-	7b3d0558 : glGetIntegerIndexedvEXT
-	7b3d0568 : glGetBooleanIndexedvEXT
-	7b3d2118 : glCompressedTextureImage3DEXT
-	7b3d2108 : glCompressedTextureImage2DEXT
-	7b3d20f8 : glCompressedTextureImage1DEXT
-	7b3d2148 : glCompressedTextureSubImage3DEXT
-	7b3d2138 : glCompressedTextureSubImage2DEXT
-	7b3d2128 : glCompressedTextureSubImage1DEXT
-	7b3d2158 : glGetCompressedTextureImageEXT
-	7b3d2188 : glCompressedMultiTexImage3DEXT
-	7b3d2178 : glCompressedMultiTexImage2DEXT
-	7b3d2168 : glCompressedMultiTexImage1DEXT
-	7b3d21b8 : glCompressedMultiTexSubImage3DEXT
-	7b3d21a8 : glCompressedMultiTexSubImage2DEXT
-	7b3d2198 : glCompressedMultiTexSubImage1DEXT
-	7b3d21c8 : glGetCompressedMultiTexImageEXT
-	7b3d1be8 : glMatrixLoadTransposefEXT
-	7b3d1bf8 : glMatrixLoadTransposedEXT
-	7b3d1c08 : glMatrixMultTransposefEXT
-	7b3d1c18 : glMatrixMultTransposedEXT
-	7b3d21d8 : glNamedBufferDataEXT
-	7b3d21e8 : glNamedBufferSubDataEXT
-	7b3d21f8 : glMapNamedBufferEXT
-	7b3d2218 : glUnmapNamedBufferEXT
-	7b3d2238 : glGetNamedBufferParameterivEXT
-	7b3d2248 : glGetNamedBufferPointervEXT
-	7b3d2258 : glGetNamedBufferSubDataEXT
-	7b3d2268 : glProgramUniform1fEXT
-	7b3d2278 : glProgramUniform2fEXT
-	7b3d2288 : glProgramUniform3fEXT
-	7b3d2298 : glProgramUniform4fEXT
-	7b3d22e8 : glProgramUniform1iEXT
-	7b3d22f8 : glProgramUniform2iEXT
-	7b3d2308 : glProgramUniform3iEXT
-	7b3d2318 : glProgramUniform4iEXT
-	7b3d22a8 : glProgramUniform1fvEXT
-	7b3d22b8 : glProgramUniform2fvEXT
-	7b3d22c8 : glProgramUniform3fvEXT
-	7b3d22d8 : glProgramUniform4fvEXT
-	7b3d2328 : glProgramUniform1ivEXT
-	7b3d2338 : glProgramUniform2ivEXT
-	7b3d2348 : glProgramUniform3ivEXT
-	7b3d2358 : glProgramUniform4ivEXT
-	7b3d23e8 : glProgramUniformMatrix2fvEXT
-	7b3d23f8 : glProgramUniformMatrix3fvEXT
-	7b3d2408 : glProgramUniformMatrix4fvEXT
-	7b3d2418 : glProgramUniformMatrix2x3fvEXT
-	7b3d2438 : glProgramUniformMatrix3x2fvEXT
-	7b3d2428 : glProgramUniformMatrix2x4fvEXT
-	7b3d2458 : glProgramUniformMatrix4x2fvEXT
-	7b3d2448 : glProgramUniformMatrix3x4fvEXT
-	7b3d2468 : glProgramUniformMatrix4x3fvEXT
-	7b3d2478 : glTextureBufferEXT
-	7b3d2488 : glMultiTexBufferEXT
-	7b3d1c88 : glTextureParameterIivEXT
-	7b3d1c98 : glTextureParameterIuivEXT
-	7b3d1d88 : glGetTextureParameterIivEXT
-	7b3d1d98 : glGetTextureParameterIuivEXT
-	7b3d2498 : glMultiTexParameterIivEXT
-	7b3d24a8 : glMultiTexParameterIuivEXT
-	7b3d24b8 : glGetMultiTexParameterIivEXT
-	7b3d24c8 : glGetMultiTexParameterIuivEXT
-	7b3d2368 : glProgramUniform1uiEXT
-	7b3d2378 : glProgramUniform2uiEXT
-	7b3d2388 : glProgramUniform3uiEXT
-	7b3d2398 : glProgramUniform4uiEXT
-	7b3d23a8 : glProgramUniform1uivEXT
-	7b3d23b8 : glProgramUniform2uivEXT
-	7b3d23c8 : glProgramUniform3uivEXT
-	7b3d23d8 : glProgramUniform4uivEXT
-	7b3d24d8 : glNamedProgramLocalParameters4fvEXT
+	53451af8 : glMatrixLoadfEXT
+	53451b08 : glMatrixLoaddEXT
+	53451b18 : glMatrixMultfEXT
+	53451b28 : glMatrixMultdEXT
+	53451b38 : glMatrixLoadIdentityEXT
+	53451b48 : glMatrixRotatefEXT
+	53451b58 : glMatrixRotatedEXT
+	53451b68 : glMatrixScalefEXT
+	53451b78 : glMatrixScaledEXT
+	53451b88 : glMatrixTranslatefEXT
+	53451b98 : glMatrixTranslatedEXT
+	53451bb8 : glMatrixFrustumEXT
+	53451ba8 : glMatrixOrthoEXT
+	53451bd8 : glMatrixPopEXT
+	53451bc8 : glMatrixPushEXT
+	53451c28 : glClientAttribDefaultEXT
+	53451c38 : glPushClientAttribDefaultEXT
+	53451c68 : glTextureParameterfEXT
+	53451c78 : glTextureParameterfvEXT
+	53451c48 : glTextureParameteriEXT
+	53451c58 : glTextureParameterivEXT
+	53451ca8 : glTextureImage1DEXT
+	53451cb8 : glTextureImage2DEXT
+	53451cd8 : glTextureSubImage1DEXT
+	53451ce8 : glTextureSubImage2DEXT
+	53451d08 : glCopyTextureImage1DEXT
+	53451d18 : glCopyTextureImage2DEXT
+	53451d28 : glCopyTextureSubImage1DEXT
+	53451d38 : glCopyTextureSubImage2DEXT
+	53451d58 : glGetTextureImageEXT
+	53451d68 : glGetTextureParameterfvEXT
+	53451d78 : glGetTextureParameterivEXT
+	53451da8 : glGetTextureLevelParameterfvEXT
+	53451db8 : glGetTextureLevelParameterivEXT
+	53451cc8 : glTextureImage3DEXT
+	53451cf8 : glTextureSubImage3DEXT
+	53451d48 : glCopyTextureSubImage3DEXT
+	53451dc8 : glBindMultiTextureEXT
+	53451dd8 : glMultiTexCoordPointerEXT
+	53451de8 : glMultiTexEnvfEXT
+	53451df8 : glMultiTexEnvfvEXT
+	53451e08 : glMultiTexEnviEXT
+	53451e18 : glMultiTexEnvivEXT
+	53451e28 : glMultiTexGendEXT
+	53451e38 : glMultiTexGendvEXT
+	53451e48 : glMultiTexGenfEXT
+	53451e58 : glMultiTexGenfvEXT
+	53451e68 : glMultiTexGeniEXT
+	53451e78 : glMultiTexGenivEXT
+	53451f78 : glGetMultiTexEnvfvEXT
+	53451f88 : glGetMultiTexEnvivEXT
+	53451f98 : glGetMultiTexGendvEXT
+	53451fa8 : glGetMultiTexGenfvEXT
+	53451fb8 : glGetMultiTexGenivEXT
+	53451e88 : glMultiTexParameteriEXT
+	53451e98 : glMultiTexParameterivEXT
+	53451ea8 : glMultiTexParameterfEXT
+	53451eb8 : glMultiTexParameterfvEXT
+	53451ec8 : glMultiTexImage1DEXT
+	53451ed8 : glMultiTexImage2DEXT
+	53451ef8 : glMultiTexSubImage1DEXT
+	53451f08 : glMultiTexSubImage2DEXT
+	53451f28 : glCopyMultiTexImage1DEXT
+	53451f38 : glCopyMultiTexImage2DEXT
+	53451f48 : glCopyMultiTexSubImage1DEXT
+	53451f58 : glCopyMultiTexSubImage2DEXT
+	53451fc8 : glGetMultiTexImageEXT
+	53451fd8 : glGetMultiTexParameterfvEXT
+	53451fe8 : glGetMultiTexParameterivEXT
+	53451ff8 : glGetMultiTexLevelParameterfvEXT
+	53452008 : glGetMultiTexLevelParameterivEXT
+	53451ee8 : glMultiTexImage3DEXT
+	53451f18 : glMultiTexSubImage3DEXT
+	53451f68 : glCopyMultiTexSubImage3DEXT
+	53452048 : glEnableClientStateIndexedEXT
+	53452058 : glDisableClientStateIndexedEXT
+	53452018 : glGetFloatIndexedvEXT
+	53452028 : glGetDoubleIndexedvEXT
+	53452038 : glGetPointerIndexedvEXT
+	53450598 : glEnableIndexedEXT
+	53450588 : glDisableIndexedEXT
+	534505a8 : glIsEnabledIndexedEXT
+	53450558 : glGetIntegerIndexedvEXT
+	53450568 : glGetBooleanIndexedvEXT
+	53452118 : glCompressedTextureImage3DEXT
+	53452108 : glCompressedTextureImage2DEXT
+	534520f8 : glCompressedTextureImage1DEXT
+	53452148 : glCompressedTextureSubImage3DEXT
+	53452138 : glCompressedTextureSubImage2DEXT
+	53452128 : glCompressedTextureSubImage1DEXT
+	53452158 : glGetCompressedTextureImageEXT
+	53452188 : glCompressedMultiTexImage3DEXT
+	53452178 : glCompressedMultiTexImage2DEXT
+	53452168 : glCompressedMultiTexImage1DEXT
+	534521b8 : glCompressedMultiTexSubImage3DEXT
+	534521a8 : glCompressedMultiTexSubImage2DEXT
+	53452198 : glCompressedMultiTexSubImage1DEXT
+	534521c8 : glGetCompressedMultiTexImageEXT
+	53451be8 : glMatrixLoadTransposefEXT
+	53451bf8 : glMatrixLoadTransposedEXT
+	53451c08 : glMatrixMultTransposefEXT
+	53451c18 : glMatrixMultTransposedEXT
+	534521d8 : glNamedBufferDataEXT
+	534521e8 : glNamedBufferSubDataEXT
+	534521f8 : glMapNamedBufferEXT
+	53452218 : glUnmapNamedBufferEXT
+	53452238 : glGetNamedBufferParameterivEXT
+	53452248 : glGetNamedBufferPointervEXT
+	53452258 : glGetNamedBufferSubDataEXT
+	53452268 : glProgramUniform1fEXT
+	53452278 : glProgramUniform2fEXT
+	53452288 : glProgramUniform3fEXT
+	53452298 : glProgramUniform4fEXT
+	534522e8 : glProgramUniform1iEXT
+	534522f8 : glProgramUniform2iEXT
+	53452308 : glProgramUniform3iEXT
+	53452318 : glProgramUniform4iEXT
+	534522a8 : glProgramUniform1fvEXT
+	534522b8 : glProgramUniform2fvEXT
+	534522c8 : glProgramUniform3fvEXT
+	534522d8 : glProgramUniform4fvEXT
+	53452328 : glProgramUniform1ivEXT
+	53452338 : glProgramUniform2ivEXT
+	53452348 : glProgramUniform3ivEXT
+	53452358 : glProgramUniform4ivEXT
+	534523e8 : glProgramUniformMatrix2fvEXT
+	534523f8 : glProgramUniformMatrix3fvEXT
+	53452408 : glProgramUniformMatrix4fvEXT
+	53452418 : glProgramUniformMatrix2x3fvEXT
+	53452438 : glProgramUniformMatrix3x2fvEXT
+	53452428 : glProgramUniformMatrix2x4fvEXT
+	53452458 : glProgramUniformMatrix4x2fvEXT
+	53452448 : glProgramUniformMatrix3x4fvEXT
+	53452468 : glProgramUniformMatrix4x3fvEXT
+	53452478 : glTextureBufferEXT
+	53452488 : glMultiTexBufferEXT
+	53451c88 : glTextureParameterIivEXT
+	53451c98 : glTextureParameterIuivEXT
+	53451d88 : glGetTextureParameterIivEXT
+	53451d98 : glGetTextureParameterIuivEXT
+	53452498 : glMultiTexParameterIivEXT
+	534524a8 : glMultiTexParameterIuivEXT
+	534524b8 : glGetMultiTexParameterIivEXT
+	534524c8 : glGetMultiTexParameterIuivEXT
+	53452368 : glProgramUniform1uiEXT
+	53452378 : glProgramUniform2uiEXT
+	53452388 : glProgramUniform3uiEXT
+	53452398 : glProgramUniform4uiEXT
+	534523a8 : glProgramUniform1uivEXT
+	534523b8 : glProgramUniform2uivEXT
+	534523c8 : glProgramUniform3uivEXT
+	534523d8 : glProgramUniform4uivEXT
+	534524d8 : glNamedProgramLocalParameters4fvEXT
 	0 : glNamedProgramLocalParameterI4iEXT
 	0 : glNamedProgramLocalParameterI4ivEXT
 	0 : glNamedProgramLocalParametersI4ivEXT
@@ -1839,173 +1839,173 @@ GL_EXT_direct_state_access
 	0 : glGetFloati_vEXT
 	0 : glGetDoublei_vEXT
 	0 : glGetPointeri_vEXT
-	7b3d2068 : glNamedProgramStringEXT
-	7b3d2078 : glNamedProgramLocalParameter4dEXT
-	7b3d2088 : glNamedProgramLocalParameter4dvEXT
-	7b3d2098 : glNamedProgramLocalParameter4fEXT
-	7b3d20a8 : glNamedProgramLocalParameter4fvEXT
-	7b3d20b8 : glGetNamedProgramLocalParameterdvEXT
-	7b3d20c8 : glGetNamedProgramLocalParameterfvEXT
-	7b3d20d8 : glGetNamedProgramivEXT
-	7b3d20e8 : glGetNamedProgramStringEXT
-	7b3d24e8 : glNamedRenderbufferStorageEXT
-	7b3d24f8 : glGetNamedRenderbufferParameterivEXT
-	7b3d2508 : glNamedRenderbufferStorageMultisampleEXT
+	53452068 : glNamedProgramStringEXT
+	53452078 : glNamedProgramLocalParameter4dEXT
+	53452088 : glNamedProgramLocalParameter4dvEXT
+	53452098 : glNamedProgramLocalParameter4fEXT
+	534520a8 : glNamedProgramLocalParameter4fvEXT
+	534520b8 : glGetNamedProgramLocalParameterdvEXT
+	534520c8 : glGetNamedProgramLocalParameterfvEXT
+	534520d8 : glGetNamedProgramivEXT
+	534520e8 : glGetNamedProgramStringEXT
+	534524e8 : glNamedRenderbufferStorageEXT
+	534524f8 : glGetNamedRenderbufferParameterivEXT
+	53452508 : glNamedRenderbufferStorageMultisampleEXT
 	0 : glNamedRenderbufferStorageMultisampleCoverageEXT
-	7b3d2518 : glCheckNamedFramebufferStatusEXT
-	7b3d2528 : glNamedFramebufferTexture1DEXT
-	7b3d2538 : glNamedFramebufferTexture2DEXT
-	7b3d2548 : glNamedFramebufferTexture3DEXT
-	7b3d2558 : glNamedFramebufferRenderbufferEXT
-	7b3d2568 : glGetNamedFramebufferAttachmentParameterivEXT
-	7b3d2578 : glGenerateTextureMipmapEXT
-	7b3d2588 : glGenerateMultiTexMipmapEXT
-	7b3d2598 : glFramebufferDrawBufferEXT
-	7b3d25a8 : glFramebufferDrawBuffersEXT
-	7b3d25b8 : glFramebufferReadBufferEXT
-	7b3d25c8 : glGetFramebufferParameterivEXT
-	7b3d2648 : glNamedCopyBufferSubDataEXT
-	7b3d25d8 : glNamedFramebufferTextureEXT
-	7b3d25e8 : glNamedFramebufferTextureLayerEXT
-	7b3d25f8 : glNamedFramebufferTextureFaceEXT
-	7b3d2628 : glTextureRenderbufferEXT
-	7b3d2638 : glMultiTexRenderbufferEXT
-	7b3d2658 : glVertexArrayVertexOffsetEXT
-	7b3d2668 : glVertexArrayColorOffsetEXT
-	7b3d2678 : glVertexArrayEdgeFlagOffsetEXT
-	7b3d2688 : glVertexArrayIndexOffsetEXT
-	7b3d2698 : glVertexArrayNormalOffsetEXT
-	7b3d26a8 : glVertexArrayTexCoordOffsetEXT
-	7b3d26b8 : glVertexArrayMultiTexCoordOffsetEXT
-	7b3d26c8 : glVertexArrayFogCoordOffsetEXT
-	7b3d26d8 : glVertexArraySecondaryColorOffsetEXT
-	7b3d26e8 : glVertexArrayVertexAttribOffsetEXT
-	7b3d26f8 : glVertexArrayVertexAttribIOffsetEXT
-	7b3d2708 : glEnableVertexArrayEXT
-	7b3d2718 : glDisableVertexArrayEXT
-	7b3d2728 : glEnableVertexArrayAttribEXT
-	7b3d2738 : glDisableVertexArrayAttribEXT
-	7b3d2748 : glGetVertexArrayIntegervEXT
-	7b3d2758 : glGetVertexArrayPointervEXT
-	7b3d2768 : glGetVertexArrayIntegeri_vEXT
-	7b3d2778 : glGetVertexArrayPointeri_vEXT
-	7b3d2208 : glMapNamedBufferRangeEXT
-	7b3d2228 : glFlushMappedNamedBufferRangeEXT
-	7b3d3978 : glNamedBufferStorageEXT
-	7b3d33c8 : glClearNamedBufferDataEXT
-	7b3d33d8 : glClearNamedBufferSubDataEXT
-	7b3d31c8 : glNamedFramebufferParameteriEXT
-	7b3d31d8 : glGetNamedFramebufferParameterivEXT
-	7b3d2d38 : glProgramUniform1dEXT
-	7b3d2d48 : glProgramUniform2dEXT
-	7b3d2d58 : glProgramUniform3dEXT
-	7b3d2d68 : glProgramUniform4dEXT
-	7b3d2d78 : glProgramUniform1dvEXT
-	7b3d2d88 : glProgramUniform2dvEXT
-	7b3d2d98 : glProgramUniform3dvEXT
-	7b3d2da8 : glProgramUniform4dvEXT
-	7b3d2db8 : glProgramUniformMatrix2dvEXT
-	7b3d2dc8 : glProgramUniformMatrix3dvEXT
-	7b3d2dd8 : glProgramUniformMatrix4dvEXT
-	7b3d2de8 : glProgramUniformMatrix2x3dvEXT
-	7b3d2df8 : glProgramUniformMatrix2x4dvEXT
-	7b3d2e08 : glProgramUniformMatrix3x2dvEXT
-	7b3d2e18 : glProgramUniformMatrix3x4dvEXT
-	7b3d2e28 : glProgramUniformMatrix4x2dvEXT
-	7b3d2e38 : glProgramUniformMatrix4x3dvEXT
-	7b3d3108 : glTextureBufferRangeEXT
-	7b3d3088 : glTextureStorage1DEXT
-	7b3d3098 : glTextureStorage2DEXT
-	7b3d30a8 : glTextureStorage3DEXT
-	7b3d3138 : glTextureStorage2DMultisampleEXT
-	7b3d3148 : glTextureStorage3DMultisampleEXT
-	7b3d34e8 : glVertexArrayBindVertexBufferEXT
-	7b3d34f8 : glVertexArrayVertexAttribFormatEXT
-	7b3d3508 : glVertexArrayVertexAttribIFormatEXT
-	7b3d3518 : glVertexArrayVertexAttribLFormatEXT
-	7b3d3528 : glVertexArrayVertexAttribBindingEXT
-	7b3d3538 : glVertexArrayVertexBindingDivisorEXT
-	7b3d2c78 : glVertexArrayVertexAttribLOffsetEXT
-	7b3d3998 : glTexturePageCommitmentEXT
+	53452518 : glCheckNamedFramebufferStatusEXT
+	53452528 : glNamedFramebufferTexture1DEXT
+	53452538 : glNamedFramebufferTexture2DEXT
+	53452548 : glNamedFramebufferTexture3DEXT
+	53452558 : glNamedFramebufferRenderbufferEXT
+	53452568 : glGetNamedFramebufferAttachmentParameterivEXT
+	53452578 : glGenerateTextureMipmapEXT
+	53452588 : glGenerateMultiTexMipmapEXT
+	53452598 : glFramebufferDrawBufferEXT
+	534525a8 : glFramebufferDrawBuffersEXT
+	534525b8 : glFramebufferReadBufferEXT
+	534525c8 : glGetFramebufferParameterivEXT
+	53452648 : glNamedCopyBufferSubDataEXT
+	534525d8 : glNamedFramebufferTextureEXT
+	534525e8 : glNamedFramebufferTextureLayerEXT
+	534525f8 : glNamedFramebufferTextureFaceEXT
+	53452628 : glTextureRenderbufferEXT
+	53452638 : glMultiTexRenderbufferEXT
+	53452658 : glVertexArrayVertexOffsetEXT
+	53452668 : glVertexArrayColorOffsetEXT
+	53452678 : glVertexArrayEdgeFlagOffsetEXT
+	53452688 : glVertexArrayIndexOffsetEXT
+	53452698 : glVertexArrayNormalOffsetEXT
+	534526a8 : glVertexArrayTexCoordOffsetEXT
+	534526b8 : glVertexArrayMultiTexCoordOffsetEXT
+	534526c8 : glVertexArrayFogCoordOffsetEXT
+	534526d8 : glVertexArraySecondaryColorOffsetEXT
+	534526e8 : glVertexArrayVertexAttribOffsetEXT
+	534526f8 : glVertexArrayVertexAttribIOffsetEXT
+	53452708 : glEnableVertexArrayEXT
+	53452718 : glDisableVertexArrayEXT
+	53452728 : glEnableVertexArrayAttribEXT
+	53452738 : glDisableVertexArrayAttribEXT
+	53452748 : glGetVertexArrayIntegervEXT
+	53452758 : glGetVertexArrayPointervEXT
+	53452768 : glGetVertexArrayIntegeri_vEXT
+	53452778 : glGetVertexArrayPointeri_vEXT
+	53452208 : glMapNamedBufferRangeEXT
+	53452228 : glFlushMappedNamedBufferRangeEXT
+	53453978 : glNamedBufferStorageEXT
+	534533c8 : glClearNamedBufferDataEXT
+	534533d8 : glClearNamedBufferSubDataEXT
+	534531c8 : glNamedFramebufferParameteriEXT
+	534531d8 : glGetNamedFramebufferParameterivEXT
+	53452d38 : glProgramUniform1dEXT
+	53452d48 : glProgramUniform2dEXT
+	53452d58 : glProgramUniform3dEXT
+	53452d68 : glProgramUniform4dEXT
+	53452d78 : glProgramUniform1dvEXT
+	53452d88 : glProgramUniform2dvEXT
+	53452d98 : glProgramUniform3dvEXT
+	53452da8 : glProgramUniform4dvEXT
+	53452db8 : glProgramUniformMatrix2dvEXT
+	53452dc8 : glProgramUniformMatrix3dvEXT
+	53452dd8 : glProgramUniformMatrix4dvEXT
+	53452de8 : glProgramUniformMatrix2x3dvEXT
+	53452df8 : glProgramUniformMatrix2x4dvEXT
+	53452e08 : glProgramUniformMatrix3x2dvEXT
+	53452e18 : glProgramUniformMatrix3x4dvEXT
+	53452e28 : glProgramUniformMatrix4x2dvEXT
+	53452e38 : glProgramUniformMatrix4x3dvEXT
+	53453108 : glTextureBufferRangeEXT
+	53453088 : glTextureStorage1DEXT
+	53453098 : glTextureStorage2DEXT
+	534530a8 : glTextureStorage3DEXT
+	53453138 : glTextureStorage2DMultisampleEXT
+	53453148 : glTextureStorage3DMultisampleEXT
+	534534e8 : glVertexArrayBindVertexBufferEXT
+	534534f8 : glVertexArrayVertexAttribFormatEXT
+	53453508 : glVertexArrayVertexAttribIFormatEXT
+	53453518 : glVertexArrayVertexAttribLFormatEXT
+	53453528 : glVertexArrayVertexAttribBindingEXT
+	53453538 : glVertexArrayVertexBindingDivisorEXT
+	53452c78 : glVertexArrayVertexAttribLOffsetEXT
+	53453998 : glTexturePageCommitmentEXT
 	0 : glVertexArrayVertexAttribDivisorEXT
 
 GL_EXT_draw_buffers2
-	7b3d0578 : glColorMaskIndexedEXT
+	53450578 : glColorMaskIndexedEXT
 
 GL_EXT_draw_instanced
-	7b3d0808 : glDrawArraysInstancedEXT
-	7b3d0818 : glDrawElementsInstancedEXT
+	53450808 : glDrawArraysInstancedEXT
+	53450818 : glDrawElementsInstancedEXT
 
 GL_EXT_draw_range_elements
-	7b3cf4a8 : glDrawRangeElementsEXT
+	5344f4a8 : glDrawRangeElementsEXT
 
 GL_EXT_external_buffer
 	0 : glBufferStorageExternalEXT
 	0 : glNamedBufferStorageExternalEXT
 
 GL_EXT_fog_coord
-	7b3cf7b8 : glFogCoordfEXT
-	7b3cf7d8 : glFogCoordfvEXT
-	7b3cf7c8 : glFogCoorddEXT
-	7b3cf7e8 : glFogCoorddvEXT
-	7b3cf7f8 : glFogCoordPointerEXT
+	5344f7b8 : glFogCoordfEXT
+	5344f7d8 : glFogCoordfvEXT
+	5344f7c8 : glFogCoorddEXT
+	5344f7e8 : glFogCoorddvEXT
+	5344f7f8 : glFogCoordPointerEXT
 
 GL_EXT_framebuffer_blit
-	7b3d0778 : glBlitFramebufferEXT
+	53450778 : glBlitFramebufferEXT
 
 GL_EXT_framebuffer_multisample
-	7b3d0688 : glRenderbufferStorageMultisampleEXT
+	53450688 : glRenderbufferStorageMultisampleEXT
 
 GL_EXT_framebuffer_object
-	7b3d0638 : glIsRenderbufferEXT
-	7b3d11c8 : glBindRenderbufferEXT
-	7b3d0658 : glDeleteRenderbuffersEXT
-	7b3d11a8 : glGenRenderbuffersEXT
-	7b3d0678 : glRenderbufferStorageEXT
-	7b3d0698 : glGetRenderbufferParameterivEXT
-	7b3d06a8 : glIsFramebufferEXT
-	7b3d11b8 : glBindFramebufferEXT
-	7b3d06c8 : glDeleteFramebuffersEXT
-	7b3d1198 : glGenFramebuffersEXT
-	7b3d06e8 : glCheckFramebufferStatusEXT
-	7b3d06f8 : glFramebufferTexture1DEXT
-	7b3d0708 : glFramebufferTexture2DEXT
-	7b3d0718 : glFramebufferTexture3DEXT
-	7b3d0738 : glFramebufferRenderbufferEXT
-	7b3d0768 : glGetFramebufferAttachmentParameterivEXT
-	7b3d0788 : glGenerateMipmapEXT
+	53450638 : glIsRenderbufferEXT
+	534511c8 : glBindRenderbufferEXT
+	53450658 : glDeleteRenderbuffersEXT
+	534511a8 : glGenRenderbuffersEXT
+	53450678 : glRenderbufferStorageEXT
+	53450698 : glGetRenderbufferParameterivEXT
+	534506a8 : glIsFramebufferEXT
+	534511b8 : glBindFramebufferEXT
+	534506c8 : glDeleteFramebuffersEXT
+	53451198 : glGenFramebuffersEXT
+	534506e8 : glCheckFramebufferStatusEXT
+	534506f8 : glFramebufferTexture1DEXT
+	53450708 : glFramebufferTexture2DEXT
+	53450718 : glFramebufferTexture3DEXT
+	53450738 : glFramebufferRenderbufferEXT
+	53450768 : glGetFramebufferAttachmentParameterivEXT
+	53450788 : glGenerateMipmapEXT
 
 GL_EXT_geometry_shader4
-	7b3d0928 : glProgramParameteriEXT
+	53450928 : glProgramParameteriEXT
 
 GL_EXT_gpu_program_parameters
-	7b3d1178 : glProgramEnvParameters4fvEXT
-	7b3d1188 : glProgramLocalParameters4fvEXT
+	53451178 : glProgramEnvParameters4fvEXT
+	53451188 : glProgramLocalParameters4fvEXT
 
 GL_EXT_gpu_shader4
-	7b3d0458 : glGetUniformuivEXT
-	7b3d0468 : glBindFragDataLocationEXT
-	7b3d0478 : glGetFragDataLocationEXT
-	7b3d03d8 : glUniform1uiEXT
-	7b3d03e8 : glUniform2uiEXT
-	7b3d03f8 : glUniform3uiEXT
-	7b3d0408 : glUniform4uiEXT
-	7b3d0418 : glUniform1uivEXT
-	7b3d0428 : glUniform2uivEXT
-	7b3d0438 : glUniform3uivEXT
-	7b3d0448 : glUniform4uivEXT
+	53450458 : glGetUniformuivEXT
+	53450468 : glBindFragDataLocationEXT
+	53450478 : glGetFragDataLocationEXT
+	534503d8 : glUniform1uiEXT
+	534503e8 : glUniform2uiEXT
+	534503f8 : glUniform3uiEXT
+	53450408 : glUniform4uiEXT
+	53450418 : glUniform1uivEXT
+	53450428 : glUniform2uivEXT
+	53450438 : glUniform3uivEXT
+	53450448 : glUniform4uivEXT
 
 GL_EXT_histogram
-	7b3d2868 : glGetHistogramEXT
-	7b3d2888 : glGetHistogramParameterfvEXT
-	7b3d2878 : glGetHistogramParameterivEXT
-	7b3d28b8 : glGetMinmaxEXT
-	7b3d28d8 : glGetMinmaxParameterfvEXT
-	7b3d28c8 : glGetMinmaxParameterivEXT
-	7b3d2848 : glHistogramEXT
-	7b3d2898 : glMinmaxEXT
-	7b3d2858 : glResetHistogramEXT
-	7b3d28a8 : glResetMinmaxEXT
+	53452868 : glGetHistogramEXT
+	53452888 : glGetHistogramParameterfvEXT
+	53452878 : glGetHistogramParameterivEXT
+	534528b8 : glGetMinmaxEXT
+	534528d8 : glGetMinmaxParameterfvEXT
+	534528c8 : glGetMinmaxParameterivEXT
+	53452848 : glHistogramEXT
+	53452898 : glMinmaxEXT
+	53452858 : glResetHistogramEXT
+	534528a8 : glResetMinmaxEXT
 
 GL_EXT_index_func
 	0 : glIndexFuncEXT
@@ -2047,8 +2047,8 @@ GL_EXT_memory_object_win32
 	0 : glImportMemoryWin32NameEXT
 
 GL_EXT_multi_draw_arrays
-	7b3cf918 : glMultiDrawArraysEXT
-	7b3cf928 : glMultiDrawElementsEXT
+	5344f918 : glMultiDrawArraysEXT
+	5344f928 : glMultiDrawElementsEXT
 
 GL_EXT_multisample
 	0 : glSampleMaskEXT
@@ -2069,39 +2069,39 @@ GL_EXT_pixel_transform
 	0 : glGetPixelTransformParameterfvEXT
 
 GL_EXT_point_parameters
-	7b3cf938 : glPointParameterfEXT
-	7b3cf948 : glPointParameterfvEXT
+	5344f938 : glPointParameterfEXT
+	5344f948 : glPointParameterfvEXT
 
 GL_EXT_polygon_offset
 	0 : glPolygonOffsetEXT
 
 GL_EXT_polygon_offset_clamp
-	7b3d2788 : glPolygonOffsetClampEXT
+	53452788 : glPolygonOffsetClampEXT
 
 GL_EXT_provoking_vertex
-	7b3d0898 : glProvokingVertexEXT
+	53450898 : glProvokingVertexEXT
 
 GL_EXT_raster_multisample
 	0 : glRasterSamplesEXT
 
 GL_EXT_secondary_color
-	7b3cf808 : glSecondaryColor3bEXT
-	7b3cf818 : glSecondaryColor3bvEXT
-	7b3cf828 : glSecondaryColor3dEXT
-	7b3cf838 : glSecondaryColor3dvEXT
-	7b3cf848 : glSecondaryColor3fEXT
-	7b3cf858 : glSecondaryColor3fvEXT
-	7b3cf868 : glSecondaryColor3iEXT
-	7b3cf878 : glSecondaryColor3ivEXT
-	7b3cf888 : glSecondaryColor3sEXT
-	7b3cf898 : glSecondaryColor3svEXT
-	7b3cf8a8 : glSecondaryColor3ubEXT
-	7b3cf8b8 : glSecondaryColor3ubvEXT
-	7b3cf8c8 : glSecondaryColor3uiEXT
-	7b3cf8d8 : glSecondaryColor3uivEXT
-	7b3cf8e8 : glSecondaryColor3usEXT
-	7b3cf8f8 : glSecondaryColor3usvEXT
-	7b3cf908 : glSecondaryColorPointerEXT
+	5344f808 : glSecondaryColor3bEXT
+	5344f818 : glSecondaryColor3bvEXT
+	5344f828 : glSecondaryColor3dEXT
+	5344f838 : glSecondaryColor3dvEXT
+	5344f848 : glSecondaryColor3fEXT
+	5344f858 : glSecondaryColor3fvEXT
+	5344f868 : glSecondaryColor3iEXT
+	5344f878 : glSecondaryColor3ivEXT
+	5344f888 : glSecondaryColor3sEXT
+	5344f898 : glSecondaryColor3svEXT
+	5344f8a8 : glSecondaryColor3ubEXT
+	5344f8b8 : glSecondaryColor3ubvEXT
+	5344f8c8 : glSecondaryColor3uiEXT
+	5344f8d8 : glSecondaryColor3uivEXT
+	5344f8e8 : glSecondaryColor3usEXT
+	5344f8f8 : glSecondaryColor3usvEXT
+	5344f908 : glSecondaryColorPointerEXT
 
 GL_EXT_semaphore
 	0 : glGenSemaphoresEXT
@@ -2128,8 +2128,8 @@ GL_EXT_shader_framebuffer_fetch_non_coherent
 	0 : glFramebufferFetchBarrierEXT
 
 GL_EXT_shader_image_load_store
-	7b3d1a78 : glBindImageTextureEXT
-	7b3d1a88 : glMemoryBarrierEXT
+	53451a78 : glBindImageTextureEXT
+	53451a88 : glMemoryBarrierEXT
 
 GL_EXT_stencil_clear_tag
 	0 : glStencilClearTagEXT
@@ -2138,120 +2138,120 @@ GL_EXT_stencil_two_side
 	0 : glActiveStencilFaceEXT
 
 GL_EXT_subtexture
-	7b3cf438 : glTexSubImage1DEXT
-	7b3cf448 : glTexSubImage2DEXT
+	5344f438 : glTexSubImage1DEXT
+	5344f448 : glTexSubImage2DEXT
 
 GL_EXT_texture3D
-	7b3cf478 : glTexImage3DEXT
-	7b3cf488 : glTexSubImage3DEXT
+	5344f478 : glTexImage3DEXT
+	5344f488 : glTexSubImage3DEXT
 
 GL_EXT_texture_array
-	7b3d0728 : glFramebufferTextureLayerEXT
+	53450728 : glFramebufferTextureLayerEXT
 
 GL_EXT_texture_buffer_object
-	7b3d07f8 : glTexBufferEXT
+	534507f8 : glTexBufferEXT
 
 GL_EXT_texture_integer
-	7b3d0798 : glTexParameterIivEXT
-	7b3d07a8 : glTexParameterIuivEXT
-	7b3d07b8 : glGetTexParameterIivEXT
-	7b3d07c8 : glGetTexParameterIuivEXT
-	7b3d1898 : glClearColorIiEXT
-	7b3d18a8 : glClearColorIuiEXT
+	53450798 : glTexParameterIivEXT
+	534507a8 : glTexParameterIuivEXT
+	534507b8 : glGetTexParameterIivEXT
+	534507c8 : glGetTexParameterIuivEXT
+	53451898 : glClearColorIiEXT
+	534518a8 : glClearColorIuiEXT
 
 GL_EXT_texture_object
-	7b3cf398 : glAreTexturesResidentEXT
-	7b3cf2a8 : glBindTextureEXT
-	7b3cf3e8 : glDeleteTexturesEXT
-	7b3cf3f8 : glGenTexturesEXT
-	7b3cf418 : glIsTextureEXT
-	7b3cf428 : glPrioritizeTexturesEXT
+	5344f398 : glAreTexturesResidentEXT
+	5344f2a8 : glBindTextureEXT
+	5344f3e8 : glDeleteTexturesEXT
+	5344f3f8 : glGenTexturesEXT
+	5344f418 : glIsTextureEXT
+	5344f428 : glPrioritizeTexturesEXT
 
 GL_EXT_texture_perturb_normal
 	0 : glTextureNormalEXT
 
 GL_EXT_timer_query
-	7b3d09c8 : glGetQueryObjecti64vEXT
-	7b3d09d8 : glGetQueryObjectui64vEXT
+	534509c8 : glGetQueryObjecti64vEXT
+	534509d8 : glGetQueryObjectui64vEXT
 
 GL_EXT_transform_feedback
-	7b3d0518 : glBeginTransformFeedbackEXT
-	7b3d0528 : glEndTransformFeedbackEXT
-	7b3d04f8 : glBindBufferRangeEXT
-	7b3d1888 : glBindBufferOffsetEXT
-	7b3d0508 : glBindBufferBaseEXT
-	7b3d0538 : glTransformFeedbackVaryingsEXT
-	7b3d0548 : glGetTransformFeedbackVaryingEXT
+	53450518 : glBeginTransformFeedbackEXT
+	53450528 : glEndTransformFeedbackEXT
+	534504f8 : glBindBufferRangeEXT
+	53451888 : glBindBufferOffsetEXT
+	53450508 : glBindBufferBaseEXT
+	53450538 : glTransformFeedbackVaryingsEXT
+	53450548 : glGetTransformFeedbackVaryingEXT
 
 GL_EXT_vertex_array
-	7b3cf298 : glArrayElementEXT
-	7b3d1228 : glColorPointerEXT
-	7b3cf2d8 : glDrawArraysEXT
-	7b3d1238 : glEdgeFlagPointerEXT
-	7b3cf408 : glGetPointervEXT
-	7b3d1248 : glIndexPointerEXT
-	7b3d1258 : glNormalPointerEXT
-	7b3d1268 : glTexCoordPointerEXT
-	7b3d1278 : glVertexPointerEXT
+	5344f298 : glArrayElementEXT
+	53451228 : glColorPointerEXT
+	5344f2d8 : glDrawArraysEXT
+	53451238 : glEdgeFlagPointerEXT
+	5344f408 : glGetPointervEXT
+	53451248 : glIndexPointerEXT
+	53451258 : glNormalPointerEXT
+	53451268 : glTexCoordPointerEXT
+	53451278 : glVertexPointerEXT
 	0 : glArrayElementArrayEXT
 	0 : glDrawRangeElementsWIN
-	7b3d12d8 : glAddSwapHintRectWIN
+	534512d8 : glAddSwapHintRectWIN
 
 GL_EXT_vertex_attrib_64bit
-	7b3d2be8 : glVertexAttribL1dEXT
-	7b3d2bf8 : glVertexAttribL2dEXT
-	7b3d2c08 : glVertexAttribL3dEXT
-	7b3d2c18 : glVertexAttribL4dEXT
-	7b3d2c28 : glVertexAttribL1dvEXT
-	7b3d2c38 : glVertexAttribL2dvEXT
-	7b3d2c48 : glVertexAttribL3dvEXT
-	7b3d2c58 : glVertexAttribL4dvEXT
-	7b3d2c68 : glVertexAttribLPointerEXT
-	7b3d2c88 : glGetVertexAttribLdvEXT
+	53452be8 : glVertexAttribL1dEXT
+	53452bf8 : glVertexAttribL2dEXT
+	53452c08 : glVertexAttribL3dEXT
+	53452c18 : glVertexAttribL4dEXT
+	53452c28 : glVertexAttribL1dvEXT
+	53452c38 : glVertexAttribL2dvEXT
+	53452c48 : glVertexAttribL3dvEXT
+	53452c58 : glVertexAttribL4dvEXT
+	53452c68 : glVertexAttribLPointerEXT
+	53452c88 : glGetVertexAttribLdvEXT
 
 GL_EXT_vertex_shader
-	7b3d13e8 : glBeginVertexShaderEXT
-	7b3d13f8 : glEndVertexShaderEXT
-	7b3d1408 : glBindVertexShaderEXT
-	7b3d1418 : glGenVertexShadersEXT
-	7b3d1428 : glDeleteVertexShaderEXT
-	7b3d1438 : glShaderOp1EXT
-	7b3d1448 : glShaderOp2EXT
-	7b3d1458 : glShaderOp3EXT
-	7b3d1468 : glSwizzleEXT
-	7b3d1478 : glWriteMaskEXT
-	7b3d1488 : glInsertComponentEXT
-	7b3d1498 : glExtractComponentEXT
-	7b3d14a8 : glGenSymbolsEXT
-	7b3d14b8 : glSetInvariantEXT
-	7b3d14c8 : glSetLocalConstantEXT
-	7b3d14d8 : glVariantbvEXT
-	7b3d14e8 : glVariantsvEXT
-	7b3d14f8 : glVariantivEXT
-	7b3d1508 : glVariantfvEXT
-	7b3d1518 : glVariantdvEXT
-	7b3d1528 : glVariantubvEXT
-	7b3d1538 : glVariantusvEXT
-	7b3d1548 : glVariantuivEXT
-	7b3d1558 : glVariantPointerEXT
-	7b3d1568 : glEnableVariantClientStateEXT
-	7b3d1578 : glDisableVariantClientStateEXT
-	7b3d1588 : glBindLightParameterEXT
-	7b3d1598 : glBindMaterialParameterEXT
-	7b3d15a8 : glBindTexGenParameterEXT
-	7b3d15b8 : glBindTextureUnitParameterEXT
-	7b3d15c8 : glBindParameterEXT
-	7b3d15d8 : glIsVariantEnabledEXT
-	7b3d15e8 : glGetVariantBooleanvEXT
-	7b3d15f8 : glGetVariantIntegervEXT
-	7b3d1608 : glGetVariantFloatvEXT
-	7b3d1618 : glGetVariantPointervEXT
-	7b3d1628 : glGetInvariantBooleanvEXT
-	7b3d1638 : glGetInvariantIntegervEXT
-	7b3d1648 : glGetInvariantFloatvEXT
-	7b3d1658 : glGetLocalConstantBooleanvEXT
-	7b3d1668 : glGetLocalConstantIntegervEXT
-	7b3d1678 : glGetLocalConstantFloatvEXT
+	534513e8 : glBeginVertexShaderEXT
+	534513f8 : glEndVertexShaderEXT
+	53451408 : glBindVertexShaderEXT
+	53451418 : glGenVertexShadersEXT
+	53451428 : glDeleteVertexShaderEXT
+	53451438 : glShaderOp1EXT
+	53451448 : glShaderOp2EXT
+	53451458 : glShaderOp3EXT
+	53451468 : glSwizzleEXT
+	53451478 : glWriteMaskEXT
+	53451488 : glInsertComponentEXT
+	53451498 : glExtractComponentEXT
+	534514a8 : glGenSymbolsEXT
+	534514b8 : glSetInvariantEXT
+	534514c8 : glSetLocalConstantEXT
+	534514d8 : glVariantbvEXT
+	534514e8 : glVariantsvEXT
+	534514f8 : glVariantivEXT
+	53451508 : glVariantfvEXT
+	53451518 : glVariantdvEXT
+	53451528 : glVariantubvEXT
+	53451538 : glVariantusvEXT
+	53451548 : glVariantuivEXT
+	53451558 : glVariantPointerEXT
+	53451568 : glEnableVariantClientStateEXT
+	53451578 : glDisableVariantClientStateEXT
+	53451588 : glBindLightParameterEXT
+	53451598 : glBindMaterialParameterEXT
+	534515a8 : glBindTexGenParameterEXT
+	534515b8 : glBindTextureUnitParameterEXT
+	534515c8 : glBindParameterEXT
+	534515d8 : glIsVariantEnabledEXT
+	534515e8 : glGetVariantBooleanvEXT
+	534515f8 : glGetVariantIntegervEXT
+	53451608 : glGetVariantFloatvEXT
+	53451618 : glGetVariantPointervEXT
+	53451628 : glGetInvariantBooleanvEXT
+	53451638 : glGetInvariantIntegervEXT
+	53451648 : glGetInvariantFloatvEXT
+	53451658 : glGetLocalConstantBooleanvEXT
+	53451668 : glGetLocalConstantIntegervEXT
+	53451678 : glGetLocalConstantFloatvEXT
 
 GL_EXT_vertex_weighting
 	0 : glVertexWeightfEXT
@@ -2419,8 +2419,8 @@ GL_NV_command_list
 	0 : glCallCommandListNV
 
 GL_NV_conditional_render
-	7b3d04a8 : glBeginConditionalRenderNV
-	7b3d04b8 : glEndConditionalRenderNV
+	534504a8 : glBeginConditionalRenderNV
+	534504b8 : glEndConditionalRenderNV
 
 GL_NV_conservative_raster
 	0 : glSubpixelPrecisionBiasNV
@@ -2432,12 +2432,12 @@ GL_NV_conservative_raster_pre_snap_triangles
 	0 : glConservativeRasterParameteriNV
 
 GL_NV_copy_image
-	7b3d3198 : glCopyImageSubDataNV
+	53453198 : glCopyImageSubDataNV
 
 GL_NV_depth_buffer_float
-	7b3d3818 : glDepthRangedNV
-	7b3d3828 : glClearDepthdNV
-	7b3d3838 : glDepthBoundsdNV
+	53453818 : glDepthRangedNV
+	53453828 : glClearDepthdNV
+	53453838 : glDepthBoundsdNV
 
 GL_NV_draw_texture
 	0 : glDrawTextureNV
@@ -2461,9 +2461,9 @@ GL_NV_evaluators
 	0 : glEvalMapsNV
 
 GL_NV_explicit_multisample
-	7b3d1a18 : glGetMultisamplefvNV
-	7b3d1a08 : glSampleMaskIndexedNV
-	7b3d19f8 : glTexRenderbufferNV
+	53451a18 : glGetMultisamplefvNV
+	53451a08 : glSampleMaskIndexedNV
+	534519f8 : glTexRenderbufferNV
 
 GL_NV_fence
 	0 : glDeleteFencesNV
@@ -2495,8 +2495,8 @@ GL_NV_framebuffer_multisample_coverage
 
 GL_NV_geometry_program4
 	0 : glProgramVertexLimitNV
-	7b3d0938 : glFramebufferTextureEXT
-	7b3d0948 : glFramebufferTextureFaceEXT
+	53450938 : glFramebufferTextureEXT
+	53450948 : glFramebufferTextureFaceEXT
 
 GL_NV_gpu_multicast
 	0 : glRenderGpuMaskNV
@@ -2535,38 +2535,38 @@ GL_NV_gpu_program5
 	0 : glGetProgramSubroutineParameteruivNV
 
 GL_NV_half_float
-	7b3d29b8 : glVertex2hNV
-	7b3d29c8 : glVertex2hvNV
-	7b3d29d8 : glVertex3hNV
-	7b3d29e8 : glVertex3hvNV
-	7b3d29f8 : glVertex4hNV
-	7b3d2a08 : glVertex4hvNV
-	7b3d2a18 : glNormal3hNV
-	7b3d2a28 : glNormal3hvNV
-	7b3d2a38 : glColor3hNV
-	7b3d2a48 : glColor3hvNV
-	7b3d2a58 : glColor4hNV
-	7b3d2a68 : glColor4hvNV
-	7b3d2a78 : glTexCoord1hNV
-	7b3d2a88 : glTexCoord1hvNV
-	7b3d2a98 : glTexCoord2hNV
-	7b3d2aa8 : glTexCoord2hvNV
-	7b3d2ab8 : glTexCoord3hNV
-	7b3d2ac8 : glTexCoord3hvNV
-	7b3d2ad8 : glTexCoord4hNV
-	7b3d2ae8 : glTexCoord4hvNV
-	7b3d2af8 : glMultiTexCoord1hNV
-	7b3d2b08 : glMultiTexCoord1hvNV
-	7b3d2b18 : glMultiTexCoord2hNV
-	7b3d2b28 : glMultiTexCoord2hvNV
-	7b3d2b38 : glMultiTexCoord3hNV
-	7b3d2b48 : glMultiTexCoord3hvNV
-	7b3d2b58 : glMultiTexCoord4hNV
-	7b3d2b68 : glMultiTexCoord4hvNV
-	7b3d2b78 : glFogCoordhNV
-	7b3d2b88 : glFogCoordhvNV
-	7b3d2b98 : glSecondaryColor3hNV
-	7b3d2ba8 : glSecondaryColor3hvNV
+	534529b8 : glVertex2hNV
+	534529c8 : glVertex2hvNV
+	534529d8 : glVertex3hNV
+	534529e8 : glVertex3hvNV
+	534529f8 : glVertex4hNV
+	53452a08 : glVertex4hvNV
+	53452a18 : glNormal3hNV
+	53452a28 : glNormal3hvNV
+	53452a38 : glColor3hNV
+	53452a48 : glColor3hvNV
+	53452a58 : glColor4hNV
+	53452a68 : glColor4hvNV
+	53452a78 : glTexCoord1hNV
+	53452a88 : glTexCoord1hvNV
+	53452a98 : glTexCoord2hNV
+	53452aa8 : glTexCoord2hvNV
+	53452ab8 : glTexCoord3hNV
+	53452ac8 : glTexCoord3hvNV
+	53452ad8 : glTexCoord4hNV
+	53452ae8 : glTexCoord4hvNV
+	53452af8 : glMultiTexCoord1hNV
+	53452b08 : glMultiTexCoord1hvNV
+	53452b18 : glMultiTexCoord2hNV
+	53452b28 : glMultiTexCoord2hvNV
+	53452b38 : glMultiTexCoord3hNV
+	53452b48 : glMultiTexCoord3hvNV
+	53452b58 : glMultiTexCoord4hNV
+	53452b68 : glMultiTexCoord4hvNV
+	53452b78 : glFogCoordhNV
+	53452b88 : glFogCoordhvNV
+	53452b98 : glSecondaryColor3hNV
+	53452ba8 : glSecondaryColor3hvNV
 	0 : glVertexWeighthNV
 	0 : glVertexWeighthvNV
 	0 : glVertexAttrib1hNV
@@ -2682,8 +2682,8 @@ GL_NV_present_video
 	0 : glGetVideoui64vNV
 
 GL_NV_primitive_restart
-	7b3d1a58 : glPrimitiveRestartNV
-	7b3d1a68 : glPrimitiveRestartIndexNV
+	53451a58 : glPrimitiveRestartNV
+	53451a68 : glPrimitiveRestartIndexNV
 
 GL_NV_query_resource
 	0 : glQueryResourceNV
@@ -2729,12 +2729,12 @@ GL_NV_shader_buffer_load
 	0 : glGetIntegerui64vNV
 	0 : glUniformui64NV
 	0 : glUniformui64vNV
-	7b3d3708 : glGetUniformui64vNV
+	53453708 : glGetUniformui64vNV
 	0 : glProgramUniformui64NV
 	0 : glProgramUniformui64vNV
 
 GL_NV_texture_barrier
-	7b3d1aa8 : glTextureBarrierNV
+	53451aa8 : glTextureBarrierNV
 
 GL_NV_texture_multisample
 	0 : glTexImage2DMultisampleCoverageNV
@@ -2885,29 +2885,29 @@ GL_NV_vertex_program
 	0 : glVertexAttribs4ubvNV
 
 GL_NV_vertex_program4
-	7b3d0268 : glVertexAttribI1iEXT
-	7b3d0278 : glVertexAttribI2iEXT
-	7b3d0288 : glVertexAttribI3iEXT
-	7b3d0298 : glVertexAttribI4iEXT
-	7b3d02a8 : glVertexAttribI1uiEXT
-	7b3d02b8 : glVertexAttribI2uiEXT
-	7b3d02c8 : glVertexAttribI3uiEXT
-	7b3d02d8 : glVertexAttribI4uiEXT
-	7b3d02e8 : glVertexAttribI1ivEXT
-	7b3d02f8 : glVertexAttribI2ivEXT
-	7b3d0308 : glVertexAttribI3ivEXT
-	7b3d0318 : glVertexAttribI4ivEXT
-	7b3d0328 : glVertexAttribI1uivEXT
-	7b3d0338 : glVertexAttribI2uivEXT
-	7b3d0348 : glVertexAttribI3uivEXT
-	7b3d0358 : glVertexAttribI4uivEXT
-	7b3d0368 : glVertexAttribI4bvEXT
-	7b3d0378 : glVertexAttribI4svEXT
-	7b3d0388 : glVertexAttribI4ubvEXT
-	7b3d0398 : glVertexAttribI4usvEXT
-	7b3d03a8 : glVertexAttribIPointerEXT
-	7b3d03b8 : glGetVertexAttribIivEXT
-	7b3d03c8 : glGetVertexAttribIuivEXT
+	53450268 : glVertexAttribI1iEXT
+	53450278 : glVertexAttribI2iEXT
+	53450288 : glVertexAttribI3iEXT
+	53450298 : glVertexAttribI4iEXT
+	534502a8 : glVertexAttribI1uiEXT
+	534502b8 : glVertexAttribI2uiEXT
+	534502c8 : glVertexAttribI3uiEXT
+	534502d8 : glVertexAttribI4uiEXT
+	534502e8 : glVertexAttribI1ivEXT
+	534502f8 : glVertexAttribI2ivEXT
+	53450308 : glVertexAttribI3ivEXT
+	53450318 : glVertexAttribI4ivEXT
+	53450328 : glVertexAttribI1uivEXT
+	53450338 : glVertexAttribI2uivEXT
+	53450348 : glVertexAttribI3uivEXT
+	53450358 : glVertexAttribI4uivEXT
+	53450368 : glVertexAttribI4bvEXT
+	53450378 : glVertexAttribI4svEXT
+	53450388 : glVertexAttribI4ubvEXT
+	53450398 : glVertexAttribI4usvEXT
+	534503a8 : glVertexAttribIPointerEXT
+	534503b8 : glGetVertexAttribIivEXT
+	534503c8 : glGetVertexAttribIuivEXT
 
 GL_NV_video_capture
 	0 : glBeginVideoCaptureNV

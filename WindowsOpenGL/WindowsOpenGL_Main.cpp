@@ -30,22 +30,27 @@ objeto* grid;
 objeto* axis;
 texto* txt;
 GLuint hdrTextures[10];
+	cTimer t;
 
 // Main function startup program
 int main(int argc, char* argv[]) {
+	t.setTimer("main");
 	FILE* f = fopen("XING_T32.TGA", "rb");
-	if (!f) f = fopen("../XING_T32.TGA", "rb");
+	if (!f) f = fopen("../concrete_diffuse.TGA", "rb");
 	if (!f) f = fopen("../../XING_T32.TGA", "rb");
 	//if(!f) f = fopen("../../concrete_diffuse.tga", "rb");
 	img_basis* tx = 0;
+	t.setTimer("open XING_T32.TGA");
 	tx = read_TGA(f);
 		assert(tx);
 	if (!tx)
 		return 0;
+	t.setTimer("read_TGA");
 	if (!tx->isOPenGLCompatible())
 		tx->convertoToOPenGLCompatible();
-	cTimer t;
+	t.setTimer("convertoToOPenGLCompatible");
 	startOpengl();
+	t.setTimer("startOpengl");
 	//glEnable(GL_MULTISAMPLE);
 	glGenTextures(1, hdrTextures);
 
@@ -54,6 +59,7 @@ int main(int argc, char* argv[]) {
 	//glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, 8, GL_RGB16F, ctx.sx, ctx.sy, GL_FALSE);
 	glTexImage2D(GL_TEXTURE_2D, 0, tx->glInternalFormat, tx->xres, tx->yres, GL_FALSE, tx->glFormat, tx->glType, tx->pixels);
 	glGenerateMipmap(GL_TEXTURE_2D);
+	t.setTimer("Create texture");
 	//GLint buf, sbuf;
 	//glClearColor(0.0, 0.0, 0.0, 0.0);
 	//glGetIntegerv(GL_SAMPLE_BUFFERS, &buf);
@@ -80,17 +86,18 @@ int main(int argc, char* argv[]) {
 	txt = new texto("abcdefghijklmnopqrstuvwxyz ,.;/\\[]{}´`=+-_()!¹²³£¢¬@#$%¨&*'\"+-*/asdasdkhj	bfksdhgfgh	diasghfh hgfhjksdghfhj \ndhgadesfghadshfshg\nfsdfsd	asd\ndfsdfdsgdsgsdg)");
 	//torus->makeTorus(20, 20, float3(1, 1, 1));
 	//torus->CreateBuffer();
-	esfera = new objeto(0, objType::objTorus2, float3(0, 0, 0), float3(0, 0, 0), float3(1,1,1), uivec3(40, 10, 0));
+	esfera = new objeto(0, objType::objEsfera2, float3(0, 0, 0), float3(0, 0, 0), float3(1,1,1), uivec3(50, 50, 10));
 	esfera->atach();
 	esfera->grot = vec4(0, 0, 0.00000001, 0.000000333);
 	//torus->draw();
 	//esfera->makeSphere(20, 20, float3(1, 1, 1));
 	//esfera->CreateBuffer();
+	t.setTimer("create objs");
 
 
-	t.reset();
 	ShowWindow(ctx.hwnd, 1);
 	MSG msg;
+	t.setTimer("ShowWindow");
 
 	while (!bQuit) {
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
@@ -102,26 +109,35 @@ int main(int argc, char* argv[]) {
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
+			t.setTimer("PeekMessage");
 		}
 		else {
+			t.setTimer("wasted");
 			ZeroMemory(keymap, sizeof(KeyMap));
+			t.setTimer("ZeroMemory");
 			processKeyPress(keymap);
+			t.setTimer("processKeyPress");
 			//printf("time1: %f ms\n", setTime() / 1000.0f);
 			onRenderScene();
-			t.set();
+			t.setTimer("onRenderScene");
 			//printf("time2: %f ms\n", setTime() / 1000.0f);
 			glFinish();
-			t.set();
+			t.setTimer("glFinish");
 			//printf("time3: %f ms\n", t.getms());
 			SwapBuffers(ctx.hdc);
-			t.set();
-			if (limit)
-				while ((t.getms()) <= 13.0f)
-					Sleep(6);
-			t.set();
+			t.setTimer("SwapBuffers");
+			t.setFrameEnd();
+			//if (limit) {
+			//	float ms = 0;
+			//	while ((ms=t.getFrameMS()) <= 13.0f)
+			//		Sleep(6);
+			//}
+			//t.setTimer("sleeped");
+			t.setFrameStart();
+			t.setTimer("setFrameStart");
 			//printf("time4: %f ms\n", t.getms());
 			//printf("time4: %f fps\n\n", t.FPS());
-			t.reset();
+			//t.reset();
 			//system("pause");
 		}
 		//TranslateMessage(&msg);
@@ -838,10 +854,10 @@ void onMouseWhell(int val, WPARAM wParam, LPARAM lParam) {
 void onMouseMove(int xWindow, int yWindow, WPARAM wParam, LPARAM lParam, int x, int y) {
 	if (GetAsyncKeyState(VK_LBUTTON)) {
 	//printf("mousemove: x=%i y=%i w=%i l=%i\n", x, y, wParam, lParam);
-		activecamera->grot.y = clamp(activecamera->grot.y - y * 0.005f, -F_PI_2, F_PI_2);
-		activecamera->grot.y = clamp(activecamera->grot.y - y * 0.005f, -F_PI_2, F_PI_2);
-		activecamera->grot.x = fmodf(activecamera->grot.x + x * 0.005f, F_2PI);
-		activecamera->grot.x = fmodf(activecamera->grot.x + x * 0.005f, F_2PI);
+		activecamera->grot.y -= y * 0.005f;
+		activecamera->grot.y -= y * 0.005f;
+		activecamera->grot.x += x * 0.005f;
+		activecamera->grot.x += x * 0.005f;
 		activecamera->calcMatrix();
 	}
 	if (GetAsyncKeyState(VK_MBUTTON)) {

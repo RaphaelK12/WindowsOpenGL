@@ -370,93 +370,61 @@ void malha::makeSphere(uint xres, uint yres, float3 size) {
 }
 
 void malha::makeSphere2(uint xres, uint yres, float3 size) {
-	xres = min(max(abs(int(xres)), 3), 255);
-	yres = min(max(abs(int(yres)) - 2, 1), 256);
-	nVertex = xres * yres + 2;
-	nIndex = xres * yres * 2;
+	free();
+	xres = min(max(xres, 3), 255);
+	yres = min(max(yres, 3), 250);
+	nVertex = (xres + 1) * (yres + 1);
+	nIndex = (xres) * (yres) * 2;
 
 	pVertex.resize(nVertex);
-	//pNormal.resize(nVertex);
 	pIndex.resize(nIndex);
 
-	//vec3* v = new vec3[nVertex];
-	//vec3* n = new vec3[nVertex];
-	//usvec3* i = new usvec3[nIndex];
-
-	float vx = F_PI / (xres + 0) * 2, vy = F_PI / (yres + 1);
-	float px = 0, py = 0, pz = 0, spy = 0;
-	uint p = 1, x, y;
-
-	// vextex positions
-	// top
-	pVertex[0].position = vec3(0.0f, 0.0f, size.z);
-	pVertex[0].normal = vec3(0.0f, 0.0f, 1.0f);
-	// center
-	vec3 vec;
-	for (y = 1; y <= yres; y++) {
-		for (x = 0; x < xres; x++) {
-			px = x * vx; py = y * vy;
-			spy = sin(py);
-			vec = vec3(sin(px) * sin(py), cos(px) * sin(py), cos(py));
-
-			pVertex[p].position = vec * size;
-			//n[p] = vec;
-			pVertex[p].normal = normalize(vec);
-			//v[p] = vec3 (sin(px)*sin(py)*size.x, cos(py)*size.y, cos(px)*sin(py)*size.z);
+	float vx = F_PI / xres* 2, vy = F_PI / yres ;
+	float px = 0, py = 0;
+	// attributes
+	uint p = 0, y = 0, x = 0;
+	vec3 pos(0, 0, 1); // first vertex 
+	vec3 pos2;
+	vec3 pos3;
+	for (y = 0; y <= yres; y++) {
+		py = y * vy; // linear value angle
+		pos2 = rotateYRad(pos, py/1.0); // rotate first vertex into y angle to make a circle
+		for (x = 0; x <= xres; x++) {
+			px = x * vx; // linear angle value
+			pos3 = rotateZRad(pos2, px/1.0); // rotate the circle in z angle to make this circle turn a torus
+			pVertex[p].position = pos3 * (size / 2.f);
+			pVertex[p].uv = vec2(1.5f - x / float(xres) * 4.f, y / float(yres) * 3.f);
 			p++;
 		}
 	}
-	// booton
-	pVertex[p].position = vec3(0.0f, 0.0f, -size.z);
-	pVertex[p].normal = vec3(0.0f, 0.0f, -1.0f);
 
-
-	// indexes
-	// top
 	p = 0;
-	for (y = 1; y < xres; y++) {
-		pIndex[p] = usvec3(0, y + 1, y);
-		p++;
-	}
-	pIndex[p] = usvec3(0, 1, y);
-	p++;
-
-	//center
-	y = 1;
-	x = y + xres;
-	uint sx = x, sy = 0;
-	for (uint a = 0; a < yres - 1; a++) {
-		uint sx = x, sy = y;
-		for (uint b = 0; b < xres - 1; b++, x++, y++) {
-			pIndex[p] = usvec3(x, y, x + 1);
+	x = 0;
+	y = xres + 1;
+	for (uint a = 0; a < yres; a++) {
+		for (uint b = 0; b < xres; b++, x++, y++) {
+			pIndex[p] = usvec3(x, x + 1, y);
 			p++;
-			pIndex[p] = usvec3(x + 1, y, y + 1);
+			pIndex[p] = usvec3(y, x + 1, y + 1);
 			p++;
 		}
-		pIndex[p] = usvec3(x, y, sx);
-		p++;
-		pIndex[p] = usvec3(y + 1, y, sy);
-		//i[p] = usvec3(y, sx, x+1);
-		//p++;
-		//i[p] = usvec3(y, sy-1, y+1);
-
-		p++;
 		x++;
 		y++;
 	}
 
-	// booton
-	for (y = nVertex - xres; y < nVertex - 1; y++) {
-		pIndex[p] = usvec3(nVertex - 1, y - 1, y);
-		p++;
+	vec3 faceNormal;
+	for (p = 0; p < nIndex; p++) {
+		faceNormal = calcNormal(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
+		pVertex[pIndex[p].x].normal += faceNormal;
+		pVertex[pIndex[p].y].normal += faceNormal;
+		pVertex[pIndex[p].z].normal += faceNormal;
 	}
-	pIndex[p] = usvec3(nVertex - 1, y - 1, nVertex - xres - 1);
-
 	for (p = 0; p < nVertex; p++) {
-		pVertex[p].uv = vec2(pVertex[p].position.x, pVertex[p].position.y + pVertex[p].position.z);
+		pVertex[p].normal = normalize(pVertex[p].normal);
 	}
 	p = 0;
 
+	name = "Esfera";
 }
 
 void malha::makeCone(uint xres, uint yres, float3 size) {

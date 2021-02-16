@@ -177,6 +177,7 @@
     <ClCompile Include="VectorMath.cpp" />
     <ClCompile Include="WGlGetFunctions.cpp" />
     <ClCompile Include="WindowsOpenGL_Main.cpp" />
+    <ClCompile Include="Word.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bone.h" />
@@ -209,6 +210,7 @@
     <ClInclude Include="WGLfunctions.h" />
     <ClInclude Include="WGlGetFunctions.h" />
     <ClInclude Include="WindowsOpengl.h" />
+    <ClInclude Include="Word.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

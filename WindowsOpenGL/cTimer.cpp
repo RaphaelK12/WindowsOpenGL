@@ -82,11 +82,11 @@ float cTimer::getFPS() {
 	return 1.0f / (((f2 - f1) * (1000000.0f / fr)) / 1000000.0f);
 }
 float cTimer::getMedianFPS(uint number) {
-	uint size = min(number, FPSs.size());
+	number = min(number, FPSs.size());
 	float fps = 0;
-	for (int i = 0; i < size; i++) {
+	for (uint i = FPSs.size()-1; i > FPSs.size() - number; i--) {
 		fps += FPSs[i];
 	}
-	return fps / size;
+	return fps / number;
 }
 	

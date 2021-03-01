@@ -163,6 +163,7 @@ shading blinPhong3( in vec3 n, in vec3 v, in light l){
 }
 
 void main(void){
+	float sz = 0.00113;
 	light l;
 	l.direction=fs_in.lightDir;
 	l.color=lightColor;
@@ -178,6 +179,20 @@ void main(void){
 					// s.specular * mt.specular.rgb)
 					// *
 					texture(texture1, fs_in.uv1).rgb
+					
+					// vec3(
+					// texture(texture1, fs_in.uv1+vec2(-sz,-sz)).rgb+
+					// texture(texture1, fs_in.uv1+vec2(-sz,0  )).rgb+
+					// texture(texture1, fs_in.uv1+vec2(-sz,sz )).rgb+
+					
+					// texture(texture1, fs_in.uv1+vec2(sz,-sz)).rgb+
+					// texture(texture1, fs_in.uv1+vec2(sz,0  )).rgb+
+					// texture(texture1, fs_in.uv1+vec2(sz,sz )).rgb+
+					
+					// texture(texture1, fs_in.uv1+vec2(0,-sz)).rgb+
+					// texture(texture1, fs_in.uv1+vec2(0,0  )).rgb+
+					// texture(texture1, fs_in.uv1+vec2(0,sz )).rgb)/vec3(9)
+					
 		,
 		mt.diffuse.a);
 	}

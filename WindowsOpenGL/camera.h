@@ -19,12 +19,17 @@ public:
 	float top;
 	float fov;
 	float aspect;
-	vec3 center;
+	vec3 dir;
 	vec3 up;
 	//vec3 rot;
 
 	void calcMatrix();
+	void moveF(float delta);
+	void moveB(float delta);
+	void moveL(float delta);
+	void moveR(float delta);
 
+	void rotate(vec3 v);
 
 };
 

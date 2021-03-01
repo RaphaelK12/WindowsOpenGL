@@ -18,7 +18,7 @@ uniform mat4 mt_view;
 uniform mat4 mt_projection;
 uniform mat4 mt_modelView;
 uniform mat4 mt_modelViewProjection;
-
+uniform vec3 viewPos;
 // Outputs to fragment shader
 out VS_OUT
 {
@@ -31,6 +31,7 @@ out VS_OUT
 
 	vec3 normal;	// normal
 	vec3 lightDir;	// Light
+	vec3 viewPos;	// Light
 	vec2 uv1;		// first uv
 	
 	// rarely used, not necessary
@@ -43,7 +44,7 @@ vec3 light_pos = vec3(5, 0, 0);
 
 void main(void){
 	// Calculate view-space coordinate
-	vec4 P = mt_model * inPosition;
+	vec4 P = mt_model * vec4(inPosition.xyz,1);
 
 	// Calculate normal in view-space
 	// vs_out.N = mat3(mt_modelView) * inNormal;
@@ -51,7 +52,8 @@ void main(void){
 	vs_out.normal = normalize(vec3( normalMatrix * inNormal));
 
 	// Calculate light vector
-	vs_out.lightDir = light_pos - P.xyz;
+	vs_out.lightDir = normalize(light_pos - P.xyz);
+	vs_out.viewPos = viewPos;
 
 	vs_out.position		= inPosition; // local
 	vs_out.position_M	= mt_model * inPosition; // global

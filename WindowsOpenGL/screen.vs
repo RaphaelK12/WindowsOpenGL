@@ -59,9 +59,9 @@ void main(void){
 	vs_out.position_P	= mt_projection * inPosition;
 	vs_out.position_MV	= mt_modelView * inPosition;  // global view
 	vs_out.position_MVP = mt_modelViewProjection * inPosition; // global projection
-	vs_out.uv1=vec2(1-inUv1.x,inUv1.y);
+	vs_out.uv1=vec2(inUv1.x,inUv1.y);
 	vs_out.color1=inColor1;
 
 	// Calculate the clip-space position of each vertex
-	gl_Position = vec4(inPosition.y*2, -inPosition.z*2, inPosition.x, 1);
+	gl_Position = vec4(inPosition.x*2, inPosition.y*2, inPosition.z, 1);
 }

@@ -205,11 +205,9 @@ int material::read(string filename) {
 		delete[] txt;
 
 		if (mShader) {
-			if (mShader->name != mShaderName) {
-				mShader->detach();
-				mShader = new shader(mShaderName);
-				mShader->atach();
-			}
+			mShader->detach();
+			mShader = new shader(mShaderName);
+			mShader->atach();
 		}
 	}
 	return 1;
@@ -265,7 +263,7 @@ void material::setMatrix(matrix_block* m) {
 	mShader->setUniform("mt_projection", m->P);					  //	uniform mat4 mt_projection;
 	mShader->setUniform("mt_modelView", m->MV);					  //	uniform mat4 mt_modelView;
 	mShader->setUniform("mt_modelViewProjection", m->MVP);		  // 	uniform mat4 mt_modelViewProjection;
-	mShader->setUniform("viewPos", activecamera->gpos);		  // 	uniform mat4 mt_modelViewProjection;
+	mShader->setUniform("viewPos", vec3(activecamera->gpos));		  // 	uniform mat4 mt_modelViewProjection;
 
 }
 

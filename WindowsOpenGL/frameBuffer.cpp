@@ -51,7 +51,7 @@ frameBuffer::frameBuffer(uint n, uivec2 sz) :
 	glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 	textures.resize(n);
 	glGenTextures(n, &textures[0]);
-	for (int i = 0; i < n; i++) {
+	for (uint i = 0; i < n; i++) {
 		glBindTexture(GL_TEXTURE_2D, textures[i]);
 
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, size.x, size.y, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
@@ -82,7 +82,7 @@ frameBuffer::frameBuffer(uint n, uivec2 sz) :
 
 void frameBuffer::resize(uivec2 sz) {
 	size = sz;
-	for (int i = 0; i < textures.size(); i++) {
+	for (uint i = 0; i < textures.size(); i++) {
 		glBindTexture(GL_TEXTURE_2D, textures[i]);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, size.x, size.y, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
 	}

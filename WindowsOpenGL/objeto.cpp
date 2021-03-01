@@ -41,7 +41,8 @@ objeto::objeto(objeto* prev, objType t, vec3 Pos, vec3 Rot, vec3 Size, uint3 Res
 	g_count++;
 	g_objeto_list.push_back(this);
 	mIndex = g_objeto_list.size() - 1;
-
+	this->lpos = Pos;
+	this->gpos = Pos;
 	switch (t)
 	{
 	case objType::objNone:
@@ -271,7 +272,7 @@ void objeto::calcMatrix() {
 	 //m = glm::rotate(mat4(1.0f), length(vec3(grot)), vec3(grot.y,grot.z,grot.x));
 	matrix.M = glm::scale(m, gsize);
 	//matrix.M = glm::rotate(matrix.M, 1.0f, grot);
-	//matrix.M = glm::translate(matrix.M, gpos);
+	matrix.M = glm::translate(matrix.M, gpos);
 	matrix.MV = matrix.V * matrix.M;
 	matrix.MVP = matrix.P * matrix.V * matrix.M;
 	//vec3 light_position = vec3(-20.0f, -20.0f, 0.0f);

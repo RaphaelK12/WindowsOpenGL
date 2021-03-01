@@ -22,13 +22,13 @@
 //inline double deg(double n);
 //inline double rad(double n);
 
-int makeSphere(int xres, int yres, float3 size, int *nvert, int *nindex, vec3 **ver, vec3 **nor, usvec3 **ind);
-void drawRandPoints(int num);
-void drawTorus(int xres, int yres, float3 size);
-void drawTorus2(int xres, int yres, float3 size);
-void makeTorus(int xres, int yres, float3 size);
-void drawAxis();
-void drawGrid();
+//int makeSphere(int xres, int yres, float3 size, int *nvert, int *nindex, vec3 **ver, vec3 **nor, usvec3 **ind);
+//void drawRandPoints(int num);
+//void drawTorus(int xres, int yres, float3 size);
+//void drawTorus2(int xres, int yres, float3 size);
+//void makeTorus(int xres, int yres, float3 size);
+//void drawAxis();
+//void drawGrid();
 
 
 class SolidSphere

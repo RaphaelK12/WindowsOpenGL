@@ -103,6 +103,7 @@ vec3  mix(const vec3& a, const vec3& b, float factor);
 vec3  clamp(const vec3& v, float a, float b);
 vec3  clamp(const vec3& v, const vec3& a, const vec3& b);
 vec3  saturate(const vec3& v);
+vec3  vmod(vec3 v, float m);
 
 vec3  smoothstep(const vec3& v, float a, float b);
 vec3  smoothstep(const vec3& v, const vec3& a, const vec3& b);
@@ -118,6 +119,7 @@ vec3  reflect(const vec3& I, const vec3& N);
 vec3  refract(const vec3& I, const vec3& N, float eta);
 vec3  calcNormal(const vec3& v1, const vec3& v2, const vec3& v3);
 vec3  faceNormal(const vec3& v1, const vec3& v2, const vec3& v3);
+vec3  faceNormal2(const vec3& v1, const vec3& v2, const vec3& v3);
 vec3  faceforward(const vec3& N, const vec3& I, const vec3& Nref);
 												
 // 0 ~ 1						
@@ -166,4 +168,14 @@ float distanceToLine(const vec3& P, const vec3& A, const vec3& B);
 
 
 
+// Formula de Heron
+template <class T>
+float area(T A, T B, T C) {
+	float a = length(A - B);
+	float b = length(A - C);
+	float c = length(B - C);
+	float p = (a + b + c) / 2;
+	float s = sqrt(p * (p - a) * (p - b) * (p - c));
+	return s;
+};
 

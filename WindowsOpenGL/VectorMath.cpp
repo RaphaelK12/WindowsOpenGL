@@ -486,6 +486,9 @@ vec3  saturate(const vec3& v) {
 	tmp.z = saturate(v.z);
 	return tmp;
 }
+vec3  vmod(vec3 v, float m) {
+	return vec3(fmodf(v.x, m), fmodf(v.y, m), fmodf(v.z, m));
+}
 
 vec3  smoothstep(const vec3& v, float a, float b) {
 	vec3 tmp;
@@ -557,6 +560,16 @@ vec3  calcNormal(const vec3& v1, const vec3& v2, const vec3& v3) {
 	n1 = v2 - v1;
 	n2 = v2 - v3;
 	return cross(n1, n2);
+}
+vec3  faceNormal2(const vec3& v1, const vec3& v2, const vec3& v3) {
+	vec3 n1, n2;
+	// Calculate two vectors from the three points
+	n1 = v1 - v2;
+	n2 = v2 - v3;
+	// Take the cross product of the two vectors to get
+	// the normal vector and
+	// Normalize the vector (shorten length to one)
+	return normalize(cross(n1, n2)) * abs(area(v1,v2,v3));
 }
 vec3  faceNormal(const vec3& v1, const vec3& v2, const vec3& v3) {
 	vec3 n1, n2;

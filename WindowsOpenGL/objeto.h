@@ -25,7 +25,7 @@ class objeto :
 {
 public:
 	objeto();
-	objeto(objeto *parent, objType t, vec3 Pos=vec3(0), vec3 Rot= vec3(0), vec3 Size= vec3(0), uint3 Res = uint3(3, 3, 3));
+	objeto(objeto *parent, objType t, vec3 Pos=vec3(0), vec3 Rot= vec3(0), vec3 Size= vec3(0), uint3 Res = uint3(3, 3, 3), string matName=0);
 	objeto(objeto *parent);
 	~objeto();
 

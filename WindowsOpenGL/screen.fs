@@ -6,7 +6,6 @@
 
 // Output
 layout (location = 0) out vec4 color;
-layout (location = 1) out vec4 nr;
 // Input from vertex shader
 in VS_OUT{
 	// Vertex positions

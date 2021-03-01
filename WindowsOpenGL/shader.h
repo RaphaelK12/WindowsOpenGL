@@ -45,7 +45,6 @@ enum class ShaderType {
 	SHADER_PROGRAM,
 };
 
-const string _v[]={".fs", ".vs", ".te", ".tc", ".gs", ".cs"};
 
 class shader
 {
@@ -85,8 +84,6 @@ public:
 	//string  CSsrc;		// gl compute shader source
 
     // constructor generates the shader on the fly
-    // ------------------------------------------------------------------------
-
 	~shader(void);
 
 	shader(void);
@@ -112,11 +109,9 @@ public:
 	uint readSrcFromFilenames();
 
     // activate the shader
-    // ------------------------------------------------------------------------
 	int compile();
 
 	// Set shader source code src = text source code, type = vertex, fragment, tesselation, ...
-	// ------------------------------------------------------------------------
 	int setSource(string& src, ShaderType type);
 
 	int setSource(const char* src, ShaderType type);
@@ -132,29 +127,6 @@ public:
 	void deleteShaders();
 
     // utility uniform functions
-    // ------------------------------------------------------------------------
-    void setBool(const string &uname, bool value) const;
-    // ------------------------------------------------------------------------
-    void setInt(const string &uname, int value) const;
-    // ------------------------------------------------------------------------
-    void setFloat(const string &uname, float value) const;
-    // ------------------------------------------------------------------------
-    void setVec2(const string &uname, const vec2 &value) const;
-
-    void setVec2(const string &uname, float x, float y) const;
-    // ------------------------------------------------------------------------
-    void setVec3(const string &uname, const vec3 &value) const;
-    void setVec3(const string &uname, float x, float y, float z) const;
-    // ------------------------------------------------------------------------
-    void setVec4(const string &uname, const vec4 &value) const;
-    void setVec4(const string &uname, float x, float y, float z, float w) const;
-    // ------------------------------------------------------------------------
-    void setMat2(const string &uname, const mat2 &mat) const;
-    // ------------------------------------------------------------------------
-    void setMat3(const string &uname, const mat3 &mat) const;
-    // ------------------------------------------------------------------------
-    void setMat4(const string &uname, const mat4 &mat) const;
-    // ------------------------------------------------------------------------
     void setUniform(const string &uname, const bool &val) const;
     void setUniform(const string &uname, const int &val) const;
     void setUniform(const string &uname, const uint &val) const;
@@ -169,7 +141,6 @@ public:
 
 private:
     // utility function for checking shader compilation/linking errors.
-    // ------------------------------------------------------------------------
     uint checkCompileErrors(GLuint shader, string type);
 
 

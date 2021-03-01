@@ -11,15 +11,7 @@ int bQuit = false;
 float theta = 0;
 char limit = 1;
 
-int nvert = 0, nindex = 0;
-vec3* vert;
-vec3* norm;
-usvec3* index;
 
-int tnvert = 0, tnindex = 0;
-vec3* tvert;
-vec3* tnorm;
-usvec3* tindex;
 pKeyMap keymap = new KeyMap;
 
 animation anim;
@@ -28,15 +20,18 @@ objeto* esfera;
 objeto* torus;
 objeto* grid;
 objeto* axis;
+objeto* plane;
 texto* txt;
 GLuint hdrTextures[10];
-	cTimer t;
+cTimer t;
+
+frameBuffer* fbo;
 
 // Main function startup program
 int main(int argc, char* argv[]) {
 	t.setTimer("main");
 	FILE* f = fopen("XING_T32.TGA", "rb");
-	if (!f) f = fopen("../concrete_diffuse.TGA", "rb");
+	if (!f) f = fopen("../XING_T32.TGA", "rb");
 	if (!f) f = fopen("../../XING_T32.TGA", "rb");
 	//if(!f) f = fopen("../../concrete_diffuse.tga", "rb");
 	img_basis* tx = 0;
@@ -55,45 +50,64 @@ int main(int argc, char* argv[]) {
 	glGenTextures(1, hdrTextures);
 
 	//glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, hdrTextures[0]);
-	glBindTexture(GL_TEXTURE_2D, hdrTextures[0]);
 	//glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, 8, GL_RGB16F, ctx.sx, ctx.sy, GL_FALSE);
+	glBindTexture(GL_TEXTURE_2D, hdrTextures[0]);
 	glTexImage2D(GL_TEXTURE_2D, 0, tx->glInternalFormat, tx->xres, tx->yres, GL_FALSE, tx->glFormat, tx->glType, tx->pixels);
+
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+
+	float borderColor[] = { 0.0f, 0.0f, 1.0f, 1.0f };
+	glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	GLfloat value, max_anisotropy = 16.0f; /* don't exceed this value...*/
+
+	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &value);
+
+	value = (value > max_anisotropy) ? max_anisotropy : value;
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, value);
+
 	glGenerateMipmap(GL_TEXTURE_2D);
 	t.setTimer("Create texture");
-	//GLint buf, sbuf;
-	//glClearColor(0.0, 0.0, 0.0, 0.0);
-	//glGetIntegerv(GL_SAMPLE_BUFFERS, &buf);
-	//glGetIntegerv(GL_SAMPLES, &sbuf);
-	//printf("number of sample buffers is %i %i\n", buf, sbuf);
-
-	//glMatrixMode(GL_PROJECTION);
-	//glLoadIdentity();
-	//glOrtho(-1.0, 1.0, -1.0, 1.0, -2.0, 100.0);
 
 	anim.frames.push_back(frame(vec2(0), vec2(0), vec2(0)));
 	anim.frames.push_back(frame(vec2(0.5, 0), vec2(0.501, 1), vec2(1, 1)));
 	anim.frames.push_back(frame(vec2(1.5, 1), vec2(1.6, 0), vec2(2, 1)));
 
-
-	//shader s2;
-	//printf("%i\n", s2.use());
-	//torus = new objeto(0, objType::objTorus2, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(20, 20, 20));
-	//torus->atach();
-	grid = new objeto(0, objType::objGrid, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(5, 5, 5));
+	torus = new objeto(0, objType::objTorus2, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(250, 220, 20), "default.mat");
+	torus->atach();
+	grid = new objeto(0, objType::objGrid, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(5, 5, 5),"lineVertexColor.mat");
 	grid->atach();
-	axis = new objeto(0, objType::objAxis, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(10, 10, 10));
+	axis = new objeto(0, objType::objAxis, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(10, 10, 10), "lineVertexColor.mat");
 	axis->atach();
-	txt = new texto("abcdefghijklmnopqrstuvwxyz ,.;/\\[]{}´`=+-_()!¹²³£¢¬@#$%¨&*'\"+-*/asdasdkhj	bfksdhgfgh	diasghfh hgfhjksdghfhj \ndhgadesfghadshfshg\nfsdfsd	asd\ndfsdfdsgdsgsdg)");
-	//torus->makeTorus(20, 20, float3(1, 1, 1));
-	//torus->CreateBuffer();
-	esfera = new objeto(0, objType::objEsfera2, float3(0, 0, 0), float3(0, 0, 0), float3(1,1,1), uivec3(50, 50, 10));
+	esfera = new objeto(0, objType::objEsfera2, float3(0, 0, 0), float3(0, 0, 0), float3(1,1,1), uivec3(50, 50, 10), "default.mat");
 	esfera->atach();
-	esfera->grot = vec4(0, 0, 0.00000001, 0.000000333);
-	//torus->draw();
-	//esfera->makeSphere(20, 20, float3(1, 1, 1));
-	//esfera->CreateBuffer();
-	t.setTimer("create objs");
+	plane = new objeto(0, objType::objQuad, float3(0, 0, 0), float3(0, 0, 0), float3(1,1,1), uivec3(50, 50, 10), "screen.mat");
+	plane->atach();
 
+	//torus->draw();
+	//grid->draw();
+	//axis->draw();	
+	//axis->malhas[0]->mMaterial->mShader->FS = "VertexColor.fs";
+	//axis->malhas[0]->mMaterial->mShader->readSrcFromFilenames();
+	//axis->malhas[0]->mMaterial->mShader->generateShadersAndProgram(1);
+	//axis->malhas[0]->mMaterial->mShader->use();
+	//axis->draw();
+
+	//esfera->draw();
+	//esfera->malhas[0]->mMaterial->mShader->VS = "screen.vs";
+	//esfera->malhas[0]->mMaterial->mShader->readSrcFromFilenames();
+	//esfera->malhas[0]->mMaterial->mShader->generateShadersAndProgram(1);
+	//esfera->malhas[0]->mMaterial->mShader->use();
+
+	txt = new texto("abcdefghijklmnopqrstuvwxyz ,.;/\\[]{}´`=+-_()!¹²³£¢¬@#$%¨&*'\"+-*/asdasdkhj	bfksdhgfgh	diasghfh hgfhjksdghfhj \ndhgadesfghadshfshg\nfsdfsd	asd\ndfsdfdsgdsgsdg)");
+	t.setTimer("create objs");
 
 	ShowWindow(ctx.hwnd, 1);
 	MSG msg;
@@ -117,70 +131,28 @@ int main(int argc, char* argv[]) {
 			t.setTimer("ZeroMemory");
 			processKeyPress(keymap);
 			t.setTimer("processKeyPress");
-			//printf("time1: %f ms\n", setTime() / 1000.0f);
 			onRenderScene();
 			t.setTimer("onRenderScene");
-			//printf("time2: %f ms\n", setTime() / 1000.0f);
 			glFinish();
 			t.setTimer("glFinish");
-			//printf("time3: %f ms\n", t.getms());
 			SwapBuffers(ctx.hdc);
 			t.setTimer("SwapBuffers");
 			t.setFrameEnd();
-			//if (limit) {
-			//	float ms = 0;
-			//	while ((ms=t.getFrameMS()) <= 13.0f)
-			//		Sleep(6);
-			//}
-			//t.setTimer("sleeped");
+			if (limit) {
+				float ms = 0;
+				while ((ms=t.getFrameMS()) <= 10.0f)
+					Sleep(0);
+			}
+			t.setTimer("sleeped");
 			t.setFrameStart();
 			t.setTimer("setFrameStart");
-			//printf("time4: %f ms\n", t.getms());
-			//printf("time4: %f fps\n\n", t.FPS());
-			//t.reset();
-			//system("pause");
 		}
-		//TranslateMessage(&msg);
-		//DispatchMessage(&msg);
 	}
-
 	delete keymap;
-	delete[] vert;
-	delete[] index;
 	wglMakeCurrent(ctx.hdc, NULL);
 	wglDeleteContext(ctx.hglrc);
 	ReleaseDC(ctx.hwnd, ctx.hdc);
 	DestroyWindow(ctx.hwnd);
-
-
-	//GLint nNum; 
-	//char * ext;
-
-	//glGetIntegerv(GL_EXTENSIONS, &nNum);
-
-	//for(GLint i = 1; i< 1000; i++){
-	//	ext = (char *)glGetString(i);
-	//	if(!ext)
-	//		continue;
-	//	printf(ext);
-	// }
-	// { 
-	//wglSwapIntervalEXT = 
-	//(PFNWGLSWAPINTERVALEXTPROC)wglGetProcAddress(“wglSwapIntervalEXT”);
-	//if(wglSwapIntervalEXT != NULL) 
-	//wglSwapIntervalEXT(1);
-	// }
-
-	//auxInitDisplayMode(AUX_INDIRECT | AUX_RGBA);
-	//auxInitPosition(100,100,250,250);
-	//auxInitWindow("My first OpenGL Program");  
-	//// These are the OpenGL functions that do something in the window
-	//glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
-	//glClear(GL_COLOR_BUFFER_BIT);
-	//glFlush();
-	//// Stop and wait for a keypress
-	//printf("Press any key to close the Window \n");
-	//getchar();
 
 	//system("pause");
 	//return msg.wParam;
@@ -377,7 +349,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 }
 
 int startOpengl() {
-	
+
 	ctx.sx = 1000;
 	ctx.sy = 650;
 	ZeroMemory(&ctx.wc, sizeof(WNDCLASS));
@@ -408,12 +380,12 @@ int startOpengl() {
 	pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER;
 	pfd.iPixelType = PFD_TYPE_RGBA;
 	pfd.cColorBits = 32;
-	pfd.cDepthBits = 16;
+	pfd.cDepthBits = 8;
 	pfd.iLayerType = PFD_MAIN_PLANE;
 	int visual = ChoosePixelFormat(ctx.hdc, &pfd);
 	/* set the pixel format for the dc */
 	//SetPixelFormat(ctx.hdc, visual, &pfd);
-	SetPixelFormat(ctx.hdc, 80, &pfd); // it is a hack, so i know that this number 80 activate the 4x AntiAlias on my computer
+	SetPixelFormat(ctx.hdc, visual, &pfd); // it is a hack, so i know that this number 80 activate the 4x AntiAlias on my computer
 	/* create rendering context */
 	ctx.hglrc = wglCreateContext(ctx.hdc);
 	wglMakeCurrent(ctx.hdc, ctx.hglrc);
@@ -439,7 +411,6 @@ int startOpengl() {
 	int nResults[1] = { 0 };
 	int pixFmt = 1;
 	wglGetPixelFormatAttribivARB(ctx.hdc, pixFmt, 0, 1, attrib, nResults);
-
 
 	GLint pfAttribCount[] = { WGL_NUMBER_PIXEL_FORMATS_ARB };
 	//GLint pfAttribList[] = { 
@@ -523,8 +494,6 @@ int startOpengl() {
 
 	FILE* LogPixelFormat = fopen("LogPixelFormat.py", "wb");
 
-
-
 	int nPixelFormatCount = 0;
 	wglGetPixelFormatAttribivARB(ctx.hdc, 1, 0, 1, pfAttribCount, &nPixelFormatCount);
 	for (int i = 1; i < nPixelFormatCount; i++) {
@@ -587,8 +556,9 @@ int startOpengl() {
 	}
 	fprintf(LogPixelFormat, "\n\n\n\n");
 
-
 	fclose(LogPixelFormat);
+
+	fbo = new frameBuffer(1, uivec2(100, 60) * 10);
 	return 1;
 }
 
@@ -624,167 +594,102 @@ void processKeyPress(pKeyMap keymap) {
 		//activecamera->fov = clamp(activecamera->fov + 0.01f, 0.0001f, 3.14f);
 	}
 	if (GetAsyncKeyState(VK_UP)) {
-		activecamera->grot.y = clamp(activecamera->grot.y - 0.05f, -F_PI_2, F_PI_2);
+		activecamera->grot.y -= 0.05f;
 	}
 	if (GetAsyncKeyState(VK_DOWN)) {
-		activecamera->grot.y = clamp(activecamera->grot.y + 0.05f, -F_PI_2, F_PI_2);
+		activecamera->grot.y += 0.05f;
 	}
 	if (GetAsyncKeyState(VK_LEFT)) {
-		activecamera->grot.x = fmodf(activecamera->grot.x + 0.05f, F_2PI);
+		activecamera->grot.x += 0.05f;
 	}
 	if (GetAsyncKeyState(VK_RIGHT)) {
-		activecamera->grot.x = fmodf(activecamera->grot.x - 0.05f, F_2PI);
+		activecamera->grot.x -= 0.05f;
 	}
 		activecamera->calcMatrix();
 	if (GetAsyncKeyState(0x51)) { // Q
-		torus->grot.y = fmodf(torus->grot.y - 0.05f, F_2PI);
-		esfera->grot.y = fmodf(esfera->grot.y - 0.05f, F_2PI);
-		torus->grot.w = fmodf(torus->grot.w - 0.05f, F_2PI);
-		esfera->grot.w = fmodf(esfera->grot.w - 0.05f, F_2PI);
+		torus->grot.y  -= 0.05f;
+		esfera->grot.y -= 0.05f;
+		torus->grot.w  -= 0.05f;
+		esfera->grot.w -= 0.05f;
 	}
 	if (GetAsyncKeyState(0x45)) { // E		 
-		torus->grot.y = fmodf(torus->grot.y + 0.05f, F_2PI);
-		esfera->grot.y = fmodf(esfera->grot.y + 0.05f, F_2PI);
-		torus->grot.w = fmodf(torus->grot.w + 0.05f, F_2PI);
-		esfera->grot.w = fmodf(esfera->grot.w + 0.05f, F_2PI);
+		torus->grot.y  += 0.05f;
+		esfera->grot.y += 0.05f;
+		torus->grot.w  += 0.05f;
+		esfera->grot.w += 0.05f;
 	}
 	if (GetAsyncKeyState(0x52)) { // R
-		torus->grot = vec4(0, 0, 0.00000001f, 0.0003333);
+		torus->grot  = vec4(0, 0, 0.00000001f, 0.0003333);
 		esfera->grot = vec4(0, 0, 0.00000001f, 0.000333);
 	}
 	if (GetAsyncKeyState(0x57)) { // W
-		torus->grot.x = fmodf(torus->grot.x + 0.05f, F_2PI);
-		esfera->grot.x = fmodf(esfera->grot.x + 0.05f, F_2PI);
-		torus->grot.w = fmodf(torus->grot.w + 0.05f, F_2PI);
-		esfera->grot.w = fmodf(esfera->grot.w + 0.05f, F_2PI);
+		torus->grot.x  += 0.05f;
+		esfera->grot.x += 0.05f;
+		torus->grot.w  += 0.05f;
+		esfera->grot.w += 0.05f;
 	}
 	if (GetAsyncKeyState(0x53)) { // S		 
-		torus->grot.x = fmodf(torus->grot.x - 0.05f, F_2PI);
-		esfera->grot.x = fmodf(esfera->grot.x - 0.05f, F_2PI);
-		torus->grot.w = fmodf(torus->grot.w - 0.05f, F_2PI);
-		esfera->grot.w = fmodf(esfera->grot.w - 0.05f, F_2PI);
+		torus->grot.x  -= 0.05f;
+		esfera->grot.x -= 0.05f;
+		torus->grot.w  -= 0.05f;
+		esfera->grot.w -= 0.05f;
 	}
 	if (GetAsyncKeyState(0x41)) { // A		  
-		torus->grot.z = fmodf(torus->grot.z + 0.05f, F_2PI);
-		esfera->grot.z = fmodf(esfera->grot.z + 0.05f, F_2PI);
-		torus->grot.w = fmodf(torus->grot.w + 0.05f, F_2PI);
-		esfera->grot.w = fmodf(esfera->grot.w + 0.05f, F_2PI);
+		torus->grot.z   += 0.05f;
+		esfera->grot.z  += 0.05f;
+		torus->grot.w   += 0.05f;
+		esfera->grot.w  += 0.05f;
 	}
 	if (GetAsyncKeyState(0x44)) { // D		  
-		torus->grot.z = fmodf(torus->grot.z - 0.05f, F_2PI);
-		esfera->grot.z = fmodf(esfera->grot.z - 0.05f, F_2PI);
-		torus->grot.w = fmodf(torus->grot.w - 0.05f, F_2PI);
-		esfera->grot.w = fmodf(esfera->grot.w - 0.05f, F_2PI);
+		torus->grot.z  -= 0.05f;
+		esfera->grot.z -= 0.05f;
+		torus->grot.w  -= 0.05f;
+		esfera->grot.w -= 0.05f;
 	}
 	if (GetAsyncKeyState(VK_SPACE)) {
-		torus->malhas[0]->mMaterial->detach();
-		esfera->malhas[0]->mMaterial->detach();
-		torus->malhas[0]->mMaterial = new material("default");
-		esfera->malhas[0]->mMaterial = new material("default");
+		//torus->malhas[0]->mMaterial->detach();
+		//esfera->malhas[0]->mMaterial->detach();
+		//torus->malhas[0]->mMaterial = new material("default");
+		//esfera->malhas[0]->mMaterial = new material("default");
+		torus->malhas[0]->mMaterial->read(torus->malhas[0]->mMaterial->mName);
+		esfera->malhas[0]->mMaterial->read(esfera->malhas[0]->mMaterial->mName);
+
 		printf("Material Reloaded\n\n");
 	}
 }
 
 void onRenderScene() {
-	//torus->malhas[0]->mMaterial->mShader->readSrcFromFilenames();
-	//torus->malhas[0]->mMaterial->mShader->generateShadersAndProgram();
-	//esfera->malhas[0]->mMaterial->mShader->readSrcFromFilenames();
-	//esfera->malhas[0]->mMaterial->mShader->generateShadersAndProgram();
 	glEnable(GL_CULL_FACE);
 	glDisable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
-	glEnable(GL_MULTISAMPLE_ARB);
+	//glEnable(GL_MULTISAMPLE_ARB);
 	//glDisable(GL_MULTISAMPLE_ARB);
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearColor(0.2f, 0.2f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClear(GL_DEPTH_BUFFER_BIT);
-	//char a[] = "\r\n	 ";
-	//printf("%x %x %x %x\n", a[0], a[1], a[2], a[3]);
+	fbo->bind();
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_ALWAYS);
 
 	glActiveTexture(GL_TEXTURE0); // activate the texture unit first before binding texture
 	glBindTexture(GL_TEXTURE_2D, hdrTextures[0]);
-	glLineWidth(1.0f);
-
-	esfera->draw();
-	//torus->draw();
-	//torus->calcMatrix();
-	//torus->malhas[0]->mMaterial->active(&torus->matrix);
-	//glUniform1i(glGetUniformLocation(esfera->malhas[0]->mMaterial->mShader->program, "texture1"), 0);
-	//txt->draw();
-	//glRotatef(theta, 0.5f, -1.5f, 0.0f);
-	//glBegin (GL_TRIANGLES);
-	//	glColor3f (1.0f, 0.0f, 0.0f);   glVertex3f (0.0f, 1.0f, 1.0f);
-	//	glColor3f (0.0f, 1.0f, 0.0f);   glVertex3f (0.87f, -0.5f, -0.5f);
-	//	glColor3f (0.0f, 0.0f, 1.0f);   glVertex3f (-0.87f, -0.5f, -0.5f);
-	//glEnd ();
-	//drawSphere(100, 100, vec3(0.75f, 0.75f, 0.75f));
-	//drawCube(vec3(1.0f, 0.15f, 1.0f), 0x1|0x2|0x4);
-	//shader s;
-	//s.setSource(defaultFS, ShaderType::SHADER_FRAGMENT);
-	//s.setSource(defaultVS, ShaderType::SHADER_VERTEX);
-	//s.generateShadersAndProgram(1);
-	//s.use();
-	//drawRandPoints(1000);
-	//drawTorus2(20, 11, vec3(0.5f, 0.5f, 0.5f));
-
-	//drawText("abcdefghijklmnopqrstuvwxyz\nasdfasf\n", vec2(-1.f, 1.f), vec2(1.f, 1.f), vec4(1.f, 1.f, 1.f, 1.f), vec2(0.f, 0.f));
-	//mat4 m = glm::rotate(mat4(1.0f), 0.01f, vec3(0, 1, 0));
-	//vec4 q(activecamera->gpos, 0);
-	//activecamera->gpos = vec3(m*q);
-	//activecamera->fov = 0.500f;
-	//activecamera->calcMatrix();
+	glLineWidth(1.f);
 
 
-	axis->draw();
 	grid->draw();
-	//grid->malhas[0]->mMaterial->mShader->FS = "VertexColor.fs";
-	//grid->malhas[0]->mMaterial->mShader->readSrcFromFilenames();
-	//grid->malhas[0]->mMaterial->mShader->generateShadersAndProgram(1);
-	//grid->malhas[0]->mMaterial->mShader->use();
-	axis->malhas[0]->mMaterial->mShader->FS = "VertexColor.fs";
-	axis->malhas[0]->mMaterial->mShader->readSrcFromFilenames();
-	axis->malhas[0]->mMaterial->mShader->generateShadersAndProgram(1);
-	axis->malhas[0]->mMaterial->mShader->use();
-	//grid->draw();
+	glLineWidth(2.0f);
 	axis->draw();
+	glLineWidth(1.0f);
+	glDepthFunc(GL_LEQUAL);
+	torus->draw();
+	//esfera->draw();
 
-	glPushMatrix();
-	glBegin(GL_LINE_STRIP);
-	//for (int i = 0; i < 200 * anim.frames[anim.frames.size() - 1].p.x; i++) {
-	//	glVertex3f(i / 100.f, anim.getFrame(i / 100.f), 0);
-	//}
-	glEnd();
-
-	//activecamera->calcMatrix();
-	//matrix_block matrix;
-	//matrix.V = activecamera->matrix.V;
-	//matrix.P = activecamera->matrix.P;
-	//mat4 m = mat4(1.0f);
-	//m = glm::rotate(m, 0.f, vec3(0, 0, 0));
-	//m = glm::translate(m, vec3(0, 0, 0));
-	////m = glm::scale(m, vec3(1, 1, 1));
-	//matrix.M = m;
-	//matrix.MV = matrix.V * matrix.M;
-	//matrix.MVP = matrix.P * matrix.V * matrix.M;
-	//material mMaterial("default.mat");
-	//////mMaterial->atach();
-	//mMaterial.mShader = new shader("default.vs", "VertexColor.fs");
-	////mMaterial.mShader->FS = "VertexColor.fs";
-	////mMaterial.atach();
-	//mMaterial.active(&matrix);
-
-
-	//shader s("default.vs", "VertexColor.fs", 0,0,0);
-	//s.use();
-	//drawGrid();
-	//drawAxis();
-
-	glPopMatrix();
-	//glDisable(GL_DEPTH_TEST);
+	fbo->unbind();
+	activecamera->aspect = max(float(ctx.sx), 1.0f) / max(float(ctx.sy), 1.0f);
+	activecamera->calcMatrix();
 	glEnable(GL_DEPTH_TEST);
-
-	theta -= 0.1f;
-
+	glBindTexture(GL_TEXTURE_2D, fbo->textures[0]);
+	plane->draw();
 }
 
 void onRenderScene2() {
@@ -817,57 +722,46 @@ void onRenderScene2() {
 
 void onResize(int x, int y, WPARAM wParam, LPARAM lParam) {
 	activecamera->aspect = max(float(x), 1.0f) / max(float(y), 1.0f);
-	activecamera->calcMatrix();
-	//printf("aspect:%f\n", activecamera->aspect);
+	printf("aspect:%f\n", activecamera->aspect);
 	ctx.sx = x;
 	ctx.sy = y;
-
 	glViewport(0, 0, x, y);
 	onRenderScene();
 	SwapBuffers(ctx.hdc);
-
+	fbo->resize(uivec2(x,y)/**1.25f*/);
 	printf("WM_SIZE: %i:%i\n", x, y);
 }
 
 void onMove(int x, int y, WPARAM wParam, LPARAM lParam) {
-	printf("WM_MOVE\n");
+	//printf("WM_MOVE\n");
 }
 
 void onPaint(PAINTSTRUCT* rc, WPARAM wParam, LPARAM lParam) {
-	printf("WM_PAINT\n");
+	//printf("WM_PAINT\n");
 	onRenderScene();
 }
 
 void onMouseWhell(int val, WPARAM wParam, LPARAM lParam) {
 	if (val > 0) {
 		activecamera->fov  += 0.01f;
-		//activecamera->fov = clamp(activecamera->fov  + 0.01f, 0.001f, 3.14f);
 	}
 	else if (val < 0) {
 		activecamera->fov -=  0.01f;
-		//activecamera->fov = clamp(activecamera->fov - 0.01f, 0.001f, 3.14f);
 	}
 		activecamera->calcMatrix();
 	//printf("WM_MOUSEWHEEL %f\n", activecamera->fov);
 }
 
 void onMouseMove(int xWindow, int yWindow, WPARAM wParam, LPARAM lParam, int x, int y) {
-	if (GetAsyncKeyState(VK_LBUTTON)) {
 	//printf("mousemove: x=%i y=%i w=%i l=%i\n", x, y, wParam, lParam);
+	if (GetAsyncKeyState(VK_LBUTTON)) {
 		activecamera->grot.y -= y * 0.005f;
 		activecamera->grot.y -= y * 0.005f;
 		activecamera->grot.x += x * 0.005f;
 		activecamera->grot.x += x * 0.005f;
-		activecamera->calcMatrix();
 	}
 	if (GetAsyncKeyState(VK_MBUTTON)) {
-	//printf("mousemove: x=%i y=%i w=%i l=%i\n", x, y, wParam, lParam);
 		activecamera->fov -= x * 0.005f + y * 0.005f;
-		//activecamera->fov = clamp(activecamera->grot.y - y * 0.005f, -F_PI_2, F_PI_2);
-		//activecamera->grot.y = clamp(activecamera->grot.y - y * 0.005f, -F_PI_2, F_PI_2);
-		//activecamera->grot.x = fmodf(activecamera->grot.x + x * 0.005f, F_2PI);
-		//activecamera->grot.x = fmodf(activecamera->grot.x + x * 0.005f, F_2PI);
-		activecamera->calcMatrix();
 	}
 }
 
@@ -881,53 +775,47 @@ void onKeyPress(int key, WPARAM wParam, LPARAM lParam, pKeyMap keymap, UINT Mess
 			case VK_SUBTRACT:
 			{
 				activecamera->fov -= 0.01f;
-				activecamera->calcMatrix();
 				break;
 			}
 			case VK_ADD:
 			{
 				activecamera->fov += 0.01f;
-				activecamera->calcMatrix();
 				break;
 			}
 			case VK_UP:
 			{
-				activecamera->grot.x = clamp(activecamera->grot.x + 0.05f, -F_PI_2, F_PI_2);
-				activecamera->calcMatrix();
+				activecamera->grot.x += 0.05f;
 				break;
 			}
 			case VK_DOWN:
 			{
-				activecamera->grot.x = clamp(activecamera->grot.x - 0.05f, -F_PI_2, F_PI_2);
-				activecamera->calcMatrix();
+				activecamera->grot.x -= 0.05f;
 				break;
 			}
 			case VK_LEFT:
 			{
-				activecamera->grot.y = fmodf(activecamera->grot.y + 0.05f, F_2PI);
-				activecamera->calcMatrix();
+				activecamera->grot.y =- 0.05f;
 				break;
 			}
 			case VK_RIGHT:
 			{
-				activecamera->grot.y = fmodf(activecamera->grot.y - 0.05f, F_2PI);
-				activecamera->calcMatrix();
+				activecamera->grot.y -= 0.05f;
 				break;
 			}
 			case 0x51:
 			{ // Q
-				torus->grot.y = fmodf(torus->grot.y - 0.05f, F_2PI);
-				esfera->grot.y = fmodf(esfera->grot.y - 0.05f, F_2PI);
-				torus->grot.w = fmodf(torus->grot.w - 0.05f, F_2PI);
-				esfera->grot.w = fmodf(esfera->grot.w - 0.05f, F_2PI);
+				torus->grot.y  -= 0.05f;
+				esfera->grot.y -=0.05f;
+				torus->grot.w  -= 0.05f;
+				esfera->grot.w -=0.05f;
 				break;
 			}
 			case 0x45:
 			{ // E		 
-				torus->grot.y = fmodf(torus->grot.y + 0.05f, F_2PI);
-				esfera->grot.y = fmodf(esfera->grot.y + 0.05f, F_2PI);
-				torus->grot.w = fmodf(torus->grot.w + 0.05f, F_2PI);
-				esfera->grot.w = fmodf(esfera->grot.w + 0.05f, F_2PI);
+				torus->grot.y = +0.05f;
+				esfera->grot.y = +0.05f;
+				torus->grot.w = +0.05f;
+				esfera->grot.w = +0.05f;
 				break;
 			}
 			case 0x52:
@@ -938,47 +826,43 @@ void onKeyPress(int key, WPARAM wParam, LPARAM lParam, pKeyMap keymap, UINT Mess
 			}
 			case 0x57:
 			{ // W
-				torus->grot.x = fmodf(torus->grot.x + 0.05f, F_2PI);
-				esfera->grot.x = fmodf(esfera->grot.x + 0.05f, F_2PI);
-				torus->grot.w = fmodf(torus->grot.w + 0.05f, F_2PI);
-				esfera->grot.w = fmodf(esfera->grot.w + 0.05f, F_2PI);
+				torus->grot.x += 0.05f ;
+				esfera->grot.x += +0.05f;
+				torus->grot.w += 0.05f ;
+				esfera->grot.w += +0.05f;
 				break;
 			}
 			case 0x53:
 			{ // S		 
-				torus->grot.x = fmodf(torus->grot.x - 0.05f, F_2PI);
-				esfera->grot.x = fmodf(esfera->grot.x - 0.05f, F_2PI);
-				torus->grot.w = fmodf(torus->grot.w - 0.05f, F_2PI);
-				esfera->grot.w = fmodf(esfera->grot.w - 0.05f, F_2PI);
-				break;
-			}
-			case 0x41:
-			{ // A		  
-				torus->grot.z = fmodf(torus->grot.z + 0.05f, F_2PI);
-				esfera->grot.z = fmodf(esfera->grot.z + 0.05f, F_2PI);
-				torus->grot.w = fmodf(torus->grot.w + 0.05f, F_2PI);
-				esfera->grot.w = fmodf(esfera->grot.w + 0.05f, F_2PI);
-				break;
-			}
-			case 0x44:
-			{ // D		  
-				torus->grot.z = fmodf(torus->grot.z - 0.05f, F_2PI);
-				esfera->grot.z = fmodf(esfera->grot.z - 0.05f, F_2PI);
-				torus->grot.w = fmodf(torus->grot.w - 0.05f, F_2PI);
-				esfera->grot.w = fmodf(esfera->grot.w - 0.05f, F_2PI);
+				torus->grot.x  -= 0.05f;
+				esfera->grot.x -= 0.05f;
+				torus->grot.w  -= 0.05f;
+				esfera->grot.w -= 0.05f;
+				break;				   
+			}						   
+			case 0x41:				   
+			{ // A		  			   
+				torus->grot.z  += 0.05f;
+				esfera->grot.z += 0.05f;
+				torus->grot.w  += 0.05f;
+				esfera->grot.w += 0.05f;
+				break;				  
+			}						   
+			case 0x44:				   
+			{ // D		  			   
+				torus->grot.z  -= 0.05f;
+				esfera->grot.z -= 0.05f;
+				torus->grot.w  -= 0.05f;
+				esfera->grot.w -= 0.05f;
 				break;
 			}
 			case VK_SPACE:
 			{
-				torus->malhas[0]->mMaterial->detach();
-				esfera->malhas[0]->mMaterial->detach();
-				torus->malhas[0]->mMaterial = new material("default");
-				esfera->malhas[0]->mMaterial = new material("default");
+				//torus->malhas[0]->mMaterial->detach();
+				//esfera->malhas[0]->mMaterial->detach();
+				torus->malhas[0]->mMaterial->read(torus->malhas[0]->mMaterial->mName);
+				esfera->malhas[0]->mMaterial->read(esfera->malhas[0]->mMaterial->mName);
 				printf("Material Reloaded\n\n");
-				// torus->malhas[0]->mMaterial->mShader->readSrcFromFilenames();
-				// torus->malhas[0]->mMaterial->mShader->generateShadersAndProgram();
-				//esfera->malhas[0]->mMaterial->mShader->readSrcFromFilenames();
-				//esfera->malhas[0]->mMaterial->mShader->generateShadersAndProgram();
 				break;
 			}
 			default:
@@ -1003,7 +887,7 @@ void decodeKeyPress(int key, WPARAM wParam, LPARAM lParam, pKeyMap keymap, UINT 
 	//keymap->rshift = GetAsyncKeyState(VK_RSHIFT);
 	////keymap->capsl = GetAsyncKeyState(VK_LMENU);
 	////keymap->lalt = GetAsyncKeyState(VK_LMENU);
-
+	return;
 	if (wParam >= 0x30 && wParam <= 0x39)	// ASCII 0 - 9
 		printf("* %c ", wParam);
 	else if (wParam >= 0x41 && wParam <= 0x5A)	// ASCII A - Z

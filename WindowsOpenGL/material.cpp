@@ -232,6 +232,7 @@ void material::setShaderVariables() {
 	if (!mShader)
 		return;
 	//mShader->setUniform("mt.color", mColor);
+	//mShader->setInt("texture1", 0);
 	mShader->setUniform("mt.color1", mColor1);
 	mShader->setUniform("mt.color2", mColor2);
 	mShader->setUniform("mt.color3", mColor3);

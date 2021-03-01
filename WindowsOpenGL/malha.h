@@ -17,6 +17,7 @@ class malha
 {
 public:
 	malha(void);
+	malha(string matName);
 	~malha(void);
 	void free();
 	void makeSphere(uint xres, uint yres, float3 size);

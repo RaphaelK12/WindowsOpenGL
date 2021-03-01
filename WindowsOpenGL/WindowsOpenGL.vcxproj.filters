@@ -102,6 +102,9 @@
     <ClCompile Include="Word.cpp">
       <Filter>Arquivos de Origem\Manager</Filter>
     </ClCompile>
+    <ClCompile Include="frameBuffer.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -196,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="Word.h">
       <Filter>Arquivos de Cabeçalho\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="frameBuffer.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

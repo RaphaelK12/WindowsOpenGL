@@ -154,6 +154,7 @@
     <ClCompile Include="bone.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="cTimer.cpp" />
+    <ClCompile Include="frameBuffer.cpp" />
     <ClCompile Include="GLgetFunctions.cpp" />
     <ClCompile Include="ligith.cpp" />
     <ClCompile Include="malha.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="core+ext - Copia.h" />
     <ClInclude Include="core+ext.h" />
     <ClInclude Include="cTimer.h" />
+    <ClInclude Include="frameBuffer.h" />
     <ClInclude Include="GLfunctions.h" />
     <ClInclude Include="GLgetFunctions.h" />
     <ClInclude Include="ligith.h" />

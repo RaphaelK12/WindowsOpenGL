@@ -17,6 +17,7 @@ malha::malha(void):
 	VAO(0),
 	EBO(0),
 	nIndex(0),
+	mMaterial(0),
 	renderMode(ERenderMode::RenderModeTriangles),
 	nVertex(0)/*,
 	pBuffers{0,0,0,0,0,0,0,0,0,0}*/
@@ -24,8 +25,8 @@ malha::malha(void):
 	g_count++;
 	g_malha_list.push_back(this);
 	mIndex = g_malha_list.size() - 1;
-	mMaterial = new material("default");
-	mMaterial->atach();
+	//mMaterial = new material("default");
+	//mMaterial->atach();
 	//memset(pBuffers, 0, sizeof(pBuffers));
 }
 
@@ -245,7 +246,7 @@ void malha::makeTorus2(uint xres, uint yres, float3 size, float internSize, floa
 			px = x * vx; // linear angle value
 			pos3 = rotateZRad(pos2, px); // rotate the circle in z angle to make this circle turn a torus
 			pVertex[p].position = pos3 * (size / 2.f);
-			pVertex[p].uv = vec2(1 - x / float(xres) * 8.f, y / float(yres) * 4.f);
+			pVertex[p].uv = vec2(1 - x / float(xres) * 16.f, y / float(yres) * 4.f);
 			p++;
 		}
 	}
@@ -266,7 +267,7 @@ void malha::makeTorus2(uint xres, uint yres, float3 size, float internSize, floa
 
 	vec3 faceNormal;
 	for (p = 0; p < nIndex; p++) {
-		faceNormal = calcNormal(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
+		faceNormal = faceNormal2(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
 		pVertex[pIndex[p].x].normal += faceNormal;
 		pVertex[pIndex[p].y].normal += faceNormal;
 		pVertex[pIndex[p].z].normal += faceNormal;
@@ -414,7 +415,7 @@ void malha::makeSphere2(uint xres, uint yres, float3 size) {
 
 	vec3 faceNormal;
 	for (p = 0; p < nIndex; p++) {
-		faceNormal = calcNormal(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
+		faceNormal = faceNormal2(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
 		pVertex[pIndex[p].x].normal += faceNormal;
 		pVertex[pIndex[p].y].normal += faceNormal;
 		pVertex[pIndex[p].z].normal += faceNormal;
@@ -1159,7 +1160,7 @@ void malha::makeNormals() {
 	if(pVertex.size()>2 && pIndex.size() >= 1 && nVertex == (pVertex.size()-1) && nIndex == pIndex.size() - 1){
 		vec3 faceNormal;
 		for (p = 0; p < nIndex; p++) {
-			faceNormal = calcNormal(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
+			faceNormal = faceNormal2(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
 			pVertex[pIndex[p].x].normal += faceNormal;
 			pVertex[pIndex[p].y].normal += faceNormal;
 			pVertex[pIndex[p].z].normal += faceNormal;
@@ -1173,7 +1174,7 @@ void malha::makeNormals() {
 			pNormal.resize(nVertex);
 		vec3 faceNormal;
 		for (p = 0; p < nIndex; p++) {
-			faceNormal = calcNormal(pPosition[pIndex[p].x], pPosition[pIndex[p].y], pPosition[pIndex[p].z]);
+			faceNormal = faceNormal2(pPosition[pIndex[p].x], pPosition[pIndex[p].y], pPosition[pIndex[p].z]);
 			pNormal[pIndex[p].x] += faceNormal;
 			pNormal[pIndex[p].y] += faceNormal;
 			pNormal[pIndex[p].z] += faceNormal;

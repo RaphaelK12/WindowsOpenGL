@@ -192,6 +192,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 		}
 		case WM_MOUSEMOVE:
 		{
+			GetAsyncKeyState(VK_LBUTTON);
+			GetAsyncKeyState(VK_MBUTTON);
 			onMouseMove(LOWORD(lParam), HIWORD(lParam), wParam, lParam, LOWORD(lParam)- xWindow, HIWORD(lParam)- yWindow);
 			xWindow = LOWORD(lParam), yWindow = HIWORD(lParam);
 			break;

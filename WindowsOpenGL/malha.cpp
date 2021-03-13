@@ -596,7 +596,7 @@ void malha::makeCone2(uint xres, uint yres, float3 size) {
 	nVertex = (xres+1) * 4 + 1;
 	nIndex = (xres+1) * 2 + (xres + 1) * 4;
 	nVertex = (xres+1) * 3 + 1;
-	nIndex = (xres+1) * 2 + (xres + 1) * 3;
+	nIndex = (xres+1) * 2 ;
 
 	pVertex.resize(nVertex);
 	//pNormal.resize(nVertex);
@@ -641,7 +641,7 @@ void malha::makeCone2(uint xres, uint yres, float3 size) {
 	}
 
 	// booton
-	pVertex[p].position = vec3(0.0f, 0.0f, 0) ;
+	pVertex[p].position = vec3(0.0f, 0.0f, -0.2f) ;
 	pVertex[p].normal = vec3(0.0f, 0.0f, -1.0f);
 
 
@@ -681,6 +681,10 @@ void malha::makeCone2(uint xres, uint yres, float3 size) {
 		pVertex[pIndex[p].y].normal += faceNormal;
 		pVertex[pIndex[p].z].normal += faceNormal;
 	}
+	faceNormal = pVertex[xres + 1].normal;
+	faceNormal += pVertex[xres + xres + 1].normal;
+	pVertex[xres + 1].normal = faceNormal;
+	pVertex[xres + xres + 1].normal = faceNormal;
 	for (p = 0; p < nVertex; p++) {
 		pVertex[p].normal = normalize(pVertex[p].normal);
 	}

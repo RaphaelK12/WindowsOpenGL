@@ -89,7 +89,12 @@ StyleCopReport.xml
 *.scc
 *.idb
 *.tlog
+*tlog
+Temp
+*Temp
 .vs
+vc142.idb
+
 
 # Chutzpah Test files
 _Chutzpah*

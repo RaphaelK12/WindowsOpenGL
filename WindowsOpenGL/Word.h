@@ -1,5 +1,6 @@
 #pragma once
 class Word {
+public:
 	uint time;
 	uint frame;
 	cTimer timer;
@@ -15,5 +16,9 @@ class Word {
 	vector<camera*> cameras;
 	vector<projetor*> projetors;
 
+
+	uint draw();
+	void addObj(objType t, vec3 Pos, vec3 Rot, vec3 Size, uint3 Res, string matName);
+	void refreshShaders();
 };
 

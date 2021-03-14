@@ -16,6 +16,7 @@
 #include "ligith.h"
 #include "texto.h"
 #include "camera.h"
+#include "Word.h"
 #include "frameBuffer.h"
 
 

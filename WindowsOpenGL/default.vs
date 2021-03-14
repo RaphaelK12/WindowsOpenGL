@@ -40,20 +40,17 @@ out VS_OUT
 	vec4 color2;	// vertex color 
 } vs_out;
 
-vec3 light_pos = vec3(5, 0, 0);
+vec3 light_pos = vec3(0, 0, 0);
 
 void main(void){
 	// Calculate view-space coordinate
-	vec4 P = mt_model * vec4(inPosition.xyz,1);
+	vec4 P = mt_model * inPosition;
 
 	// Calculate normal in view-space
 	// vs_out.N = mat3(mt_modelView) * inNormal;
 	mat3 normalMatrix = mat3(transpose(inverse(mt_model)));
 	vs_out.normal = normalize(vec3( normalMatrix * inNormal));
 
-	// Calculate light vector
-	vs_out.lightDir = normalize(light_pos - P.xyz);
-	vs_out.viewPos = viewPos;
 
 	vs_out.position		= inPosition; // local
 	vs_out.position_M	= mt_model * inPosition; // global
@@ -63,6 +60,9 @@ void main(void){
 	vs_out.position_MVP = mt_modelViewProjection * inPosition; // global projection
 	vs_out.uv1=inUv1;
 	vs_out.color1=inColor1;
+	// Calculate light vector
+	vs_out.lightDir = light_pos - P.xyz;
+	vs_out.viewPos = viewPos - P.xyz;
 
 	// Calculate the clip-space position of each vertex
 	gl_Position = mt_modelViewProjection * inPosition;

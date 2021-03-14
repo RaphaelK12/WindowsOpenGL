@@ -153,7 +153,7 @@ shading blinPhong2( in vec3 n, in vec3 v, in light l){
 	s.distance = distance * distance;
 	float diff = dot(L, N);
 	s.diffuse = l.color * max(diff, 0.0)* l.power/ s.distance;
-	s.specular = l.color* pow(vec3(max(dot(H, N), 0.0)) , l.specPower)  / s.distance*smoothstep(0,1,max(diff + 0.2, 0.0) * 5);
+	s.specular = l.color* pow(vec3(max(dot(H, N), 0.0)) , l.specPower)  *smoothstep(0,1,max(diff + 0.2, 0.0) * 5);
 	s.rim = 0;
 	return s; 
 }
@@ -166,8 +166,9 @@ shading blinPhong3( in vec3 n, in vec3 v, in light l){
 	float specAngle = max(dot(reflect(-L, N), V), 0.0);
 	s.distance = distance * distance;
 	float diff = dot(L, N);
-	s.diffuse = l.color * max(diff, 0.0)/ s.distance;
-	s.specular = l.color* pow(vec3(specAngle) , l.specPower/3.0)  / s.distance*smoothstep(0,1,max(diff + 0.2, 0.0) * 5);
+	// s.diffuse = l.color * max(diff, 0.0)/ s.distance;
+	s.diffuse = vec3(diff,diff,diff);
+	s.specular = l.color* pow(vec3(specAngle) , l.specPower/3.0)  *smoothstep(0,1,max(diff + 0.2, 0.0) * 5);
 	s.rim = 0;
 	return s;				
 }
@@ -180,7 +181,7 @@ void main(void){
 	l.specPower = mt.shinines.rgb;
 	// color = blinPhong_2(fs_in.normal, fs_in.lightDir, viewPos, 
 	// specular_power, specular_albedo,	diffuse_albedo,	fs_in.color1);
-	shading s = blinPhong3(fs_in.normal, viewPos, l);
+	shading s = blinPhong2(fs_in.normal, viewPos, l);
 	if(gl_FrontFacing){
 		color = vec4(
 					(

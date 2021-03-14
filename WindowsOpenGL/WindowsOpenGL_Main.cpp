@@ -16,6 +16,8 @@ pKeyMap keymap = new KeyMap;
 
 animation anim;
 
+Word word;
+
 objeto* esfera;
 objeto* torus;
 objeto* cube;
@@ -85,18 +87,31 @@ int main(int argc, char* argv[]) {
 	anim.frames.push_back(frame(vec2(0.5, 0), vec2(0.501, 1), vec2(1, 1)));
 	anim.frames.push_back(frame(vec2(1.5, 1), vec2(1.6, 0), vec2(2, 1)));
 
-	torus = new objeto(0, objType::objCone2, float3(0, 0, 0), float3(0, 0, 0), float3(0.9), uivec3(50, 50, 10), "default.mat");
-	torus->atach();
-	cube = new objeto(0, objType::objBox, float3(5, 0, 0), float3(0, 0, 0), float3(0.1, 0.1, 0.1), uivec3(10, 10, 10), "default.mat");
-	cube->atach();
-	grid = new objeto(0, objType::objGrid, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(5, 5, 5),"lineVertexColor.mat");
-	grid->atach();
-	axis = new objeto(0, objType::objAxis, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(10, 10, 10), "lineVertexColor.mat");
-	axis->atach();
-	esfera = new objeto(0, objType::objEsfera2, float3(0, 0, 0), float3(0, 0, 0), float3(1,1,1), uivec3(50, 50, 10), "default.mat");
-	esfera->atach();
+	//word.addObj(objType::objCone2, float3(0, 0, 0), float3(0, 0, 0), float3(1), uivec3(50, 50, 10), "default.mat");
+	//word.addObj(objType::objEsfera2, float3(0, 2, 0), float3(0, 0, 0), float3(1), uivec3(50, 50, 10), "default.mat");
+	//word.addObj(objType::objBox, float3(0, -2, 0), float3(0, 0, 0), float3(1), uivec3(10, 10, 10), "default.mat");
+	//word.addObj(objType::objCilindro2, float3(0, 4, 0), float3(0, 0, 0), float3(1), uivec3(60, 10, 10), "default.mat");
+	//word.addObj(objType::objTorus2, float3(0, -4, 0), float3(0, 0, 0), float3(1), uivec3(60, 60, 10), "default.mat");
+	vec3 pos(0, 4, 0);
+	for (int i = 0; i < 10; i ++) {
+		pos = rotateZDeg(pos, 45);
+		word.addObj(objType::objEsfera2, pos, vec3(0, 0, 0), vec3(1), uivec3(60, 60, 10), "default.mat");
+	}
+
+
+	//esfera->atach();
+	//torus->atach();
+	//cube->atach();
+	//grid->atach();
+	//axis->atach();
+
+	word.addObj(objType::objBox, float3(5, 0, 0), float3(0, 0, 0), float3(0.1, 0.1, 0.1), uivec3(10, 10, 10), "default.mat");
+	word.addObj(objType::objGrid, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(15, 15, 15),"lineVertexColor.mat");
+	word.addObj(objType::objAxis, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(10, 10, 10), "lineVertexColor.mat");
 	plane = new objeto(0, objType::objQuad, float3(0, 0, 0), float3(0, 0, 0), float3(1,1,1), uivec3(50, 50, 10), "screen.mat");
 	plane->atach();
+
+
 
 	//torus->draw();
 	//grid->draw();
@@ -623,20 +638,20 @@ void processKeyPress(pKeyMap keymap) {
 	}
 		activecamera->calcMatrix();
 	if (GetAsyncKeyState(0x51)) { // Q
-		torus->grot.y  -= 0.05f;
-		esfera->grot.y -= 0.05f;
-		torus->grot.w  -= 0.05f;
-		esfera->grot.w -= 0.05f;
+		//torus->grot.y  -= 0.05f;
+		//esfera->grot.y -= 0.05f;
+		//torus->grot.w  -= 0.05f;
+		//esfera->grot.w -= 0.05f;
 	}
 	if (GetAsyncKeyState(0x45)) { // E		 
-		torus->grot.y  += 0.05f;
-		esfera->grot.y += 0.05f;
-		torus->grot.w  += 0.05f;
-		esfera->grot.w += 0.05f;
+		//torus->grot.y  += 0.05f;
+		//esfera->grot.y += 0.05f;
+		//torus->grot.w  += 0.05f;
+		//esfera->grot.w += 0.05f;
 	}
 	if (GetAsyncKeyState(0x52)) { // R
-		torus->grot  = vec4(0, 0, 0.00000001f, 0.0003333);
-		esfera->grot = vec4(0, 0, 0.00000001f, 0.000333);
+		//torus->grot  = vec4(0, 0, 0.00000001f, 0.0003333);
+		//esfera->grot = vec4(0, 0, 0.00000001f, 0.000333);
 	}
 	if (GetAsyncKeyState(0x57)) { // W
 		//torus->grot.x  += 0.05f;
@@ -672,13 +687,13 @@ void processKeyPress(pKeyMap keymap) {
 		//esfera->malhas[0]->mMaterial->detach();
 		//torus->malhas[0]->mMaterial = new material("default");
 		//esfera->malhas[0]->mMaterial = new material("default");
-		torus->malhas[0]->mMaterial->read(torus->malhas[0]->mMaterial->mName);
-		cube->malhas[0]->mMaterial->read(torus->malhas[0]->mMaterial->mName);
-		esfera->malhas[0]->mMaterial->read(esfera->malhas[0]->mMaterial->mName);
-		grid->malhas[0]->mMaterial->read(grid->malhas[0]->mMaterial->mName);
-		axis->malhas[0]->mMaterial->read(axis->malhas[0]->mMaterial->mName);
-		plane->malhas[0]->mMaterial->read(plane->malhas[0]->mMaterial->mName);
-
+		//torus->malhas[0]->mMaterial->read(torus->malhas[0]->mMaterial->mName);
+		//cube->malhas[0]->mMaterial->read(torus->malhas[0]->mMaterial->mName);
+		//esfera->malhas[0]->mMaterial->read(esfera->malhas[0]->mMaterial->mName);
+		//grid->malhas[0]->mMaterial->read(grid->malhas[0]->mMaterial->mName);
+		//axis->malhas[0]->mMaterial->read(axis->malhas[0]->mMaterial->mName);
+		//plane->malhas[0]->mMaterial->read(plane->malhas[0]->mMaterial->mName);
+		word.refreshShaders();
 		printf("Material Reloaded\n\n");
 	}
 }
@@ -702,15 +717,15 @@ void onRenderScene() {
 	glLineWidth(1.f);
 
 
-	grid->draw();
+	//grid->draw();
 	glLineWidth(2.0f);
-	axis->draw();
+	//axis->draw();
 	glLineWidth(1.0f);
 	glDepthFunc(GL_LEQUAL);
-	torus->draw();
-	cube->draw();
+	//torus->draw();
+	//cube->draw();
 	//esfera->draw();
-
+	word.draw();
 	fbo->unbind();
 	activecamera->aspect = max(float(ctx.sx), 1.0f) / max(float(ctx.sy), 1.0f);
 	activecamera->calcMatrix();

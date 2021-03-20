@@ -33,7 +33,7 @@ out VS_OUT
 	vec3 normal;	// normal
 	vec3 tangent;	// tangent
 	vec3 bitangent;	// bitangent
-	
+
 	vec3 lightDir;	// Light
 	vec3 viewPos;	// Light
 	vec2 uv1;		// first uv
@@ -44,7 +44,7 @@ out VS_OUT
 	vec4 color2;	// vertex color 
 } vs_out;
 
-vec3 light_pos = vec3(0, 0, 0);
+vec3 light_pos = vec3(0, 0, 2);
 
 void main(void){
 	// Calculate view-space coordinate

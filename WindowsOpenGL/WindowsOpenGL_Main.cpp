@@ -18,11 +18,6 @@ animation anim;
 
 Word word;
 
-objeto* esfera;
-objeto* torus;
-objeto* cube;
-objeto* grid;
-objeto* axis;
 objeto* plane;
 texto* txt;
 GLuint hdrTextures[10];
@@ -38,12 +33,15 @@ char szTitle[128] = "Test Opengl 01";
 int main(int argc, char* argv[]) {
 	t.setTimer("main");
 	FILE* f = fopen("XING_T32.TGA", "rb");
-	if (!f) f = fopen("../XING_T32.TGA", "rb");
+	//if (!f) f = fopen("../XING_T32.TGA", "rb");
+	if (!f) f = fopen("../Madeira_Cxy_01.png", "rb");
+	//if (!f) f = fopen("../Madeira_Cxy_01_nor.png", "rb");
 	if (!f) f = fopen("../../XING_T32.TGA", "rb");
 	//if(!f) f = fopen("../../concrete_diffuse.tga", "rb");
 	img_basis* tx = 0;
 	t.setTimer("open XING_T32.TGA");
-	tx = read_TGA(f);
+	if(!(tx = read_TGA(f)));
+	tx = read_PNG(f);
 		assert(tx);
 	if (!tx)
 		return 0;
@@ -87,28 +85,24 @@ int main(int argc, char* argv[]) {
 	anim.frames.push_back(frame(vec2(0.5, 0), vec2(0.501, 1), vec2(1, 1)));
 	anim.frames.push_back(frame(vec2(1.5, 1), vec2(1.6, 0), vec2(2, 1)));
 
-	//word.addObj(objType::objCone2, float3(0, 0, 0), float3(0, 0, 0), float3(1), uivec3(50, 50, 10), "default.mat");
-	//word.addObj(objType::objEsfera2, float3(0, 2, 0), float3(0, 0, 0), float3(1), uivec3(50, 50, 10), "default.mat");
-	//word.addObj(objType::objBox, float3(0, -2, 0), float3(0, 0, 0), float3(1), uivec3(10, 10, 10), "default.mat");
-	//word.addObj(objType::objCilindro2, float3(0, 4, 0), float3(0, 0, 0), float3(1), uivec3(60, 10, 10), "default.mat");
-	//word.addObj(objType::objTorus2, float3(0, -4, 0), float3(0, 0, 0), float3(1), uivec3(60, 60, 10), "default.mat");
+	//word.addObj(objType::objCone2, vec3(0, 0, 0), vec3(0, 0, 0), vec3(1), uivec3(50, 50, 10), "default.mat");
+	//word.addObj(objType::objEsfera2, vec3(0, 2, 0), vec3(0, 0, 0), vec3(1), uivec3(50, 50, 10), "default.mat");
+	//word.addObj(objType::objBox, vec3(0, -2, 0), vec3(0, 0, 0), vec3(1), uivec3(10, 10, 10), "default.mat");
+	//word.addObj(objType::objCilindro2, vec3(0, 4, 0), vec3(0, 0, 0), vec3(1), uivec3(60, 10, 10), "default.mat");
+	//word.addObj(objType::objTorus2, vec3(0, -4, 0), vec3(0, 0, 0), vec3(1), uivec3(60, 60, 10), "default.mat");
 	vec3 pos(0, 4, 0);
-	for (int i = 0; i < 10; i ++) {
-		pos = rotateZDeg(pos, 45);
-		word.addObj(objType::objEsfera2, pos, vec3(0, 0, 0), vec3(1), uivec3(60, 60, 10), "default.mat");
+	for (int i = objTorus2; i < objType::objGrid; i ++) {
+		word.addObj(objType(i), rotateZGrad(pos, 45*i), vec3(0, 0, 0), vec3(1), uivec3(100, 50, 10), "DiffSpecNormalDisp.mat");
 	}
+	word.addObj(objType::objQuad, vec3(0,0,-1.1), vec3(0), vec3(20), uivec3(60, 60, 10), "DiffSpecNormalDisp.mat");
 
 
-	//esfera->atach();
-	//torus->atach();
-	//cube->atach();
-	//grid->atach();
-	//axis->atach();
 
-	word.addObj(objType::objBox, float3(5, 0, 0), float3(0, 0, 0), float3(0.1, 0.1, 0.1), uivec3(10, 10, 10), "default.mat");
-	word.addObj(objType::objGrid, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(15, 15, 15),"lineVertexColor.mat");
-	word.addObj(objType::objAxis, float3(0, 0, 0), float3(0, 0, 0), float3(1, 1, 1), uivec3(10, 10, 10), "lineVertexColor.mat");
-	plane = new objeto(0, objType::objQuad, float3(0, 0, 0), float3(0, 0, 0), float3(1,1,1), uivec3(50, 50, 10), "screen.mat");
+	word.addObj(objType::objBox, vec3(5, 0, 0), vec3(0, 0, 0), vec3(0.1), uivec3(10, 10, 10), "DiffSpecNormalDisp.mat");
+	word.addObj(objType::objEsfera2, vec3(7, 0, 0), vec3(0, 0, 0), vec3(1), uivec3(30, 30, 10), "DiffSpecNormalDisp.mat");
+	word.addObj(objType::objGrid, vec3(0, 0, 0), vec3(0, 0, 0), vec3(2), uivec3(10, 10, 10),"lineVertexColor.mat");
+	word.addObj(objType::objAxis, vec3(0, 0, 0), vec3(0, 0, 0), vec3(1), uivec3(10, 10, 10), "lineVertexColor.mat");
+	plane = new objeto(0, objType::objQuad, vec3(0, 0, 0), vec3(0, 0, 0), vec3(1), uivec3(50, 50, 10), "screen.mat");
 	plane->atach();
 
 
@@ -165,10 +159,14 @@ int main(int argc, char* argv[]) {
 			SetWindowTextA(ctx.hwnd, szTitle);
 			if (limit) {
 				float ms = 0;
-				while ((ms=t.getFrameMS()) <= 10.0f)
+				while ((ms = t.getFrameMS()) <= 10.0f)
 					Sleep(0);
 			}
 			t.setTimer("sleeped");
+			word.frame++;
+			word.time += vec4(t.getFrameMS(), t.getFrameMS() / 10.f, t.getFrameMS() / 100.f, t.getFrameMS() / 1000.f);
+			word.sintime = vec4(sin(word.time.x), sin(word.time.y), sin(word.time.z), sin(word.time.w));
+			word.costime = vec4(cos(word.time.x), cos(word.time.y), cos(word.time.z), cos(word.time.w));
 			t.setFrameStart();
 			t.setTimer("setFrameStart");
 		}
@@ -590,13 +588,13 @@ int startOpengl() {
 }
 
 void processKeyPress(pKeyMap keymap) {
-	keymap->lshift = GetAsyncKeyState(VK_LSHIFT);
-	keymap->rshift = GetAsyncKeyState(VK_RSHIFT);
-	keymap->lctrl = GetAsyncKeyState(VK_LCONTROL);
-	keymap->rctrl = GetAsyncKeyState(VK_RCONTROL);
-	keymap->lalt = GetAsyncKeyState(VK_LMENU);
-	keymap->ralt = GetAsyncKeyState(VK_RMENU);
-	keymap->alt = keymap->lalt || keymap->ralt || GetAsyncKeyState(VK_MENU);
+	keymap->lshift = GetKeyState(VK_LSHIFT) & 0x8000 ? 1 : 0;
+	keymap->rshift = GetKeyState(VK_RSHIFT) & 0x8000 ? 1 : 0;
+	keymap->lctrl = GetAsyncKeyState(VK_LCONTROL) & 0x8000 ? 1 : 0;
+	keymap->rctrl = GetAsyncKeyState(VK_RCONTROL) & 0x8000 ? 1 : 0;
+	keymap->lalt = GetAsyncKeyState(VK_LMENU) & 0x8000 ? 1 : 0;
+	keymap->ralt = GetAsyncKeyState(VK_RMENU) & 0x8000 ? 1 : 0;
+	keymap->alt = keymap->lalt & 0x8000 ? 1 : 0 || keymap->ralt & 0x8000 ? 1 : 0 || GetAsyncKeyState(VK_MENU) & 0x8000 ? 1 : 0;
 
 	keymap->space = GetAsyncKeyState(VK_SPACE);
 	keymap->win = GetAsyncKeyState(VK_LWIN) || GetAsyncKeyState(VK_RWIN);
@@ -658,29 +656,48 @@ void processKeyPress(pKeyMap keymap) {
 		//esfera->grot.x += 0.05f;
 		//torus->grot.w  += 0.05f;
 		//esfera->grot.w += 0.05f;
-		activecamera->moveF(16);
+		if (keymap->lshift || keymap->rshift)
+			activecamera->moveF(16 * 4);
+		else if (keymap->lctrl || keymap->rctrl)
+			activecamera->moveF(16 / 4);
+		else
+			activecamera->moveF(16);
 	}
 	if (GetAsyncKeyState(0x53)) { // S		 
 		//torus->grot.x  -= 0.05f;
 		//esfera->grot.x -= 0.05f;
 		//torus->grot.w  -= 0.05f;
 		//esfera->grot.w -= 0.05f;
-		activecamera->moveB(16);
+		if (keymap->lshift || keymap->rshift)
+			activecamera->moveB(16 * 4);
+		else if (keymap->lctrl || keymap->rctrl)
+			activecamera->moveB(16 / 4);
+		else
+			activecamera->moveB(16);
 	}
 	if (GetAsyncKeyState(0x41)) { // A		  
 		//torus->grot.z   += 0.05f;
 		//esfera->grot.z  += 0.05f;
 		//torus->grot.w   += 0.05f;
 		//esfera->grot.w  += 0.05f;
-		activecamera->moveL(16);
+		if (keymap->lshift || keymap->rshift)
+			activecamera->moveL(16 * 4);
+		else if (keymap->lctrl || keymap->rctrl)
+			activecamera->moveL(16 / 4);
+		else
+			activecamera->moveL(16);
 	}
 	if (GetAsyncKeyState(0x44)) { // D		  
 		//torus->grot.z  -= 0.05f;
 		//esfera->grot.z -= 0.05f;
 		//torus->grot.w  -= 0.05f;
 		//esfera->grot.w -= 0.05f;
-		activecamera->moveR(16);
-
+		if (keymap->lshift || keymap->rshift)
+			activecamera->moveR(16 * 4);
+		else if (keymap->lctrl || keymap->rctrl)
+			activecamera->moveR(16 / 4);
+		else
+			activecamera->moveR(16);
 	}
 	if (GetAsyncKeyState(VK_SPACE)) {
 		//torus->malhas[0]->mMaterial->detach();
@@ -692,7 +709,7 @@ void processKeyPress(pKeyMap keymap) {
 		//esfera->malhas[0]->mMaterial->read(esfera->malhas[0]->mMaterial->mName);
 		//grid->malhas[0]->mMaterial->read(grid->malhas[0]->mMaterial->mName);
 		//axis->malhas[0]->mMaterial->read(axis->malhas[0]->mMaterial->mName);
-		//plane->malhas[0]->mMaterial->read(plane->malhas[0]->mMaterial->mName);
+		plane->malhas[0]->mMaterial->read(plane->malhas[0]->mMaterial->mName);
 		word.refreshShaders();
 		printf("Material Reloaded\n\n");
 	}
@@ -717,21 +734,21 @@ void onRenderScene() {
 	glLineWidth(1.f);
 
 
-	//grid->draw();
-	glLineWidth(2.0f);
-	//axis->draw();
 	glLineWidth(1.0f);
+	glLineWidth(2.0f);
 	glDepthFunc(GL_LEQUAL);
-	//torus->draw();
-	//cube->draw();
-	//esfera->draw();
 	word.draw();
 	fbo->unbind();
 	activecamera->aspect = max(float(ctx.sx), 1.0f) / max(float(ctx.sy), 1.0f);
 	activecamera->calcMatrix();
 	glEnable(GL_DEPTH_TEST);
 	glBindTexture(GL_TEXTURE_2D, fbo->textures[0]);
+	plane->malhas[0]->mMaterial->mTextures[0]->globj= fbo->textures[0];
 	plane->draw();
+	plane->malhas[0]->mMaterial->mShader->setUniform("time", word.time);
+	plane->malhas[0]->mMaterial->mShader->setUniform("frame", word.frame);
+	plane->malhas[0]->mMaterial->mShader->setUniform("sintime", word.sintime);
+	plane->malhas[0]->mMaterial->mShader->setUniform("costime", word.costime);
 }
 
 void onRenderScene2() {
@@ -791,10 +808,11 @@ void onMouseWhell(int val, WPARAM wParam, LPARAM lParam) {
 void onMouseMove(int xWindow, int yWindow, WPARAM wParam, LPARAM lParam, int x, int y) {
 	//printf("mousemove: x=%i y=%i w=%i l=%i\n", x, y, wParam, lParam);
 	if (GetAsyncKeyState(VK_LBUTTON)) {
-			activecamera->grot.y -= y * 0.005f;
-			activecamera->grot.y -= y * 0.005f;
-			activecamera->grot.x += x * 0.005f;
-			activecamera->grot.x += x * 0.005f;
+		activecamera->grot.y -= y * 0.008f * (pow(activecamera->fov/F_PI, 2.f)+0.0001f);
+		activecamera->grot.y -= y * 0.008f * (pow(activecamera->fov/F_PI, 2.f)+0.0001f);
+		activecamera->grot.x += x * 0.008f * (pow(activecamera->fov/F_PI, 2.f)+0.0001f);
+		activecamera->grot.x += x * 0.008f * (pow(activecamera->fov/F_PI, 2.f)+0.0001f);
+		//printf("fov = %f\n",activecamera->fov);
 		//activecamera->rotate(vec3(0, 0, -y * 0.005f));
 		//activecamera->rotate(vec3(x * 0.005f, 0, 0));
 	}
@@ -844,64 +862,64 @@ void onKeyPress(int key, WPARAM wParam, LPARAM lParam, pKeyMap keymap, UINT Mess
 			}
 			case 0x51:
 			{ // Q
-				torus->grot.y  -= 0.05f;
-				esfera->grot.y -=0.05f;
-				torus->grot.w  -= 0.05f;
-				esfera->grot.w -=0.05f;
+				//torus->grot.y  -= 0.05f;
+				//esfera->grot.y -=0.05f;
+				//torus->grot.w  -= 0.05f;
+				//esfera->grot.w -=0.05f;
 				break;
 			}
 			case 0x45:
 			{ // E		 
-				torus->grot.y = +0.05f;
-				esfera->grot.y = +0.05f;
-				torus->grot.w = +0.05f;
-				esfera->grot.w = +0.05f;
+				//torus->grot.y = +0.05f;
+				//esfera->grot.y = +0.05f;
+				//torus->grot.w = +0.05f;
+				//esfera->grot.w = +0.05f;
 				break;
 			}
 			case 0x52:
 			{ // R
-				torus->grot = vec4(0, 0, 0.00000001f, 0.0003333);
-				esfera->grot = vec4(0, 0, 0.00000001f, 0.000333);
+				//torus->grot = vec4(0, 0, 0.00000001f, 0.0003333);
+				//esfera->grot = vec4(0, 0, 0.00000001f, 0.000333);
 				break;
 			}
 			case 0x57:
 			{ // W
-				torus->grot.x += 0.05f ;
-				esfera->grot.x += +0.05f;
-				torus->grot.w += 0.05f ;
-				esfera->grot.w += +0.05f;
+				//torus->grot.x += 0.05f ;
+				//esfera->grot.x += +0.05f;
+				//torus->grot.w += 0.05f ;
+				//esfera->grot.w += +0.05f;
 				break;
 			}
 			case 0x53:
 			{ // S		 
-				torus->grot.x  -= 0.05f;
-				esfera->grot.x -= 0.05f;
-				torus->grot.w  -= 0.05f;
-				esfera->grot.w -= 0.05f;
+				//torus->grot.x  -= 0.05f;
+				//esfera->grot.x -= 0.05f;
+				//torus->grot.w  -= 0.05f;
+				//esfera->grot.w -= 0.05f;
 				break;				   
 			}						   
 			case 0x41:				   
 			{ // A		  			   
-				torus->grot.z  += 0.05f;
-				esfera->grot.z += 0.05f;
-				torus->grot.w  += 0.05f;
-				esfera->grot.w += 0.05f;
+				//torus->grot.z  += 0.05f;
+				//esfera->grot.z += 0.05f;
+				//torus->grot.w  += 0.05f;
+				//esfera->grot.w += 0.05f;
 				break;				  
 			}						   
 			case 0x44:				   
 			{ // D		  			   
-				torus->grot.z  -= 0.05f;
-				esfera->grot.z -= 0.05f;
-				torus->grot.w  -= 0.05f;
-				esfera->grot.w -= 0.05f;
+				//torus->grot.z  -= 0.05f;
+				//esfera->grot.z -= 0.05f;
+				//torus->grot.w  -= 0.05f;
+				//esfera->grot.w -= 0.05f;
 				break;
 			}
 			case VK_SPACE:
 			{
 				//torus->malhas[0]->mMaterial->detach();
 				//esfera->malhas[0]->mMaterial->detach();
-				torus->malhas[0]->mMaterial->read(torus->malhas[0]->mMaterial->mName);
-				esfera->malhas[0]->mMaterial->read(esfera->malhas[0]->mMaterial->mName);
+				//torus->malhas[0]->mMaterial->read(torus->malhas[0]->mMaterial->mName);
+				//esfera->malhas[0]->mMaterial->read(esfera->malhas[0]->mMaterial->mName);
 				printf("Material Reloaded\n\n");
 				break;
 			}
@@ -1214,8 +1232,6 @@ void cls() {
 	// Put the cursor at its home coordinates.
 	SetConsoleCursorPosition(hConsole, coordScreen);
 }
-
-
 
 
 

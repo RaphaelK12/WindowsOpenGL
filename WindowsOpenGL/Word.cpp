@@ -19,8 +19,18 @@
 uint Word::draw() {
 	uint count = 0;
 	for (uint i = 0; i < objetos.size(); i++) {
+
+		objetos[i]->malhas[0]->mMaterial->mShader->setUniform("time", time);
+		objetos[i]->malhas[0]->mMaterial->mShader->setUniform("frame", frame);
+		objetos[i]->malhas[0]->mMaterial->mShader->setUniform("sintime", sintime);
+		objetos[i]->malhas[0]->mMaterial->mShader->setUniform("costime", costime);
 		objetos[i]->draw();
+		objetos[i]->malhas[0]->mMaterial->mShader->setUniform("time", time);
+		objetos[i]->malhas[0]->mMaterial->mShader->setUniform("frame", frame);
+		objetos[i]->malhas[0]->mMaterial->mShader->setUniform("sintime", sintime);
+		objetos[i]->malhas[0]->mMaterial->mShader->setUniform("costime", costime);
 		count++;
+
 	}
 	return count;
 }

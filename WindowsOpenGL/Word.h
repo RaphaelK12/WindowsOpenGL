@@ -1,8 +1,10 @@
 #pragma once
 class Word {
 public:
-	uint time;
+	vec4 time;
 	uint frame;
+	vec4 sintime;
+	vec4 costime;
 	cTimer timer;
 
 	vector<objeto*> objetos;

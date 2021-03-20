@@ -16,6 +16,9 @@ in VS_OUT{
 	vec4 position_MV;	// position in model view space
 	vec4 position_MVP;	// position in model view projection space
 	vec3 normal;	// normal
+	vec3 tangent;	// tangent
+	vec3 bitangent;	// bitangent
+	
 	vec3 lightDir;	// Light
 	vec2 uv1;		// first uv
 	vec2 uv2;		// Second uv possible not used
@@ -28,6 +31,12 @@ uniform vec3 viewPos = vec3(5,5,0);
 uniform vec4 diffuse_albedo = vec4(0.5, 0.2, 0.7, 1);
 uniform vec3 specular_albedo = vec3(0.7);
 uniform float specular_power = 128.0; // 200
+
+uniform vec4 time  ;
+uniform int frame ;
+uniform vec4 sintime ;
+uniform vec4 costime ;
+uniform vec2 screenSize ;
 
 vec3 lightColor = vec3(1.0, 1.0, 1.0);
 float lightPower = 18.0; // 40
@@ -62,6 +71,26 @@ struct shading{
 	float rim;
 	float distance;
 };
+
+float saturate(float value) {
+	return clamp(value, 0.0, 1.0);
+}
+vec2 saturate(vec2 value) {
+	return clamp(value, 0.0, 1.0);
+}
+vec3 saturate(vec3 value) {
+	return clamp(value, 0.0, 1.0);
+}
+vec4 saturate(vec4 value) {
+	return clamp(value, 0.0, 1.0);
+}
+vec3 pow(in float p, in vec3 v) {
+	return pow(vec3(p), v);
+}
+vec3 pow(in vec3 p, in float v) {
+	return pow(p, vec3(v));
+}
+
 
 vec4 blinPhong_1( in vec3 n, in vec3 l, in vec3 v, 
 				in float spec_power, in vec3 spec_albedo,
@@ -161,7 +190,9 @@ shading blinPhong3( in vec3 n, in vec3 v, in light l){
 	s.rim = 0;
 	return s;				
 }
-
+float rand(vec2 co){
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233)+sintime.xy*11)) * (43758.5453+sintime.x*10));
+}
 void main(void){
 	float sz = 0.00113;
 	light l;
@@ -172,13 +203,19 @@ void main(void){
 	// color = blinPhong_2(fs_in.normal, fs_in.lightDir, viewPos, 
 	// specular_power, specular_albedo,	diffuse_albedo,	fs_in.color1);
 	shading s = blinPhong1(fs_in.normal, viewPos, l);
+	vec2 uv = fs_in.uv1;
+	uv.y = 1-uv.y;
+	// vec3 col = vec3(1-length(uv*vec2(1,0.6)-vec2(0.5, 0.25))*5);
+	// col = smoothstep(0, 1, smoothstep(0, 1, smoothstep(0, 1, col)));
+	vec3 col = vec3(rand(uv));
 	if(gl_FrontFacing){
 		color = vec4(
 					// (mt.ambient.rgb + mt.emission.rgb +
 					// s.diffuse * mt.diffuse.rgb +
 					// s.specular * mt.specular.rgb)
 					// *
-					texture(texture1, fs_in.uv1).rgb
+					col/vec3(125.5)+
+					pow(texture(texture1, uv).rgb,1/1)
 					
 					// vec3(
 					// texture(texture1, fs_in.uv1+vec2(-sz,-sz)).rgb+

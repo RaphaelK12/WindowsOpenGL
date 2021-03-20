@@ -106,7 +106,7 @@ void camera::moveR(float delta){
 }
 
 void camera::rotate(vec3 v) {
-	dir = normalize(rotateRad(dir, v));
+	dir = normalize(rotateRad(dir, v*fov));
 }
 
 

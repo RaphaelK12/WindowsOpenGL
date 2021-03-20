@@ -348,3 +348,10 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+Temp/WindowsOpenGL_Win32_Debug/vc142.idb
+*.idb
+*.tlog
+Temp/WindowsOpenGL_Win32_Debug/WindowsOpenGL.tlog/CL.read.1.tlog
+Temp/WindowsOpenGL_Win32_Debug/WindowsOpenGL.tlog/link.read.1.tlog
+Temp/WindowsOpenGL_Win32_Release/WindowsOpenGL.tlog/CL.read.1.tlog
+Temp/WindowsOpenGL_Win32_Release/WindowsOpenGL.tlog/link.read.1.tlog

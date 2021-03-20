@@ -10,6 +10,7 @@ enum objType:int {
 	objCone,
 	objTorus2,
 	objEsfera2,
+	objEsfera3,
 	objCilindro2,
 	objCone2,
 	objBox,

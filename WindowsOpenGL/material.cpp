@@ -127,6 +127,7 @@ int material::read(string filename) {
 	int i;
 	if (file.size() >= 1) {
 		FILE* f = fopen(filename.c_str(), "r");
+		string s;
 		if (!f) {
 			file = filename + string(".mat");
 			f = fopen(file.c_str(), "r");
@@ -137,17 +138,17 @@ int material::read(string filename) {
 		//mName.resize(100);
 		//mFileName.resize(100);
 		//mShaderName.resize(100);
-		mTextures.resize(10);
-		mTextures[0] = new texture;
-		mTextures[1] = new texture;
-		mTextures[2] = new texture;
-		mTextures[3] = new texture;
-		mTextures[4] = new texture;
-		mTextures[5] = new texture;
-		mTextures[6] = new texture;
-		mTextures[7] = new texture;
-		mTextures[8] = new texture;
-		mTextures[9] = new texture;
+		//mTextures.resize(10);
+		//mTextures[0] = new texture;
+		//mTextures[1] = new texture;
+		//mTextures[2] = new texture;
+		//mTextures[3] = new texture;
+		//mTextures[4] = new texture;
+		//mTextures[5] = new texture;
+		//mTextures[6] = new texture;
+		//mTextures[7] = new texture;
+		//mTextures[8] = new texture;
+		//mTextures[9] = new texture;
 		//mTextures[0]->fileName.resize(100);
 		//mTextures[1]->fileName.resize(100);
 		//mTextures[2]->fileName.resize(100);
@@ -190,16 +191,26 @@ int material::read(string filename) {
 		i = fscanf(f, "s  name:					%s\n", txt);	mName = txt;
 		i = fscanf(f, "s  fileName:				%s\n", txt);	mFileName = txt;
 		i = fscanf(f, "s  shaderName:			%s\n", txt);	mShaderName = txt;
-		i = fscanf(f, "s  textures:				%s ", txt);		mTextures[0]->fileName = txt;
-		i = fscanf(f, "%s ", txt);								mTextures[1]->fileName = txt;
-		i = fscanf(f, "%s ", txt);								mTextures[2]->fileName = txt;
-		i = fscanf(f, "%s ", txt);								mTextures[3]->fileName = txt;
-		i = fscanf(f, "%s ", txt);								mTextures[4]->fileName = txt;
-		i = fscanf(f, "%s ", txt);								mTextures[5]->fileName = txt;
-		i = fscanf(f, "%s ", txt);								mTextures[6]->fileName = txt;
-		i = fscanf(f, "%s ", txt);								mTextures[7]->fileName = txt;
-		i = fscanf(f, "%s ", txt);								mTextures[8]->fileName = txt;
-		i = fscanf(f, "%s ", txt);								mTextures[9]->fileName = txt;
+
+		i = fscanf(f, "s  textures:				%s ", txt);
+		s = txt;
+		texture* tx = 0;
+		if (s.size() > 1) {
+			texture* tx = new texture(s);
+			tx->read();
+			mTextures.push_back(tx);
+		}
+		for (int c = 0; c < 10; c++) {
+			i = fscanf(f, "%s ", txt);
+			s = txt;
+			if (i > 0 && s.size() > 1) {
+				tx = new texture(s);
+				tx->read();
+				mTextures.push_back(tx);
+			}
+			else
+				break;
+		}
 
 		fclose(f);
 		delete[] txt;
@@ -242,6 +253,16 @@ void material::setShaderVariables() {
 	mShader->setUniform("mt.specular", mSpecular);
 	mShader->setUniform("mt.reflex", mReflex);
 	mShader->setUniform("mt.shinines", mShinines);
+
+	for (int i = 0; i < mTextures.size(); i++) {
+		char txt[3] = { '0',0,0 };
+		glActiveTexture(GL_TEXTURE0+i); // activate the texture unit first before binding texture
+		glBindTexture(GL_TEXTURE_2D, mTextures[i]->bind());
+		txt[0] += i+1;
+		string s = "texture" + string(txt);
+		//glUniform1i(glGetUniformLocation(mShader->program, s.c_str()), i);
+		mShader->setUniform(s, i);
+	}
 }
 
 int material::active(matrix_block* m) {

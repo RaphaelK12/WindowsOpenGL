@@ -3,10 +3,11 @@
 // Per-vertex inputs
 layout (location = 0) in vec4 inPosition;
 layout (location = 1) in vec3 inNormal;
-layout (location = 2) in vec2 inUv1;
-layout (location = 3) in vec4 inColor1;
-layout (location = 4) in vec3 inTangent;
-layout (location = 5) in vec3 inBiTangent;
+layout (location = 2) in vec3 inTangent;
+layout (location = 3) in vec3 inBiTangent;
+layout (location = 4) in vec2 inUv1;
+layout (location = 5) in vec4 inColor1;
+
 layout (location = 6) in vec2 inUv2;
 layout (location = 7) in vec2 inUv3;
 layout (location = 8) in vec4 inColor2;
@@ -30,6 +31,9 @@ out VS_OUT
 	vec4 position_MVP;
 
 	vec3 normal;	// normal
+	vec3 tangent;	// tangent
+	vec3 bitangent;	// bitangent
+	
 	vec3 lightDir;	// Light
 	vec2 uv1;		// first uv
 	
@@ -49,6 +53,8 @@ void main(void){
 	// vs_out.N = mat3(mt_modelView) * inNormal;
 	mat3 normalMatrix = mat3(transpose(inverse(mt_model)));
 	vs_out.normal = normalize(vec3( normalMatrix * inNormal));
+	vs_out.tangent = normalize(vec3( normalMatrix * inTangent));
+	vs_out.bitangent = normalize(vec3( normalMatrix * inBiTangent));
 
 	// Calculate light vector
 	vs_out.lightDir = light_pos - P.xyz;

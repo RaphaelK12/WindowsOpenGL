@@ -75,6 +75,13 @@ objeto::objeto(objeto* prev, objType t, vec3 Pos, vec3 Rot, vec3 Size, uint3 Res
 		malhas[malhas.size() - 1]->mMaterial = new material(matName);
 		malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
+	case objType::objEsfera3:
+		malhas.push_back(new malha());
+		malhas[malhas.size() - 1]->atach();
+		malhas[malhas.size() - 1]->makeSphere2(Res.x, Res.y, Size);
+		malhas[malhas.size() - 1]->mMaterial = new material(matName);
+		malhas[malhas.size() - 1]->mMaterial->atach();
+		break;
 	case objType::objCilindro:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();

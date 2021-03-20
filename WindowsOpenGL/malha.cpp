@@ -9,6 +9,26 @@ std::vector<malha*> g_malha_list;
 
 uint malha::g_count = 0;
 
+vertex::vertex():
+position(0,0,0),
+normal(0, 0, 0),
+tangent(0, 0, 0),
+bitangent(0, 0, 0),
+uv(0,  0),
+color(0, 0, 0,0){}
+
+vertex::vertex(vec3 _position, vec3 _normal, vec3 _tangent, vec3 _bitangent, vec2 _uv, byte4 _color):
+position(_position),
+normal(_normal),
+tangent(_tangent),
+bitangent(_bitangent),
+uv(_uv),
+color(_color){}
+
+vertex::~vertex() {}
+
+
+
 
 malha::malha(void):
 	count(0),
@@ -288,7 +308,7 @@ void malha::makeTorus2(uint xres, uint yres, float3 size, float internSize, floa
 		pVertex[p].normal = normalize(pVertex[p].normal);
 	}
 	p = 0;
-
+	makeBiTangent();
 	name = "Torus";
 }
 
@@ -456,6 +476,9 @@ void malha::makeSphere2(uint xres, uint yres, float3 size) {
 		y++;
 
 	vec3 faceNormal;
+	vec3 faceTangent;
+	vec3 faceBiTangent;
+	makeBiTangent();
 
 	for (p = 0; p < nIndex; p++) {
 		faceNormal = calcNormal(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
@@ -466,8 +489,16 @@ void malha::makeSphere2(uint xres, uint yres, float3 size) {
 	for (p = xres+1; p < (nVertex - xres)-2; p += xres + 1) {
 		faceNormal = pVertex[p].normal;
 		faceNormal += pVertex[p + xres].normal;
+		faceTangent = pVertex[p].tangent;
+		faceTangent += pVertex[p + xres].tangent;
+		faceBiTangent = pVertex[p].bitangent;
+		faceBiTangent += pVertex[p + xres].bitangent;
 		pVertex[p + xres].normal = faceNormal;
 		pVertex[p].normal = faceNormal;
+		pVertex[p + xres].tangent = faceTangent;
+		pVertex[p].tangent = faceTangent;
+		pVertex[p + xres].bitangent = faceBiTangent;
+		pVertex[p].bitangent = faceBiTangent;
 	}
 	faceNormal = vec3(0, 0, 1);
 	for (p = 0; p <  xres; p ++) {
@@ -477,12 +508,171 @@ void malha::makeSphere2(uint xres, uint yres, float3 size) {
 	for (p = nVertex - xres-1; p < nVertex ; p ++) {
 		pVertex[p].normal = faceNormal;
 	}
+	faceTangent=vec3(0);
+	faceBiTangent = vec3(0);
+
+	for (p = 0; p <  xres; p ++) {
+		faceTangent += pVertex[p].tangent;
+		faceBiTangent += pVertex[p].bitangent;
+	}
+	for (p = nVertex - xres-1; p < nVertex ; p ++) {
+		faceTangent += pVertex[p].tangent;
+		faceBiTangent += pVertex[p].bitangent;
+	}
+
+	for (p = 0; p <  xres; p ++) {
+		pVertex[p].tangent = faceTangent;
+		pVertex[p].bitangent = faceBiTangent;
+	}
+	for (p = nVertex - xres-1; p < nVertex ; p ++) {
+		pVertex[p].tangent = faceTangent;
+		pVertex[p].bitangent = faceBiTangent;
+	}
+
 	for (p = 0; p < nVertex; p++) {
 		//pVertex[p].normal = normalize(pVertex[p].position);
 		pVertex[p].normal = normalize(pVertex[p].normal);
+		pVertex[p].tangent = normalize(pVertex[p].tangent);
+		pVertex[p].bitangent = normalize(pVertex[p].bitangent);
 	}
 	p = 0;
+	name = "Esfera";
+}
 
+void malha::makeSphere3(uint xres, uint yres, float3 size) {
+	free();
+	xres = min(max(xres, 3), 255);
+	yres = min(max(yres, 3), 250);
+	nVertex = (xres + 1) * (yres);
+	nIndex = (xres) * (yres - 2) * 2;
+
+	//nVertex = (xres + 1) * (yres + 1);
+	//nIndex = (xres) * (yres) * 2;
+
+	pVertex.resize(nVertex);
+	pIndex.resize(nIndex);
+
+	float vx = F_PI / xres * 2, vy = F_PI / (yres - 1);
+	float px = 0, py = 0;
+	// attributes
+	uint p = 0, y = 0, x = 0;
+	vec3 pos(0, 0, 1); // first vertex 
+	vec3 pos2;
+	vec3 pos3;
+	//pVertex[p].position = vec3(0, 0, 1.0f) * (size / 2.f);
+	//pVertex[p].normal = vec3(0, 0, 1.0f);
+	//pVertex[p].uv = vec2(2.f, 1.5f);
+	//pVertex[nVertex - 1].position = vec3(0, 0, -1.0f) * (size / 2.f);
+	//pVertex[nVertex - 1].normal = vec3(0, 0, -1.0f);
+	//pVertex[nVertex - 1].uv = vec2(vx*xres/2, vy * xres / 2);
+	//p++;
+	for (y = 0; y < yres; y++) {
+		py = y * vy; // linear value angle
+		pos2 = rotateYRad(pos, py / 1.0f); // rotate first vertex into y angle to make a circle
+		for (x = 0; x <= xres; x++) {
+			px = x * vx; // linear angle value
+			pos3 = rotateZRad(pos2, px / 1.0f); // rotate the circle in z angle to make this circle turn a torus
+			pVertex[p].position = pos3 * (size / 2.f);
+			pVertex[p].uv = vec2(1.5f - x / float(xres) * 4.f, y / float(yres) * 3.f);
+			p++;
+		}
+	}
+
+	p = 0;
+	x = 0;
+	y = xres + 1;
+
+	for (uint b = 0; b < xres; b++) {
+		pIndex[p] = usvec3(x, y + 1, y);
+		//pIndex[p] = usvec3(x, y, x + 1);
+		p++;
+		x++;
+		y++;
+	}
+	x++;
+	y++;
+
+	for (uint a = 0; a < yres - 3; a++) {
+		for (uint b = 0; b < xres; b++, x++, y++) {
+			pIndex[p] = usvec3(x, x + 1, y);
+			p++;
+			pIndex[p] = usvec3(y, x + 1, y + 1);
+			p++;
+		}
+		x++;
+		y++;
+	}
+	for (uint b = 0; b < xres; b++) {
+		//pIndex[p] = usvec3(y, y + 1, x);
+		pIndex[p] = usvec3(x, x + 1, y);
+		p++;
+		x++;
+		y++;
+	}
+	x++;
+	y++;
+
+	vec3 faceNormal;
+	vec3 faceTangent;
+	vec3 faceBiTangent;
+	makeBiTangent();
+
+	for (p = 0; p < nIndex; p++) {
+		faceNormal = faceNormal2(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
+		pVertex[pIndex[p].x].normal += faceNormal;
+		pVertex[pIndex[p].y].normal += faceNormal;
+		pVertex[pIndex[p].z].normal += faceNormal;
+	}
+	for (p = xres + 1; p < (nVertex - xres) - 2; p += xres + 1) {
+		faceNormal = pVertex[p].normal;
+		faceNormal += pVertex[p + xres].normal;
+		faceTangent = pVertex[p].tangent;
+		faceTangent += pVertex[p + xres].tangent;
+		faceBiTangent = pVertex[p].bitangent;
+		faceBiTangent += pVertex[p + xres].bitangent;
+		pVertex[p + xres].normal = faceNormal;
+		pVertex[p].normal = faceNormal;
+		pVertex[p + xres].tangent = faceTangent;
+		pVertex[p].tangent = faceTangent;
+		pVertex[p + xres].bitangent = faceBiTangent;
+		pVertex[p].bitangent = faceBiTangent;
+	}
+	faceNormal = vec3(0, 0, 1);
+	for (p = 0; p < xres; p++) {
+		pVertex[p].normal = faceNormal;
+	}
+	faceNormal = vec3(0, 0, -1);
+	for (p = nVertex - xres - 1; p < nVertex; p++) {
+		pVertex[p].normal = faceNormal;
+	}
+	faceTangent = vec3(0);
+	faceBiTangent = vec3(0);
+
+	for (p = 0; p < xres; p++) {
+		faceTangent += pVertex[p].tangent;
+		faceBiTangent += pVertex[p].bitangent;
+	}
+	for (p = nVertex - xres - 1; p < nVertex; p++) {
+		faceTangent += pVertex[p].tangent;
+		faceBiTangent += pVertex[p].bitangent;
+	}
+
+	for (p = 0; p < xres; p++) {
+		pVertex[p].tangent = faceTangent;
+		pVertex[p].bitangent = faceBiTangent;
+	}
+	for (p = nVertex - xres - 1; p < nVertex; p++) {
+		pVertex[p].tangent = faceTangent;
+		pVertex[p].bitangent = faceBiTangent;
+	}
+
+	for (p = 0; p < nVertex; p++) {
+		//pVertex[p].normal = normalize(pVertex[p].position);
+		pVertex[p].normal = normalize(pVertex[p].normal);
+		pVertex[p].tangent = normalize(pVertex[p].tangent);
+		pVertex[p].bitangent = normalize(pVertex[p].bitangent);
+	}
+	p = 0;
 	name = "Esfera";
 }
 
@@ -614,6 +804,7 @@ void malha::makeCone2(uint xres, uint yres, float3 size) {
 	// top
 	for (x = 0; x <= xres; x++) {
 		pVertex[p].position = vec3(0, 0, 1) * (size / 2.f);
+		pVertex[p].uv = vec3(0.5);
 		p++;
 	}
 	// center
@@ -625,24 +816,27 @@ void malha::makeCone2(uint xres, uint yres, float3 size) {
 	//	pVertex[p].position = pos2 ;
 	//	p++;
 	//}
-	pos = vec3(0, 1, 0) * (size / 2.f); // first vertex 
+	pos = vec3(0, 1, 0) ; // first vertex 
 	for (x = 0; x <= xres; x++) {
 		px = x * vx; // linear angle value
 		vec3 pos2 = rotateZRad(pos, px / 1.0f); // rotate the circle in z angle to make this circle turn a torus
-		pVertex[p].position = pos2 ;
+		pVertex[p].position = pos2* (size / 2.f) ;
+		pVertex[p].uv = vec2(pos2.x,-pos2.y)/2+0.5f ;
 		p++;
 	}
-	pos = vec3(0, 1, 0) * (size / 2.f); // first vertex 
+	pos = vec3(0, 1, 0) ; // first vertex 
 	for (x = 0; x <= xres; x++) {
 		px = x * vx; // linear angle value
 		vec3 pos2 = rotateZRad(pos, px / 1.0f); // rotate the circle in z angle to make this circle turn a torus
-		pVertex[p].position = pos2;
+		pVertex[p].position = pos2 * (size / 2.f);
+		pVertex[p].uv = vec2(pos2.x, pos2.y)/2+0.5f;
 		p++;
 	}
 
 	// booton
-	pVertex[p].position = vec3(0.0f, 0.0f, -0.2f) ;
+	pVertex[p].position = vec3(0.0f, 0.0f, 0.f) ;
 	pVertex[p].normal = vec3(0.0f, 0.0f, -1.0f);
+	pVertex[p].uv = vec2(0.5f);
 
 
 	// indexes
@@ -671,9 +865,6 @@ void malha::makeCone2(uint xres, uint yres, float3 size) {
 	}
 	pIndex[p] = usvec3(nVertex - 1, nVertex - xres - 1, y - 1);
 
-	for (p = 0; p < nVertex; p++) {
-		pVertex[p].uv = vec2(pVertex[p].position.x, pVertex[p].position.y )+0.5;
-	}
 	vec3 faceNormal;
 	for (p = 0; p < nIndex; p++) {
 		faceNormal = faceNormal2(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
@@ -689,6 +880,7 @@ void malha::makeCone2(uint xres, uint yres, float3 size) {
 		pVertex[p].normal = normalize(pVertex[p].normal);
 	}
 
+	makeBiTangent();
 	p = 0;
 	name = "Cone";
 }
@@ -832,65 +1024,60 @@ void malha::makeCilinder2(uint xres, uint yres, float3 size) {
 	free();
 	xres = max(xres, 3);
 	yres = 1;
-	nVertex = xres * 4 + 2;
-	nIndex = xres * 4 * 2;
+	nVertex = (xres + 1) * 2 + xres * 2 + 2;
+	nIndex = xres * 4 + 2;
 
 	pVertex.resize(nVertex);
 	pIndex.resize(nIndex);
 
 	float vx = F_PI / (xres + 0) * 2, vy = F_PI / (yres + 1);
 	float px = 0, py = 0, pz = 0, spy = 0;
-	uint p = 1, x, y;
+	uint p = 0, x, y;
 
 	// vextex positions
 	// top
 	pVertex[0].position = vec3(0.0f, 0.0f, 1.0f) * size;
+	pVertex[0].uv = vec2(0.5);
 	//pVertex[0].normal = vec3(0.0f, 0.0f, 1.0f);
+	p++;
 	vec3 vec;
 	y = 1;
-	{
-		for (x = 0; x < xres; x++) {
-			px = x * vx; py = y * vy;
-			spy = sin(py);
-			vec = vec3(sin(px) * spy, cos(px) * sin(py), 1.0f);
-			pVertex[p].position = vec * size;
-			p++;
-		}
+	for (x = 0; x < xres; x++) {
+		px = x * vx;
+		vec = vec3(sin(px), cos(px), 1.0f);
+		pVertex[p].position = vec * size;
+		pVertex[p].uv = vec2(vec.x, -vec.y)/2+vec2(0.5);
+		p++;
 	}
 	// center
 	y = 1;
-	{
-		for (x = 0; x < xres; x++) {
-			px = x * vx; py = y * vy;
-			spy = sin(py);
-			vec = vec3(sin(px) * spy, cos(px) * sin(py), 1.0f);
-			pVertex[p].position = vec * size;
-			p++;
-		}
+	for (x = 0; x <= xres; x++) {
+		px = x / 1.0f * vx;
+		vec = vec3(sin(px), cos(px), 1.0f);
+		pVertex[p].position = vec * size;
+		pVertex[p].uv = vec2(x / -float(xres)*4, 0);
+		p++;
 	}
 
 	y = 1;
-	{
-		for (x = 0; x < xres; x++) {
-			px = x * vx; py = y * vy;
-			spy = sin(py);
-			vec = vec3(sin(px) * spy, cos(px) * sin(py), -1.0f);
-			pVertex[p].position = vec * size;
-			p++;
-		}
+	for (x = 0; x <= xres; x++) {
+		px = x / 1.0f * vx;
+		vec = vec3(sin(px), cos(px), -1.0f);
+		pVertex[p].position = vec * size;
+		pVertex[p].uv = vec2(x / -float(xres)*4, 2);
+		p++;
 	}
 	// booton
 	y = 1;
-	{
-		for (x = 0; x < xres; x++) {
-			px = x * vx; py = y * vy;
-			spy = sin(py);
-			vec = vec3(sin(px) * spy, cos(px) * sin(py), -1.0f);
-			pVertex[p].position = vec * size;
-			p++;
-		}
+	for (x = 0; x < xres; x++) {
+		px = x * vx;
+		vec = vec3(sin(px), cos(px), -1.0f);
+		pVertex[p].position = vec * size;
+		pVertex[p].uv = vec2(-vec.x, vec.y)/2 + vec2(0.5) ;
+		p++;
 	}
 	pVertex[p].position = vec3(0.0f, 0.0f, -1.0f) * size;
+	pVertex[p].uv = vec2(0.5);
 	//pVertex[p].normal = vec3(0.0f, 0.0f, -1.0f);
 
 
@@ -906,26 +1093,13 @@ void malha::makeCilinder2(uint xres, uint yres, float3 size) {
 
 	//center
 	//p = 0;
-	y = 1 + xres;
-	x = y + xres;
-	uint sx = x, sy = 0;
-	{
-		uint sx = x, sy = y;
-		for (uint b = 0; b < xres - 1; b++, x++, y++) {
-			pIndex[p] = usvec3(y, x, x + 1);
-			p++;
-			pIndex[p] = usvec3(y, x + 1, y + 1);
-			p++;
-		}
-		pIndex[p] = usvec3(y, x    , sx);
+	x = 1 + xres;
+	y = x + xres+1;
+	for (uint b = 0; b < xres; b++, x++, y++) {
+		pIndex[p] = usvec3(x, y, x + 1);
 		p++;
-		pIndex[p] = usvec3(y, y + 1, sy);
-		//pIndex[p] = usvec3(y, sx, x+1);
-		//p++;
-		//pIndex[p] = usvec3(y, sy-1, y+1);
+		pIndex[p] = usvec3(y, y + 1, x + 1);
 		p++;
-		x++;
-		y++;
 	}
 
 
@@ -939,7 +1113,7 @@ void malha::makeCilinder2(uint xres, uint yres, float3 size) {
 
 	vec3 faceNormal;
 	for (p = 0; p < nIndex; p++) {
-		faceNormal = calcNormal(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
+		faceNormal = faceNormal2(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position);
 		pVertex[pIndex[p].x].normal += faceNormal;
 		pVertex[pIndex[p].y].normal += faceNormal;
 		pVertex[pIndex[p].z].normal += faceNormal;
@@ -947,11 +1121,12 @@ void malha::makeCilinder2(uint xres, uint yres, float3 size) {
 	for (p = 0; p < nVertex; p++) {
 		pVertex[p].normal = normalize(pVertex[p].normal);
 	}
-	for (p = 0; p < nVertex; p++) {
-		pVertex[p].uv = vec2(pVertex[p].position.x, pVertex[p].position.y + pVertex[p].position.z);
-	}
+	//for (p = 0; p < nVertex; p++) {
+	//	pVertex[p].uv = vec2(pVertex[p].position.x, pVertex[p].position.y + pVertex[p].position.z);
+	//}
 	p = 0;
 
+	makeBiTangent();
 
 	name = "Cilinder";
 
@@ -1060,6 +1235,113 @@ void malha::makeBox(uint xres, uint yres, float3 size) {
 	for (uint p = 0; p < nVertex; p++) {
 		pNormal[p] = normalize(pNormal[p]);
 	}
+	makeBiTangent();
+}
+
+void malha::makeSkyBox(uint xres, uint yres, float3 size) {
+	free();
+	nVertex = 24;
+	nIndex = 12;
+
+	pPosition.resize(nVertex);
+	pNormal.resize(nVertex);
+	pIndex.resize(nIndex);
+	pUv.resize(nVertex);
+
+	vec3 sz = vec3(0.5f, 0.5f, 0.5f) * size;
+
+
+	pPosition[0]  = vec3(-1, -1, -1) * sz;  // frente
+	pPosition[1]  = vec3(-1, -1,  1) * sz;  
+	pPosition[2]  = vec3( 1, -1, -1) * sz;  
+	pPosition[3]  = vec3( 1, -1,  1) * sz;  
+										    
+	pPosition[4]  = vec3( 1, -1, -1) * sz;  // direita
+	pPosition[5]  = vec3( 1,  1, -1) * sz;  
+	pPosition[6]  = vec3( 1, -1,  1) * sz;  
+	pPosition[7]  = vec3( 1,  1,  1) * sz;  
+										    
+	pPosition[8]  = vec3( 1,  1, -1) * sz;  // tras
+	pPosition[9]  = vec3( 1,  1,  1) * sz;  
+	pPosition[10] = vec3(-1,  1, -1) * sz;  
+	pPosition[11] = vec3(-1,  1,  1) * sz;  
+										    
+	pPosition[12] = vec3(-1,  1, -1) * sz;  // esquerda
+	pPosition[13] = vec3(-1,  1,  1) * sz;  
+	pPosition[14] = vec3(-1, -1, -1) * sz;  
+	pPosition[15] = vec3(-1, -1,  1) * sz;  
+										    
+	pPosition[16] = vec3(-1, -1, -1) * sz;  // baixo
+	pPosition[17] = vec3(-1,  1, -1) * sz;  
+	pPosition[18] = vec3( 1, -1, -1) * sz;  
+	pPosition[19] = vec3( 1,  1, -1) * sz;  
+							 			    
+	pPosition[20] = vec3(-1,  1,  1) * sz;  // cima
+	pPosition[21] = vec3(-1, -1,  1) * sz;
+	pPosition[22] = vec3( 1,  1,  1) * sz;
+	pPosition[23] = vec3( 1, -1,  1) * sz;
+
+	pUv[0]  = vec2(0, 1 );  // baixo
+	pUv[1]  = vec2(0, 0 );  
+	pUv[2]  = vec2(1, 1 );  
+	pUv[3]  = vec2(1, 0 );  										    
+				    	 	
+	pUv[4]  = vec2(0, 1 );  // frente
+	pUv[5]  = vec2(1, 1 );  
+	pUv[6]  = vec2(0, 0 );  
+	pUv[7]  = vec2(1, 0 );  										    
+				    	 	
+	pUv[8]  = vec2(0, 1 );  // cima
+	pUv[9]  = vec2(0, 0 );  
+	pUv[10] = vec2(1, 1 );  
+	pUv[11] = vec2(1, 0 );  										    
+				    	
+	pUv[12] = vec2(0, 1 );  // tras
+	pUv[13] = vec2(0, 0 );
+	pUv[14] = vec2(1, 1 );
+	pUv[15] = vec2(1, 0 );
+					 
+	pUv[16] = vec2(1, 0 );  // esquerda
+	pUv[17] = vec2(0, 0 ); 
+	pUv[18] = vec2(1, 1 ); 
+	pUv[19] = vec2(0, 1 ); 
+					 	
+	pUv[20] = vec2(0, 1 );  // direita
+	pUv[21] = vec2(1, 1 );
+	pUv[22] = vec2(0, 0 );
+	pUv[23] = vec2(1, 0 );
+
+
+	pIndex[0]  = usvec3( 0,  2,  1); // baixo
+	pIndex[1]  = usvec3( 1,  2,  3);
+			   
+	pIndex[2]  = usvec3( 4,  5,  6); // frente
+	pIndex[3]  = usvec3( 5,  7,  6);
+			   
+	pIndex[4]  = usvec3( 8, 10,  9); // cima
+	pIndex[5]  = usvec3( 9, 10, 11);
+			   
+	pIndex[6]  = usvec3(12, 14, 13); // traz
+	pIndex[7]  = usvec3(13, 14, 15);
+			   
+	pIndex[8]  = usvec3(16, 17, 18); // direita
+	pIndex[9]  = usvec3(17, 19, 18);
+
+	pIndex[10] = usvec3(20, 21, 22); // esquerda
+	pIndex[11] = usvec3(21, 23, 22);
+
+
+	vec3 faceNormal;
+	for (uint p = 0; p < nIndex; p++) {
+		faceNormal = calcNormal(pPosition[pIndex[p].x], pPosition[pIndex[p].y], pPosition[pIndex[p].z]);
+		pNormal[pIndex[p].x] -= faceNormal;
+		pNormal[pIndex[p].y] -= faceNormal;
+		pNormal[pIndex[p].z] -= faceNormal;
+	}
+	for (uint p = 0; p < nVertex; p++) {
+		pNormal[p] = normalize(pNormal[p]);
+	}
+	makeBiTangent();
 }
 
 void malha::makeQuad(uint xres, uint yres, float3 size){
@@ -1082,10 +1364,10 @@ void malha::makeQuad(uint xres, uint yres, float3 size){
 	pIndex[1] = usvec3(2, 3, 0);
 
 	// uv
-	pVertex[0].uv = vec2(0, 0);
-	pVertex[1].uv = vec2(0, 1);
-	pVertex[2].uv = vec2(1, 1);
-	pVertex[3].uv = vec2(1, 0);
+	pVertex[0].uv = vec2(0, 1);
+	pVertex[1].uv = vec2(0, 0);
+	pVertex[2].uv = vec2(1, 0);
+	pVertex[3].uv = vec2(1, 1);
 
 	// color
 	pVertex[0].color = byte4(255, 255, 255, 255);
@@ -1100,6 +1382,7 @@ void malha::makeQuad(uint xres, uint yres, float3 size){
 	pVertex[1].normal = pVertex[0].normal;
 	pVertex[2].normal = pVertex[0].normal;
 	pVertex[3].normal = pVertex[0].normal;
+	makeBiTangent();
 
 
 }
@@ -1114,17 +1397,17 @@ void malha::makeTriangle(uint xres, uint yres, float3 size) {
 	vec3 sz = vec3(0.5f, 0.5f, 0.5f) * size;
 
 	// vertex
-	pVertex[0].position = vec3(0, -0.5, 0) * sz;
-	pVertex[1].position = vec3(0, 0, 1) * sz;
-	pVertex[2].position = vec3(0, 0.5, 0) * sz;
+	pVertex[0].position = vec3(-0.5, 0, 0) * sz;
+	pVertex[1].position = vec3(   0, 1, 0) * sz;
+	pVertex[2].position = vec3( 0.5, 0, 0) * sz;
 
 	// index
 	pIndex[0] = usvec3(0, 1, 2);
 
 	// uv
-	pVertex[0].uv = vec2(  1, 1);
+	pVertex[0].uv = vec2(  0, 1);
 	pVertex[1].uv = vec2(0.5, 0);
-	pVertex[2].uv = vec2(  0, 1);
+	pVertex[2].uv = vec2(  1, 1);
 
 	// color
 	pVertex[0].color = byte4(255, 255, 255, 255);
@@ -1137,6 +1420,7 @@ void malha::makeTriangle(uint xres, uint yres, float3 size) {
 	pVertex[0].normal = normalize(pVertex[0].normal);
 	pVertex[1].normal = pVertex[0].normal;
 	pVertex[2].normal = pVertex[0].normal;
+	makeBiTangent();
 }
 
 void malha::makeGrid(int xres, int yres, float3 size) {
@@ -1272,6 +1556,70 @@ void malha::makeNormals() {
 	}
 }
 
+void faceBitangent(vec3 pos1, vec3 pos2, vec3 pos3, vec2 uv1, vec2 uv2, vec2 uv3,	vec3 &tangent,vec3 &bitangent) {
+			vec3 edge1 = pos1 - pos2;
+			vec3 edge2 = pos3 - pos2;
+			vec2 deltaUV1 = uv1 - uv2;
+			vec2 deltaUV2 = uv3 - uv2;
+
+			float f = 1.0f / (deltaUV1.x * deltaUV2.y - deltaUV2.x * deltaUV1.y);
+
+			tangent.x = f * (deltaUV2.y * edge1.x - deltaUV1.y * edge2.x);
+			tangent.y = f * (deltaUV2.y * edge1.y - deltaUV1.y * edge2.y);
+			tangent.z = f * (deltaUV2.y * edge1.z - deltaUV1.y * edge2.z);
+
+			bitangent.x = f * (-deltaUV2.x * edge1.x + deltaUV1.x * edge2.x);
+			bitangent.y = f * (-deltaUV2.x * edge1.y + deltaUV1.x * edge2.y);
+			bitangent.z = f * (-deltaUV2.x * edge1.z + deltaUV1.x * edge2.z);
+}
+
+void malha::makeBiTangent() {
+	uint p = 0;
+	if (pVertex.size() > 2 && pIndex.size() >= 1 && nVertex == (pVertex.size() ) && nIndex == pIndex.size() ) {
+		vec3 tangent;
+		vec3 bitangent;
+		for (p = 0; p < nIndex; p++) {
+			faceBitangent(pVertex[pIndex[p].x].position, pVertex[pIndex[p].y].position, pVertex[pIndex[p].z].position,
+						  pVertex[pIndex[p].x].uv, pVertex[pIndex[p].y].uv, pVertex[pIndex[p].z].uv,
+						  tangent, bitangent);
+			pVertex[pIndex[p].x].tangent += tangent;
+			pVertex[pIndex[p].y].tangent += tangent;
+			pVertex[pIndex[p].z].tangent += tangent;
+
+			pVertex[pIndex[p].x].bitangent += bitangent;
+			pVertex[pIndex[p].y].bitangent += bitangent;
+			pVertex[pIndex[p].z].bitangent += bitangent;
+		}
+		//for (p = 0; p < nVertex; p++) {
+		//	pVertex[p].tangent = normalize(pVertex[p].tangent);
+		//	pVertex[p].bitangent = normalize(pVertex[p].bitangent);
+		//}
+	}
+	else if (pPosition.size() > 2 && pIndex.size() >= 1 && nVertex == (pPosition.size() ) && nIndex == pIndex.size() ) {
+		if (pTangent.size() != nVertex)
+			pTangent.resize(nVertex);
+			pBiTangent.resize(nVertex);
+		vec3 tangent;
+		vec3 bitangent;
+		for (p = 0; p < nIndex; p++) {
+			faceBitangent(pPosition[pIndex[p].x], pPosition[pIndex[p].y], pPosition[pIndex[p].z],
+						  pUv[pIndex[p].x], pUv[pIndex[p].y], pUv[pIndex[p].z],
+						  tangent, bitangent);
+			pTangent[pIndex[p].x] += tangent;
+			pTangent[pIndex[p].y] += tangent;
+			pTangent[pIndex[p].z] += tangent;
+
+			pBiTangent[pIndex[p].x] += bitangent;
+			pBiTangent[pIndex[p].y] += bitangent;
+			pBiTangent[pIndex[p].z] += bitangent;
+		}
+		//for (p = 0; p < nVertex; p++) {
+		//	pTangent[p] = normalize(pTangent[p]);
+		//	pBiTangent[p] = normalize(pBiTangent[p]);
+		//}
+	}
+}
+
 void malha::CreateBuffer() {
 	switch (renderMode) {
 		case RenderModePoints:
@@ -1280,26 +1628,16 @@ void malha::CreateBuffer() {
 		{
 			// not interleaved atributes, need position and any other atribute is not required, but if available is used
 			if (nVertex > 1 && pPosition.size() == nVertex && nIndex) {
-
 				//glGenVertexArrays(1, &VAO);
 				//glGenBuffers(1, &VBO);
 				//glBindVertexArray(VAO);
-
 				//glBindBuffer(GL_ARRAY_BUFFER, VBO);
 				//glBufferData(GL_ARRAY_BUFFER, pPosition.size()  , pPosition.data(), GL_STATIC_DRAW);
-
 				//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
 				//glEnableVertexAttribArray(0);
-
 				//glBindBuffer(GL_ARRAY_BUFFER, 0);
 				//glBindVertexArray(0);
-
-
 				//break;
-
-
-
-
 
 				glGenVertexArrays(1, &VAO);
 
@@ -1432,12 +1770,18 @@ void malha::CreateBuffer() {
 				// vertex normals
 				glEnableVertexAttribArray(1);
 				glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertex), (void*)offsetof(vertex, normal));
-				// vertex texture coords
+				// vertex tangent
 				glEnableVertexAttribArray(2);
-				glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(vertex), (void*)offsetof(vertex, uv));
-				// vertex color
+				glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(vertex), (void*)offsetof(vertex, tangent));
+				// vertex bitangent
 				glEnableVertexAttribArray(3);
-				glVertexAttribPointer(3, 4, GL_BYTE, GL_TRUE, sizeof(vertex), (void*)offsetof(vertex, color));
+				glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(vertex), (void*)offsetof(vertex, bitangent));
+				// vertex texture coords
+				glEnableVertexAttribArray(4);
+				glVertexAttribPointer(4, 2, GL_FLOAT, GL_FALSE, sizeof(vertex), (void*)offsetof(vertex, uv));
+				// vertex color
+				glEnableVertexAttribArray(5);
+				glVertexAttribPointer(5, 4, GL_BYTE, GL_TRUE, sizeof(vertex), (void*)offsetof(vertex, color));
 
 				glBindBuffer(GL_ARRAY_BUFFER, 0);
 				glBindVertexArray(0);
@@ -1476,24 +1820,6 @@ void malha::CreateBuffer() {
 					glEnableVertexAttribArray(i);
 				}
 				i++;
-				if (pUv.size() == nVertex) {
-					glBindBuffer(GL_ARRAY_BUFFER, pBuffers[i]);
-					glNamedBufferStorage(pBuffers[i], pUv.size() * sizeof(pUv[0]), pUv.data(), 0);// Perform similar initialization for the second buffer
-					glVertexArrayVertexBuffer(VAO, i, pBuffers[i], 0, sizeof(pUv[0]));
-					glVertexArrayAttribFormat(VAO, i, 2, GL_FLOAT, GL_FALSE, 0);
-					glVertexArrayAttribBinding(VAO, i, i);
-					glEnableVertexAttribArray(i);
-				}
-				i++;
-				if (pColor.size() == nVertex) {
-					glBindBuffer(GL_ARRAY_BUFFER, pBuffers[i]);
-					glNamedBufferStorage(pBuffers[i], pColor.size() * sizeof(pColor[0]), pColor.data(), 0);// Perform similar initialization for the second buffer
-					glVertexArrayVertexBuffer(VAO, i, pBuffers[i], 0, sizeof(pColor[0]));
-					glVertexArrayAttribFormat(VAO, i, 4, GL_BYTE, GL_FALSE, 0);
-					glVertexArrayAttribBinding(VAO, i, i);
-					glEnableVertexAttribArray(i);
-				}
-				i++;
 				if (pTangent.size() == nVertex) {
 					glBindBuffer(GL_ARRAY_BUFFER, pBuffers[i]);
 					glNamedBufferStorage(pBuffers[i], pTangent.size() * sizeof(pTangent[0]), pTangent.data(), 0);// Perform similar initialization for the second buffer
@@ -1508,6 +1834,24 @@ void malha::CreateBuffer() {
 					glNamedBufferStorage(pBuffers[i], pBiTangent.size() * sizeof(pBiTangent[0]), pBiTangent.data(), 0);// Perform similar initialization for the second buffer
 					glVertexArrayVertexBuffer(VAO, i, pBuffers[i], 0, sizeof(pBiTangent[0]));
 					glVertexArrayAttribFormat(VAO, i, 3, GL_FLOAT, GL_FALSE, 0);
+					glVertexArrayAttribBinding(VAO, i, i);
+					glEnableVertexAttribArray(i);
+				}
+				i++;
+				if (pUv.size() == nVertex) {
+					glBindBuffer(GL_ARRAY_BUFFER, pBuffers[i]);
+					glNamedBufferStorage(pBuffers[i], pUv.size() * sizeof(pUv[0]), pUv.data(), 0);// Perform similar initialization for the second buffer
+					glVertexArrayVertexBuffer(VAO, i, pBuffers[i], 0, sizeof(pUv[0]));
+					glVertexArrayAttribFormat(VAO, i, 2, GL_FLOAT, GL_FALSE, 0);
+					glVertexArrayAttribBinding(VAO, i, i);
+					glEnableVertexAttribArray(i);
+				}
+				i++;
+				if (pColor.size() == nVertex) {
+					glBindBuffer(GL_ARRAY_BUFFER, pBuffers[i]);
+					glNamedBufferStorage(pBuffers[i], pColor.size() * sizeof(pColor[0]), pColor.data(), 0);// Perform similar initialization for the second buffer
+					glVertexArrayVertexBuffer(VAO, i, pBuffers[i], 0, sizeof(pColor[0]));
+					glVertexArrayAttribFormat(VAO, i, 4, GL_BYTE, GL_FALSE, 0);
 					glVertexArrayAttribBinding(VAO, i, i);
 					glEnableVertexAttribArray(i);
 				}

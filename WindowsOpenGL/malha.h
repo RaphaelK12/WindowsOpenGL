@@ -1,8 +1,14 @@
 #pragma once
 
-struct vertex {
+class vertex {
+public:
+	vertex();
+	~vertex();
+	vertex(vec3 _position,	vec3 _normal,	vec3 _tangent,	vec3 _bitangent,	vec2 _uv,	byte4 _color);
 	vec3 position;
 	vec3 normal;
+	vec3 tangent;
+	vec3 bitangent;
 	vec2 uv;
 	byte4 color;
 };
@@ -22,6 +28,7 @@ public:
 	void free();
 	void makeSphere(uint xres, uint yres, float3 size);
 	void makeSphere2(uint xres, uint yres, float3 size);
+	void makeSphere3(uint xres, uint yres, float3 size);
 	void makeTorus(uint xres, uint yres, float3 size, float internSize);
 	void makeTorus2(uint xres, uint yres, float3 size, float internSize, float externSize);
 	void makeCone(uint xres, uint yres, float3 size);
@@ -29,6 +36,7 @@ public:
 	void makeCilinder(uint xres, uint yres, float3 size);
 	void makeCilinder2(uint xres, uint yres, float3 size);
 	void makeBox(uint xres, uint yres, float3 size);
+	void makeSkyBox(uint xres, uint yres, float3 size);
 	void makeQuad(uint xres, uint yres, float3 size);
 	void makeTriangle(uint xres, uint yres, float3 size);
 
@@ -38,6 +46,7 @@ public:
 
 
 	void makeNormals();
+	void makeBiTangent();
 	void CreateBuffer();
 	void draw(matrix_block *m);
 	void setMatrix(matrix_block *m);
@@ -65,11 +74,11 @@ public:
 	// standard atributes separated
 	std::vector<vec3> pPosition;
 	std::vector<vec3> pNormal;
+	std::vector<vec3> pTangent;
+	std::vector<vec3> pBiTangent;
 	std::vector<vec2> pUv;
 	std::vector<vec4> pColor;
 	// optional
-	std::vector<vec3> pTangent;
-	std::vector<vec3> pBiTangent;
 	std::vector<vec2> pUv1;
 	std::vector<vec2> pUv2;
 	std::vector<vec4> pColor1;

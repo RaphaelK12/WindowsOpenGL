@@ -34,26 +34,26 @@ vec2  operator/(float p_scalar, const vec2& p_vec) {
 
 vec2  operator+(const vec2& p_vec, float p_scalar) {
 	vec2 tmp;
-	tmp.x = p_scalar + p_vec.x;
-	tmp.y = p_scalar + p_vec.y;
+	tmp.x = p_vec.x + p_scalar;
+	tmp.y = p_vec.y + p_scalar;
 	return tmp;
 }
 vec2  operator-(const vec2& p_vec, float p_scalar) {
 	vec2 tmp;
-	tmp.x = p_scalar - p_vec.x;
-	tmp.y = p_scalar - p_vec.y;
+	tmp.x = p_vec.x - p_scalar;
+	tmp.y = p_vec.y - p_scalar;
 	return tmp;
 }
 vec2  operator*(const vec2& p_vec, float p_scalar) {
 	vec2 tmp;
-	tmp.x = p_scalar * p_vec.x;
-	tmp.y = p_scalar * p_vec.y;
+	tmp.x = p_vec.x * p_scalar;
+	tmp.y = p_vec.y * p_scalar;
 	return tmp;
 }
 vec2  operator/(const vec2& p_vec, float p_scalar) {
 	vec2 tmp;
-	tmp.x = p_scalar / p_vec.x;
-	tmp.y = p_scalar / p_vec.y;
+	tmp.x = p_vec.x / p_scalar;
+	tmp.y = p_vec.y / p_scalar;
 	return tmp;
 }
 

@@ -76,11 +76,18 @@ vec3 unpackNormal(vec3 n, float scale){
 }
 vec3 getNormalFromMap(vec3 n, sampler2D tex, vec2 coord, vec3 WorldPos){
     vec3 tangentNormal = unpackNormal(texture(tex, coord).xyz, 0.5) ;
-    vec3 N   = normalize(n);
+    vec3 N   = (n);
     vec3 T  = normalize(fs_in.tangent);
     vec3 B  = -normalize(cross(N, T));
     mat3 TBN = mat3(T, B, N);
     return normalize(TBN * tangentNormal);
+}
+vec2 SampleSphericalMap(vec3 v){
+	const vec2 invAtan = vec2(0.1591, 0.3183);
+	vec2 uv = vec2(atan(v.x, v.y), asin(-v.z));
+	uv *= invAtan;
+	uv += 0.5;
+	return uv;
 }
 
 // Output
@@ -91,10 +98,12 @@ layout(location = 1) out vec4 nr;
 uniform sampler2D texture1;
 uniform sampler2D texture2;
 uniform sampler2D texture3;
+uniform sampler2D texture4;
 // Material properties
 uniform vec4 diffuse_albedo = vec4(0.5, 0.2, 0.7, 1);
 uniform vec3 specular_albedo = vec3(0.7);
 uniform float specular_power = 128.0; // 200
+uniform vec3 viewPos;
 
 vec3 lightColor = vec3(1.0, 1.0, 1.0);
 float lightPower = 18.0; // 40
@@ -240,16 +249,25 @@ void main(void) {
 	// color = blinPhong_2(fs_in.normal, fs_in.lightDir, viewPos, 
 	// specular_power, specular_albedo,	diffuse_albedo,	fs_in.color1);
 	shading s = blinPhong2(fs_in.normal, fs_in.viewPos, l);
+	vec3 N =  getNormalFromMap(fs_in.normal, texture3, fs_in.uv1, fs_in.position_M.xyz);
+	vec3 I = normalize(fs_in.position_M.xyz - viewPos);
+    vec3 R = reflect(I, N);
+	vec2 uv = SampleSphericalMap(R);
+	
 	if (gl_FrontFacing) {
 		color = vec4(
 					(
 					// mt.ambient.rgb + mt.emission.rgb 
 					// +
-					texture(texture1, fs_in.uv1).rgb
-					*
-					s.specular * mt.specular.rgb
+					// texture(texture1, fs_in.uv1).rgb
 					// *
-					// texture(texture2, fs_in.uv1).rgb
+					texture(texture4, uv).rgb
+					*
+					texture(texture2, fs_in.uv1).rgb
+					+
+					s.specular * mt.specular.rgb
+					*
+					texture(texture2, fs_in.uv1).rgb
 					+
 					s.diffuse * mt.diffuse.rgb
 					*

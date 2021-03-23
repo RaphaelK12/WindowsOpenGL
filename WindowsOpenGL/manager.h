@@ -186,7 +186,7 @@ public:
 	std::vector<vec4> pOther4;
 
 	std::vector<usvec3> *pIndex;
-	material *mMaterial;	// material usado
+	Material *mMaterial;	// material usado
 
 	std::string name;
 
@@ -201,7 +201,7 @@ public:
 class objeto2{
 public:
 	uint type;
-	material *Material;	// material usado? override malha properties
+	Material *Material;	// material usado? override malha properties
 	malha *malhas;	// geometria do objeto
 	vec4 position; // position for each object
 	vec4 rotation; // rotation for each object

@@ -21,6 +21,13 @@ vec3 pow(in float p, in vec3 v) {
 vec3 pow(in vec3 p, in float v) {
 	return pow(p, vec3(v));
 }
+vec2 SampleSphericalMap(vec3 v){
+	const vec2 invAtan = vec2(0.1591, 0.3183);
+	vec2 uv = vec2(atan(v.x, v.y), asin(-v.z));
+	uv *= invAtan;
+	uv += 0.5;
+	return uv;
+}
 
 // Output
 layout(location = 0) out vec4 color;

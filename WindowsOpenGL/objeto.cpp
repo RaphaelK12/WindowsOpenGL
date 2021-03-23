@@ -50,107 +50,79 @@ objeto::objeto(objeto* prev, objType t, vec3 Pos, vec3 Rot, vec3 Size, uint3 Res
 	case objType::objTorus:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();
-		malhas[malhas.size() - 1]->makeTorus(Res.x, Res.y, Size, 1.0f);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
-		break;
-	case objType::objTorus2:
-		malhas.push_back(new malha());
-		malhas[malhas.size() - 1]->atach();
-		malhas[malhas.size() - 1]->makeTorus2(Res.x, Res.y, Size, 1.0f, 1.5f);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
+		malhas[malhas.size() - 1]->makeTorus(Res.x, Res.y, Size, 1.0f, 1.5f);
+		malhas[malhas.size() - 1]->mMaterial = new Material(matName);
+		//malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
 	case objType::objEsfera:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeSphere(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
-		break;
-	case objType::objEsfera2:
-		malhas.push_back(new malha());
-		malhas[malhas.size() - 1]->atach();
-		malhas[malhas.size() - 1]->makeSphere2(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
+		malhas[malhas.size() - 1]->mMaterial = new Material(matName);
+		//malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
 	case objType::objCilindro:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeCilinder(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
-		break;
-	case objType::objCilindro2:
-		malhas.push_back(new malha());
-		malhas[malhas.size() - 1]->atach();
-		malhas[malhas.size() - 1]->makeCilinder2(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
+		malhas[malhas.size() - 1]->mMaterial = new Material(matName);
+		//malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
 	case objType::objCone:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeCone(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
-		break;
-	case objType::objCone2:
-		malhas.push_back(new malha());
-		malhas[malhas.size() - 1]->atach();
-		malhas[malhas.size() - 1]->makeCone2(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
+		malhas[malhas.size() - 1]->mMaterial = new Material(matName);
+		//malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
 	case objType::objBox:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeBox(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
+		malhas[malhas.size() - 1]->mMaterial = new Material(matName);
+		//malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
 	case objType::objSkyBox:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeSkyBox(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
+		malhas[malhas.size() - 1]->mMaterial = new Material(matName);
+		//malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
 	case objType::objQuad:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeQuad(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
+		malhas[malhas.size() - 1]->mMaterial = new Material(matName);
+		//malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
 	case objType::objTriangulo:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeTriangle(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
+		malhas[malhas.size() - 1]->mMaterial = new Material(matName);
+		//malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
 	case objType::objGrid:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeGrid(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
+		malhas[malhas.size() - 1]->mMaterial = new Material(matName);
+		//malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
 	case objType::objAxis:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeAxis(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
+		malhas[malhas.size() - 1]->mMaterial = new Material(matName);
+		//malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
 	case objType::objAxisS:
 		malhas.push_back(new malha());
 		malhas[malhas.size() - 1]->atach();
 		malhas[malhas.size() - 1]->makeAxisS(Res.x, Res.y, Size);
-		malhas[malhas.size() - 1]->mMaterial = new material(matName);
-		malhas[malhas.size() - 1]->mMaterial->atach();
+		malhas[malhas.size() - 1]->mMaterial = new Material(matName);
+		//malhas[malhas.size() - 1]->mMaterial->atach();
 		break;
 	default:
 		break;
@@ -204,7 +176,7 @@ vec4 ToQuaternion(vec3 v/*, float yaw, double pitch, double roll*/) // yaw (Z), 
 	float cr = cos(v.z * 0.5f);
 	float sr = sin(v.z * 0.5f);
 
-	vec4 q;
+	vec4 q(0);
 	q.w = cr * cp * cy + sr * sp * sy;
 	q.x = sr * cp * cy - cr * sp * sy;
 	q.y = cr * sp * cy + sr * cp * sy;

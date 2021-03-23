@@ -11,7 +11,6 @@ int bQuit = false;
 float theta = 0;
 char limit = 1;
 
-
 pKeyMap keymap = new KeyMap;
 
 animation anim;
@@ -19,6 +18,7 @@ animation anim;
 Word word;
 
 objeto* plane;
+objeto* skyBox;
 texto* txt;
 GLuint hdrTextures[10];
 cTimer t;
@@ -38,48 +38,41 @@ int main(int argc, char* argv[]) {
 	//if (!f) f = fopen("../Madeira_Cxy_01_nor.png", "rb");
 	if (!f) f = fopen("../../XING_T32.TGA", "rb");
 	//if(!f) f = fopen("../../concrete_diffuse.tga", "rb");
-	img_basis* tx = 0;
-	t.setTimer("open XING_T32.TGA");
-	if(!(tx = read_TGA(f)));
-	tx = read_PNG(f);
-		assert(tx);
-	if (!tx)
-		return 0;
-	t.setTimer("read_TGA");
-	if (!tx->isOPenGLCompatible())
-		tx->convertoToOPenGLCompatible();
-	t.setTimer("convertoToOPenGLCompatible");
+	//img_basis* tx = 0;
+	//t.setTimer("open XING_T32.TGA");
+	//if(!(tx = read_TGA(f)));
+	//tx = read_PNG(f);
+	//	assert(tx);
+	//if (!tx)
+	//	return 0;
+	//t.setTimer("read_TGA");
+	//if (!tx->isOPenGLCompatible())
+	//	tx->convertoToOPenGLCompatible();
+	//t.setTimer("convertoToOPenGLCompatible");
 	startOpengl();
 	t.setTimer("startOpengl");
-	//glEnable(GL_MULTISAMPLE);
-	glGenTextures(1, hdrTextures);
-
-	//glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, hdrTextures[0]);
-	//glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, 8, GL_RGB16F, ctx.sx, ctx.sy, GL_FALSE);
-	glBindTexture(GL_TEXTURE_2D, hdrTextures[0]);
-	glTexImage2D(GL_TEXTURE_2D, 0, tx->glInternalFormat, tx->xres, tx->yres, GL_FALSE, tx->glFormat, tx->glType, tx->pixels);
-
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
-
-	float borderColor[] = { 0.0f, 0.0f, 1.0f, 1.0f };
-	glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	////glEnable(GL_MULTISAMPLE);
+	//glGenTextures(1, hdrTextures);
+	////glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, hdrTextures[0]);
+	////glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, 8, GL_RGB16F, ctx.sx, ctx.sy, GL_FALSE);
+	//glBindTexture(GL_TEXTURE_2D, hdrTextures[0]);
+	//glTexImage2D(GL_TEXTURE_2D, 0, tx->glInternalFormat, tx->xres, tx->yres, GL_FALSE, tx->glFormat, tx->glType, tx->pixels);
+	////glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+	////glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+	//float borderColor[] = { 0.0f, 0.0f, 1.0f, 1.0f };
+	//glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
 	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	GLfloat value, max_anisotropy = 16.0f; /* don't exceed this value...*/
-
-	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &value);
-
-	value = (value > max_anisotropy) ? max_anisotropy : value;
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, value);
-
-	glGenerateMipmap(GL_TEXTURE_2D);
-	t.setTimer("Create texture");
+	////glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	////glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+	////glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+	////glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	//GLfloat value, max_anisotropy = 16.0f; /* don't exceed this value...*/
+	//glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &value);
+	//value = (value > max_anisotropy) ? max_anisotropy : value;
+	//glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, value);
+	//glGenerateMipmap(GL_TEXTURE_2D);
+	//t.setTimer("Create texture");
 
 	anim.frames.push_back(frame(vec2(0), vec2(0), vec2(0)));
 	anim.frames.push_back(frame(vec2(0.5, 0), vec2(0.501, 1), vec2(1, 1)));
@@ -91,18 +84,20 @@ int main(int argc, char* argv[]) {
 	//word.addObj(objType::objCilindro2, vec3(0, 4, 0), vec3(0, 0, 0), vec3(1), uivec3(60, 10, 10), "default.mat");
 	//word.addObj(objType::objTorus2, vec3(0, -4, 0), vec3(0, 0, 0), vec3(1), uivec3(60, 60, 10), "default.mat");
 	vec3 pos(0, 4, 0);
-	for (int i = objTorus2; i < objType::objGrid; i ++) {
-		word.addObj(objType(i), rotateZGrad(pos, 45*i), vec3(0, 0, 0), vec3(1), uivec3(100, 50, 10), "DiffSpecNormalDisp.mat");
+	for (int i = 1; i < objType::objGrid; i ++) {
+		word.addObj(objType(i), rotateZDeg(pos, 45.f*(i-1.f)), vec3(0, 0, 0), vec3(1), uivec3(100, 50, 10), "DiffSpecNormalDisp");
 	}
-	word.addObj(objType::objQuad, vec3(0,0,-1.1), vec3(0), vec3(20), uivec3(60, 60, 10), "DiffSpecNormalDisp.mat");
+	word.addObj(objType::objQuad, vec3(0,0,-1.1), vec3(0), vec3(20), uivec3(60, 60, 10), "DiffSpecNormalDisp");
 
 
 
-	word.addObj(objType::objBox, vec3(5, 0, 0), vec3(0, 0, 0), vec3(0.1), uivec3(10, 10, 10), "DiffSpecNormalDisp.mat");
-	word.addObj(objType::objEsfera2, vec3(7, 0, 0), vec3(0, 0, 0), vec3(1), uivec3(30, 30, 10), "DiffSpecNormalDisp.mat");
-	word.addObj(objType::objGrid, vec3(0, 0, 0), vec3(0, 0, 0), vec3(2), uivec3(10, 10, 10),"lineVertexColor.mat");
-	word.addObj(objType::objAxis, vec3(0, 0, 0), vec3(0, 0, 0), vec3(1), uivec3(10, 10, 10), "lineVertexColor.mat");
-	plane = new objeto(0, objType::objQuad, vec3(0, 0, 0), vec3(0, 0, 0), vec3(1), uivec3(50, 50, 10), "screen.mat");
+	word.addObj(objType::objBox, vec3(5, 0, 0), vec3(0, 0, 0), vec3(0.1f), uivec3(10, 10, 10), "DiffSpecNormalDisp");
+	word.addObj(objType::objSkyBox, vec3(0, 0, 0), vec3(0, 0, 0), vec3(4), uivec3(10, 10, 10), "SphericalCubeMap");
+	word.addObj(objType::objEsfera, vec3(7, 0, 0), vec3(0, 0, 0), vec3(1), uivec3(30, 30, 10), "DiffSpecNormalDisp");
+	word.addObj(objType::objGrid, vec3(0, 0, 0), vec3(0, 0, 0), vec3(2), uivec3(10, 10, 10),"lineVertexColor");
+	word.addObj(objType::objAxis, vec3(0, 0, 0), vec3(0, 0, 0), vec3(1), uivec3(10, 10, 10), "lineVertexColor");
+	//skyBox = new objeto(0, objType::objSkyBox, vec3(0, 0, 0), vec3(0, 0, 0), vec3(4), uivec3(10, 10, 10), "SphericalCubeMap.mat");
+	plane = new objeto(0, objType::objQuad, vec3(0, 0, 0), vec3(0, 0, 0), vec3(1), uivec3(50, 50, 10), "screen");
 	plane->atach();
 
 
@@ -183,9 +178,9 @@ int main(int argc, char* argv[]) {
 }
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) {
-	static int cxClient, cyClient, lcxClient, lcyClient, iDeltaPerLine = 120, iAccumDelta;
+	static int cxClient=1, cyClient=1, lcxClient=1, lcyClient=1, iDeltaPerLine = 120, iAccumDelta=0;
 	ULONG ulScrollLines = 1;
-	static int xres, yres;
+	static int xres=1, yres=1;
 	static int xWindow=0, yWindow=0;
 	PAINTSTRUCT ps;
 	HDC hdc;
@@ -709,7 +704,7 @@ void processKeyPress(pKeyMap keymap) {
 		//esfera->malhas[0]->mMaterial->read(esfera->malhas[0]->mMaterial->mName);
 		//grid->malhas[0]->mMaterial->read(grid->malhas[0]->mMaterial->mName);
 		//axis->malhas[0]->mMaterial->read(axis->malhas[0]->mMaterial->mName);
-		plane->malhas[0]->mMaterial->read(plane->malhas[0]->mMaterial->mName);
+		plane->malhas[0]->mMaterial->reload();
 		word.refreshShaders();
 		printf("Material Reloaded\n\n");
 	}
@@ -735,20 +730,31 @@ void onRenderScene() {
 
 
 	glLineWidth(1.0f);
-	glLineWidth(2.0f);
+	//glLineWidth(2.0f);
 	glDepthFunc(GL_LEQUAL);
 	word.draw();
+	//glDisable(GL_DEPTH_WRITEMASK);
+	//glDepthMask(0);
+	//skyBox->draw();
+	//glEnable(GL_DEPTH_WRITEMASK);
+	//glDepthMask(1);
+
 	fbo->unbind();
 	activecamera->aspect = max(float(ctx.sx), 1.0f) / max(float(ctx.sy), 1.0f);
 	activecamera->calcMatrix();
 	glEnable(GL_DEPTH_TEST);
 	glBindTexture(GL_TEXTURE_2D, fbo->textures[0]);
-	plane->malhas[0]->mMaterial->mTextures[0]->globj= fbo->textures[0];
+	if (plane->malhas[0]->mMaterial->mData->mTextures[0]->mData)
+		plane->malhas[0]->mMaterial->mData->mTextures[0]->mData->globj = fbo->textures[0];
+	else {
+		plane->malhas[0]->mMaterial->mData->mTextures[0]->mData = new TextureData;
+		plane->malhas[0]->mMaterial->mData->mTextures[0]->mData->globj = fbo->textures[0];
+	}
 	plane->draw();
-	plane->malhas[0]->mMaterial->mShader->setUniform("time", word.time);
-	plane->malhas[0]->mMaterial->mShader->setUniform("frame", word.frame);
-	plane->malhas[0]->mMaterial->mShader->setUniform("sintime", word.sintime);
-	plane->malhas[0]->mMaterial->mShader->setUniform("costime", word.costime);
+	plane->malhas[0]->mMaterial->mData->mShader->setUniform("time", word.time);
+	plane->malhas[0]->mMaterial->mData->mShader->setUniform("frame", word.frame);
+	plane->malhas[0]->mMaterial->mData->mShader->setUniform("sintime", word.sintime);
+	plane->malhas[0]->mMaterial->mData->mShader->setUniform("costime", word.costime);
 }
 
 void onRenderScene2() {

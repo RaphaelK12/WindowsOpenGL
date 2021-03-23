@@ -1,5 +1,10 @@
 Material
 i  type: 			2
+i  filter_mag: 			9729
+i  filter_min: 			9729
+i  wrap_s: 			10497
+i  wrap_t: 			10497
+i  wrap_r: 			10497
 i  castShadows: 	1
 i  receiveShadows: 	1
 i  renderable: 		1

@@ -2,6 +2,31 @@
 #include "Utils.h"
 #include "cTimer.h"
 #pragma once
+tuple::tuple() : st(0), fps(0), desc(" ") {};
+tuple::~tuple() {};
+tuple::tuple(LONGLONG _st, float _fps, string _desc) : st(_st), fps(_fps), desc(_desc) {};
+tuple::tuple(const tuple& v) {
+	st = v.st;
+	fps = v.fps;
+	desc = v.desc;
+};
+tuple::tuple(tuple& v) {
+	st = v.st;
+	fps = v.fps;
+	desc = v.desc;
+};
+tuple& tuple::operator = (const tuple& v) {
+	st = v.st;
+	fps = v.fps;
+	desc = v.desc;
+	return *this;
+};
+tuple& tuple::operator = (tuple& v) {
+	st = v.st;
+	fps = v.fps;
+	desc = v.desc;
+	return *this;
+};
 
 cTimer::cTimer() :
 	fr(0),
@@ -17,7 +42,7 @@ cTimer::cTimer() :
 	FPSs.reserve(2000);
 	framesMS.reserve(2000);
 
-	timers.push_back(tuple(f1, 0,"cTimer Startup"));
+	timers.push_back(tuple(f1, 0, "cTimer Startup"));
 }
 cTimer::~cTimer() {};
 void  cTimer::clear() {
@@ -67,12 +92,12 @@ void  cTimer::setFrameEnd() {
 	FPSs.push_back(getFPS());
 }
 float cTimer::getFrameMS(){
-	LONGLONG t;
+	LONGLONG t=0;
 	QueryPerformanceCounter((LARGE_INTEGER*)&t);
 	return (t - f1) * (1000000.0f / fr) / 1000.0f;
 }
 float cTimer::getFrameS (){
-	LONGLONG t;
+	LONGLONG t=0;
 	QueryPerformanceCounter((LARGE_INTEGER*)&t);
 	return (t - f1) * (1000000.0f / fr) / 1000000.0f;
 }

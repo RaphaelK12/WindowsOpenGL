@@ -1,5 +1,10 @@
 Material
 i  type: 			1
+i  filter_mag: 			9729
+i  filter_min: 			9987
+i  wrap_s: 			10497
+i  wrap_t: 			10497
+i  wrap_r: 			10497
 i  castShadows: 	1
 i  receiveShadows: 	1
 i  renderable: 		1
@@ -25,5 +30,5 @@ v4 shinines: 		16.0  16.0  16.1  1.0
 s  name: 			DiffSpecNormalDisp
 s  fileName: 		DiffSpecNormalDisp.mat
 s  shaderName: 		DiffSpecNormalDisp
-s  textures:				cobblestonesDiff.jpg cobblestonesDis.jpg cobblestonesNor.png  
+s  textures:				cobblestonesDiff.jpg cobblestonesDis.jpg cobblestonesNor.png C_Canyon.jpg    
 

@@ -1,5 +1,20 @@
 #pragma once
-typedef std::tuple< LONGLONG, float, string> tuple;
+//typedef std::tuple< LONGLONG, float, string> tuple;
+class tuple {
+public:
+	tuple();
+	~tuple();
+	tuple(LONGLONG st, float fps, string desc);
+	tuple& operator = (tuple& v);
+	tuple& operator = (const tuple& v);
+	tuple(tuple& v);
+	tuple(const tuple& v);
+
+	LONGLONG st;
+	float fps;
+	string desc;
+};
+
 class cTimer {
 public:
 	vector<tuple> timers;

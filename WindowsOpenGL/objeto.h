@@ -2,16 +2,12 @@
 
 //GLuint uniforms_buffer = 0;
 
-enum objType:int {
+enum objType:uint {
 	objNone=0,
 	objTorus,
 	objEsfera,
 	objCilindro,
 	objCone,
-	objTorus2,
-	objEsfera2,
-	objCilindro2,
-	objCone2,
 	objBox,
 	objSkyBox,
 	objQuad,

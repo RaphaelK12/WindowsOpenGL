@@ -18,6 +18,9 @@ vec2  operator*(const vec2& p_vec, float p_scalar);
 vec2  operator/(const vec2& p_vec, float p_scalar);
 
 int   print(const vec2& v);
+void from_json(const json& j, vec2& v);
+void from_json(const json& j, vec3& v);
+void from_json(const json& j, vec4& v);
 
 vec2  mix(const vec2& a, const vec2& b, float factor);
 vec2  clamp(const vec2& v, float& a, float& b);

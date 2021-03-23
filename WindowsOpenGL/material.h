@@ -1,23 +1,13 @@
 #pragma once
 
-class material
-{
+class MaterialData :public ReferenceCounter{
 public:
-	material(void);
-	material(string name);
-	~material(void);
-	material* atach(void);
-	void detach(void);
-	void setShaderVariables();
-	int active(matrix_block* m);
-	int read(string filename);
-	void reset(void);
-	void setMatrix(matrix_block* m);
 
-	static uint g_count;
-	uint type;
-	uint count;
-	uint mIndex;
+	MaterialData();
+	//MaterialData(const MaterialData& m);
+	~MaterialData();
+
+
 	uint castShadows;
 	uint receiveShadows;
 	uint renderable;
@@ -28,7 +18,7 @@ public:
 	uint dephtTest;
 	uint dephtWrite;
 	uint shadingModel;
-		 
+	uint lineWidth;
 
 	vec2 polygonOffset;
 	vec4 mColor1;			// color passed to program
@@ -46,14 +36,36 @@ public:
 
 	std::string mName;
 	std::string mFileName;
-	//std::vector<std::string> shaderNames;
 	std::string mShaderName;
-	std::vector<texture*> mTextures;	// textures objects
-	//std::vector<std::tuple<uint, std::string>> texture;	// textures objects
-	//std::vector<std::string> textureName;	// textures objects
-	//std::vector<char*> textureData;	// textures objects // not necessary
-	//std::vector<uint> mTextures;	// textures objects
-	shader *mShader;
+	std::vector<std::string> mShaderNames;
+	std::vector<Texture*> mTextures;	// textures objects
+	shader* mShader;
 };
 
-extern std::vector<material*> g_material_list;
+class Material
+{
+public:
+	Material(void);
+	Material(string name);
+	~Material(void);
+	void setShaderVariables();
+	int active(matrix_block* m);
+	int reload();
+	void setMatrix(matrix_block* m);
+
+	MaterialData* getMaterial(string& name);
+	MaterialData* loadMaterial(string& name);
+	string searchMaterialFileName(string& filename) const;
+	std::string mName;
+	std::string mFileName;
+	MaterialData* mData;
+};
+
+extern std::map<string, MaterialData*> g_material_list;
+
+void from_json(const json& j, MaterialData& v);
+void to_json(json& j, const MaterialData& p);
+
+
+
+

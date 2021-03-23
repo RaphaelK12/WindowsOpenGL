@@ -30,6 +30,7 @@
 #include <math.h>
 #include <string>
 #include <vector>
+#include <map>
 #include <list>
 #include <tuple>
 #include <fstream>
@@ -42,6 +43,9 @@
  #include <stdlib.h>
 using std::vector;
 using std::string;
+#include "json/single_include/nlohmann/json.hpp"
+using json = nlohmann::json;
+
 #include "VectorsGLM.h"
 
 #include "..\..\ImagemEditorTRK3\Source\Imagem_003\Imagem_003.h"
@@ -117,7 +121,7 @@ struct matrix_block {
 	mat4     MVP;
 };
 
-
+#include "ReferenceConunter.h"
 
 //#pragma comment(lib, "glaux.lib")
 #pragma comment(lib, "opengl32.lib")

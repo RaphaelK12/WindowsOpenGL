@@ -1,6 +1,8 @@
 #pragma once
 class Word {
 public:
+	Word();
+	~Word();
 	vec4 time;
 	uint frame;
 	vec4 sintime;
@@ -10,9 +12,9 @@ public:
 	vector<objeto*> objetos;
 	vector<malha*> malhas;
 	vector<shader*> shaders;
-	vector<texture*> textures;
+	vector<Texture*> textures;
 	vector<skeleton*> skeletons;
-	vector<material*> materials;
+	vector<Material*> materials;
 	vector<ligith*> ligiths;
 	vector<texto*> textos;
 	vector<camera*> cameras;

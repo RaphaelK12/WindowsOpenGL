@@ -60,6 +60,21 @@ vec2  operator/(const vec2& p_vec, float p_scalar) {
 int   print(const vec2& v) {
 	return printf("x = %f,	y = %f,	len = %f", v.x, v.y, length(v));
 }
+void from_json(const json& j, vec2& v) {
+	j[0].get_to(v.x);
+	j[1].get_to(v.y);
+}
+void from_json(const json& j, vec3& v) {
+	j[0].get_to(v.x);
+	j[1].get_to(v.y);
+	j[2].get_to(v.z);
+}
+void from_json(const json& j, vec4& v) {
+	j[0].get_to(v.x);
+	j[1].get_to(v.y);
+	j[2].get_to(v.z);
+	j[3].get_to(v.w);
+}
 
 vec2  mix(const vec2& a, const vec2& b, float factor) {
 	return a * (1 - factor) + b * factor;
@@ -284,7 +299,7 @@ float pDistance(const vec2& point, const vec2& l1, const vec2& l2) {
 }
 
 float magnitude(const vec2& v) {
-	return sqrt(pow(v.x, 2) + pow(v.y, 2));
+	return sqrt(pow(v.x, 2.f) + pow(v.y, 2.f));
 }
 
 float angle(const vec2& v) {
@@ -459,7 +474,7 @@ float GetAngle(const vec3& v, const vec3& rcVect) {
 		return 1.f; // division by zero
 }
 float magnitude(const vec3& v) {
-	return sqrt(pow(v.x, 2) + pow(v.y, 2) + pow(v.z, 2));
+	return sqrt(pow(v.x, 2.f) + pow(v.y, 2.f) + pow(v.z, 2.f));
 }
 
 vec3  mix(const vec3& a, const vec3& b, float factor) {

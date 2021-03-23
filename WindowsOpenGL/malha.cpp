@@ -80,7 +80,7 @@ malha::~malha(void)
 	if (VAO)
 		glDeleteVertexArrays(1, &VAO);
 	if (mMaterial)
-		mMaterial->detach();
+		delete mMaterial;
 
 	nVertex = 0;
 	nIndex = 0;
@@ -124,7 +124,7 @@ void malha::free(void)
 	if (VAO)
 		glDeleteVertexArrays(1, &VAO);
 	if(mMaterial)
-		mMaterial->detach();
+		delete mMaterial;
 
 	nVertex=0;
 	nIndex=0;
@@ -136,7 +136,7 @@ void malha::free(void)
 }
 
 //	Maker basics
-void malha::makeTorus(uint xres, uint yres, float3 size, float internSize){
+void malha::makeTorus2(uint xres, uint yres, float3 size, float internSize){
 	// refazer para adicionar um plano distorcido em torus para melhor mapeamento uv, 
 	// precisa recalcular normais das bordas para evitar recortes.
 	// fazer o mesmo com esfera.
@@ -237,11 +237,11 @@ void malha::makeTorus(uint xres, uint yres, float3 size, float internSize){
 	p=0;
 
 
-	name = "Torus";
+	name = "Torus 2";
 
 }
 
-void malha::makeTorus2(uint xres, uint yres, float3 size, float internSize, float externSize) {
+void malha::makeTorus(uint xres, uint yres, float3 size, float internSize, float externSize) {
 	free();
 	xres = min(max(xres, 3), 255);
 	yres = min(max(yres, 3), 250);
@@ -312,7 +312,7 @@ void malha::makeTorus2(uint xres, uint yres, float3 size, float internSize, floa
 	name = "Torus";
 }
 
-void malha::makeSphere(uint xres, uint yres, float3 size) {
+void malha::makeSphere2(uint xres, uint yres, float3 size) {
 	xres = min(max(abs(int(xres)), 3), 255);
 	yres = min(max(abs(int(yres)) - 2, 1), 256);
 	nVertex = xres * yres + 2;
@@ -399,10 +399,10 @@ void malha::makeSphere(uint xres, uint yres, float3 size) {
 		pVertex[p].uv = vec2(pVertex[p].position.x, pVertex[p].position.y + pVertex[p].position.z);
 	}
 	p = 0;
-	name = "Esfera";
+	name = "Esfera 2";
 }
 
-void malha::makeSphere2(uint xres, uint yres, float3 size) {
+void malha::makeSphere(uint xres, uint yres, float3 size) {
 	free();
 	xres = min(max(xres, 3), 255);
 	yres = min(max(yres, 3), 250);
@@ -673,10 +673,10 @@ void malha::makeSphere3(uint xres, uint yres, float3 size) {
 		pVertex[p].bitangent = normalize(pVertex[p].bitangent);
 	}
 	p = 0;
-	name = "Esfera";
+	name = "Esfera 3";
 }
 
-void malha::makeCone(uint xres, uint yres, float3 size) {
+void malha::makeCone2(uint xres, uint yres, float3 size) {
 	// refazer para adicionar um plano distorcido em torus para melhor mapeamento uv, 
 	// precisa recalcular normais das bordas para evitar recortes.
 	// fazer o mesmo com esfera.
@@ -776,10 +776,10 @@ void malha::makeCone(uint xres, uint yres, float3 size) {
 	}
 	p = 0;
 
-	name = "Cilinder";
+	name = "Cone 2";
 }
 
-void malha::makeCone2(uint xres, uint yres, float3 size) {
+void malha::makeCone(uint xres, uint yres, float3 size) {
 	free();
 	xres = min(max(abs(int(xres)), 3), 255);
 	yres = 1;
@@ -885,7 +885,7 @@ void malha::makeCone2(uint xres, uint yres, float3 size) {
 	name = "Cone";
 }
 
-void malha::makeCilinder(uint xres, uint yres, float3 size) {
+void malha::makeCilinder2(uint xres, uint yres, float3 size) {
 	// refazer para adicionar um plano distorcido em torus para melhor mapeamento uv, 
 	// precisa recalcular normais das bordas para evitar recortes.
 	// fazer o mesmo com esfera.
@@ -1013,11 +1013,11 @@ void malha::makeCilinder(uint xres, uint yres, float3 size) {
 	p = 0;
 
 
-	name = "Cilinder";
+	name = "Cilinder 2";
 
 }
 
-void malha::makeCilinder2(uint xres, uint yres, float3 size) {
+void malha::makeCilinder(uint xres, uint yres, float3 size) {
 	// refazer para adicionar um plano distorcido em torus para melhor mapeamento uv, 
 	// precisa recalcular normais das bordas para evitar recortes.
 	// fazer o mesmo com esfera.
@@ -1236,6 +1236,8 @@ void malha::makeBox(uint xres, uint yres, float3 size) {
 		pNormal[p] = normalize(pNormal[p]);
 	}
 	makeBiTangent();
+	name = "Box";
+
 }
 
 void malha::makeSkyBox(uint xres, uint yres, float3 size) {
@@ -1342,6 +1344,8 @@ void malha::makeSkyBox(uint xres, uint yres, float3 size) {
 		pNormal[p] = normalize(pNormal[p]);
 	}
 	makeBiTangent();
+	name = "Sky Box";
+
 }
 
 void malha::makeQuad(uint xres, uint yres, float3 size){
@@ -1384,6 +1388,7 @@ void malha::makeQuad(uint xres, uint yres, float3 size){
 	pVertex[3].normal = pVertex[0].normal;
 	makeBiTangent();
 
+	name = "Quad";
 
 }
 
@@ -1421,6 +1426,9 @@ void malha::makeTriangle(uint xres, uint yres, float3 size) {
 	pVertex[1].normal = pVertex[0].normal;
 	pVertex[2].normal = pVertex[0].normal;
 	makeBiTangent();
+
+	name = "Triangle";
+
 }
 
 void malha::makeGrid(int xres, int yres, float3 size) {
@@ -1460,6 +1468,8 @@ void malha::makeGrid(int xres, int yres, float3 size) {
 		pIndex2.push_back(usvec2(i, i+1));
 		i += 2;
 	}
+	name = "Grid";
+
 }
 
 void malha::makeAxis(uint xres, uint yres, float3 size) {
@@ -1492,6 +1502,7 @@ void malha::makeAxis(uint xres, uint yres, float3 size) {
 	pIndex2[0] = usvec2(0, 1);
 	pIndex2[1] = usvec2(2, 3);
 	pIndex2[2] = usvec2(4, 5);
+	name = "Axis";
 }
 
 void malha::makeAxisS(uint xres, uint yres, float3 size) {
@@ -1524,6 +1535,7 @@ void malha::makeAxisS(uint xres, uint yres, float3 size) {
 	pIndex2[0] = usvec2(0, 1);
 	pIndex2[1] = usvec2(2, 3);
 	pIndex2[2] = usvec2(4, 5);
+	name = "Axis S";
 }
 
 void malha::makeNormals() {
@@ -1901,7 +1913,7 @@ void malha::CreateBuffer() {
 	}
 	// example bindlles buffers
 	if(0){
-		GLuint buffer[2];
+		GLuint buffer[2]{0,0};
 		GLuint vao;
 		static const GLfloat positions[] = { 1 };
 		static const GLfloat colors[] = { 1 };
@@ -1932,8 +1944,8 @@ void malha::setMatrix(matrix_block* m) {
 		mMaterial->active(m);
 	}
 	else {
-		mMaterial = new material("default");
-		mMaterial->atach();
+		mMaterial = new Material("default");
+		//mMaterial->atach();
 		mMaterial->active(m);
 	}
 }

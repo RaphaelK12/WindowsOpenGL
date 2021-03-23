@@ -1,0 +1,34 @@
+Material
+i  type: 			1
+i  filter_mag:			9729
+i  filter_min:			9729
+i  wrap_s:			10497
+i  wrap_t:			33071
+i  wrap_r:			10497
+i  castShadows: 	1
+i  receiveShadows: 	1
+i  renderable: 		1
+i  transparent: 	0
+i  alphaBlendMode: 	0
+i  colorBlendMode: 	0
+i  cullFace: 		1
+i  dephtTest: 		1
+i  dephtWrite: 		1
+i  shadingModel: 	1
+v2 polygonOffset: 	0.0  0.0
+v4 color1: 			1.0  1.0  0.5  1.0
+v4 color2: 			1.0  1.0  1.0  1.0
+v4 color3: 			1.0  1.0  1.0  1.0
+v4 diffuse: 		1.0  1.0  1.0  1.0
+v4 ambient: 		0.0  0.0  0.0  1.0
+v4 emission: 		0.0  0.0  0.0  1.0
+v4 translucenci: 	0.0  0.0  0.0  1.0
+v4 sadowsColor: 	0.0  0.0  0.0  1.0
+v4 specular: 		1.0  1.0  1.0  1.0
+v4 reflex: 			1.0  1.0  1.0  1.0
+v4 shinines: 		16.0  16.0  16.1  1.0 
+s  name: 			SphericalCubeMap
+s  fileName: 		SphericalCubeMap.mat
+s  shaderName: 		SphericalCubeMap
+s  textures:				C_Canyon.jpg    
+

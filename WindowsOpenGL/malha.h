@@ -26,15 +26,16 @@ public:
 	malha(string matName);
 	~malha(void);
 	void free();
-	void makeSphere(uint xres, uint yres, float3 size);
 	void makeSphere2(uint xres, uint yres, float3 size);
 	void makeSphere3(uint xres, uint yres, float3 size);
-	void makeTorus(uint xres, uint yres, float3 size, float internSize);
-	void makeTorus2(uint xres, uint yres, float3 size, float internSize, float externSize);
-	void makeCone(uint xres, uint yres, float3 size);
+	void makeTorus2(uint xres, uint yres, float3 size, float internSize);
 	void makeCone2(uint xres, uint yres, float3 size);
-	void makeCilinder(uint xres, uint yres, float3 size);
 	void makeCilinder2(uint xres, uint yres, float3 size);
+
+	void makeSphere(uint xres, uint yres, float3 size);
+	void makeTorus(uint xres, uint yres, float3 size, float internSize, float externSize);
+	void makeCone(uint xres, uint yres, float3 size);
+	void makeCilinder(uint xres, uint yres, float3 size);
 	void makeBox(uint xres, uint yres, float3 size);
 	void makeSkyBox(uint xres, uint yres, float3 size);
 	void makeQuad(uint xres, uint yres, float3 size);
@@ -84,7 +85,7 @@ public:
 	std::vector<vec4> pColor1;
 	std::vector<vec4> pColor2;
 
-	material *mMaterial;	// material usado
+	Material *mMaterial;	// material usado
 
 
 

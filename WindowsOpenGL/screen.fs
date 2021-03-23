@@ -214,7 +214,7 @@ void main(void){
 					// s.diffuse * mt.diffuse.rgb +
 					// s.specular * mt.specular.rgb)
 					// *
-					col/vec3(125.5)+
+					col/vec3(256.5)+
 					pow(texture(texture1, uv).rgb,1/1)
 					
 					// vec3(

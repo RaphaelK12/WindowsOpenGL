@@ -21,7 +21,7 @@
 	"sadowsColor": 		[0.0  , 0.0  , 0.0, 1.0],
 	"specular": 		[1.0  , 1.0  , 1.0, 1.0],
 	"reflex": 			[1.0  , 1.0  , 1.0, 1.0],
-	"shinines": 		[256.0, 256.0, 1.0, 1.0],
+	"shinines": 		[16.0, 16.0, 16.0, 1.0],
 	"name": 			"DiffSpecNormalDisp",
 	"fileName": 		"DiffSpecNormalDisp.mat",
 	"shaderName": 		"DiffSpecNormalDisp",
@@ -56,8 +56,8 @@
 			"filter_mag": 		9729,
 			"filter_min": 		9729,
 			"wrap_s": 			10497,
-			"wrap_t": 			10497,
-			"wrap_r": 			10497
+			"wrap_t": 			33071,
+			"wrap_r": 			33071
 		}
 	]  
 }

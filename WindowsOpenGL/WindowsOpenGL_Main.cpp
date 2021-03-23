@@ -704,7 +704,7 @@ void processKeyPress(pKeyMap keymap) {
 		//esfera->malhas[0]->mMaterial->read(esfera->malhas[0]->mMaterial->mName);
 		//grid->malhas[0]->mMaterial->read(grid->malhas[0]->mMaterial->mName);
 		//axis->malhas[0]->mMaterial->read(axis->malhas[0]->mMaterial->mName);
-		plane->malhas[0]->mMaterial->reload();
+		//plane->malhas[0]->mMaterial->mData->mShader->readSrcFromFilenames();
 		word.refreshShaders();
 		printf("Material Reloaded\n\n");
 	}

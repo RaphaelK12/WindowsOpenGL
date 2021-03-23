@@ -42,9 +42,12 @@ uint Word::draw() {
 	return count;
 }
 void Word::refreshShaders() {
-	for (uint i = 0; i < objetos.size(); i++) {
+	for (uint i = 0; i < g_shader_list.size(); i++) {
 		//objetos[i]->draw();
-		objetos[i]->malhas[0]->mMaterial->reload();
+		if (g_shader_list[i]->readSrcFromFilenames() > 1)
+			g_shader_list[i]->generateShadersAndProgram(1);
+
+		//g_shader_list[i]->readSrcFromFilenames();
 	}
 }
 void Word::addObj(objType t, vec3 Pos, vec3 Rot, vec3 Size, uint3 Res, string matName) {

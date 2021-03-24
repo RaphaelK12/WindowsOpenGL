@@ -52,11 +52,11 @@
 			"wrap_r": 			10497
 		},
 		{
-			"name" : "C_Canyon.jpg",
+			"name" : "S_SphereMap.png",
 			"filter_mag": 		9729,
-			"filter_min": 		9729,
+			"filter_min": 		9987,
 			"wrap_s": 			10497,
-			"wrap_t": 			33071,
+			"wrap_t": 			10497,
 			"wrap_r": 			33071
 		}
 	]  

@@ -83,7 +83,8 @@ vec3 getNormalFromMap(vec3 n, sampler2D tex, vec2 coord, vec3 WorldPos){
     return normalize(TBN * tangentNormal);
 }
 vec2 SampleSphericalMap(vec3 v){
-	const vec2 invAtan = vec2(0.159155, 0.318355);
+	const vec2 invAtan = vec2(0.15915494309189533, 0.31830988618); // vec2 invAtan vec2(1/(2*PI),1/PI);
+	// const vec2 invAtan = vec2(0.159155, 0.3183);
 	vec2 uv = vec2(atan(v.x, v.y), asin(-v.z));
 	uv *= invAtan;
 	uv += 0.5;

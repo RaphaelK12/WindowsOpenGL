@@ -33,6 +33,9 @@ out VS_OUT
 	vec3 normal;	// normal
 	vec3 tangent;	// tangent
 	vec3 bitangent;	// bitangent
+	vec3 normalV;	// normal
+	vec3 tangentV;	// tangent
+	vec3 bitangentV;	// bitangent
 
 	vec3 lightDir;	// Light
 	vec3 viewPos;	// Light
@@ -47,16 +50,28 @@ out VS_OUT
 vec3 light_pos = vec3(0, 0, 2);
 
 void main(void){
-	// Calculate view-space coordinate
-	vec4 P = mt_model * inPosition;
-
 	// Calculate normal in view-space
 	// vs_out.N = mat3(mt_modelView) * inNormal;
 	mat3 normalMatrix = mat3(transpose(inverse(mt_model)));
-	vs_out.normal = normalize(vec3( normalMatrix * inNormal));
-	vs_out.tangent = normalize(vec3( normalMatrix * inTangent));
-	vs_out.bitangent = normalize(vec3( normalMatrix * inBiTangent));
+	vec3 normal 	= normalize(vec3( normalMatrix * inNormal		));
+	vec3 tangent 	= normalize(vec3( normalMatrix * inTangent		));
+	vec3 bitangent 	= normalize(vec3( normalMatrix * inBiTangent	));
+	
+	vs_out.normal 		= normal ;
+	vs_out.tangent 		= tangent ;
+	vs_out.bitangent 	= bitangent;
+	
+	mat3 local2WorldTranspose = (mat3(    tangent,	bitangent, normal));
+	vec3 worldNormal = normalize(local2WorldTranspose*inNormal );
+	vec3 viewNormal = normalize(mat3(mt_modelView)*worldNormal);
 
+	
+	mat3 normalMatrix2 = mat3(((mt_modelView)));
+	vs_out.normalV = 	normalize(vec3( mat3(mt_modelView) * vec3(inNormal	)));
+	vs_out.tangentV = 	normalize(vec3( normalMatrix2 * vec3(inTangent	)));
+	vs_out.bitangentV = normalize(vec3( normalMatrix2 * vec3(inBiTangent)));
+
+	vec4 P = mt_model * inPosition;
 
 	vs_out.position		= inPosition; // local
 	vs_out.position_M	= mt_model * inPosition; // global

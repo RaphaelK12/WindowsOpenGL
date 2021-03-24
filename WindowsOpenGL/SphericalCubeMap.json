@@ -28,7 +28,7 @@
 	"shaderList": 		["SphericalCubeMap.vs", "SphericalCubeMap.fs"],
 	"textures":			[
 		{
-			"name" : "C_Canyon.jpg",
+			"name" : "S_SphereMap.png",
 			"filter_mag": 		9729,
 			"filter_min": 		9729,
 			"wrap_s": 			10497,

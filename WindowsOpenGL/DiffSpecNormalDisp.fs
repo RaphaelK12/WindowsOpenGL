@@ -42,6 +42,9 @@ in VS_OUT{
 	vec3 normal;	// normal
 	vec3 tangent;	// tangent
 	vec3 bitangent;	// bitangent
+	vec3 normalV;	// normal
+	vec3 tangentV;	// tangent
+	vec3 bitangentV;	// bitangent
 	
 	vec3 lightDir;	// Light
 	vec3 viewPos;	// Light
@@ -75,15 +78,15 @@ vec3 unpackNormal(vec3 n, float scale){
 	return normalize(r*vec3(scale,scale,1));
 }
 vec3 getNormalFromMap(vec3 n, sampler2D tex, vec2 coord, vec3 WorldPos){
-    vec3 tangentNormal = unpackNormal(texture(tex, coord).xyz, 0.5) ;
-    vec3 N   = (n);
-    vec3 T  = normalize(fs_in.tangent);
+    vec3 tangentNormal = unpackNormal(texture(tex, coord).xyz, 0.15) ;
+    vec3 N   = normalize(n);
+    vec3 T  = normalize(fs_in.tangentV);
     vec3 B  = -normalize(cross(N, T));
     mat3 TBN = mat3(T, B, N);
     return normalize(TBN * tangentNormal);
 }
 vec2 SampleSphericalMap(vec3 v){
-	const vec2 invAtan = vec2(0.1591, 0.3183);
+	const vec2 invAtan = vec2(0.15915494309189533, 0.31830988618); // vec2 invAtan vec2(1/(2*PI),1/PI);
 	vec2 uv = vec2(atan(v.x, v.y), asin(-v.z));
 	uv *= invAtan;
 	uv += 0.5;
@@ -185,7 +188,7 @@ shading lambert(in vec3 n, in vec3 v, in light l) {
 }
 shading blinPhong1(in vec3 n, in vec3 v, in light l) {
 	shading s;
-	vec3 N = normalize(n);
+	vec3 N =  getNormalFromMap(n, texture3, fs_in.uv1, fs_in.position_M.xyz);
 	vec3 L = normalize(l.direction);
 	vec3 V = normalize(v);
 	vec3 H = normalize(L + V);
@@ -211,10 +214,11 @@ shading blinPhong2(in vec3 n, in vec3 v, in light l) {
 	float distance = length(l.direction);
 	s.distance = distance * distance;
 	float diff = dot(L, N);
+	// s.diffuse = l.color * saturate(diff*0.5+0.5);
 	s.diffuse = l.color * saturate(diff);
 
 	vec3 rf = normalize(reflect(-L, N));
-	s.specular = l.color * vec3(pow(saturate(dot(rf, V)), l.specPower))
+	s.specular = l.color * pow(vec3(saturate(dot(rf, V))), l.specPower)
 	* smoothstep(0, 1, saturate(diff + 0.01) * 4)
 	;
 	// s.specular=N;
@@ -240,6 +244,17 @@ shading blinPhong3(in vec3 n, in vec3 v, in light l) {
 	return s;
 }
 
+vec2 sphereMap(vec3 n, vec3 v, vec3 pos ){	
+	vec3 I = normalize( v-pos );
+	vec3 R = reflect( I, normalize(n));
+	float M = 2. * sqrt( pow( R.x, 2. ) + pow( R.y, 2. ) + pow( R.z + 1., 2. ) );
+	vec2 uv = R.xy / M + .5;
+	return uv;
+}
+vec3 texco_refl(vec3 vn, vec3 view)
+{
+ 	return view - 2.0 * dot(vn, view) * vn;
+}
 void main(void) {
 	light l;
 	l.direction = fs_in.lightDir;
@@ -250,34 +265,40 @@ void main(void) {
 	// specular_power, specular_albedo,	diffuse_albedo,	fs_in.color1);
 	shading s = blinPhong2(fs_in.normal, fs_in.viewPos, l);
 	vec3 N =  getNormalFromMap(fs_in.normal, texture3, fs_in.uv1, fs_in.position_M.xyz);
-	vec3 I = normalize(fs_in.position_M.xyz - viewPos);
-    vec3 R = reflect(I, N);
-	vec2 uv = SampleSphericalMap(R);
-	
-	if (gl_FrontFacing) {
+	vec3 I = normalize( viewPos-fs_in.position_M.xyz );
+    // vec3 R = reflect(normalize(I), fs_in.normal);
+	// vec2 uv = SampleSphericalMap(R);
+	vec2 uv = sphereMap(fs_in.normal, viewPos, fs_in.position_M.xyz);
+	// uv = reflect(normalize(I),fs_in.normalV).xy*0.5+0.5;
+	// uv.x = dot(fs_in.tangent, fs_in.normalV);
+	// uv.x = dot(fs_in.bitangent, fs_in.normalV);
+	// uv = uv*0.5+0.5;
+	vec3 ref = texco_refl(fs_in.normal, normalize( viewPos-fs_in.position_M.xyz));
+	uv = ref.xy/3+0.5;
+	// uv.y *= ref.z;
+	// if (gl_FrontFacing) {
 		color = vec4(
 					(
 					// mt.ambient.rgb + mt.emission.rgb 
 					// +
 					// texture(texture1, fs_in.uv1).rgb
+					// *					vec3(normalize(-fs_in.normalV).xy*0.5+0.5,0)
+					// texture(texture4, uv,0).rgb
+
+					fs_in.normalV*0.5+0.5
 					// *
-					texture(texture4, uv).rgb
-					*
-					texture(texture2, fs_in.uv1).rgb
-					+
-					s.specular * mt.specular.rgb
-					*
-					texture(texture2, fs_in.uv1).rgb
-					+
-					s.diffuse * mt.diffuse.rgb
-					*
-					texture(texture1, fs_in.uv1).rgb
+					// texture(texture2, fs_in.uv1).rrr
+					// +
+					// s.specular * mt.specular.rgb
+					// *
+					// texture(texture2, fs_in.uv1).rrr
+					// +
+					// s.diffuse * mt.diffuse.rgb
+					// *
+					// texture(texture1, fs_in.uv1).rgb
 					),
 					mt.diffuse.a);
-	}
-	else {
-		color = vec4(1, 0, 1, 1);
-	}
+	// }	else {		color = vec4(1, 0, 1, 1);	}
 
 
 }

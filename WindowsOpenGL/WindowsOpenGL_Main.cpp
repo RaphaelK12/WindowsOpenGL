@@ -85,7 +85,7 @@ int main(int argc, char* argv[]) {
 	//word.addObj(objType::objTorus2, vec3(0, -4, 0), vec3(0, 0, 0), vec3(1), uivec3(60, 60, 10), "default.mat");
 	vec3 pos(0, 4, 0);
 	for (int i = 1; i < objType::objGrid; i ++) {
-		word.addObj(objType(i), rotateZDeg(pos, 45.f*(i-1.f)), vec3(0, 0, 0), vec3(1), uivec3(100, 50, 10), "DiffSpecNormalDisp");
+		word.addObj(objType(i), rotateZDeg(pos, 45.f*(i-1.f)), vec3(0, 0, 0), vec3(1), uivec3(10, 5, 10), "DiffSpecNormalDisp");
 	}
 	word.addObj(objType::objQuad, vec3(0,0,-1.1), vec3(0), vec3(20), uivec3(60, 60, 10), "DiffSpecNormalDisp");
 

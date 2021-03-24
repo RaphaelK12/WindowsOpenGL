@@ -207,7 +207,7 @@ void main(void){
 	uv.y = 1-uv.y;
 	// vec3 col = vec3(1-length(uv*vec2(1,0.6)-vec2(0.5, 0.25))*5);
 	// col = smoothstep(0, 1, smoothstep(0, 1, smoothstep(0, 1, col)));
-	vec3 col = vec3(rand(uv));
+	vec3 col = vec3(rand(uv))-0.5;
 	if(gl_FrontFacing){
 		color = vec4(
 					// (mt.ambient.rgb + mt.emission.rgb +
